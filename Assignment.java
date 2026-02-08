@@ -15,7 +15,7 @@ public class Assignment {
         System.out.println("Third return  is : " + r3);
     }
 
-    // 1️⃣ First way
+    // 1 First way
     private static String concat() {
         String str = "hi";
         String str2 = "hello";
@@ -23,12 +23,12 @@ public class Assignment {
         return str + str2 + f;
     }
 
-    // 2️⃣ Second way
+    // 2 Second way
     private static String concat(String str, String str2, float f) {
         return str + str2 + f;
     }
 
-    // 3️⃣ Third way
+    // 3 Third way
     public static String concatOfTwo(String str1, String str2, float f) {
         return str1 + str2 + f;
     }
