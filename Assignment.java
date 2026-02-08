@@ -5,7 +5,6 @@ public class Assignment {
         System.out.println(concat("Hari",3.0f,"SQL"));
         System.out.println(concat(4.0F,"Hari","JavaScript"));
     }
-
     public static void concat(String a, String b, float c){
         System.out.println(a+b+c);
     }
