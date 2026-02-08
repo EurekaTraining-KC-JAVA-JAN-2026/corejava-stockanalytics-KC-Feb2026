@@ -1,6 +1,6 @@
 public class Eureka {
     public static void main(String[] args) {
-        System.out.println("Welcome Eureka....!");
+        System.out.println("Welcome to Eureka....!");
 
         // Primitive Data type
         // Data_Type Name = value;
@@ -45,4 +45,8 @@ public class Eureka {
     private static void booleanType(){
         System.out.println("Boolean method");
     }
+
+
+
+
 }
