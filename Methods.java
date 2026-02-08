@@ -2,7 +2,7 @@ public class Methods {
     public static void main(String[] args){
         String name="Nikhitha";
         String course="java";
-        float score=90.5f;
+        float score=9.5f;
         System.out.println("concatenation is :"+ (name+" "+course+" "+score));
         concatenation();
         String result=concatenation(name,course,score);
@@ -15,7 +15,7 @@ public class Methods {
     private static void concatenation(){
         String name="Nikhitha";
         String course="java";
-        float score=90.5f;
+        float score=9.5f;
         System.out.println("concatenation is :"+ (name+" "+course+" "+score));
     }
 }

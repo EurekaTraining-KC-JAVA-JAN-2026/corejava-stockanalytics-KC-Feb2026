@@ -5,7 +5,7 @@ public class Eureka {
         int j=20;
         System.out.println("value of i :" +i);
         System.out.println("value of j :" +j);
-        float f1=22.4f;
+        float f1=23.4f;
         float f2=73.24f;
         floatAdd();
         getFloadAdd(f1,f2);
