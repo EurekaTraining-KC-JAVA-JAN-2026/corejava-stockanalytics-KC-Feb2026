@@ -39,7 +39,7 @@ public class Eureka {
         // non primitive
 
         String s1 = "hare";
-        String s2 = "krishna";
+        String s2 = "krishna radhe radhe";
         System.out.println(s1 + " " + s2);
 
 
