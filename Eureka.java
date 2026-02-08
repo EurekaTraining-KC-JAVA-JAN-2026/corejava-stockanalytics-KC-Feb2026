@@ -1,5 +1,6 @@
 public class Eureka {
     public static void main(String[] args) {
+
         System.out.println("Welcome Eureka...!");
         //primitive
         int i;
@@ -26,11 +27,15 @@ public class Eureka {
         String s1 = "Eureka";
         String s2 = new String("Tech");
         System.out.println("concat of is " + s1 + " " + s2);
+        //Eureka a=new Eureka();
+        System.out.println(concat("Revanth", "Pavan", 3.49f));
+        System.out.println(concat(3.49f, "Pavan", "Revanth"));
+        System.out.println(concat("Pavan", 98.6f, "Revanth"));
     }
 
-    private static double doubleAddition ( double d1,double d2) {
+    private static double doubleAddition(double d1, double d2) {
         return d1 * d2;
-        }
+    }
 
 
     //class name => Eureka
@@ -46,4 +51,21 @@ public class Eureka {
     private static void booleanType() {
         System.out.println("Boolean method");
     }
+
+    public static String concat(String s1, String s2, float f) {
+        return s1 + s2 + f;
+    }
+
+    // Order: float, String, String
+    public static String concat(float f, String s1, String s2) {
+        return f + s1 + s2;
+    }
+
+    // Order: String, float, String
+    public static String concat(String s1, float f, String s2) {
+        return s1 + f + s2;
+    }
 }
+
+
+
