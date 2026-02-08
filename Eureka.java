@@ -33,9 +33,8 @@ public class Eureka {
 
         //------- long
         longtype();
-
-
-
+        long l6 =longtype(54,87);
+        System.out.println(l6);
         // non primitive
 
         String s1 = "hare";
@@ -49,10 +48,11 @@ public class Eureka {
 
 
 
-    private static void longtype(long l1, long l2) {
-        long l1 = 134778738;
-        long l2 = 785271;
-        System.out.println(l1 + " and " + l2);
+    private static long longtype(long l1, long l2) {
+      return l1+l2;
+    }
+
+
     private static void longtype() {
         long l1 = 134778738;
         long l2 = 785271;
