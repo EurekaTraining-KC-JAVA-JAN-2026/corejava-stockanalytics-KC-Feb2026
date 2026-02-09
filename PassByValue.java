@@ -2,8 +2,8 @@ public class PassByValue {
     public static void main(String[] args) {
         int x = 20;
         System.out.println(System.identityHashCode(x));
-        // you get a hashcode only if it is initialized
-        // only pass the value of 20 but not reference
+        // you get a hashcode only if it is initialized to a value
+        // only pass the value of 20 but not reference of it
         System.out.println(x);
         System.out.println(System.identityHashCode(x));
         update(x);
