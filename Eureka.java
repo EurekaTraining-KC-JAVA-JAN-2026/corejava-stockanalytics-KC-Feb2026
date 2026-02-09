@@ -5,9 +5,26 @@ public class Eureka {
         int i; //declaration
         i=10; //assigning
         int j=20;
+
+        //here we are using parameterized
+        Stock apple=new Stock("BAD",2255768,16.25);
+        Stock google=new Stock("CAD",456789,19.25,345,24);
+        System.out.println(apple);
+        System.out.println(google);
+
+        Stock appleStock=new Stock();
+        appleStock.setTickerSymbol("APPL");
+        appleStock.setSectorId(-23);
+        appleStock.setMarketCap(22334455);
+        appleStock.setSubsectorID(123);
+        appleStock.setCurrentRatio(23.65);
+
+
         System.out.println("Value of i="+i);
         System.out.println("Value of j="+j);
         //float
+        float f1=34.22f;
+        System.out.println("hashCode of f1 is: "+System.identityHashCode(f1));
         floatAddition();
         //double
         double d1=23.445;

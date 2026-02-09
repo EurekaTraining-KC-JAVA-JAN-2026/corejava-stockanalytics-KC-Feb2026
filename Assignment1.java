@@ -4,7 +4,7 @@ public class Assignment1 {
         String a1= threeConcat("Hello","hi",25.55f);
         System.out.println(a1);
         Type2Concat a2 =new Type2Concat();
-        System.out.println(a2.typeConcat("Java","Class",2.0f));
+        System.out.println(a2.typeConcat());
         System.out.println(threeAppend("how are ","you?",3.25f));
     }
 
@@ -18,7 +18,11 @@ public class Assignment1 {
 
 }
 class Type2Concat {
-    public static String typeConcat(String a, String b, float f) {
-        return a+b+f;
+    public static String typeConcat() {
+        String str1="Java";
+        String str2="class";
+        float f=2.0f;
+        return str1+str2+f;
+
     }
 }
