@@ -22,6 +22,7 @@ public class Assignment1 {
         System.out.println(s1);
         concatType("Welcome", " Method2");
         String s2 = concat();
+
         System.out.println(s2);
     }
 }
