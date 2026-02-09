@@ -1,3 +1,5 @@
+// if its text editor then we need to import java
+
 public class Eureka {
     public static void main(String[] args) {
         System.out.println("Welcome to Eureka.....!");
@@ -5,11 +7,40 @@ public class Eureka {
         int i;//declaring
         i = 10;//assigning
         int j = 20;
+
+//class objname = new classname(parameters)
+        Stock abnbStock = new Stock("ABNB",34567,45.66,54,34);
+        //from to string we re getting this
+        System.out.println(abnbStock);
+
+        System.out.println(abnbStock.getTickerSymbol()+" "+abnbStock.getMarketCap());
+        Stock googleStock = new Stock();
+
+        Stock appleStock = new Stock();// no prameters so we need to set by using setters
+        appleStock.setTickerSymbol("AApl");
+        appleStock.setSectorId(-23);
+        appleStock.subSectorId = 123;
+        appleStock.setCurrentRatio(23.65);
+        appleStock.setMarketCap(234456);
+        //accessing
+        System.out.println(appleStock.getTickerSymbol() + " "+ appleStock.getSectorId());
+
+        /*
+
+         */
+
+
         System.out.println("value of i" + i);
         System.out.println("value of j" + j);
         //float
         float f1 = 34.22f;//always end float with f
+        /**
+         *hashmap
+         * key and pairs
+         * 2345674 34.22
+         */
         float f2 = 22.34f;
+        System.out.println("Hashcode of number is " +System.identityHashCode(f1));
         floatAdd(f1, f2);
         floatAdd();
 
@@ -37,6 +68,11 @@ public class Eureka {
 
     }
 
+    /**
+     *
+     * @param f1
+     * @param f2
+     */
     //method overloading same method name and diff parameters
     private static void floatAdd(float f1, float f2) {
         System.out.println(f1 + f2);
@@ -52,4 +88,13 @@ public class Eureka {
     private static void booleanType() {
         System.out.println("Boolean method");//we cannot see this because method nor called
     }
+    // pass by value =>default java is a pass by value
+    /**
+     * to value some value from hock to moveforward
+     */
+
+
+
+
+
 }

@@ -24,6 +24,6 @@ public class Assignment1 {
 
     }
     //with concat operator
-    
+
 
 }
