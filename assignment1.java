@@ -4,9 +4,9 @@ public class assignment1 {
     public static void main(String[] args)
     {
         threeArgmethod("Pavan","Kumar",33.34f);
-        String returnedVal = threeArgmethod("Uppu",45.45f,"Pavan");
+        String returnedVal = threeArgmethod("Uppu",45.45f,"Pavan");// storing the string from the returned function
         System.out.println(returnedVal);
-        String concatedString = threeArgmethod(45.42f, " Kumar", "Pavan");
+        String concatedString = threeArgmethod(45.42f, " Kumar", "Pavan");// changed the order of arguments and concatenated them
         System.out.println(concatedString);
     }
     public static void threeArgmethod(String s1, String s2, float f1)

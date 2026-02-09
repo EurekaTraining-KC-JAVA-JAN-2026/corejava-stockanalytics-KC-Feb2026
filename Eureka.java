@@ -4,42 +4,26 @@ public class Eureka {
         int i;
         i = 10;
         int j = 20;
-        System.out.println("value of i: " + i);
-        System.out.println("value of j: " + j);
-        float f1 = 34.22f;
-        float f2 = 22.34f;
-        floatAddition(f1,f2);
 
-        doubleMultiplication();
+        System.out.println(System.identityHashCode(i));
+        Stock appleStock = new Stock();
+        Stock netflixStock = new Stock(22.5,"NFLX",55000000,34,111);
+        appleStock.setTickerSymbol("AAPL");
+        appleStock.setSectorId(-22);
+//        appleStock.subSectorId = 123;
+//        appleStock.marketCap = 2536415;
+//        appleStock.currentRatio = 23.5;
+        System.out.println(netflixStock);
+        System.out.println(appleStock.getTickerSymbol()+" "+appleStock.getSectorId());}}
 
-        booleanFunc();
-
-        long l1 = 123454;
-        long l2 = 3665464;
-        System.out.println("value of 2 longs: " + (l1 + l2));
-
-        String s1 = "Eureka";
-        String s2 = new String("tech");
-        System.out.println("Concat of 2 strings is "+s1 + " " + s2);
+        /**
+         * this will return the double
+         * @param d1
+         * @param d2
+         *
+         */
 
 
-    }
 
-    private static float floatAddition(float f1,float f2) {
-//        float f1 = 34.22f;
-//        float f2 = 22.34f;
-        return f1+f2;
-    }
 
-    private static void doubleMultiplication() {
-//        double d1 = 12.34;
-//        double d2 = 34.12;
-//        System.out.println("multiplication of 2 doubles is: " + (d1 * d2));
-    }
 
-    private static void booleanFunc() {
-//        boolean b1 = true;
-//        b1 = false;
-//        System.out.println("value of b1: " + b1);
-    }
-}
