@@ -1,56 +1,68 @@
 public class Eureka {
     public static void main(String[] args) {
-        System.out.println("Welcome to Eureka!");
-
+        System.out.println("Welcome Eureka...!");
         int i;
         i = 10;
         int j = 20;
-        System.out.println("Value of i is " + i);
-        System.out.println("Value of j is " + j);
 
-        // Flloat
 
-        float f1 = 32.86f;
-        float f2 = 16.65f;
-        System.out.println("Value of f1 is " + f1);
+        Stock googleStock = new Stock("GOOG", 7656776, 13.4, 32, 144);
+        System.out.println(googleStock.getTickerSymbol()+" "+googleStock+ googleStock.getSectorId());
 
+        Stock appleStock = new Stock();
+        appleStock.setTickerSymbol("APPL");//setting the ticker symbol
+        appleStock.setSectorId(23);
+        appleStock.setMarketCap(222333);
+        appleStock.setSubSectorId(123);
+        appleStock.setCurrentRatio(23.55);
+        //accessing the application in appleStock tickerSymbol
+        System.out.println(appleStock.getTickerSymbol()+" "+appleStock+ appleStock.getSectorId());
+
+
+
+
+
+        //String s1 = new String(original:"lohith");
+
+
+        /**
+         * This will return the double
+         * @param d1
+         * @param d2
+         * @retuen
+         */
+
+
+
+        System.out.println("value of i" + i);
+        System.out.println("value of j" + j);
+        //float
         floatAddition();
-        floadAdd(f1, f2);
-
-        double d1 = 32.86d;
-        double d2 = 33.53d;
-
-        System.out.println("multi  of 2 doubles  is " + d1 * d2);
-
+        //double
+        double d1 = 12.34;
+        double d2 = 34.12;
+        System.out.println("multi of 2 doubles is " + (d1 * d2));
+        //boolean
         boolean b1 = true;
-
         b1 = false;
-        System.out.println(" value of boolean b1 is " + b1);
-
-        long l1 = 123456789l;
-        long l2 = 123456789l;
-        System.out.println("value of long l1 is " + l1 + " and l2 is " + l2);
-
+        System.out.println("value of boolean is " + b1);
+        //long
+        long l1 = 123456;
+        long l2 = 654321;
+        System.out.println("value of 2 longs is " + l1 + " and " + l2);
         //non-primitive
+        String s1 = "Eureka";
+        String s2 = new String("tech");
+        System.out.println("concatenation of s1 and s2 is " + s1 + " " + s2);
 
-        String str1 = "Eurekaa";
-        String str2 = new String("Technologies");
 
-        System.out.println("value of str1 is " + str1 + " and str2 is " + str2);
-
-        System.out.println("Concatenation of s1 and s2 is " + str1 + " " + str2);
     }
 
-    private static void floadAdd(float f1, float f2) {
-        System.out.println(f1 + f2);
-    }
+    private static void floatAddition() {
+        float f1 = 34.22f;
+        float f2 = 22.34f;
+        System.out.println("sum of 2 floats is " + (f1 + f2));
 
-    public static void floatAddition() {
-        float f1 = 32.86f;
-        float f2 = 23.49f;
-        System.out.println("sum of 2 floats is " + f1 + f2);
     }
-
 
 }
-
