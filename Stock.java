@@ -7,6 +7,7 @@ public class Stock {
         this.sub_sectorId = sub_sectorId;
         this.ticker_symbol = ticker_symbol;
     }
+
     public Stock() {
 
     }
@@ -42,7 +43,7 @@ public class Stock {
     }
 
     public void setSectorId(int sectorId) {
-        if(sectorId>0) {
+        if (sectorId > 0) {
             this.sectorId = sectorId;
         }
     }
@@ -50,7 +51,8 @@ public class Stock {
     public String getTicker_symbol() {
         return ticker_symbol;
     }
-//getter and setter are  to add extra validation
+
+    //getter and setter are  to add extra validation
     public void setTicker_symbol(String ticker_symbol) {
         this.ticker_symbol = ticker_symbol;
     }

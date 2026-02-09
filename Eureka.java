@@ -50,6 +50,5 @@ public class Eureka {
         float f2=73.24f;
         //System.out.println("sum of :" +(f1+f2));
     }
-
 }
 
