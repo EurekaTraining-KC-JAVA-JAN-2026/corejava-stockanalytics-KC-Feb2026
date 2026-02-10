@@ -10,7 +10,6 @@ public class Assignment {
 
     public static void main(String[] args) {
 
-
         String s1 = "lohith";
         String s2 = "eureka";
         float f1 = 23.4f;
