@@ -1,5 +1,5 @@
 public class Eureka {
-    static void main(String[] args) {
+    static void main(String[] args) {  // it is a array of strings
        // System.out.println("welcome to Eureka...!");
         // primitives
 
@@ -8,6 +8,13 @@ public class Eureka {
         i=10; // assigning
         int j=20;
 
+
+
+        //
+        System.out.println("calling statics from here");
+        String s1="eureka";
+        s1.contains("E");    //here
+        StaticPlayGround s2 =new StaticPlayGround();
 
 
 // -------------------------------------------------------------------------------------------
