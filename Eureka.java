@@ -4,6 +4,12 @@ public class Eureka {
     public static void main(String[] args) {
 
         System.out.println("Welcome Eureka...!");
+        System.out.println("calling statics from here...");
+        String s1 = "Eureka";
+        s1.contains("E");
+        StaticPlayGround s2 = new StaticPlayGround();
+        StaticPlayGround.move();
+
         //primitive
         int i;
         i = 10; //assigning
@@ -47,8 +53,8 @@ public class Eureka {
        // System.out.println(("Value is" + l1 + " and " + l2));
         char c1 = 'J';
         //non-primitives
-        String s1 = "Eureka";
-        String s2 = new String("Tech");
+     //   String s1 = "Eureka";
+      //  String s2 = new String("Tech");
       //  System.out.println("concat of is " + s1 + " " + s2);
         //Eureka a=new Eureka();
       //  System.out.println(concat("Revanth", "Pavan", 3.49f));
