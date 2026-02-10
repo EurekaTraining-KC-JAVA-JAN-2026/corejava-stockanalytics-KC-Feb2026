@@ -9,7 +9,7 @@ public class Eureka {
         String s1 = "Pavan";
         s1.contains("v");
         StaticPlayGround s2 = new StaticPlayGround();
-
+        StaticPlayGround.move();
 
 
         System.out.println(System.identityHashCode(i));

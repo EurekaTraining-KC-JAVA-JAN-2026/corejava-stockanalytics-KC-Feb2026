@@ -9,7 +9,9 @@ public class StringsPlayGround {
 
         String s3 = "Eureka";
         String s2 = new String("Tech");
+        String s4 = new String("Tech");
         System.out.println(System.identityHashCode(s2));
+        System.out.println(System.identityHashCode(s4));
         System.out.println(s3.concat(s2));
         System.out.println(s3.toUpperCase());
         System.out.println(s3.toLowerCase());
