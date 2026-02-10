@@ -1,6 +1,15 @@
 public class Eureka {
     public static void main(String[] args) {
         System.out.println("Welcome to Eureka...");
+        System.out.println("calling statics from here");
+        String s1= "Eureka";
+        s1.contains("E");
+        StaticPlayGround s2 = new StaticPlayGround();
+        StaticPlayGround.move();
+
+
+
+
         int i; //declare
         i=20;//assign
         int j =20;
