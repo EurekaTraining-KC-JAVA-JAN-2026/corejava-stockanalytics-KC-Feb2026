@@ -55,6 +55,11 @@ public class Eureka {
         System.out.println(appleStock);
 
         System.out.println(appleStock.getTickerSymbol()+" "+appleStock.getSectorId());
+        System.out.println("calling statics from here..");
+        String s4="Eureka";
+        s1.contains("E");
+        StaticPlayGround s5 = new StaticPlayGround();
+        StaticPlayGround.move();
 
 
 
@@ -90,6 +95,7 @@ public class Eureka {
     }
 
     // pass by value=> by default java is pass by value
+
 
 
 
