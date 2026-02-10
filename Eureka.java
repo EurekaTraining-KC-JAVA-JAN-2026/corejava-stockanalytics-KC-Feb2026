@@ -54,7 +54,7 @@ public class Eureka {
         long l2 = 654321;
       //  System.out.println("value of 2 longs is " + l1 + " and " + l2);
         //non-primitive
-        String s1 = "Eureka";
+        //String s1 = "Eureka";
         String s2 = new String("tech");
         System.out.println("concatenation of s1 and s2 is " + s1 + " " + s2);
 

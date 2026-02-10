@@ -29,7 +29,8 @@ public class ArraysPlayGround {
         }
 
         //if we need to take only few indexs on for loop
-        for(int c=0;c<=numArray.length-1; c+2) {
+        for(int c=0;c<=numArray.length-1; c+=2)
+        {
             System.out.println(numArray[c]);
         }
          // reverse
