@@ -3,6 +3,10 @@ public class Eureka {
     public static void main(String[] args) {
 
         System.out.println("welcome Eureka");
+     String s1="Eureka";
+     s1.contains("E");///calling in stringsplayground
+//      StaticPlayGround s2=new StaticPlayGround();
+//        StaticPlayGround.move();
 
         int i = 10;
         int j = 20;
@@ -28,9 +32,9 @@ public class Eureka {
         long l2 = 1786543213;
         System.out.println("value of 2 longs is" + l1 + " and " + l2);
 
-        String s1 = "Eureka";
-        String s2 = new String("tech");
-        System.out.println("concatination of s1 and s2 is " + s1 + " " + s2);
+//        String s1 = "Eureka";
+//        String s2 = new String("tech");
+//        System.out.println("concatination of s1 and s2 is " + s1 + " " + s2);
           stocks googleStock = new stocks("6006", 22323232, 23.64, 23, 123);
         stocks nvidastock2=new stocks("nvda",234262543,2.2,23,123);
         System.out.println();

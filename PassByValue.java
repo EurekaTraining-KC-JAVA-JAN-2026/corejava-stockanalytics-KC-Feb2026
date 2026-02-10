@@ -8,6 +8,8 @@ public static void main(String[] args){
 
 }
 static void update(int a) {
+    System.out.println(a);
+    System.out.println(System.identityHashCode(a));
 a=40;
 System.out.println(a);
     System.out.println(System.identityHashCode(a));
