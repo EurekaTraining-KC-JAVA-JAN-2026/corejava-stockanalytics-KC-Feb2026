@@ -1,6 +1,11 @@
 public class Eureka {
     public static void main(String[] args) {
         System.out.println("Welcome Eureka....!");
+        System.out.println("calling statics from here...");
+        String s1 = "Eureka";
+        s1.contains("E");
+        StaticPlayground s2 = new StaticPlayground();
+        StaticPlayground.move();
         //primitive
         int i; //declaring
         i = 10;//assiging
