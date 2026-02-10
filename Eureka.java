@@ -1,10 +1,18 @@
-// variables and functions in camel case -> helloThere
-// class - start with caps
+
 
 public class Eureka {
     public static void main(String[] args) {
         // java is pass by value by default
-        //System.out.println("Welcome to Eureka.....!");
+        System.out.println("Welcome to Eureka.....!");
+        System.out.println("calling statics from here");
+
+        String s1="Eureka";
+        s1.contains("E");
+        StaticPlayGround s2= new StaticPlayGround();
+        StaticPlayGround.move();
+
+
+        //here im calling contains method on object level
         // primitives
         int a = 45;
         int b = 65;
@@ -31,7 +39,7 @@ public class Eureka {
         //System.out.println("sum of l1 and l2 is " + (l1 + l2));
         floatAddition();
         // non primitives
-        String s1 = "Eureka";
+        String s8 = "Eureka";
         //System.out.println("Value of S1 is " + s1);
         //String s2 = new String("Tech");
         //System.out.println("Value of S2 is " + s2);
