@@ -5,7 +5,12 @@ public class Eureka {
      * @param args
      */
     public static void main(String[] args) {
-        //System.out.println("Welcome to Eureka");
+        System.out.println("Welcome to Eureka");
+        System.out.println("Calling statics from here");
+        String s1 = "Eureka";
+        s1.concat("E");
+        StaticPlayGround s2 = new StaticPlayGround();
+        StaticPlayGround.move();
         //primitive
         int i;//declaring
         i = 10;//assigning
