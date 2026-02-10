@@ -3,6 +3,11 @@
 public class Eureka {
     public static void main(String[] args) {
         System.out.println("Welcome to Eureka.....!");
+        System.out.println("calling satic from here...");
+        String x1 ="Eureka";
+        x1.contains("E");//here we r calling contains method on object level x1
+        StaticPlayGround x2 = new StaticPlayGround();
+        StaticPlayGround.move();;
         //primitives:-
         int i;//declaring
         i = 10;//assigning
