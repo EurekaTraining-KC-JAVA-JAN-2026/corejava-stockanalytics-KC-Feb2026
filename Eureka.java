@@ -5,6 +5,13 @@ public class Eureka {
         i = 10;
         int j = 20;
 
+        System.out.println("calling statics from here......");
+        String s1 = "Pavan";
+        s1.contains("v");
+        StaticPlayGround s2 = new StaticPlayGround();
+
+
+
         System.out.println(System.identityHashCode(i));
         Stock appleStock = new Stock();
         Stock netflixStock = new Stock(22.5,"NFLX",55000000,34,111);
