@@ -31,7 +31,7 @@ public class Pre_Post_Inc_Dec {
             System.out.println(i);
         } //works the same with pre-increment
 
-        for(int j=3;j<=1;j--){
+        for(int j=3;j>=1;j--){
             System.out.println(j);
         } //works the same with pre-decrement
 
