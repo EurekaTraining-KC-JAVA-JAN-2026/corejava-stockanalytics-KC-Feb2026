@@ -5,11 +5,18 @@ public class Eureka {
     public static void main(String[] args) {
         // java is pass by value by default
         //System.out.println("Welcome to Eureka.....!");
+        System.out.println("Calling statics from here");
+        String s1 = "Eureka"; // object level variable
+        System.out.println(s1.contains("re"));
+        //StaticPlayGround s2 = new StaticPlayGround();
+        StaticPlayGround.move(); // no need to create an object
+        System.out.println(StaticPlayGround.tyres);
+
         // primitives
         int a = 45;
         int b = 65;
         float f1 = 94.35f;
-        System.out.println(System.identityHashCode(f1)); // Get reference number
+        //System.out.println(System.identityHashCode(f1)); // Get reference number
         // In memory everything is stored as a hashmap with kv pairs where k is reference no and v is the value
 
         float f2 = 42.46f;
@@ -31,7 +38,7 @@ public class Eureka {
         //System.out.println("sum of l1 and l2 is " + (l1 + l2));
         floatAddition();
         // non primitives
-        String s1 = "Eureka";
+        //String s1 = "Eureka";
         //System.out.println("Value of S1 is " + s1);
         //String s2 = new String("Tech");
         //System.out.println("Value of S2 is " + s2);
