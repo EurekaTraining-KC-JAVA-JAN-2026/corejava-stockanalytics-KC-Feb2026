@@ -1,5 +1,11 @@
 public class Eureka {
     public static void main(String[] args) {
+
+        System.out.println("Calling static methods..");
+        StaticPlayGround staticPlayGround = new StaticPlayGround();
+
+        //Calling through class directly
+        StaticPlayGround.move();
         //System.out.println("Welcome Eureka!");
         //primitives
         //1. int

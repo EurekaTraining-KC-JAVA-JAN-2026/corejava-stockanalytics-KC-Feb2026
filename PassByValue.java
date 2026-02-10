@@ -18,3 +18,8 @@ public class PassByValue {
         System.out.println(System.identityHashCode(a));
     }
 }
+
+/**
+ * pass by value in java means arg values are copied and are passed to the parameters of the mtd.
+ * this changes being done in the called method is not affected in the method calling.
+ */
