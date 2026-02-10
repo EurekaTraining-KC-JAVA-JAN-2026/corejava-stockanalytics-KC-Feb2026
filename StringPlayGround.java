@@ -14,7 +14,6 @@ public class StringPlayGround {
 //        //U => someLocation...>4
 //        //R => someLocation...>6
 //
-
 //
 //        /*2065...    ==> Eureka
 //
@@ -68,13 +67,6 @@ public class StringPlayGround {
 
 
         System.out.println(s5.isEmpty());
-
-
-
-
-
-
-
 
 
 
