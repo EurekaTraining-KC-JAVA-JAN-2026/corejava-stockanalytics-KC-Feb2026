@@ -26,11 +26,6 @@ public class Assignment2 {
         System.out.println("The value of e is " +e);
         System.out.println("The value of is " +f);
 
-
-        //by using loops
-        //int[] arr ={10,20,30,40,50};
-        //for(int y=0;y<arr.length;y++){
-           // System.out.println(arr[y]);
         }
     }
 
