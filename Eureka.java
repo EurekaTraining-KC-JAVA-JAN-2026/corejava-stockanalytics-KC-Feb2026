@@ -2,7 +2,15 @@
 // class - start with caps
 public class Eureka {
     public static void main(String[] args) {
-        //System.out.println("Welcome to Eureka.....!");
+
+        System.out.println("Welcome to Eureka.....!");
+        System.out.println("Calling statics from here...");
+        String s1 = "Eureka";
+        s1.contains("E");//here in calling cointains method on object
+        StaticPlayGround s2 = new StaticPlayGround();
+        StaticPlayGround.move();
+
+
         // primitives
         // int a = 45;
 //        int b = 65;
