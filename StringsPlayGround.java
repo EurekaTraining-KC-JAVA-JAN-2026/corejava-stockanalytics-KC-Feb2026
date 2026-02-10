@@ -18,8 +18,6 @@ public class StringsPlayGround {
 
         1756------>>EurekaTech
          */
-
-
         System.out.println(System.identityHashCode(s1));
         String s11="Eureka";
         System.out.println(System.identityHashCode(s11));
