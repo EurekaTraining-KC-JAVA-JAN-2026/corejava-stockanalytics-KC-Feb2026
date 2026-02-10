@@ -11,6 +11,7 @@ public class Stock {
     //constr. with no parameters
     public Stock() {
     }
+
     //constructor with five parameters
     public Stock(String tickerSymbol, long marketCap, double currentRatio, int sectorId, int subSectorId) {
         this.tickerSymbol = tickerSymbol;

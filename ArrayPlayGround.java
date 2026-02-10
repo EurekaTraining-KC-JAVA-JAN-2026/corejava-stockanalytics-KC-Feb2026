@@ -10,6 +10,7 @@ public class ArrayPlayGround {
         //Type array name of it new int[size] {values}
         int[] numArray2 = {1, 2, 3, 4, 5};
 
+
         {
             System.out.println(numArray.length);
             System.out.println(numArray);
