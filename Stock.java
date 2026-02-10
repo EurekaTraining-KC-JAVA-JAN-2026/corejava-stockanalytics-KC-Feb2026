@@ -82,4 +82,7 @@ public class Stock {
                 ", SubsectorId=" + SubsectorId +
                 '}';
     }
+
+    public void setSubSectorId(int i) {
+    }
 }

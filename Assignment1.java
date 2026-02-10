@@ -9,7 +9,7 @@ public class Assignment1 {
                 System.out.println("concatenation : " + output);
     }
     //method with passing arguments
-    public static String concatenation(String message, String name, float f){
+    public static String concatenation(String message, String name, float f) {
         return message + " " + name + " " + f;
     }
     //another method without calling values
