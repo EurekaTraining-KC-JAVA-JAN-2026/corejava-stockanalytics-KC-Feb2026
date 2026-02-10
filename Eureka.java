@@ -1,6 +1,12 @@
 public class Eureka {
     public static void main(String[] args){
         //System.out.println("Welcome to Eureka...!");
+        System.out.println("calling statics from here");
+        String s1 = "Eureka";
+        s1.contains("E");//calling contains method on obj level
+        StaticPlayGround s2 = new StaticPlayGround();
+        StaticPlayGround.move();
+
         //primitive
         int i; //declaring
         i=10;//assigning
@@ -51,9 +57,9 @@ public class Eureka {
         long l2 = 67854323;
         //System.out.println("Value of 2 longs is " +l1+ " and " +l2);
         //non-primitive
-        char c1 = 'j';
-        String s1 = "Eureka";
-        String s2 = new String("Tech");
+        //char c1 = 'j';
+        //String s1 = "Eureka";
+        //String s2 = new String("Tech");
         //System.out.println("Concatenation of s1 and s2"+s1+" "+s2);
         booleanType();
 
