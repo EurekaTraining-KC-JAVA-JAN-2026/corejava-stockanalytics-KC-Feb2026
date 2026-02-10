@@ -1,6 +1,11 @@
 public class Eureka {
     public static void main(String[] args) {
         System.out.println("welcome to Eureka..!");
+        String s1="lakshmi Narayana";
+        s1.contains("r");
+
+        StaticPlayGround s2 = new StaticPlayGround();
+        StaticPlayGround.move();
 
         // ========== datatypes =========
 
@@ -61,10 +66,10 @@ public class Eureka {
         System.out.println(l6);
         // non primitive
 
-        String s1 = "hare";
-        String s2 = "krishna radhe radhe";
-        System.out.println(s1 + " " + s2);
-
+//        String s1 = "hare";
+//        String s2 = "krishna radhe radhe";
+//        System.out.println(s1 + " " + s2);
+//
 
     }
 
