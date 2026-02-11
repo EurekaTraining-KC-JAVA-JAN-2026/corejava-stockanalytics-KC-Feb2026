@@ -10,7 +10,7 @@ public class Operators {
         //post-increment:first it will assign the value and then it will increment
         x=5;
         y=x++;
-        System.out.println("value of x:" + x);
+        System.out.println("value of x:" +x );
         System.out.println("value of y:" + y);
         //pre-decrement: first it will decrement the value and then assign the value
         x=5;
