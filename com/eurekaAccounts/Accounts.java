@@ -1,0 +1,51 @@
+package com.eurekaAccounts;
+
+import java.math.BigDecimal;
+
+public  abstract class Accounts {
+    // ban accounts checking and saving accounts
+    public String accNumber;
+    public BigDecimal accBalance;
+
+    public String getAccNumber() {
+        return accNumber;
+    }
+
+    public void setAccNumber(String accNumber) {
+        this.accNumber = accNumber;
+    }
+
+    public BigDecimal getAccBalance() {
+        return accBalance;
+    }
+
+    public void setAccBalance(BigDecimal accBalance) {
+        this.accBalance = accBalance;
+    }
+    public BigDecimal depositAmount(BigDecimal deposit)
+    {
+        setAccBalance(accBalance.add(deposit));
+        return accBalance;
+    }
+    public BigDecimal withdrawAmount(BigDecimal withdraw)
+    {
+        setAccBalance(accBalance.subtract(withdraw));
+        return accBalance;
+    }
+
+    public Accounts(String accNumber, BigDecimal accBalance) {
+        this.accNumber = accNumber;
+        this.accBalance = accBalance;
+    }
+
+    public Accounts() {
+    }
+    public void something()
+    {
+      // java will allocate space as there is some memory / metaspace
+    }
+    public abstract void printAccountDetails();
+    // no memory is allocated and will only register method signature
+
+
+}
