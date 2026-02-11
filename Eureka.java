@@ -1,10 +1,16 @@
 public class Eureka {
-    public static void main(String[] args) {
+    public static void main(String[] j) {
         System.out.println("Welcome Eureka....!");
+        System.out.println("calling statics from here...");
+        String s1 = "Eureka";
+        s1.contains("E");//here im calling contains method on object level of s1
+        StaticPlayGround s2 = new StaticPlayGround();
+        StaticPlayGround.move();
+
         //primitive
         int i; //declaring
         i = 10;//assiging
-        int j = 20;
+        //int j = 20;
         //here we are using an paramterzed
         Stock googleStock = new Stock("GOOG",22323232,2.2,132,17);
         Stock nvidaStock = new Stock();
@@ -19,7 +25,7 @@ public class Eureka {
        appleStock.setSubSectorID(231);
        appleStock.setCurrentRatio(23.45);
         //accessing the appleStokc tickerSymbol
-        System.out.println(appleStock.getTickerSymbol()+" "+appleStock.getSectorId());
+       // System.out.println(appleStock.getTickerSymbol()+" "+appleStock.getSectorId());
 
 //        System.out.println("Value of i "+i);
 //        System.out.println("Value of j "+j);
@@ -31,7 +37,7 @@ public class Eureka {
          * 933699219   34.22
          */
 
-        System.out.println("HashCode of f1 " +System.identityHashCode(f1));
+       // System.out.println("HashCode of f1 " +System.identityHashCode(f1));
         float f2 = 22.34f;
        // System.out.println("Output from paramterized method ");
       //  float v = floatAdd(f1, f2);
@@ -44,7 +50,7 @@ public class Eureka {
          */
 
 
-        floatAdd();//calling method
+       // floatAdd();//calling method
         //double
         double d1 = 12.34;
         double d2 = 34.12;
@@ -59,10 +65,10 @@ public class Eureka {
         //        System.out.println("Value of 2 longs is "+l1+" and "+l2);
         char c1 = 'J';
         //non-primitive
-        String s1 = "Eureka";
-        String s2 = new String("Tech");
+//        String s1 = "Eureka";
+//        String s2 = new String("Tech");
 //        System.out.println("Concatenation of s1 and s2 is "+s1+" "+s2);
-        booleanType();
+       // booleanType();
     }
 
     /**
