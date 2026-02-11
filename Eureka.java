@@ -89,8 +89,8 @@ public class Eureka {
 
         //strings
         //1
-        String s1= "Eureka";
-        String s2= new String("Tech");
+        String s111= "Eureka";
+        String s222= new String("Tech");
     //    System.out.println(("concat of two strings is "+s1+" "+s2));
 
     }
