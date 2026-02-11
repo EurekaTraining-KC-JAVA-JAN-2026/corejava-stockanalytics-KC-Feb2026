@@ -1,4 +1,4 @@
-package eurekaAccounts;
+package com.eurekaAccounts;
 
 import java.math.BigDecimal;
 
