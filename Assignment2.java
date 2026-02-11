@@ -7,14 +7,17 @@ public class Assignment2 {
             System.out.println(numArray[y]);
 
         }
+        //pre increment
         for (int y = 0; y <= numArray.length - 1; ++y) {
             System.out.println(numArray[y]);
 
         }
+        //post decrement
         for (int y = numArray.length - 1;y>=0; y--)
         {
             System.out.println(numArray[y]);
         }
+        //pre decrement
         for (int y = numArray.length - 1;y>=0; --y)
         {
             System.out.println(numArray[y]);
