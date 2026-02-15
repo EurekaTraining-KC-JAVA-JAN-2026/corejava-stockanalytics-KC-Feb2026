@@ -31,6 +31,7 @@ public abstract class Accounts {
     }
 
     public void setAccBalance(BigDecimal accBalance) {
+
         this.accBalance = accBalance;
     }
 

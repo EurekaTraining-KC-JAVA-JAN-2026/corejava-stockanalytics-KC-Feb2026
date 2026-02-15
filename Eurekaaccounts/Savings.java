@@ -6,6 +6,7 @@ public class Savings extends Accounts{
     public static BigDecimal APR=new BigDecimal(0.8);
 
     public Savings(String accNumber,BigDecimal accBalance) {
+
         super(accNumber, accBalance);
     }
 
@@ -20,6 +21,7 @@ public class Savings extends Accounts{
 
     @Override
     public BigDecimal withdrawAmout(BigDecimal deposit) {
+
         return null;
     }
 
