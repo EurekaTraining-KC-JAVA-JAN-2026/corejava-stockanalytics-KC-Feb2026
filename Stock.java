@@ -1,45 +1,26 @@
 public class Stock {
-    // Access modifiers (public, private)
-
+    //access modifiers
     private String tickerSymbol;
     private long marketCap;
     private double currentRatio;
-    private int SectorId;
-    private int SubSectorId;
-
+    private int sectorId;
+    private int subSectorID;
+    //constr. with no param's
     public Stock() {
-
     }
-
-    public Stock(String tickerSymbol) {
+    //constr. with 3 param's
+    public Stock(String tickerSymbol, long marketCap, double currentRatio) {
         this.tickerSymbol = tickerSymbol;
-    }
-
-    public Stock(String tickerSymbol, int subSectorId, int sectorId, double currentRatio, long marketCap) {
-        this.tickerSymbol = tickerSymbol;
-        SubSectorId = subSectorId;
-        SectorId = sectorId;
+        this.marketCap = marketCap;
         this.currentRatio = currentRatio;
-        this.marketCap = marketCap;
     }
-
-
-
-    public String getTickerSymbol() {
-
-        return tickerSymbol;
-    }
-
-    public void setTickerSymbol(String tickerSymbol) {
+    //constr. with 5 param's
+    public Stock(String tickerSymbol, long marketCap, double currentRatio, int sectorId, int subSectorID) {
         this.tickerSymbol = tickerSymbol;
-    }
-
-    public long getMarketCap() {
-        return marketCap;
-    }
-
-    public void setMarketCap(long marketCap) {
         this.marketCap = marketCap;
+        this.currentRatio = currentRatio;
+        this.sectorId = sectorId;
+        this.subSectorID = subSectorID;
     }
 
     public double getCurrentRatio() {
@@ -50,20 +31,39 @@ public class Stock {
         this.currentRatio = currentRatio;
     }
 
+    public long getMarketCap() {
+        return marketCap;
+    }
+
+    public void setMarketCap(long marketCap) {
+        this.marketCap = marketCap;
+    }
+
+    public int getSubSectorID() {
+        return subSectorID;
+    }
+
+    public void setSubSectorID(int subSectorID) {
+        this.subSectorID = subSectorID;
+    }
+
+
+    public String getTickerSymbol() {
+        return tickerSymbol;
+    }
+
     public int getSectorId() {
-        return SectorId;
+        return sectorId;
     }
 
     public void setSectorId(int sectorId) {
-        SectorId = sectorId;
+        if(sectorId>=0){
+            this.sectorId = sectorId;
+        }
     }
 
-    public int getSubSectorId() {
-        return SubSectorId;
-    }
-
-    public void setSubSectorId(int subSectorId) {
-        SubSectorId = subSectorId;
+    public void setTickerSymbol(String tickerSymbol) {
+        this.tickerSymbol = tickerSymbol;
     }
 
     @Override
@@ -72,8 +72,8 @@ public class Stock {
                 "tickerSymbol='" + tickerSymbol + '\'' +
                 ", marketCap=" + marketCap +
                 ", currentRatio=" + currentRatio +
-                ", SectorId=" + SectorId +
-                ", SubSectorId=" + SubSectorId +
+                ", sectorId=" + sectorId +
+                ", subSectorID=" + subSectorID +
                 '}';
     }
 }
