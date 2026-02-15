@@ -1,16 +1,15 @@
-package com.eurekaAccounts;
+package com.Pratice;
 
 import java.math.BigDecimal;
 
-public abstract class Accounts {
-
+public class accounts {
     public String accNumber;
     public BigDecimal accbalance;
 
-    public Accounts() {
+    public accounts() {
     }
 
-    public Accounts(String accNumber, BigDecimal accbalance) {
+    public accounts(String accNumber, BigDecimal accbalance) {
         this.accNumber = accNumber;
         this.accbalance = accbalance;
     }
@@ -40,6 +39,4 @@ public abstract class Accounts {
         setAccbalance(accbalance.subtract(withdraw));
         return getAccbalance();
     }
-
-    public abstract void printAccountdetails();
 }

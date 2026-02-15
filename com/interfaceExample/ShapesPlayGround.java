@@ -1,4 +1,4 @@
-package com.inheritance;
+package com.interfaceExample;
 
 import java.math.BigDecimal;
 
@@ -7,7 +7,9 @@ public class ShapesPlayGround {
     {
         Rectangle rectangle1 = new Rectangle(new BigDecimal(10), new BigDecimal(20));
 
-        Circle circle1 = new Circle(new BigDecimal(4.00));
+        Circle circle1 = new Circle(new BigDecimal(5));
+        System.out.println(rectangle1.calculateArea());
+        System.out.println(circle1.calculateCircumference());
 
     }
 }

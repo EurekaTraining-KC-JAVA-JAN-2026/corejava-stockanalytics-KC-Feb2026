@@ -1,9 +1,10 @@
-package com.inheritance;
+package com.interfaceExample;
 
 import java.math.BigDecimal;
 
 public interface Shape {
     BigDecimal calculateArea();
+    BigDecimal calculatePerimeter();
     BigDecimal calculateCircumference();
 
     default void geometry(){

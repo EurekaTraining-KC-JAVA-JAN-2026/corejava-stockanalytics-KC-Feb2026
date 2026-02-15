@@ -3,7 +3,8 @@ package com.eurekaAccounts;
 import java.math.BigDecimal;
 
 public class Checkings extends Accounts{
-    public static BigDecimal cashBack = new BigDecimal(3.0);
+//    public static BigDecimal cashBack = new BigDecimal(3.0);
+    public static BigDecimal withdrawFee = new BigDecimal(0.01);
 
     public Checkings(String accNumber, BigDecimal accbalance) {
         super(accNumber, accbalance);
@@ -11,10 +12,12 @@ public class Checkings extends Accounts{
 
     @Override
     public BigDecimal withdrawAmount(BigDecimal withDraw){
-        BigDecimal cashB = withDraw.multiply(cashBack).divide(new BigDecimal(100));
+//        BigDecimal cashB = withDraw.multiply(cashBack).divide(new BigDecimal(100));
         System.out.println("Withdrawl of" +withDraw+ "is Success");
-        System.out.println("you got cashback of " +cashB+ "at" +cashBack+ "% rate");
-        setAccbalance(getAccbalance().add(cashB));
+//        System.out.println("you got cashback of " +cashB+ "at" +cashBack+ "% rate");
+        BigDecimal totalFees = withDraw.multiply(withdrawFee);
+//        setAccbalance(getAccbalance().add(cashB));
+        setAccbalance(getAccbalance().subtract(withDraw).subtract(totalFees));
         System.out.println("Remaing balance in the account");
         return getAccbalance();
 

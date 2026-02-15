@@ -1,4 +1,4 @@
-package com.inheritance;
+package com.interfaceExample;
 
 import java.math.BigDecimal;
 
@@ -11,6 +11,7 @@ public class Rectangle implements Shape{
 
     public BigDecimal length;
     public BigDecimal breadth;
+
     @Override
     public BigDecimal calculateArea() {
         return length.multiply(breadth);
@@ -23,6 +24,6 @@ public class Rectangle implements Shape{
 
     @Override
     public BigDecimal calculatePerimeter() {
-        return (length.add(breadth)).multiply(new BigDecimal(2.00));
+        return (length.add(breadth)).multiply(new BigDecimal(2));
     }
 }

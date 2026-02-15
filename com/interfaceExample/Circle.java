@@ -1,4 +1,4 @@
-package com.inheritance;
+package com.interfaceExample;
 
 import java.math.BigDecimal;
 
@@ -15,7 +15,13 @@ public class Circle implements Shape{
     }
 
     @Override
-    public BigDecimal calculateCircumference() {
-        return ;
+    public BigDecimal calculatePerimeter() {
+        return null;
     }
+
+    @Override
+    public BigDecimal calculateCircumference() {
+        return radius.multiply(new BigDecimal(2)).multiply(new BigDecimal(Math.PI));
+    }
+
 }
