@@ -66,7 +66,7 @@ public class StringsPlayGround {
         for(String eachString : tickerArray){
             System.out.println(eachString);
         }
-        
+
         System.out.println(tickerArray);
         System.out.println("");
        // Assignment //print char in a string
