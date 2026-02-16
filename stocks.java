@@ -1,4 +1,8 @@
 public class stocks {
+    public stocks(String tickersymbol, int sectorid) {
+        this.tickersymbol = tickersymbol;
+        this.sectorid = sectorid;
+    }
     public stocks(String tickersymbol, long marketcap, double currentratio, int sectorid, int subsectorid) {
         this.tickersymbol = tickersymbol;
         this.marketcap = marketcap;
@@ -9,6 +13,8 @@ public class stocks {
 
     public stocks() {
     }
+
+
 
     public String getTickersymbol() {
         return tickersymbol;
