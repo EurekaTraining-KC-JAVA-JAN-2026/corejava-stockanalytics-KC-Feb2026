@@ -1,14 +1,22 @@
+
+import java.util.Objects;
+
 public class Stock {
     //access modifiers
-    public String tickerSymbol;
-    public long marketCap;
-    public double currentRatio;
-    public int sectorId;
-    public int subSectorId;
-    // constr with no parameters
-    public Stock(){
 
+    public Stock(String tickerSymbol, long marketCap, double currentRatio, int sectorId, int subsectorId) {
+        this.tickerSymbol = tickerSymbol;
+        this.marketCap = marketCap;
+        this.currentRatio = currentRatio;
+        this.sectorId = sectorId;
+        SubsectorId = subsectorId;
     }
+
+    private String tickerSymbol;
+    private long marketCap;
+    private double currentRatio;
+    private int sectorId;
+    private int SubsectorId;
 
     public Stock(String tickerSymbol, long marketCap, double currentRatio) {
         this.tickerSymbol = tickerSymbol;
@@ -16,25 +24,26 @@ public class Stock {
         this.currentRatio = currentRatio;
     }
 
-    // constr with 5  parameters
-    public Stock(String tickerSymbol, long marketCap, double currentRatio, int sectorId, int subSectorId) {
-        this.tickerSymbol = tickerSymbol;
-        this.marketCap = marketCap;
-        this.currentRatio = currentRatio;
-        this.sectorId = sectorId;
-        this.subSectorId = subSectorId;
-    }
+    public Stock() {
 
-    public double getCurrentRatio() {
-        return currentRatio;
-    }
-
-    public void setCurrentRatio(double currentRatio) {
-        this.currentRatio = currentRatio;
     }
 
     public String getTickerSymbol() {
         return tickerSymbol;
+    }
+
+    public int getSectorId() {
+        if(sectorId<=0){
+            this.sectorId = sectorId;
+
+        }
+
+        return sectorId;
+    }
+
+    public void setSectorId(int sectorId) {
+
+        //this.sectorId = sectorId;
     }
 
     public void setTickerSymbol(String tickerSymbol) {
@@ -49,20 +58,46 @@ public class Stock {
         this.marketCap = marketCap;
     }
 
-    public int getSectorId() {
-        return sectorId;
+    public double getCurrentRatio() {
+        return currentRatio;
     }
 
-    public void setSectorId(int sectorId) {
-        this.sectorId = sectorId;
+    public void setCurrentRatio(double currentRatio) {
+        this.currentRatio = currentRatio;
     }
 
-    public int getSubSectorId() {
-        return subSectorId;
+    public int getSubsectorId() {
+        return SubsectorId;
     }
 
-    public void setSubSectorId(int subSectorId) {
-        this.subSectorId = subSectorId;
+    public void setSubsectorId(int subsectorId) {
+        SubsectorId = subsectorId;
+    }
+
+
+    //@Override
+    // public boolean equals(Object o) {//
+    //    if (o == null || getClass() != o.getClass()) return false;
+    //    Stock stock = (Stock) o;//typecasting
+    //   return sectorId == stock.sectorId && Objects.equals(tickerSymbol, stock.tickerSymbol);
+    // }
+
+    public boolean equals(Object outSideObj){
+        boolean isEquals = false;
+        if(outSideObj != null && (outSideObj instanceof Stock)) {
+            Stock outSide = (Stock) outSideObj;
+            if (this.getTickerSymbol().equals(outSide.getTickerSymbol()) && this.sectorId==outSide.sectorId);
+            return true;
+        }else {
+            isEquals = false;
+        }
+        return isEquals;
+
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(tickerSymbol, sectorId);
     }
 
     @Override
@@ -72,11 +107,15 @@ public class Stock {
                 ", marketCap=" + marketCap +
                 ", currentRatio=" + currentRatio +
                 ", sectorId=" + sectorId +
-                ", subSectorId=" + subSectorId +
+                ", SubsectorId=" + SubsectorId +
                 '}';
     }
-}
 
+    public Stock(String tickerSymbol, int sectorId) {
+        this.tickerSymbol = tickerSymbol;
+        this.sectorId = sectorId;
+    }
+}
 
 
 

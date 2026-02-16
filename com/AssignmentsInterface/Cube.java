@@ -24,3 +24,4 @@ public class Cube implements Shapes3D{
         return side.multiply(new BigDecimal(12));
     }
 }
+
