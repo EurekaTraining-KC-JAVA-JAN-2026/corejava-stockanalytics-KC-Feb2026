@@ -38,9 +38,10 @@ public class Checkings extends Accounts {
     }
 
     @Override
-    public void something(){
+    public BigDecimal something(){
         System.out.println("Account Details are: "+"\n"+"Account Number"+getAccBalance()+"\n"+"Account Balance"+getAccBalance());
 
+        return null;
     }
 
     @Override
