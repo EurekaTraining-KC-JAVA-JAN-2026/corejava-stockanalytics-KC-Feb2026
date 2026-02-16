@@ -13,6 +13,11 @@ public class Stock {
     }
     //constructor with 3 parameters
 
+    public Stock(int sectorId, String tickerSymbol) {
+        this.sectorId = sectorId;
+        this.tickerSymbol = tickerSymbol;
+    }
+
     public Stock(String tickerSymbol, long marketCap, double currentRatio) {
         this.tickerSymbol = tickerSymbol;
         this.marketCap = marketCap;
@@ -70,18 +75,6 @@ public class Stock {
     }
 
     @Override
-    public boolean equals(Object o) {
-        if (o == null || getClass() != o.getClass()) return false;
-        Stock stock = (Stock) o;
-        return marketCap == stock.marketCap && Double.compare(currentRatio, stock.currentRatio) == 0 && sectorId == stock.sectorId && subSectorID == stock.subSectorID && Objects.equals(tickerSymbol, stock.tickerSymbol);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(tickerSymbol, marketCap, currentRatio, sectorId, subSectorID);
-    }
-
-    @Override
     public String toString() {
         return "Stock{" +
                 "tickerSymbol='" + tickerSymbol + '\'' +
@@ -90,5 +83,30 @@ public class Stock {
                 ", sectorId=" + sectorId +
                 ", subSectorID=" + subSectorID +
                 '}';
+    }
+
+//        @Override
+//        public boolean equals(Object o) {
+//            if (o == null || getClass() != o.getClass()) return false;
+//            Stock stock = (Stock) o; //typecasting
+//            return sectorId == stock.sectorId && Objects.equals(tickerSymbol, stock.tickerSymbol);
+//        }
+
+    public boolean equals(Object outSideObj){
+        if(outSideObj != null && (outSideObj instanceof Stock)){
+            Stock outSide = (Stock) outSideObj;
+            if (this.getTickerSymbol().equals(outSide.getTickerSymbol()) && this.sectorId == outSide.getSectorId()){
+                return true;
+            }else{
+                return false;
+            }
+        }else{
+            return false;
+        }
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(tickerSymbol, sectorId);
     }
 }
