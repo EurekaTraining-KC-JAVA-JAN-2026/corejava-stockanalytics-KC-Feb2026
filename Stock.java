@@ -1,3 +1,5 @@
+import java.util.Objects;
+
 public class Stock {
     //access modifiers
 
@@ -25,7 +27,6 @@ public class Stock {
 
     }
 
-    //
     public String getTickerSymbol() {
         return tickerSymbol;
     }
@@ -72,6 +73,32 @@ public class Stock {
         SubsectorId = subsectorId;
     }
 
+
+    //@Override
+    // public boolean equals(Object o) {//
+    //    if (o == null || getClass() != o.getClass()) return false;
+    //    Stock stock = (Stock) o;//typecasting
+    //   return sectorId == stock.sectorId && Objects.equals(tickerSymbol, stock.tickerSymbol);
+    // }
+
+    public boolean equals(Object outSideObj){
+        boolean isEquals = false;
+        if(outSideObj != null && (outSideObj instanceof Stock)) {
+            Stock outSide = (Stock) outSideObj;
+            if (this.getTickerSymbol().equals(outSide.getTickerSymbol()) && this.sectorId==outSide.sectorId);
+            return true;
+        }else {
+            isEquals = false;
+        }
+        return isEquals;
+
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(tickerSymbol, sectorId);
+    }
+
     @Override
     public String toString() {
         return "Stock{" +
@@ -83,6 +110,8 @@ public class Stock {
                 '}';
     }
 
-    public void setSubSectorId(int i) {
+    public Stock(String tickerSymbol, int sectorId) {
+        this.tickerSymbol = tickerSymbol;
+        this.sectorId = sectorId;
     }
 }

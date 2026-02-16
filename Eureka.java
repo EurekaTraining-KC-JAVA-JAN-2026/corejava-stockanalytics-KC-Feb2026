@@ -47,7 +47,7 @@ public class Eureka {
         appleStock.setTickerSymbol("AAPL");
         appleStock.setSectorId(23);
         appleStock.setMarketCap(23345363);
-        appleStock.setSubSectorId(123);
+        //appleStock.setSubSectorId(123);
         appleStock.setCurrentRatio(23.65);
 
         System.out.println(appleStock.getTickerSymbol()+" "+ appleStock.getMarketCap());
