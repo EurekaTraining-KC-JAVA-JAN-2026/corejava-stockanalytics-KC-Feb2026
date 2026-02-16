@@ -8,6 +8,11 @@ public class Stock {
         this.ticker_symbol = ticker_symbol;
     }
 
+    public Stock(int sub_sectorId, String ticker_symbol) {
+        this.sub_sectorId = sub_sectorId;
+        this.ticker_symbol = ticker_symbol;
+    }
+
     public Stock() {
 
     }
@@ -58,5 +63,10 @@ public class Stock {
     }
 
 
+//   public boolean equals(Object outSideObj){
+//        if(outSideObj !=null && (outSideObj instanceof Stock)){
+//            Stock outside=(Stock) outSideObj;
+//            if(this.getTicker_symbol().equals(outside.getTicker_symbol() );
+//        }
 
 }
