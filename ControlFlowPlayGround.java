@@ -1,3 +1,4 @@
+import java.math.BigDecimal;
 public class ControlFlowPlayGround {
     static void main(String[] args) {
         int x = 10;   // assigning the value
@@ -54,28 +55,57 @@ public class ControlFlowPlayGround {
          *
          */
         while (x > 8) {
-            System.out.println("from while loop" + x);
+            System.out.println("From while loop:" + x);
             x--;
-
         }
+//        Stock sampleStock1 = new Stock("TSLA");// custome class
+//        Stock sampleStock2 = new Stock("AAPL");//
+        BigDecimal bd1 = new BigDecimal(33.5); //predefine class
+        BigDecimal bd2 = new BigDecimal(44);
+        int num1=10;
+        int num2=10;
+        // ==Primitives
+        // non -primitives we have equal
+        System.out.println(num1==num2);//here 2 primitives
+//        System.out.println(sampleStock1 == sampleStock2);
+        System.out.println(bd1==bd2);
+        System.out.println(bd1.equals (bd2));
 
-        // switch
-        Stock appleStock = new Stock("AAPl",2525,9,35,54);
-        //randomStockAdvice(sampleStock);
+     //Switch -> it will run O(log (n))1,2,3,4,5,...n[Time Complexity]  it will directly throw
+    //if-else -> it will run O(n)(Time Complexity] it will check 4 times
 
+    Stock sampleStock = new Stock("AAPL");
+    randomStockAdvice(sampleStock);
+    randomStockAdvice2(sampleStock);
+
+}
+
+private static void randomStockAdvice2(Stock sampleStock) {
+    if(sampleStock.getTickerSymbol().equalsIgnoreCase("tsla")) {
+        System.out.println("SELL..IT");
+    } else if(sampleStock.getTickerSymbol().equalsIgnoreCase("nvda")) {
+        System.out.println("BUY..IT");
+    } else if(sampleStock.getTickerSymbol().equalsIgnoreCase("AAPL")) {
+        System.out.println("HOLD--IT");
+    } else {
+        System.out.println("Market is not stable");
     }
-    private static void randomStockAdvice(Stock sampleStock){
-        switch(sampleStock.getTickerSymbol()){
-            case "TSLA":
-                System.out.println("SEE..IT");break;
-            case "NVDA":
-                System.out.println("BUY..IT");break;
 
-            case "AAPL":
-                System.out.println("HOLD");break;
-            default:
-                System.out.println("This is not stable hold your horses");
+}
 
-        }
+private static void randomStockAdvice(Stock sampleStock) {
+    switch (sampleStock.getTickerSymbol()) {
+        case "TSLA" : System.out.println("SELL..IT"); break;
+        case "NVDA" : System.out.println("BUY..IT"); break;
+        case "AAPL" : System.out.println("HOLD--IT"); break;
+        default:
+            System.out.println("Market is not stable");
     }
+
+
+
+
+
+}
+
 }
