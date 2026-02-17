@@ -24,6 +24,7 @@ public boolean equals(Object outsideObj) {
     return isEquals;
 }
 
+
     @Override
     public int hashCode() {
         return Objects.hash(tickerSymbol, sectorId);
