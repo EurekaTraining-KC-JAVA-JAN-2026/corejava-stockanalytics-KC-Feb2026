@@ -1,9 +1,12 @@
 package com.AssignmentsInterface;
 
+import org.w3c.dom.ls.LSOutput;
+
 import java.math.BigDecimal;
 
-public class Cube implements Shapes3D{
+public class Cube implements Shapes3D,Measurable{
     public BigDecimal side;
+
 
     public Cube(BigDecimal side) {
         this.side = side;
@@ -24,4 +27,7 @@ public class Cube implements Shapes3D{
         return side.multiply(new BigDecimal(12));
     }
 }
+
+
+
 

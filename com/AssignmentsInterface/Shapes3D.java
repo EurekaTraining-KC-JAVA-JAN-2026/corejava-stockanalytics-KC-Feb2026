@@ -7,6 +7,22 @@ public interface Shapes3D {
 
     BigDecimal surfaceArea() ;
 
-    BigDecimal perimeter();
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

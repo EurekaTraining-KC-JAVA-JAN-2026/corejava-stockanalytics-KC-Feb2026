@@ -2,7 +2,7 @@ package com.inheritance;
 
 import java.math.BigDecimal;
 
-//here we will don some operations on shapes
+//here we will do some operations on shapes
 //show the contracts
 //circle,rectangle,square
 //interface are only to hold abstract type of methods, for our benefit it will have a default method(type regular)
@@ -15,6 +15,28 @@ public interface Shape {
         System.out.println("Printing Geometry");
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
