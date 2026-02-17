@@ -29,6 +29,11 @@ public boolean equals(Object outsideObj) {
         return Objects.hash(tickerSymbol, sectorId);
     }
 
+    public Stock(int sectorId, String tickerSymbol) {
+        this.sectorId = sectorId;
+        this.tickerSymbol = tickerSymbol;
+    }
+
     private String tickerSymbol;
     private long marketCap;
     private double currentRatio;

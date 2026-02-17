@@ -85,16 +85,16 @@ public class ControlFlowPlayGround {
         //Switch -> it will run O(log (n))1,2,3,4,5,...n[Time Complexity]  it will directly throw
         //if-else -> it will run O(n)(Time Complexity] it will check 4 times
 
-        Stock sampleStock = new Stock("AAPL");
+        Stock sampleStock = new Stock(34,"AAPL" );
         randomStockAdvice(sampleStock);
         randomStockAdvice2(sampleStock);
 
     }
 
     private static void randomStockAdvice2(Stock sampleStock) {
-        if(sampleStock.getTickerSymbol().equalsIgnoreCase("tsla")) {
+        if(sampleStock.getTickerSymbol().equalsIgnoreCase("TSLA")) {
             System.out.println("SELL..IT");
-        } else if(sampleStock.getTickerSymbol().equalsIgnoreCase("nvda")) {
+        } else if(sampleStock.getTickerSymbol().equalsIgnoreCase("NVDA")) {
             System.out.println("BUY..IT");
         } else if(sampleStock.getTickerSymbol().equalsIgnoreCase("AAPL")) {
             System.out.println("HOLD--IT");
