@@ -2,7 +2,7 @@ package com.threedimensionalobjects;
 
 import java.math.BigDecimal;
 
-public class Cuboid implements Shapes{
+public class Cuboid implements Shapes, ThreeDimensionalObjectsNames{
     public BigDecimal length;
     public BigDecimal breadth;
     public BigDecimal height;
@@ -21,5 +21,10 @@ public class Cuboid implements Shapes{
     @Override
     public BigDecimal calculateCircumference() {
         return null;
+    }
+
+    @Override
+    public String Name() {
+        return "Cuboid";
     }
 }

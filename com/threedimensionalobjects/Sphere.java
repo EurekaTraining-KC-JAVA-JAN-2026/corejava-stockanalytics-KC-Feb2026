@@ -2,7 +2,7 @@ package com.threedimensionalobjects;
 
 import java.math.BigDecimal;
 
-public class Sphere implements Shapes{
+public class Sphere implements Shapes, ThreeDimensionalObjectsNames{
     public BigDecimal radius;
 
     public Sphere(BigDecimal radius) {
@@ -16,5 +16,10 @@ public class Sphere implements Shapes{
     @Override
     public BigDecimal calculateVolume() {
         return null;
+    }
+
+    @Override
+    public String Name() {
+        return "Sphere";
     }
 }
