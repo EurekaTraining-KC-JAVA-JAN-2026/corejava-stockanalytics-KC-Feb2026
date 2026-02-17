@@ -8,11 +8,12 @@ public class Cylinder implements Shape3D{
     BigDecimal radius;
     BigDecimal height;
 
+    //Constructor
     public Cylinder(BigDecimal radius, BigDecimal height) {
         this.radius = radius;
         this.height = height;
     }
-
+    //method which comes from the Main(Parent)
     @Override
     public BigDecimal calculateSurfaceArea() {
         return radius.multiply(new BigDecimal(PI))

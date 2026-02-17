@@ -34,13 +34,15 @@ public abstract class Accounts {
         this.accNumber = accNumber;
     }
     //method to depositAmount
-    public BigDecimal depositAmount(BigDecimal deposit){
-        setAccBalance(accBalance.add(deposit));
-        return getAccBalance();
-    }
+
     //method to withdrawAmount
     public BigDecimal withdrawAmount(BigDecimal withdraw){
         setAccBalance(accBalance.subtract(withdraw));
+        return getAccBalance();
+    }
+
+    public BigDecimal depositAmount(BigDecimal deposit){
+        setAccBalance(getAccBalance().add(deposit));
         return getAccBalance();
     }
     public void something(){
