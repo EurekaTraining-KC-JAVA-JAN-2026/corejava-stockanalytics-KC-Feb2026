@@ -1,3 +1,5 @@
+import java.util.Objects;
+
 public class Stock {
     //access modifiers
     private String tickerSymbol;
@@ -5,6 +7,12 @@ public class Stock {
     private double currentRatio;
     private int sectorId;
     private int subSectorID;
+
+    public Stock( String tickerSymbol,int sectorId) {
+        this.sectorId = sectorId;
+        this.tickerSymbol = tickerSymbol;
+    }
+
     //constr. with no param's
     public Stock() {
     }
@@ -64,6 +72,30 @@ public class Stock {
 
     public void setTickerSymbol(String tickerSymbol) {
         this.tickerSymbol = tickerSymbol;
+    }
+
+//    @Override
+//    public boolean equals(Object o) {
+//        if (o == null || getClass() != o.getClass()) return false;
+//        Stock stock = (Stock) o; //typecasting
+//        return sectorId == stock.sectorId && Objects.equals(tickerSymbol, stock.tickerSymbol);
+//    }
+    public boolean equals(Object outSideObj){
+        boolean isEquals = false;
+        if(outSideObj != null && (outSideObj instanceof Stock)) {
+            Stock outSide = (Stock) outSideObj;
+            if (this.getTickerSymbol().equals(outSide.getTickerSymbol()) && this.sectorId==outSide.sectorId){
+                isEquals=true;
+            }
+        }else {
+            isEquals = false;
+        }
+        return isEquals;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(tickerSymbol, sectorId);
     }
 
     @Override
