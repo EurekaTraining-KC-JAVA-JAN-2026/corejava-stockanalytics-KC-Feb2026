@@ -33,7 +33,6 @@ public class Checkings extends Accounts{
 //
 //
 
-
     @Override
     public void printAccountDetails() {
         System.out.println("AccountsDetails:"+" " +

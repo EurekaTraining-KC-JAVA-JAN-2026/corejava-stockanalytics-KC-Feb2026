@@ -6,11 +6,13 @@ public class Cube implements Shapes3D{
     public BigDecimal side;
 
     public Cube(BigDecimal side) {
+
         this.side = side;
     }
 
     @Override
     public BigDecimal volume() {
+
         return side.multiply(side).multiply(side);
     }
 
@@ -21,6 +23,7 @@ public class Cube implements Shapes3D{
 
     @Override
     public BigDecimal perimeter() {
+
         return side.multiply(new BigDecimal(12));
     }
 }

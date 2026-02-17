@@ -12,7 +12,6 @@ public class Circle implements Shape{
     @Override
     public BigDecimal calculateArea() {
         return radius.multiply(radius).multiply(new BigDecimal(Math.PI));
-
     }
 
     @Override

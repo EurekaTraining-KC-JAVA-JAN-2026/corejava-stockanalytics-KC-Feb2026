@@ -1,3 +1,5 @@
+import java.util.Objects;
+
 public class Stock {
     //these will define stock (properties)
  //to create an object from class we need constructor and also
@@ -20,7 +22,40 @@ public class Stock {
     private long marketCap;
     private double currentRatio;
 
+    public Stock(String tickerSymbol, int sectorId) {
+        this.tickerSymbol = tickerSymbol;
+        this.sectorId = sectorId;
+    }
+
     private int sectorId;
+
+//    @Override
+//    public boolean equals(Object o) {
+//        if (o == null || getClass() != o.getClass()) return false;
+//        Stock stock = (Stock) o;//type casting (whatever value we sends it will change obj  to stock obj)
+//        return sectorId == stock.sectorId && Objects.equals(tickerSymbol, stock.tickerSymbol);//
+//    }
+
+
+    @Override
+    public boolean equals(Object outSideObj) {
+        boolean isEquals = false;
+      if(outSideObj !=null && (outSideObj instanceof Stock)){
+          Stock outSide = (Stock) outSideObj;//typecasted the outsideobj to outside
+          if(this.getTickerSymbol().equals(outSide.getTickerSymbol())&& this.sectorId==outSide.sectorId)
+              isEquals=true;
+      }
+      else{
+          isEquals=false;
+      }
+      return isEquals;
+    }
+
+    @Override
+    public int hashCode() {// will discuss in collections
+        return Objects.hash(tickerSymbol, sectorId);
+    }
+
     public int subSectorId;
 // default constructor
     public Stock() {
@@ -83,7 +118,7 @@ public class Stock {
         this.tickerSymbol = tickerSymbol;
     }
 
-// thias to string is for printing all values
+// this to string is for printing all values
     @Override
     public String toString() {
         return "Stock{" +
@@ -96,5 +131,6 @@ public class Stock {
     }
 
 // Stock appleStock = new Stock();
+
 
 }
