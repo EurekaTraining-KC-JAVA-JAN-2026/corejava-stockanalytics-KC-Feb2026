@@ -2,7 +2,7 @@ package com.interfaces;
 
 import java.math.BigDecimal;
 
-public class Cuboid implements ThreeDShape{
+public class Cuboid implements ThreeDShape {
     public BigDecimal length;
     public BigDecimal width;
     public BigDecimal height;
