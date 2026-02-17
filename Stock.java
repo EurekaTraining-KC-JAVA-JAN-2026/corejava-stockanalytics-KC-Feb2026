@@ -1,79 +1,111 @@
+import java.util.Objects;
+
 public class Stock {
-    //access modifiers
+
+    /**
+     * properties
+     */
     private String tickerSymbol;
-    private long marketCap;
-    private double currentRatio;
     private int sectorId;
-    private int subSectorID;
-    //constr. with no param's
+    private int marketCap;
+    private String currentRatio;
+    private int subsectorId;
+
+    public Stock(String tickerSymbol, int sectorId) {
+        this.tickerSymbol = tickerSymbol;
+        this.sectorId = sectorId;
+    }
+
     public Stock() {
     }
-    //constr. with 3 param's
-    public Stock(String tickerSymbol, long marketCap, double currentRatio) {
+
+    public Stock(String tickerSymbol, int sectorId, int marketCap, String currentRatio, int subsectorId) {
         this.tickerSymbol = tickerSymbol;
-        this.marketCap = marketCap;
-        this.currentRatio = currentRatio;
-    }
-    //constr. with 5 param's
-    public Stock(String tickerSymbol, long marketCap, double currentRatio, int sectorId, int subSectorID) {
-        this.tickerSymbol = tickerSymbol;
-        this.marketCap = marketCap;
-        this.currentRatio = currentRatio;
         this.sectorId = sectorId;
-        this.subSectorID = subSectorID;
-    }
-
-    public double getCurrentRatio() {
-        return currentRatio;
-    }
-
-    public void setCurrentRatio(double currentRatio) {
-        this.currentRatio = currentRatio;
-    }
-
-    public long getMarketCap() {
-        return marketCap;
-    }
-
-    public void setMarketCap(long marketCap) {
         this.marketCap = marketCap;
+        this.currentRatio = currentRatio;
+        this.subsectorId = subsectorId;
     }
-
-    public int getSubSectorID() {
-        return subSectorID;
-    }
-
-    public void setSubSectorID(int subSectorID) {
-        this.subSectorID = subSectorID;
-    }
-
 
     public String getTickerSymbol() {
         return tickerSymbol;
-    }
-
-    public int getSectorId() {
-        return sectorId;
-    }
-
-    public void setSectorId(int sectorId) {
-        if(sectorId>=0){
-            this.sectorId = sectorId;
-        }
     }
 
     public void setTickerSymbol(String tickerSymbol) {
         this.tickerSymbol = tickerSymbol;
     }
 
+    public int getSectorId() {
+        return sectorId;
+    }
+
+    public int getMarketCap() {
+        return marketCap;
+    }
+
+    public void setMarketCap(int marketCap) {
+        this.marketCap = marketCap;
+    }
+
+    public String getCurrentRatio() {
+        return currentRatio;
+    }
+
+    public void setCurrentRatio(String currentRatio) {
+        this.currentRatio = currentRatio;
+    }
+
+    public int getSubsectorId() {
+        return subsectorId;
+    }
+
+    public void setSubsectorId(int subsectorId) {
+        this.subsectorId = subsectorId;
+    }
+
+    public void setSectorId(int sectorId) {
+
+        if (sectorId > 0) {
+            this.sectorId = sectorId;
+        } else {
+            throw (new RuntimeException("SectorID shoudl be greater than 0"));
+        }
+    }
+//
+//    @Override
+//    public boolean equals(Object o) {
+//        if (o == null || getClass() != o.getClass()) return false;
+//        Stock stock = (Stock) o;
+//        return sectorId == stock.sectorId && Objects.equals(tickerSymbol, stock.tickerSymbol);
+//    }
+
+    public boolean equals(Object outsideObj) {
+        boolean isEquals = false;
+        if (outsideObj != null && (outsideObj instanceof Stock)) {
+            Stock outSide = (Stock) outsideObj;
+            if (this.getTickerSymbol().equals(outSide.getTickerSymbol()) && this.sectorId == outSide.getSectorId()) {
+                isEquals=true;
+            } else  {
+                isEquals=false;
+            }
+        }
+        return isEquals;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(tickerSymbol, sectorId);
+    }
+
     @Override
     public String toString() {
         return "Stock{" +
                 "tickerSymbol='" + tickerSymbol + '\'' +
-                ", marketCap=" + marketCap +
-                ", currentRatio=" + currentRatio +
                 ", sectorId=" + sectorId +
-                ", subSectorID=" + subSectorID +
+                ", marketCap=" + marketCap +
+                ", currentRatio='" + currentRatio + '\'' +
+                ", subsectorId=" + subsectorId +
                 '}';
     }
+
 }

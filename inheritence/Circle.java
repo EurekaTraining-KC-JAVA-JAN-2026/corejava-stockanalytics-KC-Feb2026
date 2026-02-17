@@ -2,7 +2,7 @@ package inheritence;
 
 import java.math.BigDecimal;
 
-public class Circle implements Shape{
+public class Circle implements Shape,Type{
     private BigDecimal radius;
 
     public Circle(BigDecimal radius) {

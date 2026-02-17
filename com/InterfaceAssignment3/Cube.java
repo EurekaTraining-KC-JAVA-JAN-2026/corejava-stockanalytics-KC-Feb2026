@@ -5,6 +5,7 @@ import java.math.BigDecimal;
 public class Cube implements Models3D{
     public BigDecimal edge;
 
+    // Constructor
     public Cube(BigDecimal edge) {
         this.edge = edge;
     }

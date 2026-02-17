@@ -8,6 +8,7 @@ public class Cone implements Models3D {
     public BigDecimal height;
     public BigDecimal length;
 
+    // Constructor
     public Cone(BigDecimal length, BigDecimal height, BigDecimal radius) {
         this.length = length;
         this.height = height;

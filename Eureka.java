@@ -12,18 +12,18 @@ public class Eureka {
         i = 10;//assiging
         //int j = 20;
         //here we are using an paramterzed
-        Stock googleStock = new Stock("GOOG",22323232,2.2,132,17);
+        Stock googleStock = new Stock("GOOG",223,12,"132",17);
         Stock nvidaStock = new Stock();
         //printing
         System.out.println(googleStock);
 
-        Stock kmpcStokc = new Stock("JPMC",2323423,3.4,23,342);
+        Stock kmpcStokc = new Stock("JPMC",2323423,34,"23",342);
         Stock appleStock = new Stock();//created using the deafult
         appleStock.setTickerSymbol("APPL");//setting the ticker symbol
-        appleStock.setSectorId(-23);
+        appleStock.setSectorId(23);
         appleStock.setMarketCap(234234);
-        appleStock.setSubSectorID(231);
-        appleStock.setCurrentRatio(23.45);
+        appleStock.setSubsectorId(34);
+        appleStock.setCurrentRatio("23.45");
         //accessing the appleStokc tickerSymbol
         // System.out.println(appleStock.getTickerSymbol()+" "+appleStock.getSectorId());
 
