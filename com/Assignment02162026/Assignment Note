@@ -1,0 +1,12 @@
+->In this assignment we are practising with different types of inheritance
+->Single Inheritance: One child class inherits from one parent class.
+            -Here Cylinder inherits from ThreeDShapes
+->Multilevel Inheritance:  A "Grandparent -> Parent -> Child" relationship.
+            -Here Cube is inherits from cuboid and cuboid inherits from ThreeDShapes
+            -ThreeDShapes -> Cuboid -> Cube
+->Hierarchical Inheritance: Multiple classes inherit from the same parent.
+            -Here cuboid, sphere and cylinder inherit form threedshapes.
+->Multiple Inheritance: A class inherits behavior from more than one source
+            -Here cuboid and sphere inherits from shapes and threedshapes
+->Hybrid Inheritance: A combination of two or more types of inheritance.
+            -Here threedplayground contains all the above inheritance types

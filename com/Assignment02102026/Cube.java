@@ -2,7 +2,9 @@ package com.Assignment02102026;
 
 import java.math.BigDecimal;
 
-public class Cube implements ThreeDShapes{
+//here cube is child class and cuboid is parent class and shape is grandparent class which shows us mutilevel inheritance
+
+public class Cube extends Cuboid {
     private BigDecimal side;
 
     public Cube(BigDecimal side) {
@@ -18,4 +20,7 @@ public class Cube implements ThreeDShapes{
     public BigDecimal surfaceArea() {
         return side.multiply(side).multiply(new BigDecimal(6));
     }
+
+    @Override
+    public String shape(){return "Cube";}
 }

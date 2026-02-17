@@ -1,8 +1,12 @@
 package com.Assignment02102026;
 
+import com.Assignment02162026.Shape;
+
 import java.math.BigDecimal;
 
-public class Cuboid implements ThreeDShapes{
+//Here Cuboid extends to Shape and threedshapes so it is a multiple  inheritance
+
+public class Cuboid implements ThreeDShapes, Shape {
     private BigDecimal length;
     private BigDecimal breadth;
     private BigDecimal height;
@@ -11,6 +15,9 @@ public class Cuboid implements ThreeDShapes{
         this.breadth = breadth;
         this.height = hight;
         this.length = length;
+    }
+
+    public Cuboid() {
     }
 
     @Override
@@ -22,4 +29,7 @@ public class Cuboid implements ThreeDShapes{
     public BigDecimal surfaceArea() {
         return ((length.multiply(breadth)).add(breadth.multiply(height)).add(height.multiply(length))).multiply(new BigDecimal(2));
     }
+
+    @Override
+    public String shape(){return "Cuboid";}
 }
