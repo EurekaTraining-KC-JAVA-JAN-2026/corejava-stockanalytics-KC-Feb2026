@@ -1,4 +1,4 @@
-package com.InterfaceAssignment;
+package com.InheritanceAssignment;
 
 import java.math.BigDecimal;
 
