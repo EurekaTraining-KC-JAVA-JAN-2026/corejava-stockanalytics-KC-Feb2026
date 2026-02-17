@@ -22,6 +22,10 @@ public class Stock {
         this.sectorId = sectorId;
         this.subSectorID = subSectorID;
     }
+    public Stock(String tickerSymbol,int sectorId){
+        this.sectorId = sectorId;
+        this.tickerSymbol = tickerSymbol;
+    }
 
     public double getCurrentRatio() {
         return currentRatio;
