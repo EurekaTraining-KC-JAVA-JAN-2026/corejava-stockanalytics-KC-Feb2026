@@ -12,6 +12,13 @@ public class shape3DPlayGround {
         System.out.println(cube1.volume());
         System.out.println(cube1.surfaceArea());
 
+
+        cube1.play();
+        System.out.println("multiple interface was done");
+
+
+
+
     }
 
 }

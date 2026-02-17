@@ -2,7 +2,7 @@ package com.inheritance;
 
 import java.math.BigDecimal;
 
-public class Circle implements Shape{
+public class Circle implements Shape, Test{
     private final BigDecimal radius;
 
     public Circle(BigDecimal radius) {
@@ -19,6 +19,8 @@ public class Circle implements Shape{
         return null;
     }
 
+
+
     @Override
     public void geometry() {
         Shape.super.geometry();
@@ -33,5 +35,11 @@ public class Circle implements Shape{
     @Override
     public BigDecimal calculateCircumferenec() {
         return radius.multiply(new BigDecimal(2)).multiply(new BigDecimal(Math.PI));
+    }
+
+
+    @Override
+    public void draw() {
+
     }
 }

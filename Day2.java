@@ -2,6 +2,12 @@ public class Day2 {
 
     // ===== Fields (Variables of the class) =====
     private String tickerSymbol;
+
+    public Day2(String tickerSymbol, int sectorId) {
+        this.tickerSymbol = tickerSymbol;
+        this.sectorId = sectorId;
+    }
+
     private long marketCap;
     private double currentRatio;
     private int sectorId;
