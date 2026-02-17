@@ -7,5 +7,4 @@ public interface Shape3D {
     BigDecimal calculateSurfaceArea();
     BigDecimal calculateVolume();
 
-
 }

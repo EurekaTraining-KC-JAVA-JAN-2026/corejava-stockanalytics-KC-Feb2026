@@ -1,3 +1,5 @@
+import java.util.Objects;
+
 public class Stock {
           private String tickerSymbol;
           private long marketCap;
@@ -72,4 +74,42 @@ public class Stock {
         this.tickerSymbol = tickerSymbol;
     }
 
+    public Stock(String tickerSymbol, int sectorId) {
+        this.tickerSymbol = tickerSymbol;
+        this.sectorId = sectorId;
+    }
+
+//    @Override
+//    public boolean equals(Object o) {
+//        if (this == o) return true;
+//        if (o == null || getClass() != o.getClass()) return false;
+//        Stock stock = (Stock) o;
+//        return sectorId == stock.sectorId && Objects.equals(tickerSymbol, stock.tickerSymbol);
+//    }
+
+    @Override
+    public boolean equals(Object outsideObj) {
+
+        boolean isEquals = false;
+
+        if (outsideObj != null && outsideObj instanceof Stock) {
+
+            Stock outside = (Stock) outsideObj;
+
+            if (this.getTickerSymbol().equals(outside.getTickerSymbol())
+                    && this.sectorId == outside.sectorId) {
+
+                isEquals = true;
+            }
+        }
+
+        return isEquals;
+    }
+    @Override
+    public int hashCode() {
+        return Objects.hash(tickerSymbol, sectorId);
+    }
+
 }
+
+
