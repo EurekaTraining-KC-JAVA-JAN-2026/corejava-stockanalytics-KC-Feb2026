@@ -1,3 +1,5 @@
+import java.util.Objects;
+
 public class Stock {
     private String tickerSymbol;
     private long marketCap;
@@ -6,6 +8,11 @@ public class Stock {
     private int subSectorId;
 
     public Stock() {
+    }
+
+    public Stock(String tickerSymbol, int sectorId) {
+        this.tickerSymbol = tickerSymbol;
+        this.sectorId = sectorId;
     }
 
     public Stock(double currentRatio, String tickerSymbol, long marketCap, int sectorId, int subSectorId) {
@@ -34,6 +41,17 @@ public class Stock {
         }
     }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(tickerSymbol, sectorId);
+    }
+
+    /* @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        Stock stock = (Stock) o;
+        return sectorId == stock.sectorId && Objects.equals(tickerSymbol, stock.tickerSymbol);
+    } */
     @Override
     public String toString() {
         return "Stock{" +

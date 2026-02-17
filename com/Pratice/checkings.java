@@ -8,6 +8,7 @@ public class checkings extends accounts{
 
     public checkings(String accNumber, BigDecimal accbalance) {
         super(accNumber, accbalance);
+
     }
 
     @Override
