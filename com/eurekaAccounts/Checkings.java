@@ -33,7 +33,7 @@ public class Checkings extends Accounts{
     @Override
     public void printAccountDetails(){
         System.out.println("Account Details(by ):"+"\n"
-                +"Account Number "+getAccNumber() +" \n"
+            +"Account Number "+getAccNumber() +" \n"
                 +"Account Balance "+getAccBalance()
         );
     }

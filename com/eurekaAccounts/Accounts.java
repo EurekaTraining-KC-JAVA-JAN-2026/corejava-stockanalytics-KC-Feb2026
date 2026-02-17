@@ -9,12 +9,12 @@ public abstract class Accounts {
      */
     public String accNumber;
     public BigDecimal accBalance;
-    //one is parameterized
+//one is parameterized
     public Accounts( String accNumber,BigDecimal accBalance) {
         this.accBalance = accBalance;
         this.accNumber = accNumber;
     }
-    //one is default
+//one is default
     public Accounts() {
     }
 
@@ -45,7 +45,7 @@ public abstract class Accounts {
     }
     public void something(){
 
-        //java will some space in my memory//meta space// and also registers method signature
+    //java will some space in my memory//meta space// and also registers method signature
     };
     //method to see accountDetails
     //abstarct doesn't have any body
