@@ -1,10 +1,8 @@
-package com.interfaces;
-
-import com.interfaces.Shapes3D;
+package com.MultipleInheritance;
 
 import java.math.BigDecimal;
 
-public class Cuboid implements Shapes3D {
+public class Cuboid implements Shapes3D, Displayable {
     public BigDecimal length;
     public BigDecimal breadth;
     public BigDecimal height;
@@ -23,5 +21,10 @@ public class Cuboid implements Shapes3D {
     @Override
     public BigDecimal calculateCircumference() {
         return null;
+    }
+
+    @Override
+    public String getDetails() {
+        return "length of Cuboid" +length;
     }
 }

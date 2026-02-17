@@ -1,10 +1,8 @@
-package com.interfaces;
-
-import com.interfaces.Shapes3D;
+package com.MultipleInheritance;
 
 import java.math.BigDecimal;
 
-public class Sphere implements Shapes3D {
+public class Sphere implements Shapes3D, Displayable {
     public BigDecimal radius;
 
     public Sphere(BigDecimal radius) {
@@ -19,4 +17,10 @@ public class Sphere implements Shapes3D {
     public BigDecimal calculateVolume() {
         return null;
     }
+
+    @Override
+    public String getDetails() {
+        return "Sphere radius is " + radius;
+    }
+
 }
