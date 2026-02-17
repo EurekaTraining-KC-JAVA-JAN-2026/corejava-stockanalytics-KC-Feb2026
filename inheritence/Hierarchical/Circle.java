@@ -1,8 +1,8 @@
-package inheritence;
+package inheritence.Hierarchical;
 
 import java.math.BigDecimal;
 
-public class Circle implements Shape,Type{
+public class Circle implements Shape {
     private BigDecimal radius;
 
     public Circle(BigDecimal radius) {

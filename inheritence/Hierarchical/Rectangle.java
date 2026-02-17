@@ -1,8 +1,8 @@
-package inheritence;
+package inheritence.Hierarchical;
 
 import java.math.BigDecimal;
 
-public class Rectangle implements Shape{
+public class Rectangle implements Shape {
     public BigDecimal length;
     public BigDecimal breadth;
 

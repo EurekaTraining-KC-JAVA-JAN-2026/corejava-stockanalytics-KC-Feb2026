@@ -1,4 +1,4 @@
-package inheritence;
+package inheritence.Hierarchical;
 
 import java.math.BigDecimal;
 
