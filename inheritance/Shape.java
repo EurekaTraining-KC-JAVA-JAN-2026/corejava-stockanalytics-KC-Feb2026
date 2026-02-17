@@ -15,7 +15,4 @@ public interface Shape {
     default void geometry(){
         System.out.println("printing Geometry");
     }
-
-    BigDecimal CubiodTotalSurafaceArea();
-    BigDecimal CuboidVolume();
 }

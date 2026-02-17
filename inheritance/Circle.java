@@ -24,13 +24,5 @@ public class Circle implements Shape {
         return radius.multiply(new BigDecimal(2)).multiply(new BigDecimal(Math.PI));
     }
 
-    @Override
-    public BigDecimal CubiodTotalSurafaceArea() {
-        return null;
-    }
 
-    @Override
-    public BigDecimal CuboidVolume() {
-        return null;
-    }
 }

@@ -84,5 +84,6 @@ public class Stock {
 
     public void setTickerSymbol(String tickerSymbol) {
         this.tickerSymbol = tickerSymbol;
+        this.currentRatio= currentRatio;
     }
 }
