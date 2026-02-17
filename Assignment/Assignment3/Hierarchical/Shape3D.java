@@ -1,4 +1,4 @@
-package Assignment.Assignment3;
+package Assignment.Assignment3.Hierarchical;
 
 import java.math.BigDecimal;
 

@@ -1,8 +1,8 @@
-package Assignment.Assignment3;
+package Assignment.Assignment3.Hierarchical;
 
 import java.math.BigDecimal;
 
-public class Cylinder implements Shape3D{
+public class Cylinder implements Shape3D {
 
     private BigDecimal radius;
     private BigDecimal height;

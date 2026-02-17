@@ -1,8 +1,8 @@
-package Assignment.Assignment3;
+package Assignment.Assignment3.Hierarchical;
 
 import java.math.BigDecimal;
 
-public class Cube implements Shape3D{
+public class Cube implements Shape3D {
    private BigDecimal side;
    private BigDecimal sides = BigDecimal.valueOf(6);
 
