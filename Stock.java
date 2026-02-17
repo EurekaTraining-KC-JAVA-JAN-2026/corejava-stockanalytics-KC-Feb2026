@@ -1,7 +1,33 @@
+import java.util.Objects;
+
 public class Stock {
     //access modifier
     //class having class Stock()
     //constructor having only Stock()
+
+//    @Override
+//    public boolean equals(Object o) {
+//        if (o == null || getClass() != o.getClass()) return false;
+//        Stock stock = (Stock) o;
+//        return sectorId == stock.sectorId && Objects.equals(tickerSymbol, stock.tickerSymbol);
+//    }
+public boolean equals(Object outsideObj) {
+    boolean isEquals = false;
+    if (outsideObj != null && (outsideObj instanceof Stock)) {
+        Stock outSide = (Stock) outsideObj;
+        if (this.getTickerSymbol().equals(outSide.getTickerSymbol()) && this.sectorId == outSide.getSectorId()) {
+            isEquals=true;
+        } else  {
+            isEquals=false;
+        }
+    }
+    return isEquals;
+}
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(tickerSymbol, sectorId);
+    }
 
     private String tickerSymbol;
     private long marketCap;
