@@ -2,7 +2,7 @@ package eurekaAccounts;
 
 import java.math.BigDecimal;
 
-public class Checkings extends Accounts {
+public class Checkings extends Accounts implements OnlineBanking {   //multiple Inheritence
 
     public static BigDecimal casBack=new BigDecimal(3.0);
 
@@ -13,7 +13,16 @@ public class Checkings extends Accounts {
         super(accBalance, accNum);
     }
 
+    @Override
+    public void transferMoney(String toAccountNumber, BigDecimal amount) {
+        withDrawAmount(amount);
+        System.out.println("Transferred "+ amount+ " to " +toAccountNumber);
+    }
 
+    @Override
+    public BigDecimal checkBalance() {
+        return getAccBalance();
+    }
 
     @Override
     public BigDecimal withDrawAmount(BigDecimal withDraw) {

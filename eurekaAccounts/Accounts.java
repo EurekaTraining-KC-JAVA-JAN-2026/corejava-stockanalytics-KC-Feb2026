@@ -5,8 +5,8 @@ import java.math.BigDecimal;
 public abstract class Accounts {
 
 
-    public  String accNum;
-    public BigDecimal accBalance;
+    private  String accNum;
+    private BigDecimal accBalance;
 
     public Accounts( BigDecimal accBalance,String accNum) {
         this.accNum = accNum;

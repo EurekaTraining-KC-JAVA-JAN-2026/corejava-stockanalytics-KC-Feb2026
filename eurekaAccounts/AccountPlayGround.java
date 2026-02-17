@@ -4,9 +4,16 @@ import java.math.BigDecimal;
 
 public class AccountPlayGround {
     public static void main(String[] args){
-        Checkings accountChecking = new Checkings(new BigDecimal(20),"12345");
-        Savings accountSaving=new Savings(new BigDecimal(10),"22456");
+        Checkings accountChecking = new Checkings(new BigDecimal(20600),"12345");
+        Savings accountSaving=new Savings(new BigDecimal(10000),"22456");
         System.out.println(accountChecking.withDrawAmount(new BigDecimal(10)));
+        accountChecking.transferMoney("12345",new BigDecimal(50));
+        System.out.println(accountChecking.getAccBalance());
+        PremiumSavings accountPremiumSavings=new PremiumSavings(new BigDecimal(5000),"12345");
+        accountPremiumSavings.applyBonus();
+        System.out.println(accountPremiumSavings.getAccBalance());
+
+         accountPremiumSavings.PrintAccountDetails();
         /**
          * polymorphism
          * we can also create the objects from parent class
@@ -19,6 +26,11 @@ public class AccountPlayGround {
 
         Accounts[] accountsArray=new Accounts[]{accountChecking1,accountChecking,accountSaving,accountSaving1};
         accountChecking.PrintAccountDetails();
+
+
+
+
+
     }
 
 }

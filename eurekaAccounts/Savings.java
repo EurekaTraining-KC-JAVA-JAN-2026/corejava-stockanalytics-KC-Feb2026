@@ -24,6 +24,8 @@ public class Savings extends Accounts {
 
     @Override
     public  void PrintAccountDetails(){
-
+        System.out.println("Account Details:"+"\n"+
+                "AccountNumberr:" + getAccNum() + "\n"+
+                "AccountBalnace: " + getAccBalance());
     }
 }
