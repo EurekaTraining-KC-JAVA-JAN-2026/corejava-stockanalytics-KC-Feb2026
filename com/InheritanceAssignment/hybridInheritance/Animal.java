@@ -1,5 +1,5 @@
 package com.InheritanceAssignment.hybridInheritance;
-
+// Multilevel class
 public class Animal {
     String name;
     int maxAge;

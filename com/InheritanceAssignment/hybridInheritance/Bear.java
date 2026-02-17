@@ -1,5 +1,5 @@
 package com.InheritanceAssignment.hybridInheritance;
-
+// child class that inherits from multiple and multilevel inheritance classes
 class Bear extends Mammal implements WildAnimal, Carnivore {
 
     Bear(String name, int maxAge) {
