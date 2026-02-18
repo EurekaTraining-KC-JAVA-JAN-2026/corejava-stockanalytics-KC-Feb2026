@@ -107,7 +107,7 @@ public class Stock {
                 ", currentRatio=" + currentRatio +
                 ", sectorId=" + sectorId +
                 ", SubsectorId=" + SubsectorId +
-                '}';
+                '}' +  '\n';
     }
 
     public Stock(String tickerSymbol, int sectorId) {

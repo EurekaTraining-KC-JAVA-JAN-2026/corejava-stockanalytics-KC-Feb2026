@@ -47,6 +47,6 @@ public  abstract class Accounts {
         return "Accounts{" +
                 "accNumber='" + accNumber + '\'' +
                 ", accBalance=" + accBalance +
-                '}';
+                '}' + '\n';
     }
 }
