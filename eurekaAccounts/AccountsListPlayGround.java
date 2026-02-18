@@ -18,6 +18,6 @@ public class AccountsListPlayGround {
         for (int i = 0; i < accountsList.size(); i++) {
             totalBal = totalBal.add(accountsList.get(i).getAccBalance());
         }
-        System.out.println("Total bal in Accounts in accountList is :"+totalBal);
+        System.out.println("Total bal for Accounts in accountList is :"+totalBal);
     }
 }
