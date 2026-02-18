@@ -39,4 +39,11 @@ public class Checkings  extends Accounts {
 
     }
 
+    @Override
+    public String toString() {
+        return "Checkings{" +
+                "accBalance=" + accBalance +
+                ", accNumber='" + accNumber + '\'' +
+                '}';
+    }
 }

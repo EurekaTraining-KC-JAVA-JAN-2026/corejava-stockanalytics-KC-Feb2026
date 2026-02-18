@@ -48,4 +48,11 @@ public  abstract class Accounts {
     // no memory is allocated and will only register method signature
 
 
+    @Override
+    public String toString() {
+        return "Accounts{" +
+                "accNumber='" + accNumber + '\'' +
+                ", accBalance=" + accBalance +
+                '}';
+    }
 }

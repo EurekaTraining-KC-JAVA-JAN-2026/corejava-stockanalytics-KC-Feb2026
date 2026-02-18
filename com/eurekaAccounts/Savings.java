@@ -26,4 +26,12 @@ public class Savings  extends Accounts{
         System.out.println("The total balance is: ");
         return getAccBalance();
     }
+
+    @Override
+    public String toString() {
+        return "Savings{" +
+                "accBalance=" + accBalance +
+                ", accNumber='" + accNumber + '\'' +
+                '}';
+    }
 }
