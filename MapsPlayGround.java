@@ -18,7 +18,6 @@ public class MapsPlayGround {
         mapStock.get("MSFT"); //returns the value Microsoft
         mapStock.get("NVDA"); //returns null
         mapStock.containsKey("MSFT");
-        mapStock.isEmpty()
         //for non-existing keys it returns null value, so we need to add to a newList
         if(mapStock.containsKey("TSLA")){
             System.out.println("Tesla exits"); //checks if key exists
