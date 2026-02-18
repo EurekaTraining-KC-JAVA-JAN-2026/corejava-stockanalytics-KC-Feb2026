@@ -5,8 +5,8 @@ import java.math.BigDecimal;
 public class AccountsPlayGround {
     static void main(String[] args) {
         // here created from child class
-        Checkings accountChecking1 = new Checkings(new BigDecimal(20), "123456");
-        Savings accountSaving1 = new Savings(new BigDecimal(10), "233456") {
+        Checkings accountChecking1 = new Checkings("123456", new BigDecimal(20));
+        Savings accountSaving1 = new Savings("233456", new BigDecimal(10)) {
             @Override
             public BigDecimal withdrawAmount(BigDecimal withdraw) {
                 return null;
@@ -19,8 +19,8 @@ public class AccountsPlayGround {
          * polymorphism
          * we can also create the objects from parent class
          */
-        Accounts accountChecking2 = new Checkings(new BigDecimal(100), "12345");
-        Accounts accountSaving2 = new Savings(new BigDecimal(200), "2345") {
+        Accounts accountChecking2 = new Checkings("12345", new BigDecimal(100));
+        Accounts accountSaving2 = new Savings("2345", new BigDecimal(200)) {
             @Override
             public BigDecimal withdrawAmount(BigDecimal withdraw) {
                 return null;

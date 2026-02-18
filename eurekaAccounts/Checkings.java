@@ -5,8 +5,8 @@ import java.math.BigDecimal;
 public class Checkings extends Accounts{
     public BigDecimal cashback = new BigDecimal((3.0));
 
-    public Checkings(BigDecimal accBalance, String accNumber){
-        super(accBalance, accNumber);
+    public Checkings(String accNumber,BigDecimal accBalance){
+        super(accNumber, accBalance);
     }
 
     @Override

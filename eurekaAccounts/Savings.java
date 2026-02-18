@@ -5,8 +5,8 @@ import java.math.BigDecimal;
 public abstract class Savings extends Accounts{
     public static BigDecimal APR = new BigDecimal(20.00);
 
-    public Savings(BigDecimal accBalance, String accNumber) {
-        super(accBalance, accNumber);
+    public Savings(String accNumber,BigDecimal accBalance) {
+        super(accNumber, accBalance);
     }
     @Override
     public  BigDecimal depositAmount(BigDecimal deposit){

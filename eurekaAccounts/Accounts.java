@@ -8,7 +8,7 @@ public  abstract class Accounts {
     public String accNumber;
     public BigDecimal accBalance;
 
-    public Accounts(BigDecimal accBalance, String accNumber) {
+    public Accounts(String accNumber,BigDecimal accBalance) {
         this.accBalance = accBalance;
         this.accNumber = accNumber;
     }
