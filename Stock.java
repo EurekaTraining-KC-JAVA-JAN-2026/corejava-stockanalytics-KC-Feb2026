@@ -67,6 +67,11 @@ public class Stock {
         this.subSectorId = subSectorId;
     }
 
+    public Stock(String tickerSymbol, int sectorId) {
+        this.tickerSymbol = tickerSymbol;
+        this.sectorId = sectorId;
+
+    }
     @Override
     public String toString() {
         return "Stock{" +
