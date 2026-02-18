@@ -10,6 +10,10 @@ public class PremiumCheckings extends Checkings{
         this.bonusrate = bonusrate;
     }
 
+    public PremiumCheckings() {
+
+    }
+
     public void bonousapplied(){
            getAccBalance().multiply(bonusrate);
            setAccBalance(getAccBalance().add(bonusrate));

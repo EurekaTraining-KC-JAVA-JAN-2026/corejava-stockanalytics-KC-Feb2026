@@ -1,4 +1,15 @@
 public class stocks {
+    @Override
+    public String toString() {
+        return "stocks{" +
+                "tickersymbol='" + tickersymbol + '\'' +
+                ", marketcap=" + marketcap +
+                ", currentratio=" + currentratio +
+                ", sectorid=" + sectorid +
+                ", subsectorid=" + subsectorid +
+                '}';
+    }
+
     public stocks(String tickersymbol, int sectorid) {
         this.tickersymbol = tickersymbol;
         this.sectorid = sectorid;
@@ -38,4 +49,6 @@ public class stocks {
     public double currentratio;
     public int sectorid;
     public int subsectorid;
+
+
 }
