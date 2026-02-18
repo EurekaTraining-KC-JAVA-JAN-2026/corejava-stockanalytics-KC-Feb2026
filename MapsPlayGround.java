@@ -23,10 +23,9 @@ public class MapsPlayGround {
        System.out.println(mapStock.equals(mapStock1));
        System.out.println(mapStock1);
        mapStock1.clear();
+       mapStock.putAll(mapStock1);
+       System.out.println(mapStock);
        System.out.println(mapStock1);
-       mapStock.put("AMD","Advance Micro Devices");
-       mapStock.put("AAPL","Apple INC");
-       mapStock.put("MSFT","Microsoft");
        System.out.println(mapStock.hashCode());
        System.out.println(mapStock1);
        System.out.println(mapStock.getClass());
