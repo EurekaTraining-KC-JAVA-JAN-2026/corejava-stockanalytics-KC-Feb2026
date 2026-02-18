@@ -29,7 +29,7 @@ public class Stock {
         return Objects.hash(tickerSymbol, sectorId);
     }
 
-    public Stock(int sectorId, String tickerSymbol) {
+    public Stock(String tickerSymbol, int sectorId) {
         this.sectorId = sectorId;
         this.tickerSymbol = tickerSymbol;
     }
