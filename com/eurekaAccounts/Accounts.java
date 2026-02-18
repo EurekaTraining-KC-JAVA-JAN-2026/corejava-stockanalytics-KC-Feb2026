@@ -42,6 +42,14 @@ public abstract class Accounts {
         return deposit;
     }
 
+    @Override
+    public String toString() {
+        return "Accounts{" +
+                "accNumber='" + accNumber + '\'' +
+                ", accBalance=" + accBalance +
+                '}';
+    }
+
     //method to withdrawAmount
     public BigDecimal withDrawAmount(BigDecimal withdraw) {
         setAccBalance(accBalance.subtract(withdraw));

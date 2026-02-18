@@ -110,6 +110,17 @@ public class Stock {
         return Objects.hash(tickerSymbol, sectorId);
     }
 
+
+    @Override
+    public String toString() {
+        return "Stock{" +
+                "tickerSymbol='" + tickerSymbol + '\'' +
+                ", marketCap=" + marketCap +
+                ", currentRatio=" + currentRatio +
+                ", sectorId=" + sectorId +
+                ", subSectorId=" + subSectorId +
+                '}'+'\n';
+    }
 }
 
 

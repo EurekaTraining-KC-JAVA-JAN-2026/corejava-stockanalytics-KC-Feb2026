@@ -2,7 +2,7 @@ package com.eurekaAccounts;
 
 import java.math.BigDecimal;
 
-public abstract class Savings extends Accounts {
+public  class Savings extends Accounts {
 
 
     public static BigDecimal APR = new BigDecimal(20.00);
@@ -17,5 +17,10 @@ public abstract class Savings extends Accounts {
         setAccBalance(getAccBalance().add(deposit));
         System.out.println("Total Balance is :");
         return getAccBalance();
+    }
+
+    @Override
+    public void printAccountDetails() {
+
     }
 }
