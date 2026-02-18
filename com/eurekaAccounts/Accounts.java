@@ -36,6 +36,7 @@ public  abstract class Accounts {
     public void something(){
 
     }
+    
 
     public Accounts(String accNumber, BigDecimal accBalance) {
         this.accNumber = accNumber;

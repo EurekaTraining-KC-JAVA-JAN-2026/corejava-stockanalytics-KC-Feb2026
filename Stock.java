@@ -12,6 +12,12 @@ public class Stock {
         SubsectorId = subsectorId;
     }
 
+    public Stock(int sectorId, String tickerSymbol) {
+        this.sectorId = sectorId;
+        this.tickerSymbol = tickerSymbol;
+    }
+
+
     private String tickerSymbol;
     private long marketCap;
     private double currentRatio;
@@ -108,7 +114,7 @@ public class Stock {
                 ", currentRatio=" + currentRatio +
                 ", sectorId=" + sectorId +
                 ", SubsectorId=" + SubsectorId +
-                '}';
+                '}'+'\n';
     }
 
     public Stock(String tickerSymbol, int sectorId) {
