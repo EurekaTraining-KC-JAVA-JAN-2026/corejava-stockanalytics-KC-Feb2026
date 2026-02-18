@@ -70,7 +70,7 @@ public class Stock {
         this.tickerSymbol = tickerSymbol;
     }
 
-   /* @Override
+   @Override
     public String toString() {
         return "Stock{" +
                 "tickerSymbol='" + tickerSymbol + '\'' +
@@ -79,5 +79,5 @@ public class Stock {
                 ", sectorId=" + sectorId +
                 ", subSectorID=" + subSectorID +
                 '}'+'\n';
-    }*/
+    }
 }
