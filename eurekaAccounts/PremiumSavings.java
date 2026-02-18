@@ -16,6 +16,7 @@ public class PremiumSavings extends Savings {        //multilevel inheritence
         BigDecimal bonus=getAccBalance().multiply(Bonus_rate);
         setAccBalance(getAccBalance().add(bonus));
         System.out.println("Premium bonus added: " + bonus);
+        System.out.println();
 
     }
 

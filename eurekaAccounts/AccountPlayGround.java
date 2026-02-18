@@ -11,7 +11,7 @@ public class AccountPlayGround {
         System.out.println(accountChecking.getAccBalance());
         PremiumSavings accountPremiumSavings=new PremiumSavings(new BigDecimal(5000),"12345");
         accountPremiumSavings.applyBonus();
-        System.out.println(accountPremiumSavings.getAccBalance());
+
 
          accountPremiumSavings.PrintAccountDetails();
         /**

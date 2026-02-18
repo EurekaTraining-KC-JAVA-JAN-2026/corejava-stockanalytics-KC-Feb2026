@@ -31,7 +31,7 @@ public class Stock {
                 ", market_cap=" + market_cap +
                 ", sectorId=" + sectorId +
                 ", sub_sectorId=" + sub_sectorId +
-                '}';
+                '}' + "\n";
     }
 
     public Stock(double current_ratio, long market_cap, int sectorId) {
