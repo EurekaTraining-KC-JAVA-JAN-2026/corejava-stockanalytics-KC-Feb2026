@@ -15,6 +15,7 @@ public class AccountsListPlayGround {
 //        System.out.println(accountsList);
         calculateTotalBalInAccount(accountsList);
     }
+
     //we are printing the total balance from the checkings and Savings accounts using for loop to go and check accounts in the list
     private static void calculateTotalBalInAccount(List<Accounts> accountsList) {
         BigDecimal totalBal = BigDecimal.ZERO;
