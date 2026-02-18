@@ -1,4 +1,10 @@
 public class stocks {
+    public stocks(String tickersymbol, long marketcap, int subsectorid) {
+        this.tickersymbol = tickersymbol;
+        this.marketcap = marketcap;
+        this.subsectorid = subsectorid;
+    }
+
     @Override
     public String toString() {
         return "stocks{" +
