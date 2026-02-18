@@ -57,4 +57,12 @@ public  abstract class Accounts {
     // it should be in abstract class
     //wont create any memory just register with method signature
     public abstract  void printAccountDetails();
+
+    @Override
+    public String toString() {
+        return "Accounts{" +
+                "accNumber='" + accNumber + '\'' +
+                ", accBalance=" + accBalance + '\n'+
+                '}';
+    }
 }

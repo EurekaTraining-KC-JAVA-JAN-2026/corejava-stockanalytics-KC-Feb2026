@@ -2,6 +2,7 @@ package com.assignment3;
 
 import java.math.BigDecimal;
 //single inheritance :- parent with 1 child
+// extending here
 public class Developer extends Employee {
     public String technology;
 //overiding from parent class employee

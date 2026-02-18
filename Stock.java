@@ -127,7 +127,7 @@ public class Stock {
                 ", currentRatio=" + currentRatio +
                 ", sectorId=" + sectorId +
                 ", subSectorId=" + subSectorId +
-                '}';
+                '}'+ "\n";
     }
 
 // Stock appleStock = new Stock();

@@ -1,7 +1,7 @@
 package com.assignment3;
 
 import java.math.BigDecimal;
-//parent class
+//parent class for the all classes
 public class Employee {
     public String name;
     public String eId;
