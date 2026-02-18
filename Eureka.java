@@ -42,7 +42,7 @@ public class Eureka {
         System.out.println(nvidia.getTickerSymbol()+" "+nvidia.getSectorId());
 
 
-        Stock tayota= new Stock("TAYO");
+        Stock tayota= new Stock("TAYO",87);
         System.out.println(tayota.getTickerSymbol());
         Stock honda=new Stock("HNDA",244325,3.4,5,124);
 

@@ -1,3 +1,5 @@
+import java.util.Objects;
+
 public class Stock {
 // 1 st of constructor using the Generate with all the parameters
     public Stock(String tickerSymbol, long marketCap, double currentRatio, int sectorId, int subSectorId) {
@@ -8,6 +10,26 @@ public class Stock {
         this.subSectorId = subSectorId;
     }
 
+    public boolean equals(Object outsideObj) {
+        boolean isEquals = false;
+        if (outsideObj != null && (outsideObj instanceof Stock)) {
+            Stock outSide = (Stock) outsideObj;
+            if (this.getTickerSymbol().equals(outSide.getTickerSymbol()) && this.sectorId == outSide.getSectorId()) {
+                isEquals=true;
+            } else  {
+                isEquals=false;
+            }
+        }
+        return isEquals;
+    }
+
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(tickerSymbol, sectorId);
+    }
+
+
     // 2 nd type with a construtor with NO parameters
     public Stock(){
 
@@ -15,8 +37,14 @@ public class Stock {
 
     // 3 rd type can with using only 1 parameter
 
-    public Stock(String tickerSymbol) {
+
+
+
+
+    public Stock(String tickerSymbol, int sectorId) {
         this.tickerSymbol = tickerSymbol;
+        this.sectorId=sectorId;
+
     }
 
 

@@ -12,7 +12,29 @@ public abstract class Accounts {
     public BigDecimal accBalance;
 
 
-// we can add a constructor here by generate by right click.....
+    @Override
+    public int hashCode() {
+        return super.hashCode();
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        return super.equals(obj);
+    }
+
+    @Override
+    protected Object clone() throws CloneNotSupportedException {
+        return super.clone();
+    }
+
+    @Override
+    public String toString() {
+        return super.toString();
+    }
+
+
+
+    // we can add a constructor here by generate by right click.....
 public Accounts(String accNumber, BigDecimal accBalance) {
     this.accNumber = accNumber;
     this.accBalance = accBalance;
