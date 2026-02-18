@@ -56,11 +56,11 @@ public class CollectionsPlayGround {
         //System.out.println(stockList);
 
         for (int i = 0; i < stockList.size(); i++) {
-            //System.out.println(stockList.get(i));
+            System.out.println(stockList.get(i));
 
         }
         for (Stock stock : stockList) {
-           // System.out.println(stock);
+           System.out.println(stock);
 
         }
         //wrapper class
