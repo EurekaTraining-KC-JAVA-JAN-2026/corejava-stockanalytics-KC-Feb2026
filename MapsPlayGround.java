@@ -13,6 +13,10 @@ public class MapsPlayGround {
         System.out.println(mapStock);
         System.out.println(mapStock.get("AMD"));
 
+        mapStock.putIfAbsent("APPL","Apple INC");
+        mapStock.putIfAbsent("AMEX","Amex LLC");
+        System.out.println("After Adding key and values for putIfAbsent"+mapStock);
+
 
         mapStock.remove("TSLA");
         System.out.println("After removing Tesla Stock :"+mapStock);
@@ -44,6 +48,11 @@ public class MapsPlayGround {
         System.out.println("Is map empty: " + mapStock.isEmpty());
         mapStock.clear();
         System.out.println("After clear: " + mapStock);
+
+
+        mapStock.putIfAbsent("APPL","Apple INC");
+        mapStock.putIfAbsent("AMEX","Amex LLC");
+        System.out.println(mapStock);
 
 
     }
