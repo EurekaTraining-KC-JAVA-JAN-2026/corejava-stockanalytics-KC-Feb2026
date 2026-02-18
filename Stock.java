@@ -106,6 +106,6 @@ public class Stock {
                 ", currentRatio=" + currentRatio +
                 ", sectorId=" + sectorId +
                 ", subSectorID=" + subSectorID +
-                '}';
+                '}'+'\n';
     }
 }
