@@ -41,6 +41,14 @@ public abstract class Accounts {
         return getAccBalance();
     }
 
+    @Override
+    public String toString() {
+        return "Accounts{" +
+                "accNumber='" + accNumber + '\'' +
+                ", accBalance=" + accBalance +
+                '}';
+    }
+
     public BigDecimal depositAmount(BigDecimal deposit){
         setAccBalance(getAccBalance().add(deposit));
         return getAccBalance();

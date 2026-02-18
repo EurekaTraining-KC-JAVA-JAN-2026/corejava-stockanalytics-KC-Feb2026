@@ -22,6 +22,17 @@ public class Stock {
         this.currentRatio = currentRatio;
     }
 
+    @Override
+    public String toString() {
+        return "Stock{" +
+                "tickerSymbol='" + tickerSymbol + '\'' +
+                ", marketCap=" + marketCap +
+                ", currentRatio=" + currentRatio +
+                ", sectorId=" + sectorId +
+                ", subSectorId=" + subSectorId +
+                '}';
+    }
+
     public void setMarketCap(long marketCap) {
         this.marketCap = marketCap;
     }
