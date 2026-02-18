@@ -13,5 +13,37 @@ public class MapsPlayGround {
         System.out.println(mapStock);
         System.out.println(mapStock.get("AMD"));
 
+        Map<Integer,String> mapInt = new HashMap<>();
+        mapInt.put(1 , "one");
+        mapInt.put(2 , "two");
+        mapInt.put(3 , "three");
+        mapInt.put(4 , "four");
+        mapInt.put(5 , "five");
+        mapInt.put(6 , "six");
+        System.out.println(mapInt);
+
+        System.out.println( mapInt.get(5));
+
+//        mapInt.clear();
+//        System.out.println(mapInt);
+        System.out.println(mapInt.containsKey(4));
+        System.out.println(mapInt.containsValue("four"));
+
+        System.out.println(mapInt.remove(4,"four"));
+        System.out.println(mapInt);
+        System.out.println(mapInt.remove(5));
+        System.out.println(mapInt);
+        System.out.println(mapInt.containsKey(4));
+        System.out.println(mapInt.size());
+
+        System.out.println(mapInt.keySet());
+        mapInt.replace(1,"oneone");
+        System.out.println(mapInt);
+        mapInt.putIfAbsent(4,"four");
+        System.out.println(mapInt);
+
+        System.out.println(mapInt.containsKey(4));
+
+
     }
 }

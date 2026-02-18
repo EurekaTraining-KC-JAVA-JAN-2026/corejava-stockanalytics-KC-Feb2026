@@ -65,5 +65,16 @@ public class CollectionPlayGround {
         integers1.add(5);
         System.out.println(integers1);
 
+        List<String> s1 = new ArrayList<>();
+        s1.add("apple");
+        s1.add("banana");
+        s1.add("guava");
+        s1.add("pear");
+        s1.add("sapota");
+        System.out.println("items in list: "+s1 );
+//        s1.clear();
+//        System.out.println("items in list: "+s1 );
+
+
     }
 }
