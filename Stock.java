@@ -1,3 +1,4 @@
+import java.math.BigDecimal;
 import java.util.Objects;
 
 public class Stock {
@@ -23,9 +24,14 @@ public class Stock {
         this.currentRatio = currentRatio;
     }
 
-    public Stock() {
 
+
+    public Stock(String tickerSymbol, BigDecimal sectorId) {
     }
+
+    public Stock(String tickerSymbol) {
+    }
+
 
     public String getTickerSymbol() {
         return tickerSymbol;
@@ -75,11 +81,11 @@ public class Stock {
 
 
     //@Override
-   // public boolean equals(Object o) {//
+    // public boolean equals(Object o) {//
     //    if (o == null || getClass() != o.getClass()) return false;
     //    Stock stock = (Stock) o;//typecasting
-     //   return sectorId == stock.sectorId && Objects.equals(tickerSymbol, stock.tickerSymbol);
-   // }
+    //   return sectorId == stock.sectorId && Objects.equals(tickerSymbol, stock.tickerSymbol);
+    // }
 
     public boolean equals(Object outSideObj){
         boolean isEquals = false;
@@ -107,7 +113,7 @@ public class Stock {
                 ", currentRatio=" + currentRatio +
                 ", sectorId=" + sectorId +
                 ", SubsectorId=" + SubsectorId +
-                '}';
+                '}'+'\n';
     }
 
     public Stock(String tickerSymbol, int sectorId) {

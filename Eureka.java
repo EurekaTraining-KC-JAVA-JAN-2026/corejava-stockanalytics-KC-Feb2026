@@ -17,7 +17,7 @@ public class Eureka {
         Stock nvdiaStock = new Stock("NVD",26,2398765);
         System.out.println(nvdiaStock);
         //String s1 = new String( :Ramya)
-        Stock appleStock = new Stock();
+        Stock appleStock = new Stock("AMD");
         appleStock.setTickerSymbol("AAPL");
         //appleStock.tickerSymbol = "AAPL";
         appleStock.setSectorId(-23);
