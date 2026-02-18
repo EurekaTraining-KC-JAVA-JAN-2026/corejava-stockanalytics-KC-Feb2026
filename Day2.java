@@ -26,6 +26,10 @@ public class Day2 {
         this.subsectorId = subsectorId;
     }
 
+    public Day2(String iylly, int i, double v) {
+
+    }
+
     // ===== Getters =====
     public String getTickerSymbol() {
         return tickerSymbol;
@@ -95,5 +99,16 @@ public class Day2 {
         System.out.println(obj2.getCurrentRatio());
         System.out.println(obj2.getSectorId());
         System.out.println(obj2.getSubsectorId());
+    }
+
+    @Override
+    public String toString() {
+        return "Day2{" +
+                "tickerSymbol='" + tickerSymbol + '\'' +
+                ", marketCap=" + marketCap +
+                ", currentRatio=" + currentRatio +
+                ", sectorId=" + sectorId +
+                ", subsectorId=" + subsectorId +
+                '}';
     }
 }
