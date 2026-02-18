@@ -52,7 +52,8 @@ import java.util.List;
         stockList.add(new Stock("3MCARE", 34));
         stockList.add(new Stock("IYLLY",34,2.8));
 
-
+           List<Stock> stockList2= new ArrayList<>();
+           stockList.add(new Stock("APPL,", 35));
         // System.out.println(stockList);
 
         for(int i = 0; i < stockList.size(); i++) {
@@ -98,12 +99,9 @@ import java.util.List;
 
 
 
-
-
-
-
     }
 }
+
 
 
 
