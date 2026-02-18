@@ -3,6 +3,14 @@ package com.eurekaAccounts;
 import java.math.BigDecimal;
 
 public abstract class Accounts {
+    @Override
+    public String toString() {
+        return "Accounts{" +
+                "accNumber='" + accNumber + '\'' +
+                ", accBalance=" + accBalance +
+                '}'+'\n';
+    }
+
     /**
      * Bank accounts
      * checkings and savings to understanf the inheritenec in java
