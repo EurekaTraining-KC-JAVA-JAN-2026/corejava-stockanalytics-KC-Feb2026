@@ -30,7 +30,7 @@ public boolean equals(Object outsideObj) {
         return Objects.hash(tickerSymbol, sectorId);
     }
 
-    public Stock(int sectorId, String tickerSymbol) {
+    public Stock(String tickerSymbol, int sectorId ) {
         this.sectorId = sectorId;
         this.tickerSymbol = tickerSymbol;
     }
@@ -114,6 +114,6 @@ public boolean equals(Object outsideObj) {
                 ", currentRatio=" + currentRatio +
                 ", sectorId=" + sectorId +
                 ", subSectorId=" + subSectorId +
-                '}';
+                '}' +'\n';
     }
 }

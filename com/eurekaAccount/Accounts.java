@@ -12,9 +12,10 @@ public abstract class Accounts {
     private String accNumber;
     private BigDecimal accBalance;
 
-    public Accounts(BigDecimal accBalance, String accNumber ){
-        this.accBalance = accBalance;
+    public Accounts(String accNumber, BigDecimal accBalance ){
         this.accNumber = accNumber;
+        this.accBalance = accBalance;
+
     }
 
     public String getAccNumber() {
@@ -51,7 +52,11 @@ public abstract class Accounts {
     //Abstract doesn't have any body
     public abstract void printAccountDetails();
 
-
-
-
+    @Override
+    public String toString() {
+        return "Accounts{" +
+                "accNumber='" + accNumber + '\'' +
+                ", accBalance=" + accBalance +
+                '}' + '\n';
+    }
 }

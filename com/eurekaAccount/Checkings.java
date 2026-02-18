@@ -8,8 +8,8 @@ public class Checkings extends Accounts {
     private BigDecimal cashBack = new BigDecimal("3");
 
     // Constructor
-    public Checkings(BigDecimal accBalance, String accNumber) {
-        super(accBalance, accNumber);
+    public Checkings(String accNumber, BigDecimal accBalance ) {
+        super(accNumber,accBalance);
     }
 
     @Override

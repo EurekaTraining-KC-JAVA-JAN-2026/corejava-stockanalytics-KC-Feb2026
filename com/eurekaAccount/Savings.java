@@ -7,8 +7,9 @@ public class Savings extends Accounts {
     // Annual Percentage Rate (20%)
     public static final BigDecimal APR = new BigDecimal("20");
 
-    public Savings(BigDecimal accBalance, String accNumber) {
-        super(accBalance, accNumber);
+    public Savings(String accNumber, BigDecimal accBalance) {
+
+        super(accNumber, accBalance);
     }
 
     @Override

@@ -1,4 +1,4 @@
-package SingleLevelInheritance;
+package com.SingleLevelInheritance;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
