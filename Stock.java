@@ -18,11 +18,7 @@ public class Stock {
         this.tickerSymbol = tickerSymbol;
     }
 
-    public Stock(String tickerSymbol, long marketCap, double currentRatio) {
-        this.tickerSymbol = tickerSymbol;
-        this.marketCap = marketCap;
-        this.currentRatio = currentRatio;
-    }
+
 
     //constructor with 5 parameters
     public Stock(String tickerSymbol, long marketCap, double currentRatio, int sectorId, int subSectorID) {
@@ -32,6 +28,13 @@ public class Stock {
         this.sectorId = sectorId;
         this.subSectorID = subSectorID;
     }
+
+    public Stock(int sectorId, String tickerSymbol, double currentRatio) {
+        this.sectorId = sectorId;
+        this.tickerSymbol = tickerSymbol;
+        this.currentRatio = currentRatio;
+    }
+
     public String getTickerSymbol() {
         return tickerSymbol;
     }
@@ -82,7 +85,7 @@ public class Stock {
                 ", currentRatio=" + currentRatio +
                 ", sectorId=" + sectorId +
                 ", subSectorID=" + subSectorID +
-                '}';
+                '}'+"\n";
     }
 
 //        @Override
