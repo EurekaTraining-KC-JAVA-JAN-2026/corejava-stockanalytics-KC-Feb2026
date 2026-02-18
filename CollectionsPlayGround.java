@@ -33,7 +33,7 @@ public class CollectionsPlayGround {
         System.out.println("After adding addFirst and addLast to the array: "+tickersList1);
         boolean amex = tickersList1.contains("AMEX");//checks weather it was available or not
         boolean amex1 = tickersList1.contains("amex");
-        System.out.println("Does tickerList1 contains AMEX: "+amex);Done
+        System.out.println("Does tickerList1 contains AMEX: "+amex);
         System.out.println("Does tickerList1 contains amex: "+amex1);
 //        anotherList1.add("GOOG");
 //        anotherList2.add("AMEX");
