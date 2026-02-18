@@ -53,4 +53,12 @@ public abstract class Accounts {
      * Usually Java will create some space in memory ,
      * abstract don't have any body so it doesn't create any memory
      */
+
+    @Override
+    public String toString() {
+        return "Accounts{" +
+                "accountNumber='" + accountNumber + '\'' +
+                ", accountBalance=" + accountBalance +
+                '}' + '\n';
+    }
 }
