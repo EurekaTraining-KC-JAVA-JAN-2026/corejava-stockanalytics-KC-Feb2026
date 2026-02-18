@@ -41,5 +41,13 @@ public abstract class Accounts {
         return getAccbalance();
     }
 
+    @Override
+    public String toString() {
+        return "Accounts{" +
+                "accNumber='" + accNumber + '\'' +
+                ", accbalance=" + accbalance +
+                '}';
+    }
+
     public abstract void printAccountdetails();
 }

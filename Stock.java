@@ -15,6 +15,12 @@ public class Stock {
         this.sectorId = sectorId;
     }
 
+    public Stock(String tickerSymbol, int sectorId, double currentRatio) {
+        this.tickerSymbol = tickerSymbol;
+        this.sectorId = sectorId;
+        this.currentRatio = currentRatio;
+    }
+
     public Stock(double currentRatio, String tickerSymbol, long marketCap, int sectorId, int subSectorId) {
         this.currentRatio = currentRatio;
         this.tickerSymbol = tickerSymbol;
