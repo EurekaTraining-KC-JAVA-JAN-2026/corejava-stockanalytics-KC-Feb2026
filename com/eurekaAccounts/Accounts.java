@@ -19,6 +19,7 @@ public abstract class Accounts {
     }
 
     public BigDecimal getAccBalance() {
+
         return accBalance;
     }
 
@@ -27,6 +28,7 @@ public abstract class Accounts {
     }
 
     public String getAccNumber() {
+
         return accNumber;
     }
 
