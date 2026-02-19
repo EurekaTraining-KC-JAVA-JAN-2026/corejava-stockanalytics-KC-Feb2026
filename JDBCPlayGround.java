@@ -1,4 +1,5 @@
 import com.eurekaAccounts.stocks.vo.SectorVO;
+import com.eurekaAccounts.stocks.vo.StockFundamentalsVO;
 import com.eurekaAccounts.stocks.vo.SubSectorVO;
 
 import java.sql.*;
@@ -23,15 +24,64 @@ public class JDBCPlayGround {
         //Get the data from DB
         //getAllSectors(connection);
         //getAllSubSectors(connection);
-        getSpecificSectorID(connection);
-        //getSpecificStockFundamental(connection);
+       // getSpecificSectorID(connection,"Energy");
+        getSpecificStockFundamental(connection,"TSLA");
     }
 
-    private static void getSpecificStockFundamental(Connection connection) {
+    private static void getSpecificStockFundamental(Connection connection, String ticker_symbol) throws SQLException {
+        String sqlQuery = """
+                select
+                    sf.ticker_symbol,
+                    sf.sector_id,
+                    sf.subsector_id,
+                    sf.market_cap,
+                    sf.current_ratio,
+                    sf.price_to_book_ratio
+                    from 
+                        endeavour.stock_fundamentals sf where sf.ticker_symbol = ?;
+                """;
+        PreparedStatement preparedStatement=connection.prepareStatement(sqlQuery);
+        preparedStatement.setString(1,ticker_symbol);
+        ResultSet resultSet=preparedStatement.executeQuery();
+        List<StockFundamentalsVO> allStockFundamentals= new ArrayList<>();
+        while(resultSet.next()){
+            StockFundamentalsVO stockFundamentalsVO = new StockFundamentalsVO();
+            stockFundamentalsVO.setSectorID(resultSet.getInt("sector_id"));
+            stockFundamentalsVO.setTickerSymbol(resultSet.getString("ticker_symbol"));
+            stockFundamentalsVO.setCurrentRatio(resultSet.getFloat("current_ratio"));
+            stockFundamentalsVO.setMarketCap(resultSet.getDouble("market_cap"));
+            stockFundamentalsVO.setSubSectorID(resultSet.getInt("subsector_id"));
+            stockFundamentalsVO.setPriceToBookRatio(resultSet.getFloat("price_to_book_ratio"));
+            allStockFundamentals.add(stockFundamentalsVO);
+        }
+        System.out.println(allStockFundamentals);
+
+
     }
 
-    private static void getSpecificSectorID(Connection connection) {
+    private static void getSpecificSectorID(Connection connection, String sector_name) throws SQLException {
+        String sqlQuery = """
+                select
+                    *
+                    from 
+                        endeavour.sector_lookup sl where sl.sector_name = ?;
+                """;
+        PreparedStatement preparedStatement =connection.prepareStatement(sqlQuery);
+        preparedStatement.setString(1,sector_name);
+        ResultSet resultSet=preparedStatement.executeQuery();
+        List<SectorVO> allsectors= new ArrayList<>();
+        while(resultSet.next()){
+            SectorVO sectorVO = new SectorVO();
+            sectorVO.setSectorId(resultSet.getInt("sector_id"));
+            sectorVO.setSectorName(resultSet.getString("sector_name"));
+            allsectors.add(sectorVO);
+        }
+        System.out.println(allsectors);
     }
+
+
+
+
 
     private static void getAllSubSectors(Connection connection) throws SQLException {
         String sqlQuery = """
@@ -60,12 +110,12 @@ public class JDBCPlayGround {
                 select
                     *
                     from 
-                        endeavour.sector_lookup sl where sl.sector_id = 34;
+                        endeavour.sector_lookup sl ;
                 """;
         PreparedStatement preparedStatement =connection.prepareStatement(sqlQuery);
         ResultSet resultSet=preparedStatement.executeQuery();
         //executing query
-        System.out.println(resultSet);
+        //System.out.println(resultSet);
         List<SectorVO> allsectors= new ArrayList<>();
         while(resultSet.next()){
             SectorVO sectorVO = new SectorVO();
