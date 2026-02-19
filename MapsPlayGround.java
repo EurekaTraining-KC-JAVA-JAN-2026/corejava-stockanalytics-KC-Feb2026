@@ -19,7 +19,6 @@ public class MapsPlayGround {
         Map<String,String> mapStock2= new HashMap<>();
         mapStock2.put("AMD","Advanced Micro Services");
         mapStock2.put("GOOG","GOOGLE");
-
         System.out.println(mapStock2);
         mapStock2.replace("AMD","AMC");
         System.out.println(mapStock2);
