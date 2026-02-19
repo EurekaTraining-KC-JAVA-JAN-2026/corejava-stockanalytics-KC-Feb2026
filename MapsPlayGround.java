@@ -18,7 +18,7 @@ public class MapsPlayGround {
         System.out.println(mapstock.containsValue("Tesla stock"));
         System.out.println(mapstock.isEmpty());
         mapstock.put("ASD","new stock");
-        
+
         //when we add the key->value pair through put it is automatically arranges it in the assending order.
         System.out.println(mapstock);
     }
