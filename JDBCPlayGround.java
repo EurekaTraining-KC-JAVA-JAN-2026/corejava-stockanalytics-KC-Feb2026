@@ -1,5 +1,6 @@
 import Eurekaaccounts.stocks.vo.SectorVO;
 import Eurekaaccounts.stocks.vo.SubsectorVO;
+import Eurekaaccounts.stocks.vo.stockfundamental;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -18,20 +19,75 @@ public class JDBCPlayGround {
         Connection connection = DriverManager.getConnection(jdbcurl, userName, password);
         getAllSectors(connection);
         getAllSubSectores(connection);
-//        getSpecificSectorid(connection);//get specific sector id
-//        getSpecificStockFundamentlals(); ///specific ticker symbol
+        getSpecificsectorid(connection,34);
+        getSpecificStockFundamentlals(connection,"NVDA");
     }
 
+    private static void getSpecificsectorid(Connection connection,int sector_id) throws SQLException {
+        String sqlQuerey = """
+               select
+               *
+                from   
+               endeavour.sector_lookup sl
+              where sl.sector_id=?
+              """;
+        PreparedStatement prepareStatement = connection.prepareStatement(sqlQuerey);
+        prepareStatement.setInt(1,sector_id);
+        ResultSet resultSet = prepareStatement.executeQuery();
+        List<SectorVO> allsectors = new ArrayList<>();
+        while (resultSet.next()) {
+
+            SectorVO sectorVO = new SectorVO();
+            sectorVO.setSector_id(resultSet.getInt("sector_id"));
+            sectorVO.setSector_name(resultSet.getString("sector_name"));
+            allsectors.add(sectorVO);
+        }
+        System.out.println(allsectors);
+    }
+    private static void getSpecificStockFundamentlals(Connection connection,String ticker_symbol) throws SQLException {
+        String sqlQuery= """
+                
+                  select
+                                *
+                                from
+                                endeavour.stock_fundamentals sf
+                  where sf.ticker_symbol=?
+                                """;
+        PreparedStatement prepareStatement=connection.prepareStatement(sqlQuery);
+        prepareStatement.setString(1, ticker_symbol);
+        ResultSet resultSet=prepareStatement.executeQuery();
+        List<stockfundamental> SpecificStockFundamentlals=new ArrayList<>();
+        while(resultSet.next()){
+            stockfundamental stock1= new stockfundamental();
+            stock1.setCurrent_ratio(resultSet.getDouble("current_ratio"));
+            stock1.setSubsector_id(resultSet.getInt("sector_id"));
+            stock1.setMarket_cap(resultSet.getLong("market_cap"));
+            stock1.setEpsqq(resultSet.getDouble("Epsqq"));
+            stock1.setEps_nxtyear(resultSet.getDouble("Eps_nxtyear"));
+            stock1.setForward_pe(resultSet.getDouble("forward_pe"));
+            stock1.setPeg(resultSet.getFloat("peg"));
+            stock1.setTicker_symbol(resultSet.getString("ticker_symbol"));
+            stock1.setPrice_to_book_ratio(resultSet.getDouble("price_to_book_ratio"));
+            stock1.setInsider_ownership(resultSet.getDouble("insider_ownership"));
+            stock1.setRoe(resultSet.getDouble("roe"));
+            stock1.setDebt_equity_ratio(resultSet.getDouble("debt_equity_ratio"));
+            stock1.setTrailing_Pe(resultSet.getDouble("debt_equity_ratio"));
+            stock1.setEps_ttm(resultSet.getDouble("eps_ttm"));
+            SpecificStockFundamentlals.add(stock1);
+        }
+        System.out.println(SpecificStockFundamentlals);
+    }
     private static void getAllSectors(Connection connection) throws SQLException {
-      //Integer sectorid=35;
+//      Integer sector_id=35;
         //preparedstatemt
         String sqlQuerey = """
                select
                *
                 from   
-               endeavour.sector_lookup sl;
+               endeavour.sector_lookup sl
               """;
         PreparedStatement prepareStatement = connection.prepareStatement(sqlQuerey);
+//        prepareStatement.setInt(1, sector_id);
 
 //        System.out.println(prepareStatement);
         ResultSet resultSet = prepareStatement.executeQuery();
