@@ -1,4 +1,5 @@
 import com.eurekaAccounts.stocks.vo.SectorVO;
+import com.eurekaAccounts.stocks.vo.StockFundementals;
 import com.eurekaAccounts.stocks.vo.SubSector;
 
 import java.sql.*;
@@ -18,7 +19,7 @@ public class JDBCPlayGround {
         getAllSectors(connection);
         getAllSubSectors(connection);
         getSpecificSector(connection);
-        //getSpecificStockFundamental(connection,tickerSymbol);
+        getSpecificStockFundemental(connection,"WMT");
     }
 
     private static void getAllSubSectors(Connection connection) throws SQLException {
@@ -75,6 +76,28 @@ public class JDBCPlayGround {
         }
         System.out.println(allSectors);
     }
-
+    private static void getSpecificStockFundemental(Connection connection, String tickerSymbol) throws SQLException {
+        String sqlQuery = """
+                select 
+                    sf.ticker_symbol, sf.sector_id, sf.subsector_id,sf.market_cap,sf.current_ratio
+                    from endeavour.stock_fundamentals  sf where sf.ticker_symbol = ?;
+               """;
+        PreparedStatement preparedStatement3 = connection.prepareStatement(sqlQuery);
+        preparedStatement3.setString(1,tickerSymbol);
+        ResultSet resultSet3 = preparedStatement3.executeQuery();
+        //System.out.println(resultSet);
+        List<StockFundementals> specificStocks =  new ArrayList<>();
+        while(resultSet3.next())
+        {
+            StockFundementals stockFundementals = new StockFundementals();
+            stockFundementals.setSectorId(resultSet3.getInt("sector_id"));
+            stockFundementals.setSubSectorId(resultSet3.getInt("subsector_id"));
+            stockFundementals.setTickerSymbol(resultSet3.getString("ticker_symbol"));
+            stockFundementals.setMarketCap(resultSet3.getLong("market_cap"));
+            stockFundementals.setCurrentRatio(resultSet3.getFloat("current_ratio"));
+            specificStocks.add(stockFundementals);
+        }
+        System.out.println(specificStocks);
+    }
 
 }
