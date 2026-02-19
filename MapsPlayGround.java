@@ -50,10 +50,6 @@ public class MapsPlayGround {
         System.out.println("After clear: " + mapStock);
 
 
-        mapStock.putIfAbsent("APPL","Apple INC");
-        mapStock.putIfAbsent("AMEX","Amex LLC");
-        System.out.println(mapStock);
-
 
     }
 }
