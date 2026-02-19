@@ -17,7 +17,7 @@ public class JDBCPlayGround {
         //retrieve the data from DB
         getAllSectors(connection);
         getAllSubSectors(connection);
-        //getSpecificSector(connection);
+        getSpecificSector(connection);
         //getSpecificStockFundamental(connection,tickerSymbol);
     }
 
@@ -53,6 +53,24 @@ public class JDBCPlayGround {
             SectorVO sectorVO=new SectorVO();
             sectorVO.setSectorId(resultSet.getInt("sector_id"));
             sectorVO.setSectorName(resultSet.getString("sector_name"));
+            allSectors.add(sectorVO);
+        }
+        System.out.println(allSectors);
+    }
+    private static void getSpecificSector(Connection connection) throws SQLException {
+        String sqlQuery2= """
+                select * from endeavour.sector_lookup sl where sl.sector_name='Healthcare'
+                """;
+        PreparedStatement preparedStatement = connection.prepareStatement(sqlQuery2);
+        ResultSet resultSet2=preparedStatement.executeQuery();
+        //executing the query result
+        //System.out.println(preparedStatement);
+        System.out.println(resultSet2);
+        List<SectorVO> allSectors=new ArrayList<>();
+        while(resultSet2.next()){
+            SectorVO sectorVO=new SectorVO();
+            sectorVO.setSectorId(resultSet2.getInt("sector_id"));
+            sectorVO.setSectorName(resultSet2.getString("sector_name"));
             allSectors.add(sectorVO);
         }
         System.out.println(allSectors);
