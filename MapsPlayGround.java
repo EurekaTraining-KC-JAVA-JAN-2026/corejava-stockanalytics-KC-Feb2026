@@ -25,7 +25,7 @@ public class MapsPlayGround {
         System.out.println(mapStock);
         mapStock.put("APPL","Apple INC");
         mapStock.put("MSFT","Microsoft");
-        mapStock.put("TSLA","Tsla INC");
+        mapStock.put("TSLA","Tsla Inc");
         System.out.println(mapStock.getOrDefault("TSLA","Tsla INC"));
         System.out.println(mapStock);
     }
