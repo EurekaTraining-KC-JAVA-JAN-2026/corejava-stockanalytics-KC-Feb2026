@@ -44,61 +44,15 @@ public class MapsPlayGround {
             System.out.println(key);
         }
 
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        Map<String,Integer> grades= new HashMap<>();
+        grades.put("Harshu",80);
+        int cscore =95;
+        Integer harshu = grades.replace("Harshu", cscore);
+      System.out.println("the new score is:" + harshu);
 
     }
 }
+
+
+
+
