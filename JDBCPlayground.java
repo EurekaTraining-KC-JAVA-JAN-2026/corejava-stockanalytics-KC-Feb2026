@@ -27,6 +27,7 @@ public class JDBCPlayground {
         //getAllSubSector(connection);
 
         getSpecificSectorID(connection);
+        getSpecificStockFundamentals(connection);
     }
 //private static void getAllSubSector(Connection connection) throws SQLException{
 //        String sqlQuery= """
@@ -48,11 +49,6 @@ public class JDBCPlayground {
 //    }
 //    System.out.println(allSubSectorVO);
 // }
-
-
-
-
-
 
 
 //    private static void getAllSectors(Connection connection) throws SQLException {
@@ -79,8 +75,8 @@ public class JDBCPlayground {
 //
 //    }
 
-private static void getSpecificSectorID(Connection connection) throws SQLException{
-        String sqlQuery= """
+    private static void getSpecificSectorID(Connection connection) throws SQLException {
+        String sqlQuery = """
                   select
                  	sf.ticker_symbol,
                  	sf.sector_id,
@@ -92,21 +88,57 @@ private static void getSpecificSectorID(Connection connection) throws SQLExcepti
                  where
                  	sf.sector_id = 44;
                 """;
-    PreparedStatement preparedStatement = connection.prepareStatement(sqlQuery);
-    ResultSet resultSet = preparedStatement.executeQuery();
-    List<StockSectorVO> specificSector= new ArrayList<>();
-    while (resultSet.next()){
-        StockSectorVO stockSectorVO = new StockSectorVO(resultSet.getString("ticker_symbol"),
-                resultSet.getInt("sector_id"),
-                resultSet.getInt("subsector_id"),
-                resultSet.getBigDecimal("market_cap"),
-                resultSet.getFloat("current_ratio") );
-        specificSector.add(stockSectorVO);
+        PreparedStatement preparedStatement = connection.prepareStatement(sqlQuery);
+        ResultSet resultSet = preparedStatement.executeQuery();
+        List<StockSectorVO> specificSector = new ArrayList<>();
+        while (resultSet.next()) {
+            StockSectorVO stockSectorVO = new StockSectorVO(resultSet.getString("ticker_symbol"),
+                    resultSet.getInt("sector_id"),
+                    resultSet.getInt("subsector_id"),
+                    resultSet.getBigDecimal("market_cap"),
+                    resultSet.getFloat("current_ratio"));
+            specificSector.add(stockSectorVO);
 
+
+        }
+        System.out.println(specificSector);
 
     }
-    System.out.println(specificSector);
 
-}
+    private static void getSpecificStockFundamentals(Connection connection) throws SQLException {
+        String sqlQuery = """
+               
+                select
+               sf.ticker_symbol,
+               sf.sector_id,
+               sf.subsector_id,
+               sf.market_cap,
+               sf.current_ratio
+               from
+                   endeavour.stock_fundamentals sf
+               where
+                   sf.ticker_symbol = 'L';
+               
+   
+            """;
+       PreparedStatement preparedStatement = connection.prepareStatement(
+        sqlQuery);
+       ResultSet resultSet = preparedStatement
+        .executeQuery();
+       List<StockSectorVO> specificsector = new ArrayList<>();
+       while
+            (resultSet.next()) {
+           StockSectorVO stockSectorVO = new StockSectorVO(resultSet.
+                    getString("ticker_symbol"),
+                   resultSet.getInt("sector_id"),
+                   resultSet.getInt("subsector_id"),
+                   resultSet.getBigDecimal("market_cap"),
+                   resultSet.getFloat("current_ratio"));
+           specificsector.add(stockSectorVO);
 
+
+       }
+
+
+   }
 }
