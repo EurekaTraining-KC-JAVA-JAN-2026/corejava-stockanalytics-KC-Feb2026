@@ -1,0 +1,71 @@
+package com.eurekaAccounts.stocks.vo;
+
+public class StockFundamentalsVO {
+    public String tickerSymbol;
+    public int sectorId;
+    public int subSectorId;
+    public long marketCap;
+    public float currentRation;
+
+    public StockFundamentalsVO(String tickerSymbol, int sectorId, long marketCap, int subSectorId, float currentRation) {
+        this.tickerSymbol = tickerSymbol;
+        this.sectorId = sectorId;
+        this.marketCap = marketCap;
+        this.subSectorId = subSectorId;
+        this.currentRation = currentRation;
+    }
+
+    public StockFundamentalsVO() {
+    }
+
+    public String getTickerSymbol() {
+        return tickerSymbol;
+    }
+
+    public void setTickerSymbol(String tickerSymbol) {
+        this.tickerSymbol = tickerSymbol;
+    }
+
+    public int getSectorId() {
+        return sectorId;
+    }
+
+    public void setSectorId(int sectorId) {
+        this.sectorId = sectorId;
+    }
+
+    public int getSubSectorId() {
+        return subSectorId;
+    }
+
+    public void setSubSectorId(int subSectorId) {
+        this.subSectorId = subSectorId;
+    }
+
+    public long getMarketCap() {
+        return marketCap;
+    }
+
+    public void setMarketCap(long marketCap) {
+        this.marketCap = marketCap;
+    }
+
+    public float getCurrentRation() {
+        return currentRation;
+    }
+
+    public void setCurrentRation(float currentRation) {
+        this.currentRation = currentRation;
+    }
+
+    @Override
+    public String toString() {
+        return "StockFundamentalsVO{" +
+                "tickerSymbol='" + tickerSymbol + '\'' +
+                ", sectorId=" + sectorId +
+                ", subSectorId=" + subSectorId +
+                ", marketCap=" + marketCap +
+                ", currentRation=" + currentRation +
+                '}'+'\n';
+    }
+}
