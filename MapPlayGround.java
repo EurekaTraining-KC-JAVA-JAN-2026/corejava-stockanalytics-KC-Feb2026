@@ -57,6 +57,6 @@ public class MapPlayGround {
         stocklist2.put(new String("nvda"),new stocks("aapl",23));
         System.out.println(stocklist2);
 
-        
+
     }
 }
