@@ -19,14 +19,14 @@ public class JDBCPlayGround {
         getAllSectors(connection);
         getAllSubsectors(connection);
         getSpecificSector(connection);
-        getSpecificStockFundamental(connection);
+        getSpecificStockFundamental(connection, "AAPL");
     }
 
     private static void getSpecificSector(Connection connection) throws SQLException {
         String sqlQuery3 = """
                 select
                 	*
-                	from endeavour.sector_lookup sl where sl.sector_name = 'Technology';
+                	from endeavour.sector_lookup sl where sl.sector_name = ?;
                 """;
         PreparedStatement preparedStatement = connection.prepareStatement(sqlQuery3);
         ResultSet resultSet = preparedStatement.executeQuery();
@@ -41,15 +41,16 @@ public class JDBCPlayGround {
         System.out.println("Assignment for getSpecificSector" +specificSector);
     }
 
-    private static void getSpecificStockFundamental(Connection connection) throws SQLException {
+    private static void getSpecificStockFundamental(Connection connection, String tickerSymbol) throws SQLException {
         //String tickerSymbol = "AAPL";
         String sqlQuery2 = """
                 select
                 	*
-                	from endeavour.stock_fundamentals sf where sf.ticker_symbol = 'AAPL' ;
+                	from endeavour.stock_fundamentals sf where sf.ticker_symbol = ?;
                 
                 """;
         PreparedStatement preparedStatement = connection.prepareStatement(sqlQuery2);
+        preparedStatement.setString(1,tickerSymbol);
         ResultSet resultSet = preparedStatement.executeQuery();
 
         List<StockfundamentalVO> specificstock = new ArrayList<>();
