@@ -1,4 +1,5 @@
 import com.eurekaAccounts.stocks.vo.SectorVO;
+import com.eurekaAccounts.stocks.vo.StockFundementalVO;
 import com.eurekaAccounts.stocks.vo.SubSectorVO;
 
 import java.sql.*;
@@ -26,10 +27,11 @@ Password=5LViU5pLkSjRHECec9NF4wRxxV
         getAllSectors(connection);
         getAllSubSectors(connection);
         //Assignment
-       // getSpecificSectorID(connection);
-     //   getSpecificStockFundemental(connection);//specific ticker symbol uh should pass ticker symbol and get all values
+        getSpecificSectorID(connection,34);
+        getSpecificStockFundemental(connection,"AAPL");//specific ticker symbol uh should pass ticker symbol and get all values
         //
     }
+
 
     private static void getAllSubSectors(Connection connection) throws SQLException{
         String sqlQuery = """
@@ -73,4 +75,52 @@ Password=5LViU5pLkSjRHECec9NF4wRxxV
         }
         System.out.println(allSectors);
     }
+
+//specific sector
+    private static void  getSpecificSectorID(Connection connection,int sectorId)throws SQLException {
+        String sqlQuery = """
+                select
+                *
+                from endeavour.sector_lookup sl where sl.sector_id =?;
+                """;
+        PreparedStatement preparedStatement = connection.prepareStatement(sqlQuery);
+        //above we r holding the sql query into an prepared statement
+   preparedStatement.setInt(1,sectorId);
+        ResultSet resultSet = preparedStatement.executeQuery()  ;
+        //executing
+        // System.out.println(resultSet);
+        List<SectorVO> specificSector = new ArrayList<>();
+        while(resultSet.next()){
+            SectorVO sectorVO = new SectorVO();
+            sectorVO.setSectorId(resultSet.getInt("sector_id"));
+            sectorVO.setSectorName(resultSet.getString("sector_name"));
+            specificSector.add(sectorVO);
+        }
+        System.out.println(specificSector);
+    }
+    //specific stock fundemental
+    private static void  getSpecificStockFundemental(Connection connection, String tickerSymbol)throws SQLException {
+        String sqlQuery = """
+                select
+                *
+                from endeavour.stock_fundamentals sf where sf.ticker_symbol =?;
+                """;
+        System.out.println("printing fundemental stocks");
+        PreparedStatement preparedStatement = connection.prepareStatement(sqlQuery);
+        preparedStatement.setString(1,tickerSymbol);
+        //above we r holding the sql query into an prepared statement
+        ResultSet resultSet = preparedStatement.executeQuery()  ;
+        //executing
+        // System.out.println(resultSet);
+        List<StockFundementalVO> allStockList = new ArrayList<>();
+        while(resultSet.next()){
+            StockFundementalVO specificTicker = new StockFundementalVO(resultSet.getString("ticker_symbol"),resultSet.getInt("sector_id"),resultSet.getLong("market_cap"),resultSet.getInt("subsector_id"),resultSet.getBigDecimal("current_ratio"),resultSet.getBigDecimal("price_to_book_ratio") ,resultSet.getBigDecimal("debt_equity_ratio"),resultSet.getBigDecimal("trailing_pe"),resultSet.getBigDecimal("forward_pe"),resultSet.getBigDecimal("insider_ownership"),resultSet.getBigDecimal("roe"),resultSet.getInt("peg"),resultSet.getBigDecimal("epsqq"),resultSet.getBigDecimal("eps_nxtyear"),resultSet.getBigDecimal("eps_ttm"));
+
+
+           allStockList.add(specificTicker);
+        }
+        System.out.println(allStockList);
+    }
+
+
 }
