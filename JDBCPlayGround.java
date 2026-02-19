@@ -1,11 +1,13 @@
 import com.eurekaAccounts.stocks.vo.SectorVO;
 import com.eurekaAccounts.stocks.vo.SubsectorVO;
 
+
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
 public class JDBCPlayGround {
+    public static String jdbcurl;
     private static String jdbcUrl ="jdbc:postgresql://endeavourtech.ddns.net:50271/StocksDB";
     private static String userName = "evr_sql_app";
     private static String password = "5LViU5pLkSjRHECec9NF4wRxxV";
@@ -16,13 +18,29 @@ public class JDBCPlayGround {
         getAllSectors(connection);
         getAllSubSectors(connection);
 
+
+
 //       Assignment
 //       getSpecificSectorID(connection);
 //       getSpecificStockFundamental(connection);
 //        Use Ticker Symbol
 
-
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     private static void getAllSubSectors(Connection connection) throws SQLException {
         String sqlQuery = """
