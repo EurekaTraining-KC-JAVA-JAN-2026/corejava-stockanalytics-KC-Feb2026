@@ -120,19 +120,23 @@ public class StockFundementalVO {
         this.insiderOwnership = insiderOwnership;
     }
 
-    public BigDecimal getRoe() {
+    public BigDecimal getRoe()
+    {
         return roe;
     }
 
     public void setRoe(BigDecimal roe) {
+
         this.roe = roe;
     }
 
     public int getPeg() {
+
         return peg;
     }
 
     public void setPeg(int peg) {
+
         this.peg = peg;
     }
 

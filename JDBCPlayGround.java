@@ -99,27 +99,50 @@ Password=5LViU5pLkSjRHECec9NF4wRxxV
         System.out.println(specificSector);
     }
     //specific stock fundemental
-    private static void  getSpecificStockFundemental(Connection connection, String tickerSymbol)throws SQLException {
+    private static void  getSpecificStockFundemental(Connection connection, String tickerSymbol) {
         String sqlQuery = """
                 select
                 *
                 from endeavour.stock_fundamentals sf where sf.ticker_symbol =?;
                 """;
         System.out.println("printing fundemental stocks");
-        PreparedStatement preparedStatement = connection.prepareStatement(sqlQuery);
-        preparedStatement.setString(1,tickerSymbol);
-        //above we r holding the sql query into an prepared statement
-        ResultSet resultSet = preparedStatement.executeQuery()  ;
-        //executing
-        // System.out.println(resultSet);
-        List<StockFundementalVO> allStockList = new ArrayList<>();
-        while(resultSet.next()){
-            StockFundementalVO specificTicker = new StockFundementalVO(resultSet.getString("ticker_symbol"),resultSet.getInt("sector_id"),resultSet.getLong("market_cap"),resultSet.getInt("subsector_id"),resultSet.getBigDecimal("current_ratio"),resultSet.getBigDecimal("price_to_book_ratio") ,resultSet.getBigDecimal("debt_equity_ratio"),resultSet.getBigDecimal("trailing_pe"),resultSet.getBigDecimal("forward_pe"),resultSet.getBigDecimal("insider_ownership"),resultSet.getBigDecimal("roe"),resultSet.getInt("peg"),resultSet.getBigDecimal("epsqq"),resultSet.getBigDecimal("eps_nxtyear"),resultSet.getBigDecimal("eps_ttm"));
+       try {
+           PreparedStatement preparedStatement = connection.prepareStatement(sqlQuery);
 
+           preparedStatement.setString(1, tickerSymbol);
+           //above we r holding the sql query into an prepared statement
+           ResultSet resultSet = preparedStatement.executeQuery();
+           //executing
+           // System.out.println(resultSet);
+           List<StockFundementalVO> allStockList = new ArrayList<>();
+           while (resultSet.next()) {
+               StockFundementalVO specificTicker = new StockFundementalVO(resultSet.getString("ticker_symbol"), resultSet.getInt("sector_id"), resultSet.getLong("market_cap"), resultSet.getInt("subsector_id"), resultSet.getBigDecimal("current_ratio"), resultSet.getBigDecimal("price_to_book_ratio"), resultSet.getBigDecimal("debt_equity_ratio"), resultSet.getBigDecimal("trailing_pe"), resultSet.getBigDecimal("forward_pe"), resultSet.getBigDecimal("insider_ownership"), resultSet.getBigDecimal("roe"), resultSet.getInt("peg"), resultSet.getBigDecimal("epsqq"), resultSet.getBigDecimal("eps_nxtyear"), resultSet.getBigDecimal("eps_ttm"));
+               allStockList.add(specificTicker);
+           }
+           System.out.println(allStockList);
+       } catch (SQLException e) {
+           System.out.println("Catch Block");
+           System.out.println(e);
 
-           allStockList.add(specificTicker);
-        }
-        System.out.println(allStockList);
+       }
+       finally {
+           System.out.println("finallyf");
+           System.out.println("i will always run");
+           //connection.close();
+       }
+//      PreparedStatement preparedStatement = connection.prepareStatement(sqlQuery);
+
+//        preparedStatement.setString(1,tickerSymbol);
+//        //above we r holding the sql query into an prepared statement
+//        ResultSet resultSet = preparedStatement.executeQuery()  ;
+//        //executing
+//        // System.out.println(resultSet);
+//        List<StockFundementalVO> allStockList = new ArrayList<>();
+//        while(resultSet.next()){
+//            StockFundementalVO specificTicker = new StockFundementalVO(resultSet.getString("ticker_symbol"),resultSet.getInt("sector_id"),resultSet.getLong("market_cap"),resultSet.getInt("subsector_id"),resultSet.getBigDecimal("current_ratio"),resultSet.getBigDecimal("price_to_book_ratio") ,resultSet.getBigDecimal("debt_equity_ratio"),resultSet.getBigDecimal("trailing_pe"),resultSet.getBigDecimal("forward_pe"),resultSet.getBigDecimal("insider_ownership"),resultSet.getBigDecimal("roe"),resultSet.getInt("peg"),resultSet.getBigDecimal("epsqq"),resultSet.getBigDecimal("eps_nxtyear"),resultSet.getBigDecimal("eps_ttm"));
+//           allStockList.add(specificTicker);
+//        }
+//        System.out.println(allStockList);
     }
 
 
