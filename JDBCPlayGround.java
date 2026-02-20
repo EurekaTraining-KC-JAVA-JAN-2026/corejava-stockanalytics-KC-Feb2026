@@ -28,15 +28,15 @@ public class JDBCPlayGround {
 
         //retrieve the data from the DB
         //getAllSectors(connection);
-        //getAllSubSectors(connection);
-        getSpecificSector(connection);
-        getSpecificStockFundamental(connection);
+        // getAllSubSectors(connection);
+       // getSpecificSector(connection);
+        getSpecificStockFundamental(connection,"GEO");
         //get specific ticker symbol
 
 
     }
 
-    private static void getAllSectors(Connection connection) throws SQLException {
+    private static void getAllSectors(Connection connection)  {
         //we need to pass sql query to connection
         Integer sectorId = 35;
         String sqlQuery = """
@@ -46,28 +46,37 @@ public class JDBCPlayGround {
                
                 
                 """;
-        PreparedStatement preparedStatement = connection.prepareStatement(sqlQuery);
-        preparedStatement.setInt(1, sectorId);
-        //above we are holding the sqlquery into a prepared statement
-        ResultSet resultSet = preparedStatement.executeQuery();//convert from sql to proper query
-        //executing the query and storing as the result set
-        System.out.println(resultSet);
-        //we connected to database, im trying to retrieve sector lookup
-        //database only has query not strings
-        //java understands only strings so,we did typecasting
-        //typecasting here using prepared statement
-        List<SectorVO> allSectors = new ArrayList<>();
-        //above created a list of sector VO
+        try {
 
-        while (resultSet.next()) {   //to iterate over the result set
-            SectorVO sectorVO = new SectorVO(); //object of sectorVO
-            sectorVO.setSectorId(resultSet.getInt("sector_id"));
-            //mapping sector id to the sectorvo object
-            sectorVO.setSectorName(resultSet.getString("sector_name"));
-            allSectors.add(sectorVO);// we are adding it to allsectors
+            PreparedStatement preparedStatement = connection.prepareStatement(sqlQuery);
+            preparedStatement.setInt(1, sectorId);
+            //above we are holding the sqlquery into a prepared statement
+            ResultSet resultSet = preparedStatement.executeQuery();//convert from sql to proper query
+            //executing the query and storing as the result set
+            System.out.println(resultSet);
+            //we connected to database, im trying to retrieve sector lookup
+            //database only has query not strings
+            //java understands only strings so,we did typecasting
+            //typecasting here using prepared statement
+            List<SectorVO> allSectors = new ArrayList<>();
+            //above created a list of sector VO
 
+            while (resultSet.next()) {   //to iterate over the result set
+                SectorVO sectorVO = new SectorVO(); //object of sectorVO
+                sectorVO.setSectorId(resultSet.getInt("sector_id"));
+                //mapping sector id to the sectorvo object
+                sectorVO.setSectorName(resultSet.getString("sector_name"));
+                allSectors.add(sectorVO);// we are adding it to allsectors
+
+            }
+            System.out.println(allSectors);
+        }catch(SQLException e){
+            System.out.println("From Catch");
+            System.out.println(e);
+        }finally{
+            System.out.println("From finally");
+            System.out.println("i will always run");
         }
-        System.out.println(allSectors);
 
 
     }
@@ -125,17 +134,18 @@ public class JDBCPlayGround {
     }
 
 
-    private static void getSpecificStockFundamental(Connection connection) throws SQLException {
+    private static void getSpecificStockFundamental(Connection connection,String tickerSymbol) throws SQLException {
 
         String sqlQuery3 = """
                 select
                 *
                 from
-                endeavour.stock_fundamentals sf where sf.ticker_symbol='GEO';
+                endeavour.stock_fundamentals sf where sf.ticker_symbol= ?;
                 
                 
                 """;
         PreparedStatement preparedStatement3 = connection.prepareStatement(sqlQuery3);
+        preparedStatement3.setString(1,tickerSymbol);
         ResultSet resultSet3 = preparedStatement3.executeQuery();
         System.out.println(resultSet3);
         List<StockFundamentalVO> specificstockVO = new ArrayList<>();
@@ -161,10 +171,10 @@ public class JDBCPlayGround {
 
             specificstockVO.add(stockFundamentalVO);
         }
-        System.out.println("Assignment on getSpecificStockFundamental" + specificstockVO);
+        System.out.println(" getSpecificStockFundamental" + specificstockVO);
     }
 }
-
+//the output will still run but we will get meaningful exceptions in the o/p
 
 
 
