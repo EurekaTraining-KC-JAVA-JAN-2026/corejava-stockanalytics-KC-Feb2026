@@ -77,7 +77,7 @@ public class JDBCPlayGround {
         }
         System.out.println(SpecificStockFundamentlals);
     }
-    private static void getAllSectors(Connection connection) throws SQLException {
+      static void getAllSectors(Connection connection)  {
 //      Integer sector_id=35;
         //preparedstatemt
         String sqlQuerey = """
@@ -86,24 +86,32 @@ public class JDBCPlayGround {
                 from   
                endeavour.sector_lookup sl
               """;
-        PreparedStatement prepareStatement = connection.prepareStatement(sqlQuerey);
+        try {
+            PreparedStatement prepareStatement = connection.prepareStatement(sqlQuerey);
 //        prepareStatement.setInt(1, sector_id);
 
 //        System.out.println(prepareStatement);
-        ResultSet resultSet = prepareStatement.executeQuery();
-        //executing the query the result
+            ResultSet resultSet = prepareStatement.executeQuery();
+            //executing the query the result
 //        System.out.println(resultSet);
-        List<SectorVO> allsectors = new ArrayList<>();
-        while (resultSet.next()) {
+            List<SectorVO> allsectors = new ArrayList<>();
+            while (resultSet.next()) {
 
-            SectorVO sectorVO = new SectorVO();
-            sectorVO.setSector_id(resultSet.getInt("sector_id"));
-            sectorVO.setSector_name(resultSet.getString("sector_name"));
-            allsectors.add(sectorVO);
+                SectorVO sectorVO = new SectorVO();
+                sectorVO.setSector_id(resultSet.getInt("sector_id"));
+                sectorVO.setSector_name(resultSet.getString("sector_name"));
+                allsectors.add(sectorVO);
+            }
+            System.out.println(allsectors);
+        } catch(SQLException e) {
+            System.out.println(e);
+            System.out.println("from catch");
+        }finally{
+            System.out.println();
+//            connection.close();
         }
-        System.out.println(allsectors);
     }
-    private static void getAllSubSectores(Connection connection) throws SQLException {
+     static void getAllSubSectores(Connection connection) throws SQLException {
         String sqlQuerey = """
                select
                *
