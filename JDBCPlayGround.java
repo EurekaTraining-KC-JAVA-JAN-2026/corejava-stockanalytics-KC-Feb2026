@@ -20,10 +20,16 @@ public class JDBCPlayGround {
     private static String password = "5LViU5pLkSjRHECec9NF4wRxxV";
 
     public static void main(String[] args)throws SQLException {
-        Connection connection = DriverManager.getConnection(jdbcUrl,userName,password); // Instance of DB Connection
+        Connection connection = DriverManager.getConnection(jdbcUrl,userName,password);
+        System.out.println(connection);
+        getAllSectors(connection, 35);
+        System.out.println(connection);
+
+
+        // Instance of DB Connection
         // System.out.println(connection);
         // Get the data from DB
-        getAllSectors(connection);
+        //getAllSectors(connection);
         getAllSubSectors(connection);
         getSpecificSectorID(connection); //sectortable
         getSpecificStockFundamental(connection); //Stock Fundamental table
@@ -94,27 +100,36 @@ public class JDBCPlayGround {
 
     }
 
-    private static void getAllSectors(Connection connection) throws SQLException {
+    private static void getAllSectors(Connection connection, int sectorID) throws SQLException {
 
         String sqlQuery = """
                     select
                       *
-                    from endeavour.sector_lookup sl;
+                    from endeavour.sector_lookup sl where sl.sector_id = ?;
                 """;
-        PreparedStatement preparedStatement = connection.prepareStatement(sqlQuery);
-        //preparedStatement.setInt(1,sectorId);
-        //System.out.println(preparedStatement);
-        ResultSet resultSet = preparedStatement.executeQuery();
-        //System.out.println(resultSet);
-        List<SectorVO> allSectors =  new ArrayList<>();
-        while(resultSet.next())//
-        {
-            SectorVO sectorVO = new SectorVO();
-            sectorVO.setSectorId(resultSet.getInt("sector_id"));
-            sectorVO.setSectorName(resultSet.getString("sector_name"));
-            allSectors.add(sectorVO);
+        try{
+            PreparedStatement preparedStatement = connection.prepareStatement(sqlQuery);
+            //preparedStatement.setInt(1,sectorId);
+            //System.out.println(preparedStatement);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            //System.out.println(resultSet);
+            List<SectorVO> allSectors =  new ArrayList<>();
+            while(resultSet.next())//
+            {
+                SectorVO sectorVO = new SectorVO();
+                sectorVO.setSectorId(resultSet.getInt("sector_id"));
+                sectorVO.setSectorName(resultSet.getString("sector_name"));
+                allSectors.add(sectorVO);
+            }
+            System.out.println(allSectors);
+        }catch (SQLException e){
+            System.out.println("FROM CATCH");
+            System.out.println(e);
+        }finally {
+            System.out.println("FINALLY");
+            System.out.println("I will always run");
+            //connection.close();
         }
-        System.out.println(allSectors);
     }
 }
 

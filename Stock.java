@@ -105,7 +105,7 @@ public class Stock {
                 ", marketCap=" + marketCap +
                 ", currentRatio='" + currentRatio + '\'' +
                 ", subsectorId=" + subsectorId +
-                '}';
+                '}'+'\n';
     }
 
 }

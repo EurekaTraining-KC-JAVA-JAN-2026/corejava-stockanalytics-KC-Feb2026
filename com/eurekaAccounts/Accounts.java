@@ -52,4 +52,5 @@ public abstract class Accounts {
     //wont create any memory just registers with method signature
     public abstract void printAccountDetails();
 
+
 }
