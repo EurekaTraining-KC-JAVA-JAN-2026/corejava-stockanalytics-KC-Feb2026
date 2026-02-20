@@ -132,12 +132,14 @@ public class JDBCPlayGround {
                 select
                 *
                 from
-                    endeavour.sector_lookup sl where sl.sector_id = 34;
+                    endeavour.sector_lookup sl where sl.sector_id = ?;
                 """;
-           PreparedStatement preparedStatement = connection.prepareStatement(sqlQuery);
-           // above we r holding the sqlquery into an prepared statement
-           ResultSet resultSet = preparedStatement.executeQuery();
-           // executing the query result
+        try{
+            PreparedStatement preparedStatement = connection.prepareStatement(sqlQuery);
+            preparedStatement.setInt(1,34);
+            // above we r holding the sqlquery into an prepared statement
+            ResultSet resultSet = preparedStatement.executeQuery();
+            // executing the query result
 //           System.out.println(preparedStatement);
 
             List<SectorVO> allSector = new ArrayList<>();
@@ -148,7 +150,13 @@ public class JDBCPlayGround {
                 allSector.add(sectorVO);
             }
             System.out.println(allSector);
+        }catch(SQLException e){
+            System.out.println("finally catch");
+            System.out.println(e.getStackTrace());
+        }finally {
+            System.out.println("finally");
+            System.out.println("i will run anyway");
+            //connection.close();
+        }
     }
-
-
 }
