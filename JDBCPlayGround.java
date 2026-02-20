@@ -14,17 +14,20 @@ public class JDBCPlayGround {
 
         try (Connection conn = DriverManager.getConnection(url, user, password)) {
             // Connection established successfully, you can now create statements and execute queries
-            Connection conn2 = DriverManager.getConnection(url, user, password);
+            //Connection conn2 = DriverManager.getConnection(url, user, password);
             Statement stmt = conn.createStatement();
             System.out.println("Connected to PostgreSQL database");
 
-           getAllSectors(conn2);
-           getAllSubsectors(conn2);
-           getSpecificSector(conn2);
-           getSpecificStockFundamental(conn2);
+         // getAllSectors(conn);
+//           getAllSubsectors(conn2);
+           getSpecificSector(conn);
+//           getSpecificStockFundamental(conn2);
+            conn.close();
         } catch (SQLException e) {
             // Handle exceptions
             System.out.println(e);
+        }finally {
+            System.out.println("Disconnected from PostgreSQL database");
         }
     }
     private static void getAllSectors(Connection conn) throws SQLException {
@@ -72,6 +75,32 @@ public class JDBCPlayGround {
 
         }
         System.out.println(allSubsectors);
+
+
+    }
+
+    public static void getSpecificSector(Connection conn) throws SQLException {
+
+        String sqlQuery = """
+                select 
+                    * 
+                from endeavour.stock_fundamentals where sector_id = 38;
+                """;
+
+        PreparedStatement ps2 = conn.prepareStatement(sqlQuery);
+        ResultSet rs2 = ps2.executeQuery();
+        List<Stock> allStocks = new ArrayList<>();
+        while (rs2.next()) {
+            Stock stock = new Stock();
+            stock.setTickerSymbol(rs2.getString("ticker_symbol"));
+            stock.setSectorId(rs2.getInt("sector_id"));
+            stock.setSubSectorId(rs2.getInt("subsector_id"));
+
+            allStocks.add(stock);
+
+        }
+
+        System.out.println(allStocks);
 
 
     }
