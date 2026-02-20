@@ -20,11 +20,11 @@ public class JDBCPlayGround {
 
     public static void main(String[] args) throws SQLException {
         Connection connection = DriverManager.getConnection(jdbcurl, userName, password);//instance of Db connection
-//        System.out.println(connection);
-//        getAllSectors(connection);
+        System.out.println(connection);
+        getAllSectors(connection);
 //        getAllSubSectors(connection);
-        getSpecificSectorID(connection, 35);
-        getSpecificStockFundemental(connection,"AAPL");
+//        getSpecificSectorID(connection, 35);
+//        getSpecificStockFundemental(connection,"AAPL");
 
     }
 
@@ -105,19 +105,29 @@ public class JDBCPlayGround {
                 from
                 	endeavour.sector_lookup sl
                 """;
-        //storing the sql query
-        PreparedStatement preparedStatement = connection.prepareStatement(sqlQuery);
-        ResultSet resultSet = preparedStatement.executeQuery();
-        //executing and printing it
-        System.out.println(resultSet);
-        List<SectorVO> allSectors = new ArrayList<>();
-        while (resultSet.next()) {
-            SectorVO sectorVO = new SectorVO();
-            sectorVO.setSectorId(resultSet.getInt("sector_id"));
-            sectorVO.setSectorName(resultSet.getString("sector_name"));
-            allSectors.add(sectorVO);
+       try{
+           //storing the sql query
+           int x = 10/0;
+           PreparedStatement preparedStatement = connection.prepareStatement(sqlQuery);
+           ResultSet resultSet = preparedStatement.executeQuery();
+           //executing and printing it
+           System.out.println(resultSet);
+           List<SectorVO> allSectors = new ArrayList<>();
+           while (resultSet.next()) {
+               SectorVO sectorVO = new SectorVO();
+               sectorVO.setSectorId(resultSet.getInt("sector_id"));
+               sectorVO.setSectorName(resultSet.getString("sector_name"));
+               allSectors.add(sectorVO);
+           }
+           System.out.println(allSectors);
+       }
+       catch(SQLException e){
+           System.out.println("FROM catch");
+           System.out.println(e);
         }
-        System.out.println(allSectors);
+       finally {
+           System.out.println("Finally");
+       }
     }
 
 
