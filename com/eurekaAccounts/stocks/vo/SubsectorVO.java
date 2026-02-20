@@ -46,4 +46,7 @@ package com.eurekaAccounts.stocks.vo;
         public void setSectorId(int sectorId) {
             this.sectorId = sectorId;
         }
+
+        public void setSectorid(int sectorId) {
+        }
     }
