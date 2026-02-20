@@ -1,82 +1,73 @@
 package com.eurekaAccounts.stocksVO;
 
-public class StocksectorVO {
-    public StocksectorVO(String tickersymbol, int sectorid, int marketcap, int subsectorid, double pricetobookratio, float currentratio) {
-        this.tickersymbol = tickersymbol;
-        this.sectorid = sectorid;
-        //this.marketcap = marketcap;
-        this.subsectorid = subsectorid;
-        this.pricetobookratio = pricetobookratio;
-        this.currentratio = currentratio;
+import com.eurekaAccounts.BigDecimal;
+
+public class StocksectorVO{
+    public String tickerSymbol;
+    public int sectorId;
+    public int subSectorId;
+    public long marketCap;
+    public float currentRatio;
+
+    public StocksectorVO() {
     }
 
-    public StocksectorVO(String tickerSymbol, int sectorId, int subsectorId, float currentRatio, double priceToBookRatio) {
+    public StocksectorVO(String tickerSymbol, int sectorId, int subSectorId, long marketCap, float currentRatio) {
+        this.tickerSymbol = tickerSymbol;
+        this.sectorId = sectorId;
+        this.subSectorId = subSectorId;
+        this.marketCap = marketCap;
+        this.currentRatio = currentRatio;
     }
 
-    public String getTickersymbol() {
-        return tickersymbol;
+    public String getTickerSymbol() {
+        return tickerSymbol;
     }
 
-    public void setTickersymbol(String tickersymbol) {
-        this.tickersymbol = tickersymbol;
+    public void setTickerSymbol(String tickerSymbol) {
+        this.tickerSymbol = tickerSymbol;
     }
 
-    public int getSectorid() {
-        return sectorid;
+    public int getSectorId() {
+        return sectorId;
     }
 
-    public void setSectorid(int sectorid) {
-        this.sectorid = sectorid;
+    public void setSectorId(int sectorId) {
+        this.sectorId = sectorId;
     }
 
-    public int getSubsectorid() {
-        return subsectorid;
+    public int getSubSectorId() {
+        return subSectorId;
     }
 
-    public void setSubsectorid(int subsectorid) {
-        this.subsectorid = subsectorid;
+    public void setSubSectorId(int subSectorId) {
+        this.subSectorId = subSectorId;
     }
 
-   // public int getMarketcap() {
-     //   return (int) marketcap;
-    //}
-
-    //public void setMarketcap(int marketcap) {
-       // this.marketcap = marketcap;
-   // }
-
-    public float getCurrentratio() {
-        return currentratio;
+    public long getMarketCap() {
+        return marketCap;
     }
 
-    public void setCurrentratio(float currentratio) {
-        this.currentratio = currentratio;
+    public void setMarketCap(long marketCap) {
+        this.marketCap = marketCap;
     }
 
-    public double getPricetobookratio() {
-        return pricetobookratio;
+    public float getCurrentRatio() {
+        return currentRatio;
     }
 
-    public void setPricetobookratio(double pricetobookratio) {
-        this.pricetobookratio = pricetobookratio;
+    public void setCurrentRatio(float currentRatio) {
+        this.currentRatio = currentRatio;
     }
-
-    public String  tickersymbol;
-    public int sectorid;
-    public int subsectorid;
-    public long marketcap;
-    public float currentratio;
-    public double pricetobookratio;
 
     @Override
     public String toString() {
-        return "StocksectorVO{" +
-                "tickersymbol='" + tickersymbol + '\'' +
-                ", sectorid=" + sectorid +
-                ", subsectorid=" + subsectorid +
-                //", marketcap=" + marketcap +
-                ", currentratio=" + currentratio +
-                ", pricetobookratio=" + pricetobookratio +
-                '}';
+        return "StockFundementalsVO{" +
+                "tickerSymbol='" + tickerSymbol + '\'' +
+                ", sectorId=" + sectorId +
+                ", subSectorId=" + subSectorId +
+                ", marketCap=" + marketCap +
+                ", currentRatio=" + currentRatio +
+                '}' + '\n';
     }
 }

@@ -18,8 +18,8 @@ public class SectorVO {
         this.sectorName = sectorName;
     }
 
-    public int getSectorId() {
-        return sectorId;
+    public int getSectorId(int sectorId) {
+        return this.sectorId;
     }
 
     public void setSectorId(int sectorId) {
@@ -36,4 +36,6 @@ public class SectorVO {
                 ", sectorName=" + sectorName +
                 '}';
     }
+
+
 }
