@@ -1,26 +1,27 @@
 package com.EurekaAccounts.stocks.vo;
 
-public class SectorVo {
+public class SpecificSector {
     public int sectorId;
     public String sectorName;
 
+    public SpecificSector() {
+    }
 
-    public SectorVo(int sectorId, String sectorName) {
+    public SpecificSector(int sectorId, String sectorName) {
         this.sectorId = sectorId;
         this.sectorName = sectorName;
     }
 
-    public SectorVo() {
+    public static void add(SpecificStockFundamental specificStockFundamental) {
     }
 
     public int getSectorId() {
-        return sectorId;
+        return 0;
     }
 
     public void setSectorId(int sectorId) {
         this.sectorId = sectorId;
     }
-
 
     public String getSectorName() {
         return sectorName;
@@ -32,11 +33,9 @@ public class SectorVo {
 
     @Override
     public String toString() {
-        return "SectorVo{" +
+        return "SpecificSector{" +
                 "sectorId=" + sectorId +
                 ", sectorName='" + sectorName + '\'' +
                 '}';
     }
-
-
 }
