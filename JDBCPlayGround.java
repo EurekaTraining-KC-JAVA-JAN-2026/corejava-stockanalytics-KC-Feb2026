@@ -1,3 +1,4 @@
+import com.eurekaAccounts.stocks.exception.StockException;
 import com.eurekaAccounts.stocks.vo.SectorVO;
 import com.eurekaAccounts.stocks.vo.StockFundamentalsVO;
 import com.eurekaAccounts.stocks.vo.SubSectorVO;
@@ -20,12 +21,13 @@ public class JDBCPlayGround {
 
     public static void main(String[] args) throws SQLException {
         Connection connection = DriverManager.getConnection(jdbcUrl,userName,password);//instance of DB connection
-        //System.out.println(connection);
+        System.out.println(connection);
         //Get the data from DB
-        //getAllSectors(connection);
+        getAllSectors(connection);
+        System.out.println(connection);
         //getAllSubSectors(connection);
        // getSpecificSectorID(connection,"Energy");
-        getSpecificStockFundamental(connection,"TSLA");
+        //getSpecificStockFundamental(connection,"TSLA");
     }
 
     private static void getSpecificStockFundamental(Connection connection, String ticker_symbol) throws SQLException {
@@ -80,9 +82,6 @@ public class JDBCPlayGround {
     }
 
 
-
-
-
     private static void getAllSubSectors(Connection connection) throws SQLException {
         String sqlQuery = """
                 select
@@ -105,25 +104,37 @@ public class JDBCPlayGround {
 
     }
 
-    private static void getAllSectors(Connection connection) throws SQLException {
+    private static void getAllSectors(Connection connection) {
         String sqlQuery = """
                 select
                     *
                     from 
                         endeavour.sector_lookup sl ;
                 """;
-        PreparedStatement preparedStatement =connection.prepareStatement(sqlQuery);
+        try{PreparedStatement preparedStatement =connection.prepareStatement(sqlQuery);
         ResultSet resultSet=preparedStatement.executeQuery();
         //executing query
         //System.out.println(resultSet);
         List<SectorVO> allsectors= new ArrayList<>();
         while(resultSet.next()){
             SectorVO sectorVO = new SectorVO();
-            sectorVO.setSectorId(resultSet.getInt("sector_id"));
+            sectorVO.setSectorId(resultSet.getInt("sector_i"));
             sectorVO.setSectorName(resultSet.getString("sector_name"));
             allsectors.add(sectorVO);
         }
-        System.out.println(allsectors);
+        System.out.println(allsectors);}
+        catch (StockException | SQLException e){
+            System.out.println("From Catch");
+            throw new StockException("An Exeption by fetching data  ",e.getCause());
+
+            //System.out.println(e);
+        }catch (RuntimeException e){
+            throw new StockException("An throwable message  ",e.getCause());
+        }finally {
+            System.out.println("Finally");
+            System.out.println("I will always run");
+            //connection.close();
+        }
 
     }
 }
