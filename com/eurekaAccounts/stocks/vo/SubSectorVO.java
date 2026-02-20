@@ -1,11 +1,11 @@
 package com.eurekaAccounts.stocks.vo;
 
-public class SubsectorVO {
+public class SubSectorVO {
     public int subsectorId;
     public String subSectorName;
     public int sectorId;
 
-    public SubsectorVO() {
+    public SubSectorVO() {
     }
 
     public int getSubsectorId() {
@@ -32,7 +32,7 @@ public class SubsectorVO {
         this.sectorId = sectorId;
     }
 
-    public SubsectorVO(int subsectorId, String subSectorName, int sectorId) {
+    public SubSectorVO(int subsectorId, String subSectorName, int sectorId) {
         this.subsectorId = subsectorId;
         this.subSectorName = subSectorName;
         this.sectorId = sectorId;

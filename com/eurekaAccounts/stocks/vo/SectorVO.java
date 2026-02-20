@@ -33,6 +33,9 @@ public class SectorVO {
         return "SectorVO{" +
                 "sectorId=" + sectorId +
                 ", sectorName='" + sectorName + '\'' +
-                '}' + '\n';
+                '}'+'\n';
+    }
+
+    public void setSubsubectorName(String sectorName) {
     }
 }
