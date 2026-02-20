@@ -49,4 +49,7 @@ public class SubsectorVO {
 
     public void subSectorName(String subsectorName) {
     }
+
+    public void setSubSectorName(String subsectorName) {
+    }
 }

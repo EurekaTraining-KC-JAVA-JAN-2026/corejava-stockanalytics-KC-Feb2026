@@ -22,23 +22,35 @@ public class JDBCPlayGround {
         getSpecificStockFundamental(connection, "AAPL");
     }
 
-    private static void getSpecificSector(Connection connection) throws SQLException {
+    private static void getSpecificSector(Connection connection) {
         String sqlQuery3 = """
                 select
                 	*
-                	from endeavour.sector_lookup sl where sl.sector_name = ?;
+                	from endeavour.sector_lookup sl where sl.sector_name = 'Technology';
                 """;
-        PreparedStatement preparedStatement = connection.prepareStatement(sqlQuery3);
-        ResultSet resultSet = preparedStatement.executeQuery();
 
-        List<SectorVO> specificSector = new ArrayList<>();
-        while (resultSet.next()){
-            SectorVO sectorVO = new SectorVO();
-            sectorVO.setSectorId(resultSet.getInt("sector_id"));
-            sectorVO.setSectorName(resultSet.getString("sector_name"));
-            specificSector.add(sectorVO);
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(sqlQuery3);
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            List<SectorVO> specificSector = new ArrayList<>();
+            while (resultSet.next()) {
+                SectorVO sectorVO = new SectorVO();
+                sectorVO.setSectorId(resultSet.getInt("sector_id"));
+                sectorVO.setSectorName(resultSet.getString("sector_name"));
+                specificSector.add(sectorVO);
+
+            }
+            System.out.println("Assignment for getSpecificSector" + specificSector);
+        }catch ( SQLException e){
+            System.out.println("From Catch");
+            System.out.println(e);
+        }finally {
+            System.out.println("From finally");
+            System.out.println("I will always run");
+            //connection.close();
+
         }
-        System.out.println("Assignment for getSpecificSector" +specificSector);
     }
 
     private static void getSpecificStockFundamental(Connection connection, String tickerSymbol) throws SQLException {
@@ -112,19 +124,29 @@ public class JDBCPlayGround {
                 """;
         //for older versions
         //preparedStatement.setInt(1,sector_id);
-        PreparedStatement preparedStatement = connection.prepareStatement(sqlQuery);
-        //System.out.println(preparedStatement); //this just prints the String
-        ResultSet resultSet = preparedStatement.executeQuery();
-        //executing the query
-        //System.out.println(resultSet);
-        List<SectorVO> allSectors = new ArrayList<>();
-        while (resultSet.next()){
-            SectorVO sectorVO = new SectorVO();
-            sectorVO.setSectorId(resultSet.getInt("sector_id"));
-            sectorVO.setSectorName(resultSet.getString("sector_name"));
-            allSectors.add(sectorVO);
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(sqlQuery);
+            //System.out.println(preparedStatement); //this just prints the String
+            ResultSet resultSet = preparedStatement.executeQuery();
+            //executing the query
+            //System.out.println(resultSet);
+            List<SectorVO> allSectors = new ArrayList<>();
+            while (resultSet.next()) {
+                SectorVO sectorVO = new SectorVO();
+                sectorVO.setSectorId(resultSet.getInt("sector_id"));
+                sectorVO.setSectorName(resultSet.getString("sector_name"));
+                allSectors.add(sectorVO);
+            }
+            System.out.println(allSectors);
+        }catch ( SQLException e){
+            System.out.println("From Catch");
+            System.out.println(e);
+        }finally {
+            System.out.println("From finally");
+            System.out.println("I will always run");
+            //connection.close();
+
         }
-        System.out.println(allSectors);
 
     }
 
