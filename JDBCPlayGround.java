@@ -20,14 +20,12 @@ public class JDBCPlayGround {
 
     public static void main(String[] args) throws SQLException {
         Connection connection = DriverManager.getConnection(jdbcUrl, userName, password);//instance of DB connection
-        //System.out.println(connection);
-        //get the data from DB
+        System.out.println(connection);
         getAllSectors(connection,35);
-//        getSpecificSector(connection);
-//        getSpecificStockFundamental(connection,tickerSymbol);
+        System.out.println(connection);
     }
 
-    private static void getAllSectors(Connection connection,int sectorId) throws SQLException {
+    private static void getAllSectors(Connection connection,int sectorId) {
 
         String sqlQurey = """
                 select
@@ -35,20 +33,29 @@ public class JDBCPlayGround {
                         from
                             endeavour.sector_lookup sl where sl.sector_id = ?;
                 """;
-        PreparedStatement preparedStatement = connection.prepareStatement(sqlQurey);
-        preparedStatement.setInt(1,sectorId);
-        //above we are holding the sqlqurey into an prepared statement
-        ResultSet resultSet = preparedStatement.executeQuery();
-        //excuting the qurey the result
-        System.out.println(resultSet);
-        List<SectorVO> allSectors = new ArrayList<>();
-        while (resultSet.next()){
-            SectorVO sectorVO = new SectorVO();
-            sectorVO.setSectorId(resultSet.getInt("sector_id"));
-            sectorVO.setSectorName(resultSet.getString("sector_name"));
-            allSectors.add(sectorVO);
+        try{
+            PreparedStatement preparedStatement = connection.prepareStatement(sqlQurey);
+            preparedStatement.setInt(1,sectorId);
+            //above we are holding the sqlqurey into an prepared statement
+            ResultSet resultSet = preparedStatement.executeQuery();
+            //excuting the qurey the result
+            System.out.println(resultSet);
+            List<SectorVO> allSectors = new ArrayList<>();
+                while (resultSet.next()){
+                    SectorVO sectorVO = new SectorVO();
+                    sectorVO.setSectorId(resultSet.getInt("sector_id"));
+                    sectorVO.setSectorName(resultSet.getString("sector_name"));
+                    allSectors.add(sectorVO);
+                }
+            System.out.println(allSectors);
+        }catch (SQLException e){
+            System.out.println("FROM CATCH");
+            System.out.println(e);
+        }finally {
+            System.out.println("FINALLY");
+            System.out.println("I will always run");
+            //connection.close();
         }
-        System.out.println(allSectors);
     }
 
 }
