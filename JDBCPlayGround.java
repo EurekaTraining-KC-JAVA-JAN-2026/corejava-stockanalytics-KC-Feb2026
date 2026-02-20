@@ -121,6 +121,13 @@ public class JDBCPlayGround {
 
             System.out.println("All SubSectors:");
             System.out.println(allSubSectors);
+        } catch (SQLException e){
+            System.out.println("FROM CATCH");
+            System.out.println(e);
+        }finally {
+            System.out.println("I finally rum");
+            System.out.println("I will always run");
+            connection.close();
         }
 
 
