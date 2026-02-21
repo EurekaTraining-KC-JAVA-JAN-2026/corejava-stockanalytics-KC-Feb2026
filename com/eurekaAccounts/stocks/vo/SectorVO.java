@@ -1,6 +1,18 @@
 package com.eurekaAccounts.stocks.vo;
 
-public class SectorVO {
+public class SectorVO implements Comparable<SectorVO> {
+    @Override
+    public int compareTo(SectorVO o) {
+        if(o.sectorId > sectorId){
+            return 1;
+        }else if(o.sectorId < sectorId){
+            return -1;
+        }
+        else {
+            return 0;
+        }
+    }
+
     public int sectorId;
     public String sectorName;
     public int subsectorId;

@@ -14,5 +14,7 @@ public class StockAndAnalytics {
 
         MarketAnalyticsService service2 = new MarketAnalyticsService();
         System.out.println(service2.getAllSubSectorsService());
+
+        //System.out.println(service.getAllStockFundamentalsService());
     }
 }

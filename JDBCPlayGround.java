@@ -18,21 +18,25 @@ public class JDBCPlayGround {
             Statement stmt = conn.createStatement();
             System.out.println("Connected to PostgreSQL database");
 
-         // getAllSectors(conn);
+            // getAllSectors(conn);
 //           getAllSubsectors(conn2);
-           getSpecificSector(conn);
+            getSpecificSector(conn);
 //           getSpecificStockFundamental(conn2);
+
+            getSpecificStockFundamental(conn);
             conn.close();
         } catch (SQLException e) {
             // Handle exceptions
             System.out.println(e);
-        }finally {
+        } finally {
             System.out.println("Disconnected from PostgreSQL database");
         }
     }
+
     private static void getAllSectors(Connection conn) throws SQLException {
         String sqlQuery = """
-                            select * 
+                            
+                select * 
                             from endeavour.sector_lookup sl  where sl.sector_id=35;;
                             """;
         PreparedStatement ps1 = conn.prepareStatement(sqlQuery);
@@ -101,6 +105,40 @@ public class JDBCPlayGround {
         }
 
         System.out.println(allStocks);
+
+
+    }
+
+    private static void getSpecificStockFundamental(Connection connection) throws SQLException {
+        String sqlQuery = """
+            select *
+            from endeavour.stock_fundamentals sf
+            where sf.ticker_symbol = ?;
+            """;
+
+        PreparedStatement preparedStatement = connection.prepareStatement(sqlQuery);
+
+        // Set parameter value
+        preparedStatement.setString(1, "AAPL"); // Apple stock symbol
+
+        ResultSet resultSet = preparedStatement.executeQuery();
+
+        List<SectorVO> specificSectorVO = new ArrayList<>();
+
+        while (resultSet.next()) {
+            System.out.println("AAA");
+
+            System.out.println(
+                    resultSet.getString("ticker_symbol") + " " +
+                            resultSet.getInt("sector_id") + " " +
+                            resultSet.getInt("subsector_id") + " " +
+                            resultSet.getBigDecimal("market_cap") + " " +
+                            resultSet.getFloat("debt_equity_ratio") + " " +
+                            resultSet.getDouble("eps_nxtyear") + " " +
+                            resultSet.getFloat("current_ratio")
+            );
+        }
+
 
 
     }

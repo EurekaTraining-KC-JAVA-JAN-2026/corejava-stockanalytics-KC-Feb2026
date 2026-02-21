@@ -56,12 +56,14 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 public class LookUpDAO extends BaseDAO {
 
     public LookUpDAO() throws SQLException {
-        super(); // calls BaseDAO() and initializes this.connection
+        super();
     }
 
     public List<SectorVO> getAllSectorsDAO() throws SQLException {
@@ -69,8 +71,8 @@ public class LookUpDAO extends BaseDAO {
 
         String sqlQuery = """
                 select sector_id, sector_name
-                from endeavour.sector_lookup
-                where sector_id = 35;
+                from endeavour.sector_lookup;
+               
                 """;
 
         try (PreparedStatement ps1 = this.connection.prepareStatement(sqlQuery);
@@ -83,6 +85,7 @@ public class LookUpDAO extends BaseDAO {
                 allSectors.add(sectorVO);
             }
         }
+        Collections.sort(allSectors);
 
         return allSectors;
     }
