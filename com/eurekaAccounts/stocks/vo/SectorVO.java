@@ -1,6 +1,6 @@
 package com.eurekaAccounts.stocks.vo;
 
-public class SectorVO {
+public class SectorVO implements Comparable<SectorVO>{
 
     public int sectorId;
     public String sectorName;
@@ -35,5 +35,12 @@ public class SectorVO {
                 "sectorId=" + sectorId +
                 ", sectorName='" + sectorName + '\'' +
                 '}' + '\n';
+    }
+
+    @Override
+    public int compareTo(SectorVO o) {
+        //return this.sectorName.compareTo(o.sectorName);  //For string alphabetical order.
+        //return o.sectorId - this.sectorId;  //Descending order.
+        return this.sectorId - o.sectorId;
     }
 }

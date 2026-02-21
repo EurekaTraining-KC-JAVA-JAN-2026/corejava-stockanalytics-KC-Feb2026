@@ -1,11 +1,13 @@
 package com.eurekaAccounts.stocks.vo;
 
-public class StockFundamentalVO {
+import java.math.BigDecimal;
+
+public class StockFundamentalVO implements Comparable<StockFundamentalVO>{
 
     public String tickerSymbol;
-    public int sectorId;
-    public int subsectorId;
-    public int marketCap;
+    public BigDecimal sectorId;
+    public BigDecimal subsectorId;
+    public BigDecimal marketCap;
     public float currentRatio;
     public float priceToBookRa;
     public float peg;
@@ -15,7 +17,7 @@ public class StockFundamentalVO {
     public StockFundamentalVO() {
     }
 
-    public StockFundamentalVO(String tickerSymbol, int sectorId, int subsectorId, int marketCap, float currentRatio, float priceToBookRa, float peg, float epsqq, float epsNxtYear) {
+    public StockFundamentalVO(String tickerSymbol, BigDecimal sectorId, BigDecimal subsectorId, BigDecimal marketCap, float currentRatio, float priceToBookRa, float peg, float epsqq, float epsNxtYear) {
         this.tickerSymbol = tickerSymbol;
         this.sectorId = sectorId;
         this.subsectorId = subsectorId;
@@ -35,27 +37,27 @@ public class StockFundamentalVO {
         this.tickerSymbol = tickerSymbol;
     }
 
-    public int getSectorId() {
+    public BigDecimal getSectorId() {
         return sectorId;
     }
 
-    public void setSectorId(int sectorId) {
+    public void setSectorId(BigDecimal sectorId) {
         this.sectorId = sectorId;
     }
 
-    public int getSubsectorId() {
+    public BigDecimal getSubsectorId() {
         return subsectorId;
     }
 
-    public void setSubsectorId(int subsectorId) {
+    public void setSubsectorId(BigDecimal subsectorId) {
         this.subsectorId = subsectorId;
     }
 
-    public int getMarketCap() {
+    public BigDecimal getMarketCap() {
         return marketCap;
     }
 
-    public void setMarketCap(int marketCap) {
+    public void setMarketCap(BigDecimal marketCap) {
         this.marketCap = marketCap;
     }
 
@@ -112,5 +114,10 @@ public class StockFundamentalVO {
                 ", epsqq=" + epsqq +
                 ", epsNxtYear=" + epsNxtYear +
                 '}' + '\n';
+    }
+
+    @Override
+    public int compareTo(StockFundamentalVO o) {
+        return o.marketCap.compareTo(this.marketCap);
     }
 }

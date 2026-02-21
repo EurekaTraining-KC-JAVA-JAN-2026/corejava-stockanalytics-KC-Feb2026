@@ -44,9 +44,9 @@ public class JDBCPlayGround1 {
         while (resultSet.next()) {
             StockFundamentalVO stockFundamentalVO = new StockFundamentalVO();
             stockFundamentalVO.setTickerSymbol(resultSet.getString("ticker_symbol"));
-            stockFundamentalVO.setSectorId(resultSet.getInt("sector_id"));
-            stockFundamentalVO.setSubsectorId(resultSet.getInt("subsector_id"));
-            stockFundamentalVO.setMarketCap(resultSet.getInt("market_cap"));
+//            stockFundamentalVO.setSectorId(resultSet.getInt("sector_id"));
+//            stockFundamentalVO.setSubsectorId(resultSet.getInt("subsector_id"));
+//            stockFundamentalVO.setMarketCap(resultSet.getInt("market_cap"));
             stockFundamentalVO.setCurrentRatio(resultSet.getFloat("current_ratio"));
             stockFundamentalVO.setPriceToBookRa(resultSet.getFloat("price_to_book_ratio"));
             stockFundamentalVO.setPeg(resultSet.getFloat("peg"));
