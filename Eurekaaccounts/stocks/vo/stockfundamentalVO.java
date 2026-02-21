@@ -1,6 +1,6 @@
 package Eurekaaccounts.stocks.vo;
 
-public class stockfundamental {
+public class stockfundamentalVO implements Comparable<stockfundamentalVO>{
     public String ticker_symbol;
     public int sector_id;
     public int subsector_id;
@@ -18,10 +18,10 @@ public class stockfundamental {
     private double forward_pe;
 
 
-    public stockfundamental() {
+    public stockfundamentalVO() {
     }
 
-    public stockfundamental(String ticker_symbol, int sector_id, int subsector_id, long market_cap, double current_ratio, double price_to_book_ratio, float peg, double epsqq, double eps_nxtyear, double eps_ttm, double roe, double insider_ownership, double debt_equity_ratio, double trailing_Pe, double forward_pe) {
+    public stockfundamentalVO(String ticker_symbol, int sector_id, int subsector_id, long market_cap, double current_ratio, double price_to_book_ratio, float peg, double epsqq, double eps_nxtyear, double eps_ttm, double roe, double insider_ownership, double debt_equity_ratio, double trailing_Pe, double forward_pe) {
         this.ticker_symbol = ticker_symbol;
         this.sector_id = sector_id;
         this.subsector_id = subsector_id;
@@ -179,6 +179,8 @@ public class stockfundamental {
                 ", forward_pe=" + forward_pe +
                 '}';
     }
-
-
+    @Override
+    public int compareTo(stockfundamentalVO o) {
+        return this.ticker_symbol .compareTo(o.ticker_symbol);
+    }
 }

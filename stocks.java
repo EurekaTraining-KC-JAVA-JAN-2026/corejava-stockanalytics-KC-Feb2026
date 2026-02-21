@@ -31,8 +31,6 @@ public class stocks {
     public stocks() {
     }
 
-
-
     public String getTickersymbol() {
         return tickersymbol;
     }

@@ -1,6 +1,6 @@
 import Eurekaaccounts.stocks.vo.SectorVO;
 import Eurekaaccounts.stocks.vo.SubsectorVO;
-import Eurekaaccounts.stocks.vo.stockfundamental;
+import Eurekaaccounts.stocks.vo.stockfundamentalVO;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -56,9 +56,9 @@ public class JDBCPlayGround {
         PreparedStatement prepareStatement=connection.prepareStatement(sqlQuery);
         prepareStatement.setString(1, ticker_symbol);
         ResultSet resultSet=prepareStatement.executeQuery();
-        List<stockfundamental> SpecificStockFundamentlals=new ArrayList<>();
+        List<stockfundamentalVO> SpecificStockFundamentlals=new ArrayList<>();
         while(resultSet.next()){
-            stockfundamental stock1= new stockfundamental();
+            stockfundamentalVO stock1= new stockfundamentalVO();
             stock1.setCurrent_ratio(resultSet.getDouble("current_ratio"));
             stock1.setSubsector_id(resultSet.getInt("sector_id"));
             stock1.setMarket_cap(resultSet.getLong("market_cap"));
@@ -89,7 +89,6 @@ public class JDBCPlayGround {
         try {
             PreparedStatement prepareStatement = connection.prepareStatement(sqlQuerey);
 //        prepareStatement.setInt(1, sector_id);
-
 //        System.out.println(prepareStatement);
             ResultSet resultSet = prepareStatement.executeQuery();
             //executing the query the result

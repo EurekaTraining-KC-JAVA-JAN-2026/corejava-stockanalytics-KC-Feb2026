@@ -21,7 +21,7 @@ public class LookupDAO extends BaseDAO {
         String sqlQuerey = """
                select
                *
-                fro  
+                from
                endeavour.sector_lookup sl
               """;
         try {
