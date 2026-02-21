@@ -9,6 +9,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import static java.sql.DriverManager.getConnection;
 public class LookupDAO extends BaseDAO {
     BaseDAO baseDAO = new BaseDAO();
     public LookupDAO() throws SQLException {
@@ -18,7 +19,8 @@ public class LookupDAO extends BaseDAO {
         String sqlQuery = """
                 select
                 *
-                from endeavour.sector_lookup sl;
+                from 
+                    endeavour.sector_lookup sl;
                 """;
         try
         {
@@ -26,7 +28,8 @@ public class LookupDAO extends BaseDAO {
             //preparedStatement.setInt(1,sectorId);
             //System.out.println(preparedStatement);
             ResultSet resultSet = preparedstatement.executeQuery();
-            //System.out.println(resultSet);
+            //excuting the query the result
+            System.out.println(resultSet);
 
 
             while(resultSet.next())
@@ -36,12 +39,16 @@ public class LookupDAO extends BaseDAO {
                 sectorVO.setSectorName(resultSet.getString("sector_name"));
                 allSectors.add(sectorVO);
             }
+            //system.out.println(allsectors);
 
         }
         catch (StockException | SQLException e)
         {
             System.out.println("catch block");
-            throw new StockException("An exception occured while fetching data from database");
+            throw new StockException("An exception occured while fetching data from database",e.getCause());
+          //throw new stockException("An throwable message",e.getCause());
+            //system.out.println(e.getstackTrace());
+            //System.out.println(e);
         }
         catch (RuntimeException e)
         {
@@ -50,7 +57,7 @@ public class LookupDAO extends BaseDAO {
         finally {
             System.out.println("Finally");
             System.out.println("I will always run");
-
+            //connection.close();
         }
         return allSectors;
     }
@@ -69,7 +76,8 @@ public class LookupDAO extends BaseDAO {
         ResultSet resultSet = preparedStatement2.executeQuery();
         //System.out.println(resultSet);
 
-        while(resultSet.next()) {
+        while(resultSet.next())
+        {
             SectorVO sectorVO = new SectorVO();
             sectorVO.setSectorId(resultSet.getInt("sector_id"));
             sectorVO.setSectorName(resultSet.getString("sector_name"));

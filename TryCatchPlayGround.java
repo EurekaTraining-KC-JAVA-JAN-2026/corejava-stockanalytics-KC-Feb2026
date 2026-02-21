@@ -8,7 +8,7 @@ public class TryCatchPlayGround {
          */
         try {
             System.out.println("Divded by Zero:" +10/0);
-        }catch (ArithmeticException e){
+        }catch (ArithmeticException | NullPointerException e){
             System.out.println(e.getStackTrace());
             System.out.println("divison with zero is not possible");
         }finally {

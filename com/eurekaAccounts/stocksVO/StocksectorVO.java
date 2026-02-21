@@ -2,7 +2,7 @@ package com.eurekaAccounts.stocksVO;
 
 import com.eurekaAccounts.BigDecimal;
 
-public class StocksectorVO{
+public class StocksectorVO implements Comparable<StocksectorVO>{
     public String tickerSymbol;
     public int sectorId;
     public int subSectorId;
@@ -62,12 +62,29 @@ public class StocksectorVO{
 
     @Override
     public String toString() {
-        return "StockFundementalsVO{" +
+        return "StocksectorVO{" +
                 "tickerSymbol='" + tickerSymbol + '\'' +
                 ", sectorId=" + sectorId +
                 ", subSectorId=" + subSectorId +
                 ", marketCap=" + marketCap +
                 ", currentRatio=" + currentRatio +
                 '}' + '\n';
+    }
+
+    @Override
+    public int compareTo(StocksectorVO o) {
+        if(o.marketCap> this.getMarketCap())
+        {
+            return 1;
+
+        }
+        else if (o.marketCap < this .getMarketCap())
+        {
+            return -1;
+        }
+        else
+        {
+            return 0;
+        }
     }
 }

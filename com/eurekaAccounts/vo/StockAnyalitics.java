@@ -10,8 +10,10 @@ public class StockAnyalitics {
         System.out.println(marketAnyaliticsservices.getAllSectors());
         MarketAnyaliticsservices marketAnyaliticsservices2 = new MarketAnyaliticsservices();
         System.out.println(marketAnyaliticsservices2.getSpecificSectors());
-        //MarketAnyaliticsservices marketAnyaliticsservices3 = new MarketAnyaliticsservices();
-        //System.out.println(marketAnyaliticsservices3.getAllSubSectors());
+        MarketAnyaliticsservices marketAnyaliticsservices3 = new MarketAnyaliticsservices();
+        System.out.println(marketAnyaliticsservices3.getAllSubSectors());
+        MarketAnyaliticsservices marketAnyaliticsservices4 = new MarketAnyaliticsservices();
+        //System.out.println(marketAnyaliticsservices4.getAllStockFundementals());
 
     }
 }
