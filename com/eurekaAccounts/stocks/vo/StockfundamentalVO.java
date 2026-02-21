@@ -2,11 +2,11 @@ package com.eurekaAccounts.stocks.vo;
 
 import java.math.BigDecimal;
 
-public class StockfundamentalVO {
+public class StockfundamentalVO implements Comparable<StockfundamentalVO>{
     public String tickerSymbol;
     public int sectorId;
     public int subSectorId;
-    public BigDecimal marketCap;
+    public float marketCap;
     public BigDecimal currentRatio;
     public BigDecimal priceToBookRatio;
     public BigDecimal Peg;
@@ -19,7 +19,7 @@ public class StockfundamentalVO {
     public BigDecimal trailingPe;
     public BigDecimal forwardPe;
 
-    public StockfundamentalVO(String tickerSymbol, int sectorId, int subSectorId, BigDecimal marketCap, BigDecimal currentRatio, BigDecimal priceToBookRatio, BigDecimal peg, BigDecimal epsqq, BigDecimal epsNxtYear, BigDecimal epsTtm, BigDecimal roe, BigDecimal insiderOwnership, BigDecimal debtEquityRatio, BigDecimal trailingPe, BigDecimal forwardPe) {
+    public StockfundamentalVO(String tickerSymbol, int sectorId, int subSectorId, float marketCap, BigDecimal currentRatio, BigDecimal priceToBookRatio, BigDecimal peg, BigDecimal epsqq, BigDecimal epsNxtYear, BigDecimal epsTtm, BigDecimal roe, BigDecimal insiderOwnership, BigDecimal debtEquityRatio, BigDecimal trailingPe, BigDecimal forwardPe) {
 
         this.tickerSymbol = tickerSymbol;
         this.sectorId = sectorId;
@@ -68,11 +68,11 @@ public class StockfundamentalVO {
         this.subSectorId = subSectorId;
     }
 
-    public BigDecimal getMarketCap() {
+    public float getMarketCap() {
         return marketCap;
     }
 
-    public void setMarketCap(BigDecimal marketCap) {
+    public void setMarketCap(float marketCap) {
         this.marketCap = marketCap;
     }
 
@@ -184,4 +184,16 @@ public class StockfundamentalVO {
                ", forwardPe=" + forwardPe +
                '}'+'\n';
     }
-}
+
+    @Override
+    public int compareTo(StockfundamentalVO o) {
+        if (o.marketCap>  this.getMarketCap()){
+            return 1;
+        }else if(o.marketCap < this.getMarketCap()){
+            return -1;
+        }
+        else{
+            return 0;
+        }
+    }
+    }

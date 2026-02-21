@@ -72,7 +72,7 @@ public class JDBCPlayGround {
                     resultSet.getString("ticker_symbol"),
                     resultSet.getInt("sector_id"),
                     resultSet.getInt("subsector_id"),
-                    resultSet.getBigDecimal("market_cap"),
+                    resultSet.getFloat("market_cap"),
                     resultSet.getBigDecimal("current_ratio"),
                     resultSet.getBigDecimal("price_to_book_ratio"),
                     resultSet.getBigDecimal("peg"),
@@ -106,7 +106,7 @@ public class JDBCPlayGround {
             SubsectorVO subsectorVO = new SubsectorVO();
             subsectorVO.setSectorId(resultSet.getInt("sector_id"));
             subsectorVO.setSubSectorId(resultSet.getInt("subsector_id"));
-            subsectorVO.subSectorName(resultSet.getString("subsector_name"));
+            subsectorVO.setSubSectorName(resultSet.getString("subsector_name"));
 
             allsubSectors.add(subsectorVO);
 

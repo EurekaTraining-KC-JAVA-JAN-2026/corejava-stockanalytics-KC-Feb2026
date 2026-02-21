@@ -3,7 +3,6 @@ package com.eurekaAccounts.stocks.dao;
 import com.eurekaAccounts.stocks.exception.StockException;
 import com.eurekaAccounts.stocks.vo.SectorVO;
 
-import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -14,20 +13,20 @@ public class LookUpDAO extends BaseDAO{
 
     public LookUpDAO() throws SQLException{
     }
-    public List<SectorVO> getAllSectorsDAO(int sectorId) {
+    public List<SectorVO> getAllSectorsDAO() {
         List<SectorVO> allSectors = new ArrayList<>();
         String sqlQurey = """
                 select
                        	*
                         from
-                            endeavour.sector_lookup sl where sl.sector_id = ?
+                            endeavour.sector_lookup sl;
                 """;
         try{
             PreparedStatement preparedStatement = connection.prepareStatement(sqlQurey);
-            preparedStatement.setInt(1,sectorId);
+            //preparedStatement.setInt(1,sectorId);
             //above we are holding the sqlqurey into an prepared statement
             ResultSet resultSet = preparedStatement.executeQuery();
-            //excuting the qurey the result
+            //executing the query the result
             System.out.println(resultSet);
 
             while (resultSet.next()){

@@ -1,42 +1,21 @@
 package com.eurekaAccounts.stocks.vo;
 
-public class SubsectorVO {
+public class SubsectorVO implements Comparable<SubsectorVO>{
     public int subSectorId;
     public String subSectorName;
     public int sectorId;
 
-    public SubsectorVO(int subSectorId, String sectorName, int sectorId) {
-        this.subSectorId = subSectorId;
-        this.subSectorName = sectorName;
-        this.sectorId = sectorId;
-    }
-
     public SubsectorVO() {
     }
 
-    public int getSubSectorId() {
-        return subSectorId;
-    }
-
-    public void setSubSectorId(int subSectorId) {
-        this.subSectorId = subSectorId;
-    }
-
-    public String getSectorName() {
-        return subSectorName;
-    }
-
-    public void setSectorName(String sectorName) {
-        this.subSectorName = sectorName;
-    }
-
-    public int getSectorId() {
-        return sectorId;
-    }
-
-    public void setSectorId(int sectorId) {
+    public SubsectorVO(int subSectorId, String subSectorName, int sectorId) {
         this.sectorId = sectorId;
+        this.subSectorId = subSectorId;
+        this.subSectorName = subSectorName;
     }
+
+
+
 
     @Override
     public String toString() {
@@ -47,9 +26,35 @@ public class SubsectorVO {
                 '}'+'\n';
     }
 
-    public void subSectorName(String subsectorName) {
+    public int getSubSectorId() {
+        return subSectorId;
     }
 
-    public void setSubSectorName(String subsectorName) {
+    public void setSubSectorId(int subSectorId) {
+        this.subSectorId = subSectorId;
     }
+
+    public String getSubSectorName() {
+        return subSectorName;
+    }
+
+    public void setSubSectorName(String subSectorName) {
+        this.subSectorName = subSectorName;
+    }
+
+    public int getSectorId() {
+        return sectorId;
+    }
+
+    public void setSectorId(int sectorId) {
+        this.sectorId = sectorId;
+    }
+
+
+    @Override
+    public int compareTo(SubsectorVO o) {
+        return this.subSectorName.compareTo(o.subSectorName);
+    }
+
+
 }

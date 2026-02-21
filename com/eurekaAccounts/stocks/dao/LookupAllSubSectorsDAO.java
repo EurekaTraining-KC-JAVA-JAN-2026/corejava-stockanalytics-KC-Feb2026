@@ -22,8 +22,8 @@ public class LookupAllSubSectorsDAO extends BaseDAO {
                 	endeavour.subsector_lookup;
                 
                 """;
-        PreparedStatement preparedStatement = connection.prepareStatement(sqlQuery);
-        ResultSet resultSet = preparedStatement.executeQuery();
+        PreparedStatement preparedStatement1 = connection.prepareStatement(sqlQuery);
+        ResultSet resultSet = preparedStatement1.executeQuery();
         while (resultSet.next()) {
             SubsectorVO subsectorVO = new SubsectorVO();
             subsectorVO.setSectorId(resultSet.getInt("sector_id"));
