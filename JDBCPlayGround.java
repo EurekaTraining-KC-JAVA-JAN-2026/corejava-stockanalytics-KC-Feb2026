@@ -38,8 +38,8 @@ public class JDBCPlayGround {
         while(resultSet.next())
         {
             StockFundamentalVo stockFundementalsVO = new StockFundamentalVo();
-            stockFundementalsVO.setSectorID(resultSet.getInt("sector_id"));
-            stockFundementalsVO.setSubSectorID(resultSet.getInt("subsector_id"));
+            stockFundementalsVO.setSectorId(resultSet.getInt("sector_id"));
+            stockFundementalsVO.setSubSectorId(resultSet.getInt("subsector_id"));
             stockFundementalsVO.setTickerSymbol(resultSet.getString("ticker_symbol"));
             stockFundementalsVO.setMarketCap(resultSet.getLong("market_cap"));
 

@@ -2,12 +2,23 @@ package com.eurekaAccounts.stocks.vo;
 
 import java.math.BigDecimal;
 
-public class StockFundamentalVo {
+public class StockFundamentalVo  implements Comparable<StockFundamentalVo>{
     public String tickerSymbol;
-    public int sectorID;
-    public int subSectorID;
+    public int sectorId;
+    public int subSectorId;
     public long marketCap;
+    public float currentRatio;
 
+    public StockFundamentalVo() {
+    }
+
+    public StockFundamentalVo(String tickerSymbol, int sectorId, int subSectorId, long marketCap, float currentRatio) {
+        this.tickerSymbol = tickerSymbol;
+        this.sectorId = sectorId;
+        this.subSectorId = subSectorId;
+        this.marketCap = marketCap;
+        this.currentRatio = currentRatio;
+    }
 
     public String getTickerSymbol() {
         return tickerSymbol;
@@ -17,20 +28,20 @@ public class StockFundamentalVo {
         this.tickerSymbol = tickerSymbol;
     }
 
-    public int getSectorID() {
-        return sectorID;
+    public int getSectorId() {
+        return sectorId;
     }
 
-    public void setSectorID(int sectorID) {
-        this.sectorID = sectorID;
+    public void setSectorId(int sectorId) {
+        this.sectorId = sectorId;
     }
 
-    public int getSubSectorID() {
-        return subSectorID;
+    public int getSubSectorId() {
+        return subSectorId;
     }
 
-    public void setSubSectorID(int subSectorID) {
-        this.subSectorID = subSectorID;
+    public void setSubSectorId(int subSectorId) {
+        this.subSectorId = subSectorId;
     }
 
     public long getMarketCap() {
@@ -41,25 +52,40 @@ public class StockFundamentalVo {
         this.marketCap = marketCap;
     }
 
+    public float getCurrentRatio() {
+        return currentRatio;
+    }
+
+    public void setCurrentRatio(float currentRatio) {
+        this.currentRatio = currentRatio;
+    }
+
     @Override
     public String toString() {
-        return "StockFundamentalVo{" +
+        return "StockFundementalsVO{" +
                 "tickerSymbol='" + tickerSymbol + '\'' +
-                ", sectorID=" + sectorID +
-                ", subSectorID=" + subSectorID +
+                ", sectorId=" + sectorId +
+                ", subSectorId=" + subSectorId +
                 ", marketCap=" + marketCap +
-                '}';
+                ", currentRatio=" + currentRatio +
+                '}' + '\n';
     }
 
-    public StockFundamentalVo(String tickerSymbol, int sectorID, int subSectorID, long marketCap) {
-        this.tickerSymbol = tickerSymbol;
-        this.sectorID = sectorID;
-        this.subSectorID = subSectorID;
-        this.marketCap = marketCap;
+    @Override
+    public int compareTo(StockFundamentalVo o) {
+        if(o.marketCap > this.getMarketCap())
+        {
+            return 1;
+        }
+        else if(o.marketCap < this.getMarketCap())
+        {
+            return -1;
+        }
+        else {
+            return 0;
+        }
+    }
     }
 
-    public StockFundamentalVo() {
-    }
-}
 
 

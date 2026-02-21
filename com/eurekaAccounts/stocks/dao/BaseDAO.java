@@ -15,7 +15,7 @@ public class BaseDAO {
     public Connection connection;
 
     public BaseDAO() throws SQLException {
-       // System.out.println("He");
+
         try  {
             this.connection = DriverManager.getConnection(jdbcurl, userName, password);
         }

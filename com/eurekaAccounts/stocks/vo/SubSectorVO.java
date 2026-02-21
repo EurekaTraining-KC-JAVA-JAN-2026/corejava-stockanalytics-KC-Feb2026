@@ -1,22 +1,17 @@
 package com.eurekaAccounts.stocks.vo;
 
-public class SubSectorVO {
-    private int subSectorId;
-    private String subSectorName;
-    private int sectorId;
+public class SubSectorVO implements Comparable<SubSectorVO>{
+    public String subSectorName;
+    public int subSectorId;
+    public int sectorId;
 
-    public SubSectorVO(int subSectorId, String subSectorName, int sectorId) {
-        this.subSectorId = subSectorId;
+    public SubSectorVO(String subSectorName, int subSectorId, int sectorId) {
         this.subSectorName = subSectorName;
+        this.subSectorId = subSectorId;
         this.sectorId = sectorId;
     }
 
-    public int getSubSectorId() {
-        return subSectorId;
-    }
-
-    public void setSubSectorId(int subSectorId) {
-        this.subSectorId = subSectorId;
+    public SubSectorVO() {
     }
 
     public String getSubSectorName() {
@@ -27,8 +22,16 @@ public class SubSectorVO {
         this.subSectorName = subSectorName;
     }
 
+    public int getSubSectorId() {
+        return subSectorId;
+    }
+
+    public void setSubSectorId(int subSectorId) {
+        this.subSectorId = subSectorId;
+    }
+
     public int getSectorId() {
-        return sectorId;
+        return subSectorId;
     }
 
     public void setSectorId(int sectorId) {
@@ -38,16 +41,14 @@ public class SubSectorVO {
     @Override
     public String toString() {
         return "SubSectorVO{" +
-                "subSectorId=" + subSectorId +
-                ", subSectorName='" + subSectorName + '\'' +
-                ", sectorId=" + sectorId +
-                '}' +'\n';
+                "subsectorName='" + subSectorName + '\'' +
+                ", subsectorId=" + subSectorId +
+                ", sectorid=" + sectorId +
+                '}' + '\n';
     }
 
-    public SubSectorVO(){
-
-
-
+    @Override
+    public int compareTo(SubSectorVO o) {
+        return this.subSectorName.compareTo(getSubSectorName());
     }
-
 }

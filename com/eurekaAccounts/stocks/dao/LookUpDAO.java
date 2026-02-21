@@ -25,7 +25,7 @@ public class LookUpDAO extends BaseDAO {
         String sqlQuery = """
                 select 
                    * 
-                    from endeavour.sector_lookup ssl;
+                    from endeavour.sector_lookup sl;
                 """;
         try
         {
@@ -39,7 +39,7 @@ public class LookUpDAO extends BaseDAO {
             while(resultSet.next())
             {
                 SectorVO sectorVO = new SectorVO();
-                sectorVO.setSectorId(resultSet.getInt("sectorid"));
+                sectorVO.setSectorId(resultSet.getInt("sector_id"));
                 sectorVO.setSectorName(resultSet.getString("sector_name"));
                 allSectors.add(sectorVO);
             }
