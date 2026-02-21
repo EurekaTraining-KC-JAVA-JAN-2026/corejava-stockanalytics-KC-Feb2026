@@ -2,15 +2,15 @@ package com.Inheritance;
 
 import java.math.BigDecimal;
 
-public class Cuboid implements Shape{
+public class Cuboid implements Shape {
     private BigDecimal length;
     private BigDecimal width;
     private BigDecimal height;
 
-    public Cuboid(BigDecimal length,BigDecimal width,BigDecimal height) {
-        this.length=length;
-        this.width=width;
-        this.height=height;
+    public Cuboid(BigDecimal length, BigDecimal width, BigDecimal height) {
+        this.length = length;
+        this.width = width;
+        this.height = height;
     }
 
     @Override
@@ -20,7 +20,7 @@ public class Cuboid implements Shape{
 
     @Override
     public BigDecimal calculatePerimeter() {
-        return null ;
+        return null;
     }
 
     @Override

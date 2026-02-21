@@ -2,8 +2,9 @@ package com.Assignment2;
 
 import java.math.BigDecimal;
 
-public class Cube implements TwoDimension{
+public class Cube implements TwoDimension {
     BigDecimal side;
+
     public Cube(BigDecimal side) {
         this.side = side;
     }

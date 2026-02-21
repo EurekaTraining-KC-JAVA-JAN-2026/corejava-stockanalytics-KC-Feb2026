@@ -8,10 +8,12 @@ import java.math.BigDecimal;
 //interface are only to hold abstract type of methods, for our benefit it will have a default method(type regular)
 public interface Shape {
     BigDecimal calculateArea();
+
     BigDecimal calculatePerimeter();
+
     BigDecimal calculateCircumferenec();
 
-    default void geometry(){
+    default void geometry() {
         System.out.println("Printing Geometry");
     }
 }

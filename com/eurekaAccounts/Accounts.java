@@ -8,7 +8,7 @@ public abstract class Accounts {
         return "Accounts{" +
                 "accNumber='" + accNumber + '\'' +
                 ", accBalance=" + accBalance +
-                '}'+'\n';
+                '}' + '\n';
     }
 
     /**
@@ -17,11 +17,13 @@ public abstract class Accounts {
      */
     public String accNumber;
     public BigDecimal accBalance;
+
     //one is parameterized
-    public Accounts( String accNumber,BigDecimal accBalance) {
+    public Accounts(String accNumber, BigDecimal accBalance) {
         this.accBalance = accBalance;
         this.accNumber = accNumber;
     }
+
     //one is default
     public Accounts() {
     }
@@ -41,20 +43,26 @@ public abstract class Accounts {
     public void setAccNumber(String accNumber) {
         this.accNumber = accNumber;
     }
+
     //method to depositAmount
-    public BigDecimal depositAmount(BigDecimal deposit){
+    public BigDecimal depositAmount(BigDecimal deposit) {
         setAccBalance(accBalance.add(deposit));
         return getAccBalance();
     }
+
     //method to withdrawAmount
-    public BigDecimal withdrawAmount(BigDecimal withdraw){
+    public BigDecimal withdrawAmount(BigDecimal withdraw) {
         setAccBalance(accBalance.subtract(withdraw));
         return getAccBalance();
     }
-    public void something(){
+
+    public void something() {
 
         //java will some space in my memory//meta space// and also registers method signature
-    };
+    }
+
+    ;
+
     //method to see accountDetails
     //abstarct doesn't have any body
     //wont create any memory just registers with method signature

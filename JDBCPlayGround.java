@@ -1,5 +1,5 @@
 import com.eurekaAccounts.stocks.vo.SectorVO;
-import com.eurekaAccounts.stocks.vo.StockFundementals;
+import com.eurekaAccounts.stocks.vo.StockFundamentals;
 import com.eurekaAccounts.stocks.vo.SubSector;
 
 import java.sql.*;
@@ -86,10 +86,10 @@ public class JDBCPlayGround {
         preparedStatement3.setString(1,tickerSymbol);
         ResultSet resultSet3 = preparedStatement3.executeQuery();
         //System.out.println(resultSet);
-        List<StockFundementals> specificStocks =  new ArrayList<>();
+        List<StockFundamentals> specificStocks =  new ArrayList<>();
         while(resultSet3.next())
         {
-            StockFundementals stockFundementals = new StockFundementals();
+            StockFundamentals stockFundementals = new StockFundamentals();
             stockFundementals.setSectorId(resultSet3.getInt("sector_id"));
             stockFundementals.setSubSectorId(resultSet3.getInt("subsector_id"));
             stockFundementals.setTickerSymbol(resultSet3.getString("ticker_symbol"));
