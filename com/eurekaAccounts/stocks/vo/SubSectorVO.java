@@ -1,53 +1,60 @@
+
 package com.eurekaAccounts.stocks.vo;
 
-public class SubSectorVO {
-    public int subSectorId;
-    public String subSectorName;
-    public int sectorId;
-
-    public SubSectorVO(int subSectorId, String subSectorName, int sectorId) {
-        this.subSectorId = subSectorId;
-        this.subSectorName = subSectorName;
-        this.sectorId = sectorId;
-    }
-
-    public SubSectorVO() {
-
-    }
-
-    public int getSubSectorId() {
-        return subSectorId;
-    }
-
-    public void setSubSectorId(int subSectorId) {
-        this.subSectorId = subSectorId;
-    }
-
-    public String getSubSectorName() {
-        return subSectorName;
-    }
-
-    public void setSubSectorName(String subSectorName) {
-        this.subSectorName = subSectorName;
-    }
-
-    public int getSectorId() {
-        return sectorId;
-    }
-
-    public void setSectorId(int sectorId) {
-        this.sectorId = sectorId;
-    }
+public class SubSectorVO implements Comparable<SubSectorVO>{
+    public String subsectorName;
+    public int subsectorId;
 
     @Override
     public String toString() {
         return "SubSectorVO{" +
-                "subSectorId=" + subSectorId +
-                ", subSectorName='" + subSectorName + '\'' +
-                ", sectorId=" + sectorId +
+                "subsectorName='" + subsectorName + '\'' +
+                ", subsectorId=" + subsectorId +
+                ", sectorid=" + sectorid +
                 '}'+'\n';
     }
+
+    public int sectorid;
+
+    public SubSectorVO(String subsectorName, int subsectorId, int sectorid) {
+        this.subsectorName = subsectorName;
+        this.subsectorId = subsectorId;
+        this.sectorid = sectorid;
+    }
+
+    public SubSectorVO() {
+    }
+
+    public String getSubsectorName() {
+        return subsectorName;
+    }
+
+    public void setSubsectorName(String subsectorName) {
+        this.subsectorName = subsectorName;
+    }
+
+    public int getSubsectorId() {
+        return subsectorId;
+    }
+
+    public void setSubsectorId(int subsectorId) {
+        this.subsectorId = subsectorId;
+    }
+
+    public int getSectorid() {
+        return sectorid;
+    }
+
+    public void setSectorid(int sectorid) {
+        this.sectorid = sectorid;
+    }
+
+
+    @Override
+    public int compareTo(SubSectorVO o) {
+        return this.subsectorName.compareTo(o.getSubsectorName());
+    }
+
+    public void setSubSectorName(String subsectorName) {
+    }
 }
-
-
-

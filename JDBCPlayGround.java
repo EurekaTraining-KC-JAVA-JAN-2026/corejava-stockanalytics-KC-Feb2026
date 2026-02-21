@@ -1,6 +1,5 @@
-import com.eurekaAccounts.stocks.vo.SectLookVO;
 import com.eurekaAccounts.stocks.vo.SectorVO;
-import com.eurekaAccounts.stocks.vo.StockFundamentalVO;
+import com.eurekaAccounts.stocks.vo.StockFundementalsVO;
 import com.eurekaAccounts.stocks.vo.SubSectorVO;
 
 import java.sql.*;
@@ -8,179 +7,121 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class JDBCPlayGround {
-
-    /**
-     * Postgresql
-     * URL:endeavourtech.ddns.net
-     * Database: StocksDB
-     * Port: 50271
-     * Username=evr_sql_app
-     * Password=5LViU5pLkSjRHECec9NF4wRxxV
-     */
     private static String jdbcurl = "jdbc:postgresql://endeavourtech.ddns.net:50271/StocksDB";
     private static String userName = "evr_sql_app";
     private static String password = "5LViU5pLkSjRHECec9NF4wRxxV";
 
-    public static void main(String[] args) throws SQLException {
-        Connection connection = DriverManager.getConnection(jdbcurl, userName, password);
-        //class, we got  connection method and pass these,instance of an db connection
-        // System.out.println(connection);
+    static void main(String[] args) throws SQLException {
+        Connection connection = DriverManager.getConnection(jdbcurl, userName, password);//instance of DB Connection
+        //System.out.println(connection);
+        // retrieve data from DB
+        getAllSectors(connection);
+        getAllSubSectors(connection);
+        getSpecificSectorID(connection);
+        getSpecificStockFundemental(connection,"NFLX");
 
-        //retrieve the data from the DB
-        //getAllSectors(connection);
-        // getAllSubSectors(connection);
-       // getSpecificSector(connection);
-        getSpecificStockFundamental(connection,"GEO");
-        //get specific ticker symbol
 
 
     }
 
-    private static void getAllSectors(Connection connection)  {
-        //we need to pass sql query to connection
-        Integer sectorId = 35;
+    private static void getSpecificStockFundemental(Connection connection, String tickerSymbol) throws SQLException {
         String sqlQuery = """
-                select
-                *
-                from endeavour.sector_lookup sl where sl.sector_id =?;
-               
-                
-                """;
-        try {
+                select 
+                    sf.ticker_symbol, sf.sector_id, sf.subsector_id,sf.market_cap,sf.current_ratio
+                    from endeavour.stock_fundamentals  sf where sf.ticker_symbol = ?;
+               """;
+        PreparedStatement preparedStatement3 = connection.prepareStatement(sqlQuery);
+        preparedStatement3.setString(1,tickerSymbol);
+        ResultSet resultSet = preparedStatement3.executeQuery();
+        //System.out.println(resultSet);
+        List<StockFundementalsVO> specificStocks =  new ArrayList<>();
+        while(resultSet.next())
+        {
+            StockFundementalsVO stockFundementalsVO = new StockFundementalsVO();
+            stockFundementalsVO.setSectorId(resultSet.getInt("sector_id"));
+            stockFundementalsVO.setSubSectorId(resultSet.getInt("subsector_id"));
+            stockFundementalsVO.setTickerSymbol(resultSet.getString("ticker_symbol"));
+            stockFundementalsVO.setMarketCap(resultSet.getLong("market_cap"));
+            stockFundementalsVO.setCurrentRatio(resultSet.getFloat("current_ratio"));
 
-            PreparedStatement preparedStatement = connection.prepareStatement(sqlQuery);
-            preparedStatement.setInt(1, sectorId);
-            //above we are holding the sqlquery into a prepared statement
-            ResultSet resultSet = preparedStatement.executeQuery();//convert from sql to proper query
-            //executing the query and storing as the result set
-            System.out.println(resultSet);
-            //we connected to database, im trying to retrieve sector lookup
-            //database only has query not strings
-            //java understands only strings so,we did typecasting
-            //typecasting here using prepared statement
-            List<SectorVO> allSectors = new ArrayList<>();
-            //above created a list of sector VO
 
-            while (resultSet.next()) {   //to iterate over the result set
-                SectorVO sectorVO = new SectorVO(); //object of sectorVO
-                sectorVO.setSectorId(resultSet.getInt("sector_id"));
-                //mapping sector id to the sectorvo object
-                sectorVO.setSectorName(resultSet.getString("sector_name"));
-                allSectors.add(sectorVO);// we are adding it to allsectors
 
-            }
-            System.out.println(allSectors);
-        }catch(SQLException e){
-            System.out.println("From Catch");
-            System.out.println(e);
-        }finally{
-            System.out.println("From finally");
-            System.out.println("i will always run");
+            specificStocks.add(stockFundementalsVO);
         }
+        System.out.println(specificStocks);
+    }
 
-
+    private static void getSpecificSectorID(Connection connection) throws SQLException {
+        int sectorId = 41;
+        String sqlQuery = """
+                select 
+                   * 
+                    from endeavour.sector_lookup ssl where ssl.sector_id = ?;
+                """;
+        PreparedStatement preparedStatement2 = connection.prepareStatement(sqlQuery);
+        preparedStatement2.setInt(1,sectorId);
+        //System.out.println(preparedStatement);
+        ResultSet resultSet = preparedStatement2.executeQuery();
+        //System.out.println(resultSet);
+        List<SectorVO> specificSectors =  new ArrayList<>();
+        while(resultSet.next())
+        {
+            SectorVO sectorVO = new SectorVO();
+            sectorVO.setSectorId(resultSet.getInt("sector_id"));
+            sectorVO.setSectorName(resultSet.getString("sector_name"));
+            specificSectors.add(sectorVO);
+        }
+        System.out.println(specificSectors);
     }
 
     private static void getAllSubSectors(Connection connection) throws SQLException {
-
-        String sqlQuery1 = """
-                select
-                *
-                from endeavour.subsector_lookup sl;
-               
-                
+        String sqlQuery = """
+                select 
+                   * 
+                    from endeavour.subsector_lookup sl;
                 """;
-        PreparedStatement preparedStatement1 = connection.prepareStatement(sqlQuery1);
-
-        ResultSet resultset1 = preparedStatement1.executeQuery();
-        System.out.println(resultset1);
-        List<SubSectorVO> allsubSectors = new ArrayList<>();
-
-        while (resultset1.next()) {
+        PreparedStatement preparedStatement1 = connection.prepareStatement(sqlQuery);
+        //System.out.println(preparedStatement);
+        ResultSet resultSet = preparedStatement1.executeQuery();
+        //System.out.println(resultSet);
+        List<SubSectorVO> allSubSectors =  new ArrayList<>();
+        while(resultSet.next())
+        {
             SubSectorVO subSectorVO = new SubSectorVO();
-            subSectorVO.setSubSectorId(resultset1.getInt("subsector_id"));
-            subSectorVO.setSectorId(resultset1.getInt("sector_id"));
-            subSectorVO.setSubSectorName(resultset1.getString("subsector_name"));
-            allsubSectors.add(subSectorVO);
+            subSectorVO.setSubsectorName(resultSet.getString("subsector_name"));
+            subSectorVO.setSubsectorId(resultSet.getInt("subsector_id"));
+            subSectorVO.setSectorid(resultSet.getInt("sector_id"));
 
+            allSubSectors.add(subSectorVO);
         }
-        System.out.println(allsubSectors);
+        //System.out.println(allSubSectors);
     }
 
-    private static void getSpecificSector(Connection connection) throws SQLException {
-        String sqlQuery2 = """
-                select
-                  *
-                  from
-                 endeavour.sector_lookup sl where sl.sector_name ='Energy';
-                
-                
+    private static void getAllSectors(Connection connection) throws SQLException {
+
+        String sqlQuery = """
+                select 
+                   * 
+                    from endeavour.sector_lookup ssl;
                 """;
-        PreparedStatement preparedStatement2 = connection.prepareStatement(sqlQuery2);
-        ResultSet resultSet2 = preparedStatement2.executeQuery();
-        System.out.println(resultSet2);
-
-        List<SectLookVO> allsectLookVO = new ArrayList<>();
-        while (resultSet2.next()) {
-            SectLookVO sectLookVO = new SectLookVO();
-            sectLookVO.setSectorId(resultSet2.getInt("sector_id"));
-            sectLookVO.setSectorName(resultSet2.getString("sector_name"));
-            allsectLookVO.add(sectLookVO);
-
-
+        PreparedStatement preparedStatement = connection.prepareStatement(sqlQuery);
+        //preparedStatement.setInt(1,sectorId);
+        //System.out.println(preparedStatement);
+        ResultSet resultSet = preparedStatement.executeQuery();
+        //System.out.println(resultSet);
+        List<SectorVO> allSectors =  new ArrayList<>();
+        while(resultSet.next())
+        {
+            SectorVO sectorVO = new SectorVO();
+            sectorVO.setSectorId(resultSet.getInt("sector_id"));
+            sectorVO.setSectorName(resultSet.getString("sector_name"));
+            allSectors.add(sectorVO);
         }
-        System.out.println(allsectLookVO);
-
-    }
+        //System.out.println(allSectors);
 
 
-    private static void getSpecificStockFundamental(Connection connection,String tickerSymbol) throws SQLException {
-
-        String sqlQuery3 = """
-                select
-                *
-                from
-                endeavour.stock_fundamentals sf where sf.ticker_symbol= ?;
-                
-                
-                """;
-        PreparedStatement preparedStatement3 = connection.prepareStatement(sqlQuery3);
-        preparedStatement3.setString(1,tickerSymbol);
-        ResultSet resultSet3 = preparedStatement3.executeQuery();
-        System.out.println(resultSet3);
-        List<StockFundamentalVO> specificstockVO = new ArrayList<>();
-
-        while (resultSet3.next()) {
-            StockFundamentalVO stockFundamentalVO = new StockFundamentalVO(
-                    resultSet3.getString("ticker_symbol"),
-                    resultSet3.getInt("sector_id"),
-                    resultSet3.getInt("subsector_id"),
-                    resultSet3.getBigDecimal("market_cap"),
-                    resultSet3.getBigDecimal("current_ratio"),
-                    resultSet3.getBigDecimal("price_to_book_ratio"),
-                    resultSet3.getBigDecimal("peg"),
-                    resultSet3.getBigDecimal("epsqq"),
-                    resultSet3.getBigDecimal("eps_nxtyear"),
-                    resultSet3.getBigDecimal("eps_ttm"),
-                    resultSet3.getBigDecimal("roe"),
-                    resultSet3.getBigDecimal("insider_ownership"),
-                    resultSet3.getBigDecimal("debt_equity_ratio"),
-                    resultSet3.getBigDecimal("trailing_pe"),
-                    resultSet3.getBigDecimal("forward_pe"));
-
-
-            specificstockVO.add(stockFundamentalVO);
-        }
-        System.out.println(" getSpecificStockFundamental" + specificstockVO);
     }
 }
-//the output will still run but we will get meaningful exceptions in the o/p
-
-
-
-
-
-
 
 
 

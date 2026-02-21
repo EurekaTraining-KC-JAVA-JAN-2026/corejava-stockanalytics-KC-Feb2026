@@ -2,6 +2,7 @@ package com.eurekaAccounts.stocks.dao;
 
 import com.eurekaAccounts.stocks.exception.StockException;
 import com.eurekaAccounts.stocks.vo.SectorVO;
+import com.eurekaAccounts.stocks.vo.SubSectorVO;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -10,72 +11,90 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class LookUpDAO  extends BaseDAO {
+import static java.sql.DriverManager.getConnection;
+
+public class LookUpDAO extends BaseDAO {
+    BaseDAO baseDAO =  new BaseDAO();
     public LookUpDAO() throws SQLException {
-    }  //it is calling getallsectors on a dao
 
+    }
 
-    public List<SectorVO> getAllSectors() throws SQLException {
-        List<SectorVO> allSectors = new ArrayList<>();
-        //we need to pass sql query to connection
+    public  List<SectorVO> getAllSectors() throws SQLException {
 
+        List<SectorVO> allSectors =  new ArrayList<>();
         String sqlQuery = """
-                select
-                *
-                from endeavour.sector_lookup ssl;
-               
-                
+                select 
+                   * 
+                    from endeavour.sector_lookup ssl;
                 """;
-        try {
+        try
+        {
 
             PreparedStatement preparedStatement = connection.prepareStatement(sqlQuery);
+            //preparedStatement.setInt(1,sectorId);
+            //System.out.println(preparedStatement);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            //System.out.println(resultSet);
 
-            //above we are holding the sqlquery into a prepared statement
-            ResultSet resultSet = preparedStatement.executeQuery();//convert from sql to proper query
-            //executing the query and storing as the result set
-            System.out.println(resultSet);
-            //we connected to database, im trying to retrieve sector lookup
-            //database only has query not strings
-            //java understands only strings so,we did typecasting
-            //typecasting here using prepared statement
-            //List<SectorVO> allSubSectors1 = new ArrayList<>();
-            //above created a list of sector VO
-
-            while (resultSet.next()) {   //to iterate over the result set
-                SectorVO sectorVO = new SectorVO(); //object of sectorVO
+            while(resultSet.next())
+            {
+                SectorVO sectorVO = new SectorVO();
                 sectorVO.setSectorId(resultSet.getInt("sector_id"));
-                //mapping sector id to the sectorvo object
                 sectorVO.setSectorName(resultSet.getString("sector_name"));
-                allSectors.add(sectorVO);// we are adding it to allsectors
-
+                allSectors.add(sectorVO);
             }
-            System.out.println(allSectors);
-        } catch (StockException | SQLException e) {
-            System.out.println("From Catch");
-            throw new StockException(" an exception occured while fetching data from db");
-            //System.out.println(e);
-        } catch(RuntimeException e)
-
-        {
-            throw new StockException("An throwable msg",e.getCause());
-
-
+            //System.out.println(allSectors);
         }
-
-            finally
+        catch (StockException  | SQLException e)
         {
-            System.out.println("From finally");
-            System.out.println("i will always run");
-            //connection.close();
 
+            System.out.println("Catch Block");
+            throw new StockException("An exception occured while fetching data from database");
+            //throw new StockException("An throwable message",e.getCause());
+            //System.out.println(e.getStackTrace());
+            //System.out.println(e);
+        }
+        catch (RuntimeException e)
+        {
+
+            throw new StockException("A throwable message",e.getCause());
+        }
+        finally
+        {
+            System.out.println("Finally");
+            System.out.println("I will always run");
+            //connection.close();
         }
         return allSectors;
+
     }
+
+    public  List<SectorVO> getSpecificSectorID() throws SQLException {
+
+        List<SectorVO> specificSectors =  new ArrayList<>();
+        int sectorId = 41;
+        String sqlQuery = """
+                select 
+                   * 
+                    from endeavour.sector_lookup ssl where ssl.sector_id = ?;
+                """;
+        PreparedStatement preparedStatement2 = connection.prepareStatement(sqlQuery);
+        preparedStatement2.setInt(1,sectorId);
+        //System.out.println(preparedStatement);
+        ResultSet resultSet = preparedStatement2.executeQuery();
+        //System.out.println(resultSet);
+
+        while(resultSet.next())
+        {
+            SectorVO sectorVO = new SectorVO();
+            sectorVO.setSectorId(resultSet.getInt("sector_id"));
+            sectorVO.setSectorName(resultSet.getString("sector_name"));
+            specificSectors.add(sectorVO);
+        }
+
+        return specificSectors;
+    }
+
+
+
 }
-
-
-
-
-
-
-
