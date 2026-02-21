@@ -7,7 +7,9 @@ import java.sql.SQLException;
 public class StockAnalytics {
     public static void main(String[] args) throws SQLException {
         MarketAnalyticsService marketAnalyticsService=new MarketAnalyticsService();
-        System.out.println(marketAnalyticsService.getAllSectorService());
-        //System.out.println(marketAnalyticsService.getAllSubSectorService());
+        //System.out.println(marketAnalyticsService.getAllSectorService());
+        System.out.println(marketAnalyticsService.getAllSubSectorService());
+        //System.out.println(marketAnalyticsService.getAllStockFundamentalService());
+
     }
 }

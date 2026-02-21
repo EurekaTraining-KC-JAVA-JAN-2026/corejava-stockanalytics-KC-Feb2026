@@ -34,7 +34,7 @@ public class LookUpDAO extends BaseDAO {
             sectorVO.setSectorName(resultSet.getString("sector_name"));
             allsectors.add(sectorVO);
         }
-        System.out.println(allsectors);
+        //System.out.println(allsectors);
         return allsectors;
     }
 
