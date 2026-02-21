@@ -85,7 +85,7 @@ public class ControlFlowPlayGround {
         //Switch -> it will run O(log (n))1,2,3,4,5,...n[Time Complexity]  it will directly throw
         //if-else -> it will run O(n)(Time Complexity] it will check 4 times
 
-        Stock sampleStock = new Stock(34,"AAPL" );
+        Stock sampleStock = new Stock("APPL",34 );
         randomStockAdvice(sampleStock);
         randomStockAdvice2(sampleStock);
 

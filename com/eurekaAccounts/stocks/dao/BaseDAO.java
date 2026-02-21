@@ -5,20 +5,25 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class BaseDAO {
-    //base for data access object
     /**
-     * we will put our DB configs here
+     * We will put our configurations here
+     *
      */
-    private static String jdbcUrl = "jdbc:postgresql://endeavourtech.ddns.net:50271/StocksDB";
+    private static String jdbcurl = "jdbc:postgresql://endeavourtech.ddns.net:50271/StocksDB";
     private static String userName = "evr_sql_app";
     private static String password = "5LViU5pLkSjRHECec9NF4wRxxV";
-    public Connection connection;//holding the connection
+    public Connection connection;
 
-    public BaseDAO() {
-        try {
-            connection = DriverManager.getConnection(jdbcUrl, userName, password);
-        }catch (SQLException e){
-            System.out.println("An Exception Ocuured while conneting to DB: "+e);
+    public BaseDAO() throws SQLException {
+
+        try  {
+            this.connection = DriverManager.getConnection(jdbcurl, userName, password);
         }
+        catch (SQLException e)
+        {
+            System.out.println("This is to handle an SQL Exception");
+
+        }
+
     }
 }

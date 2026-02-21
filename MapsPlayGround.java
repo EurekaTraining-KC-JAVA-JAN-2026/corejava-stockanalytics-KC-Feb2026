@@ -23,13 +23,13 @@ public class MapsPlayGround {
        System.out.println(mapStock.equals(mapStock1));
        System.out.println(mapStock1);
        mapStock1.clear();
-       mapStock.putAll(mapStock1);
+       mapStock1.putAll(mapStock);
        System.out.println(mapStock);
        System.out.println(mapStock1);
        System.out.println(mapStock.hashCode());
        System.out.println(mapStock1);
        System.out.println(mapStock.getClass());
-       System.out.println(mapStock.getOrDefault("APPL","Apple"));
+       System.out.println(mapStock.getOrDefault("AAPL","Apple"));
 
 
 
