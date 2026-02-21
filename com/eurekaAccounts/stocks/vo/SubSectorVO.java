@@ -1,6 +1,6 @@
 package com.eurekaAccounts.stocks.vo;
 
-public class SubSectorVO {
+public class SubSectorVO implements Comparable<SubSectorVO>{
     public String subsectorName;
     public int subsectorId;
     public int sectorid;
@@ -45,5 +45,10 @@ public class SubSectorVO {
                 ", subsectorId=" + subsectorId +
                 ", sectorid=" + sectorid +
                 '}' + '\n';
+    }
+
+    @Override
+    public int compareTo(SubSectorVO o) {
+       return this.subsectorName.compareTo(o.getSubsectorName());
     }
 }
