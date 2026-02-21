@@ -1,17 +1,34 @@
-package com.eurekaAccount.sectorVO;
+package com.eurekaAccounts.stocks.StocksVO;
 
 import java.math.BigDecimal;
 
-public class StockFSectorVO {
+public class StockSectorVO {
+    public String tickersymbol;
+    public int sectorId;
+    public int subsectorId;
+    public BigDecimal marketcap;
+    public float currentratio;
 
-    public StockFSectorVO(String tickersymbol, int sectorId, int subsectorId, BigDecimal marketcap, float debtquaityratio, double epsnxtyear, float currentratio) {
+
+    public StockSectorVO(String tickersymbol, int sectorId, int subsectorId, BigDecimal marketcap, float currentratio) {
         this.tickersymbol = tickersymbol;
         this.sectorId = sectorId;
         this.subsectorId = subsectorId;
         this.marketcap = marketcap;
-        this.debtquaityratio = debtquaityratio;
-        this.epsnxtyear = epsnxtyear;
         this.currentratio = currentratio;
+    }
+
+    public StockSectorVO() {
+
+    }
+
+    public StockSectorVO(String tickerSymbol, int sectorId, int subsectorId, BigDecimal marketCap, float debtEquityRatio, double epsNxtyear, float currentRatio) {
+    }
+
+    public StockSectorVO(String s) {
+    }
+
+    public StockSectorVO(BigDecimal marketCap) {
     }
 
     public String getTickersymbol() {
@@ -46,22 +63,6 @@ public class StockFSectorVO {
         this.marketcap = marketcap;
     }
 
-    public float getDebtquaityratio() {
-        return debtquaityratio;
-    }
-
-    public void setDebtquaityratio(float debtquaityratio) {
-        this.debtquaityratio = debtquaityratio;
-    }
-
-    public double getEpsnxtyear() {
-        return epsnxtyear;
-    }
-
-    public void setEpsnxtyear(double epsnxtyear) {
-        this.epsnxtyear = epsnxtyear;
-    }
-
     public float getCurrentratio() {
         return currentratio;
     }
@@ -70,23 +71,15 @@ public class StockFSectorVO {
         this.currentratio = currentratio;
     }
 
-    public String tickersymbol;
-    public int sectorId;
-    public int subsectorId;
-    public BigDecimal marketcap;
-    public float debtquaityratio;
-    public double epsnxtyear;
-    public float currentratio;
+
 
     @Override
     public String toString() {
-        return "StockFSectorVO{" +
+        return "StockSectorVO{" +
                "tickersymbol='" + tickersymbol + '\'' +
                ", sectorId=" + sectorId +
                ", subsectorId=" + subsectorId +
                ", marketcap=" + marketcap +
-               ", debtquaityratio=" + debtquaityratio +
-               ", epsnxtyear=" + epsnxtyear +
                ", currentratio=" + currentratio +
                '}'+'\n';
     }
