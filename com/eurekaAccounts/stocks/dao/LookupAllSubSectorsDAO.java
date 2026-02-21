@@ -26,7 +26,7 @@ public class LookupAllSubSectorsDAO extends BaseDAO{
             SubSectorVO subSectorVO = new SubSectorVO();
             subSectorVO.setSectorId(resultSet.getInt("sector_id"));
             subSectorVO.setSubSectorId(resultSet.getInt("subsector_id"));
-            subSectorVO.setSunSectorName(resultSet.getString("subsector_name"));
+            subSectorVO.setSubSectorName(resultSet.getString("subsector_name"));
             allSubSectors.add(subSectorVO);
         }
         return allSubSectors;

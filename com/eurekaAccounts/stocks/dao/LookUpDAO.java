@@ -14,17 +14,17 @@ public class LookUpDAO extends BaseDAO{
 
     public LookUpDAO() throws SQLException{
     }
-    public List<SectorVO> getAllSectorsDAO(int sectorId) {
+    public List<SectorVO> getAllSectorsDAO() {
         List<SectorVO> allSectors = new ArrayList<>();
         String sqlQurey = """
                 select
                        	*
                         from
-                            endeavour.sector_lookup sl where sl.sector_id = ?;
+                            endeavour.sector_lookup sl ;
                 """;
         try{
             PreparedStatement preparedStatement = connection.prepareStatement(sqlQurey);
-            preparedStatement.setInt(1,sectorId);
+           // preparedStatement.setInt(1,sectorId);
             //above we are holding the sqlqurey into an prepared statement
             ResultSet resultSet = preparedStatement.executeQuery();
             //excuting the qurey the result
@@ -32,7 +32,7 @@ public class LookUpDAO extends BaseDAO{
 
             while (resultSet.next()){
                 SectorVO sectorVO = new SectorVO();
-                sectorVO.setSectorId(resultSet.getInt("sectorid"));
+                sectorVO.setSectorId(resultSet.getInt("sector_id"));
                 sectorVO.setSectorName(resultSet.getString("sector_name"));
                 allSectors.add(sectorVO);
             }
