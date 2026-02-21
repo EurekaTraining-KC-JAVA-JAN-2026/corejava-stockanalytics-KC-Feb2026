@@ -12,18 +12,18 @@ public class LookUpSubsectorDAO extends BaseDAO {
     public LookUpSubsectorDAO() throws SQLException {
     }
 
-    public List<SubSectorVO> getAllSubSectorsDAO(int sector_id){
+    public List<SubSectorVO> getAllSubSectorsDAO(){
             List<SubSectorVO> allSubSectors=new ArrayList<>();
             String sqlQuery= """
                  select *
                       from endeavour.subsector_lookup sl
-                      where sector_id=?
+                   
                  """;
             // holding subquery
             try {
 
                 PreparedStatement preparedStatement = connection.prepareStatement(sqlQuery);
-                preparedStatement.setInt(1, sector_id);
+                //preparedStatement.setInt(1, sector_id);
                 //execute the query
                 ResultSet resultSet = preparedStatement.executeQuery();
 

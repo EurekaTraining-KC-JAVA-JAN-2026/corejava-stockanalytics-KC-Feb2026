@@ -1,6 +1,6 @@
 package eurekaAccounts.stocks.vo;
 
-public class StockFundamentalsVO {
+public class StockFundamentalsVO implements Comparable<StockFundamentalsVO> {
     public String ticker_symbol;
     public int sector_id;
     public int subsector_id;
@@ -181,5 +181,12 @@ public class StockFundamentalsVO {
                 ", trailing_pe=" + trailing_pe +
                 ", forward_pe=" + forward_pe +
                 '}'+'\n';
+    }
+
+    @Override
+    public int compareTo(StockFundamentalsVO o) {
+        return Double.compare(o.market_cap, this.market_cap);
+
+
     }
 }

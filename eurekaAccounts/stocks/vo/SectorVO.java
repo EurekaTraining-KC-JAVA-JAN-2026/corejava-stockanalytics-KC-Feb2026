@@ -1,6 +1,6 @@
 package eurekaAccounts.stocks.vo;
 
-public class SectorVO {
+public class SectorVO implements Comparable<SectorVO> {
     public int sector_id;
     public String sector_name;
 
@@ -34,5 +34,18 @@ public class SectorVO {
                 "sector_id=" + sector_id +
                 ", sector_name='" + sector_name + '\'' +
                 '}' +'\n';
+    }
+
+
+    @Override
+    public int compareTo(SectorVO o) {
+       if(o.sector_id > this.getSectorId()){
+          return 1;
+       } else if (o.sector_id<this.getSectorId()) {
+           return -1;
+       }
+       else{
+           return 0;
+       }
     }
 }

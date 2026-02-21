@@ -15,17 +15,17 @@ public class LookUpDAO extends BaseDAO {
 
 
 
-    public List<SectorVO> getAllSectorsDAO(int sector_id)  {
+    public List<SectorVO> getAllSectorsDAO()  {
         List<SectorVO> allSectors = new ArrayList<>();
         String sqlQuery= """
                  select * 
                    from endeavour.sector_lookup sl
-                   where sector_id=?
+                  
                  """;
         //connected to a database
        try {
            PreparedStatement preparedStatement = connection.prepareStatement(sqlQuery);
-           preparedStatement.setInt(1,sector_id);
+           //preparedStatement.setInt(1,sector_id);
            ResultSet resultSet = preparedStatement.executeQuery();
            // System.out.println(resultSet);
              while (resultSet.next()) {
