@@ -22,7 +22,7 @@ public class BaseDAO {
         try {
             this.connection = DriverManager.getConnection(jdbcUrl, userName, password);
         }catch(SQLException e){
-            System.out.println("An Exception occured while connecting to DB");
+            System.out.println("Anxception occured while connecting to DB");
         }
     }
 }

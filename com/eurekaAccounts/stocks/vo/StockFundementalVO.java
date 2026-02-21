@@ -2,8 +2,13 @@ package com.eurekaAccounts.stocks.vo;
 
 import java.math.BigDecimal;
 
-public class StockFundementalVO {
+public class StockFundementalVO implements Comparable<StockFundementalVO>{
+    public StockFundementalVO() {
+
+    }
+
     public String getTickerSymbol() {
+
         return tickerSymbol;
     }
 
@@ -12,6 +17,7 @@ public class StockFundementalVO {
     }
 
     public int getSectorID() {
+
         return sectorID;
     }
 
@@ -180,5 +186,16 @@ public class StockFundementalVO {
         this.epsqq = epsqq;
         this.epsNxtyear = epsNxtyear;
         this.epsTtm = epsTtm;
+    }
+
+    @Override
+    public int compareTo(StockFundementalVO o) {
+       if(o.marketCap > this.getMarketCap()){
+           return 1;
+       }else if(o.marketCap < this.getMarketCap()){
+           return -1;
+       } else{
+           return 0;
+       }
     }
 }
