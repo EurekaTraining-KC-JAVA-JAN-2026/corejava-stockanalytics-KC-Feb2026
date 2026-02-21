@@ -8,28 +8,28 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class LookupAllSubSectorsDAO extends BaseDAO{
-    public LookupAllSubSectorsDAO(){
+public class LookUpAllSubSectorsDAO extends BaseDAO{
+    public LookUpAllSubSectorsDAO() {
     }
+
     public List<SubSectorVO> getAllSubSectorsDAO() throws SQLException{
         List<SubSectorVO> allSubSectors = new ArrayList<>();
         String sqlQuery = """
-                select
-                	*
+                select 
+                *
                 from
-                	endeavour.subsector_lookup sl;
-                
+                endeavour.subsector_lookup;
                 """;
         PreparedStatement preparedStatement = connection.prepareStatement(sqlQuery);
         ResultSet resultSet = preparedStatement.executeQuery();
-        while(resultSet.next()){
-            SubSectorVO subsectorVO = new SubSectorVO();
-            subsectorVO.setSectorId(resultSet.getInt("sector_id"));
-            subsectorVO.setSubsectorId(resultSet.getInt("subsector_id"));
-            subsectorVO.setSubSectorName(resultSet.getString("subsector_name"));
-            allSubSectors.add(subsectorVO);
+        while (resultSet.next()) {
+            SubSectorVO subSectorVO = new SubSectorVO();
+            subSectorVO.setSectorId(resultSet.getInt("sector_id"));
+            subSectorVO.setSubsectorId((resultSet.getInt("subsector_id")));
+            subSectorVO.setSubSectorName((resultSet.getString("subsector_name")));
+            allSubSectors.add(subSectorVO);
         }
+
         return allSubSectors;
     }
-
 }

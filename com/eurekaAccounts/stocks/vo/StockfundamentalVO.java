@@ -2,11 +2,11 @@ package com.eurekaAccounts.stocks.vo;
 
 import java.math.BigDecimal;
 
-public class StockFundamentalVO {
+public class StockfundamentalVO implements Comparable<StockfundamentalVO>{
     public String tickerSymbol;
     public int sectorId;
     public int subSectorId;
-    public BigDecimal marketCap;
+    public float marketCap;
     public BigDecimal currentRatio;
     public BigDecimal priceToBookRatio;
     public BigDecimal Peg;
@@ -19,15 +19,16 @@ public class StockFundamentalVO {
     public BigDecimal trailingPe;
     public BigDecimal forwardPe;
 
-    public StockFundamentalVO(String tickerSymbol, int sectorId, int subSectorId, BigDecimal marketCap, BigDecimal currentRatio, BigDecimal priceToBookRatio, BigDecimal epsqq, BigDecimal peg, BigDecimal epsNxtYear, BigDecimal epsTtm, BigDecimal roe, BigDecimal insiderOwnership, BigDecimal debtEquityRatio, BigDecimal trailingPe, BigDecimal forwardPe) {
+    public StockfundamentalVO(String tickerSymbol, int sectorId, int subSectorId, float marketCap, BigDecimal currentRatio, BigDecimal priceToBookRatio, BigDecimal peg, BigDecimal epsqq, BigDecimal epsNxtYear, BigDecimal epsTtm, BigDecimal roe, BigDecimal insiderOwnership, BigDecimal debtEquityRatio, BigDecimal trailingPe, BigDecimal forwardPe) {
+
         this.tickerSymbol = tickerSymbol;
         this.sectorId = sectorId;
         this.subSectorId = subSectorId;
         this.marketCap = marketCap;
         this.currentRatio = currentRatio;
         this.priceToBookRatio = priceToBookRatio;
-        Epsqq = epsqq;
         Peg = peg;
+        Epsqq = epsqq;
         this.epsNxtYear = epsNxtYear;
         this.epsTtm = epsTtm;
         Roe = roe;
@@ -37,7 +38,10 @@ public class StockFundamentalVO {
         this.forwardPe = forwardPe;
     }
 
-    public StockFundamentalVO() {
+    public StockfundamentalVO() {
+    }
+
+    public StockfundamentalVO(String tickerSymbol, int sectorId, Object o) {
     }
 
     public String getTickerSymbol() {
@@ -64,20 +68,12 @@ public class StockFundamentalVO {
         this.subSectorId = subSectorId;
     }
 
-    public BigDecimal getMarketCap() {
+    public float getMarketCap() {
         return marketCap;
     }
 
-    public void setMarketCap(BigDecimal marketCap) {
+    public void setMarketCap(float marketCap) {
         this.marketCap = marketCap;
-    }
-
-    public BigDecimal getPriceToBookRatio() {
-        return priceToBookRatio;
-    }
-
-    public void setPriceToBookRatio(BigDecimal priceToBookRatio) {
-        this.priceToBookRatio = priceToBookRatio;
     }
 
     public BigDecimal getCurrentRatio() {
@@ -86,6 +82,14 @@ public class StockFundamentalVO {
 
     public void setCurrentRatio(BigDecimal currentRatio) {
         this.currentRatio = currentRatio;
+    }
+
+    public BigDecimal getPriceToBookRatio() {
+        return priceToBookRatio;
+    }
+
+    public void setPriceToBookRatio(BigDecimal priceToBookRatio) {
+        this.priceToBookRatio = priceToBookRatio;
     }
 
     public BigDecimal getPeg() {
@@ -162,7 +166,7 @@ public class StockFundamentalVO {
 
     @Override
     public String toString() {
-        return "StockFundamentalVO{" +
+        return "StockfundamentalVO{" +
                 "tickerSymbol='" + tickerSymbol + '\'' +
                 ", sectorId=" + sectorId +
                 ", subSectorId=" + subSectorId +
@@ -178,6 +182,18 @@ public class StockFundamentalVO {
                 ", debtEquityRatio=" + debtEquityRatio +
                 ", trailingPe=" + trailingPe +
                 ", forwardPe=" + forwardPe +
-                '}' + '\n';
+                '}'+'\n';
+    }
+
+    @Override
+    public int compareTo(StockfundamentalVO o) {
+        if (o.marketCap>  this.getMarketCap()){
+            return 1;
+        }else if(o.marketCap < this.getMarketCap()){
+            return -1;
+        }
+        else{
+            return 0;
+        }
     }
 }
