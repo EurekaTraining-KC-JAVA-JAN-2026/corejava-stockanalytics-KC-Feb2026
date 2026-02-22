@@ -1,16 +1,34 @@
 package com.eurekaAccounts.stocks.vo;
 
-public class SubSectorVO {
+public class SubSectorVO implements Comparable<SubSectorVO>{
+
+    public int subSectorId;
+    public String subSectorName;
     public int sectorId;
-    public int SubSectorId;
-    public String SubSectorName;
-    public SubSectorVO(int sectorId, int SubSectorId, String SubSectorName) {
-        this.sectorId = sectorId;
-        this.SubSectorId = SubSectorId;
-        this.SubSectorName = SubSectorName;
-    }
 
     public SubSectorVO() {
+    }
+
+    public SubSectorVO(int subSectorId, String subSectorName, int sectorId) {
+        this.subSectorId = subSectorId;
+        this.subSectorName = subSectorName;
+        this.sectorId = sectorId;
+    }
+
+    public int getSubSectorId() {
+        return subSectorId;
+    }
+
+    public void setSubSectorId(int subSectorId) {
+        this.subSectorId = subSectorId;
+    }
+
+    public String getSubSectorName() {
+        return subSectorName;
+    }
+
+    public void setSubSectorName(String subSectorName) {
+        this.subSectorName = subSectorName;
     }
 
     public int getSectorId() {
@@ -21,28 +39,17 @@ public class SubSectorVO {
         this.sectorId = sectorId;
     }
 
-    public String getSubSectorName() {
-        return SubSectorName;
-    }
-
-    public void setSubSectorName(String subSectorName) {
-        SubSectorName = subSectorName;
-    }
-
-    public int getSubSectorId() {
-        return SubSectorId;
-    }
-
-    public void setSubSectorId(int subSectorId) {
-        SubSectorId = subSectorId;
+    @Override
+    public String toString() {
+        return "SubsectorVO{" +
+                "subSectorId=" + subSectorId +
+                ", subSectorName='" + subSectorName + '\'' +
+                ", sectorId=" + sectorId +
+                '}' + '\n';
     }
 
     @Override
-    public String toString() {
-        return "SubSectorVO{" +
-                "sectorId=" + sectorId +
-                ", SubSectorId=" + SubSectorId +
-                ", SubSectorName='" + SubSectorName  +
-                '}' + "\n";
+    public int compareTo(SubSectorVO o) {
+        return this.subSectorName.compareTo(o.subSectorName);
     }
 }
