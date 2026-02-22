@@ -1,22 +1,22 @@
-package com.eurekaAccounts.service;
+package com.eurekaAccounts.stocks.service;
 
-import com.eurekaAccounts.DAO.LookupAllSubSectorsDAO;
-import com.eurekaAccounts.DAO.LookupDAO;
-import com.eurekaAccounts.stocks.SubSectorNameComparator;
-import com.eurekaAccounts.stocksVO.SectorVO;
-import com.eurekaAccounts.stocksVO.StocksectorVO;
-import com.eurekaAccounts.stocksVO.SubSectorVO;
+import com.eurekaAccounts.stocks.DAO.LookupAllSubSectorsDAO;
+import com.eurekaAccounts.stocks.DAO.LookupDAO;
+import com.eurekaAccounts.stocks.sorting.SubSectorNameComparator;
+import com.eurekaAccounts.stocks.sorting.SubSectorNameComparator;
+import com.eurekaAccounts.stocks.stocksVO.SectorVO;
+import com.eurekaAccounts.stocks.stocksVO.SubSectorVO;
 
 import java.sql.SQLException;
 import java.util.Collections;
 import java.util.List;
 
-public class MarketAnyaliticsservices {
+public class MarketAnalyticsService {
     LookupDAO lookupDAO = new LookupDAO();
     LookupDAO lookupDAO2 = new LookupDAO();
     LookupAllSubSectorsDAO lookupAllSubSectorsDAO = new LookupAllSubSectorsDAO();
 
-    public MarketAnyaliticsservices() throws SQLException {
+    public MarketAnalyticsService() throws SQLException {
     }
 
     public String getAllSectors() throws SQLException {

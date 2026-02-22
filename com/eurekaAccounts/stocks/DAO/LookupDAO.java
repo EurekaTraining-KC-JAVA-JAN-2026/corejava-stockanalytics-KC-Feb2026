@@ -1,7 +1,7 @@
-package com.eurekaAccounts.DAO;
+package com.eurekaAccounts.stocks.DAO;
 
-import com.eurekaAccounts.exception.StockException;
-import com.eurekaAccounts.stocksVO.SectorVO;
+import com.eurekaAccounts.stocks.exception.StockException;
+import com.eurekaAccounts.stocks.stocksVO.SectorVO;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

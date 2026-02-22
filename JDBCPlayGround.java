@@ -1,6 +1,6 @@
-import com.eurekaAccounts.stocksVO.SectorVO;
-import com.eurekaAccounts.stocksVO.StocksectorVO;
-import com.eurekaAccounts.stocksVO.SubSectorVO;
+import com.eurekaAccounts.stocks.stocksVO.SectorVO;
+import com.eurekaAccounts.stocks.stocksVO.StocksectorVO;
+import com.eurekaAccounts.stocks.stocksVO.SubSectorVO;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;

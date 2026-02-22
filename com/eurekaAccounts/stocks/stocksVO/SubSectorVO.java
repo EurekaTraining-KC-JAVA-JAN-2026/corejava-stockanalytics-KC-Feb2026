@@ -1,4 +1,4 @@
-package com.eurekaAccounts.stocksVO;
+package com.eurekaAccounts.stocks.stocksVO;
 
 public class SubSectorVO implements Comparable<SubSectorVO> {
     public SubSectorVO(int subsectorid, String subsectorname, int sectorId) {

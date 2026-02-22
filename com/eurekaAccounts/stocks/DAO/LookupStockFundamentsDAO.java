@@ -1,6 +1,6 @@
-package com.eurekaAccounts.DAO;
+package com.eurekaAccounts.stocks.DAO;
 
-import com.eurekaAccounts.stocksVO.StocksectorVO;
+import com.eurekaAccounts.stocks.stocksVO.StocksectorVO;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

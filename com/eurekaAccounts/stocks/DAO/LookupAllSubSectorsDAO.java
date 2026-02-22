@@ -1,6 +1,6 @@
-package com.eurekaAccounts.DAO;
+package com.eurekaAccounts.stocks.DAO;
 
-import com.eurekaAccounts.stocksVO.SubSectorVO;
+import com.eurekaAccounts.stocks.stocksVO.SubSectorVO;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -16,7 +16,7 @@ public class LookupAllSubSectorsDAO extends BaseDAO{
         String  sqlQuery = """
                 select
                 * 
-                from enedeavour.subsector_lookup sl;
+                from endeavour.subsector_lookup sl;
                 """;
         PreparedStatement preparedStatement1 = connection.prepareStatement(sqlQuery);
         //System.out.println(preparedStatement);

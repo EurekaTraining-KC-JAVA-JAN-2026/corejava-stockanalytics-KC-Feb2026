@@ -1,6 +1,4 @@
-package com.eurekaAccounts.stocksVO;
-
-import com.eurekaAccounts.BigDecimal;
+package com.eurekaAccounts.stocks.stocksVO;
 
 public class StocksectorVO implements Comparable<StocksectorVO>{
     public String tickerSymbol;

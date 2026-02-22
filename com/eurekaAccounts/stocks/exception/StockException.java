@@ -1,4 +1,4 @@
-package com.eurekaAccounts.exception;
+package com.eurekaAccounts.stocks.exception;
 
 public class StockException extends RuntimeException {
 
