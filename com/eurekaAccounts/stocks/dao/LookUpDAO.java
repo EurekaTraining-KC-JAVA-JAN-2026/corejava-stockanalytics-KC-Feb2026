@@ -11,23 +11,23 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class LookUpDAO extends BaseDAO{
-    public LookUpDAO() throws SQLException{
+    public LookUpDAO(){
     }
 
-    public List<SectorVO> getAllSectors(int sectorId) {
+    public List<SectorVO> getAllSectors() {
         List<SectorVO> allSectors = new ArrayList<>();
         String sqlQuery = """
                 select
                 	*
                 from
-                	endeavour.sector_lookup sl where sector_id = ?
+                	endeavour.sector_lookup sl
                 """;
         try{
             //storing the sql query
 
 //            int x =10/0;
             PreparedStatement preparedStatement = connection.prepareStatement(sqlQuery);
-            preparedStatement.setInt(1,sectorId);
+//            preparedStatement.setInt(1,sectorId);
             ResultSet resultSet = preparedStatement.executeQuery();
             //executing and printing it
             System.out.println(resultSet);
@@ -42,7 +42,7 @@ public class LookUpDAO extends BaseDAO{
         }
         catch(SQLException | StockException e){
             System.out.println("FROM catch");
-            throw new StockException("An excepption occurred while fetching data from DB");
+            throw new StockException("An exception occurred while fetching data from DB");
 //            throw new StockException("An throwable msg", e.getCause());
 //            System.out.println(e);
 //            System.out.println(e.getStackTrace());

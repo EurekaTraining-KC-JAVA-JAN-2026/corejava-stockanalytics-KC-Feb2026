@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class LookUpSubSectorDAO extends BaseDAO{
-    public LookUpSubSectorDAO() throws SQLException{
+    public LookUpSubSectorDAO() {
     }
 
     public List<SubSectorVO> getAllSubSectors() {
