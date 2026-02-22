@@ -1,5 +1,5 @@
 import com.eurekaAccounts.stocks.vo.SectorVO;
-import com.eurekaAccounts.stocks.vo.SubsectorVO;
+import com.eurekaAccounts.stocks.vo.SubSectorVO;
 
 
 import java.sql.*;
@@ -52,9 +52,9 @@ public class JDBCPlayGround {
         PreparedStatement preparedStatement = connection.prepareStatement(sqlQuery);
         ResultSet resultSet = preparedStatement.executeQuery();
         System.out.println(resultSet);
-        List<SubsectorVO> allSubSectors = new ArrayList<>();
+        List<SubSectorVO> allSubSectors = new ArrayList<>();
         while (resultSet.next()){
-            SubsectorVO subsectorVO = new SubsectorVO();
+            SubSectorVO subsectorVO = new SubSectorVO();
             subsectorVO.setSubsectorId(resultSet.getInt("subsector_id"));
             subsectorVO.setSubsectorName(resultSet.getString("subsector_name"));
             allSubSectors.add(subsectorVO);

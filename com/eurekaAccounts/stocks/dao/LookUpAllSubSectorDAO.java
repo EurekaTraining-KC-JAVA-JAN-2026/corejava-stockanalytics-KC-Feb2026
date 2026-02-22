@@ -1,9 +1,7 @@
 package com.eurekaAccounts.stocks.dao;
 
-import com.eurekaAccounts.stocks.vo.SubsectorVO;
+import com.eurekaAccounts.stocks.vo.SubSectorVO;
 
-
-import com.eurekaAccounts.stocks.vo.SubsectorVO;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -13,8 +11,8 @@ import java.util.List;
 public class LookUpAllSubSectorDAO  extends BaseDAO{
     public LookUpAllSubSectorDAO() throws SQLException {
     }
-    public  List<SubsectorVO> getAllSubSectors() throws SQLException {
-        List<com.eurekaAccounts.stocks.vo.SubsectorVO> allSubSectors =  new ArrayList<>();
+    public  List<SubSectorVO> getAllSubSectors() throws SQLException {
+        List<SubSectorVO> allSubSectors =  new ArrayList<>();
         String sqlQuery = """
                 select 
                    * 
@@ -27,7 +25,7 @@ public class LookUpAllSubSectorDAO  extends BaseDAO{
         //List<SubSectorVO> allSubSectors =  new ArrayList<>();
         while(resultSet.next())
         {
-            SubsectorVO subSectorVO = new SubsectorVO();
+            SubSectorVO subSectorVO = new SubSectorVO();
             subSectorVO.setSubsectorName(resultSet.getString("subsector_name"));
             subSectorVO.setSubsectorId(resultSet.getInt("subsector_id"));
             subSectorVO.setSectorid(resultSet.getInt("sector_id"));

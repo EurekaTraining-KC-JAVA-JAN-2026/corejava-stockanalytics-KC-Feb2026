@@ -1,4 +1,4 @@
-import com.Assignment4.StockFundementalsVO;
+import com.eurekaAccounts.stocks.vo.StockFundamentalsVO;
 import com.eurekaAccounts.stocks.vo.SectorVO;
 
 import java.sql.*;
@@ -35,19 +35,19 @@ public class JDBCPlayGround {
         preparedStatement3.setString(1,tickerSymbol);
         ResultSet resultSet = preparedStatement3.executeQuery();
         //System.out.println(resultSet);
-        List<StockFundementalsVO> specificStocks =  new ArrayList<>();
+        List<StockFundamentalsVO> specificStocks =  new ArrayList<>();
         while(resultSet.next())
         {
-            StockFundementalsVO stockFundementalsVO = new StockFundementalsVO();
-            stockFundementalsVO.setSectorId(resultSet.getInt("sector_id"));
-            stockFundementalsVO.setSubSectorId(resultSet.getInt("subsector_id"));
-            stockFundementalsVO.setTickerSymbol(resultSet.getString("ticker_symbol"));
-            stockFundementalsVO.setMarketCap(resultSet.getLong("market_cap"));
-            stockFundementalsVO.setCurrentRatio(resultSet.getFloat("current_ratio"));
+            StockFundamentalsVO stockFundamentalsVO = new StockFundamentalsVO();
+            stockFundamentalsVO.setSectorId(resultSet.getInt("sector_id"));
+            stockFundamentalsVO.setSubSectorId(resultSet.getInt("subsector_id"));
+            stockFundamentalsVO.setTickerSymbol(resultSet.getString("ticker_symbol"));
+            stockFundamentalsVO.setMarketCap(resultSet.getLong("market_cap"));
+            stockFundamentalsVO.setCurrentRatio(resultSet.getFloat("current_ratio"));
 
 
 
-            specificStocks.add(stockFundementalsVO);
+            specificStocks.add(stockFundamentalsVO);
         }
         System.out.println(specificStocks);
     }

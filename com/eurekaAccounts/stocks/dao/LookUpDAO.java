@@ -1,8 +1,8 @@
 package com.eurekaAccounts.stocks.dao;
 
-import com.eurekaAccounts.stocks.dao.BaseDAO;
 import com.eurekaAccounts.stocks.exception.StockException;
 import com.eurekaAccounts.stocks.vo.SectorVO;
+import com.eurekaAccounts.stocks.vo.SubSectorVO;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -45,15 +45,19 @@ public class LookUpDAO extends BaseDAO {
             }
             //System.out.println(allSectors);
         }
-        catch (StockException e)
+        catch (StockException  | SQLException e)
         {
+
             System.out.println("Catch Block");
-            throw new StockException("An Exception Occured");
-//            throw new StockException("An throwable Msg" , e.getCause());
-//            System.out.println(e.getStackTrace());
-//            System.out.println(e);
-        }catch(RuntimeException e){
-            throw new StockException("Msg", e.getCause());
+            throw new StockException("An exception occured while fetching data from database");
+            //throw new StockException("An throwable message",e.getCause());
+            //System.out.println(e.getStackTrace());
+            //System.out.println(e);
+        }
+        catch (RuntimeException e)
+        {
+
+            throw new StockException("A throwable message",e.getCause());
         }
         finally
         {
@@ -64,5 +68,33 @@ public class LookUpDAO extends BaseDAO {
         return allSectors;
 
     }
+
+    public  List<SectorVO> getSpecificSectorID() throws SQLException {
+
+        List<SectorVO> specificSectors =  new ArrayList<>();
+        int sectorId = 41;
+        String sqlQuery = """
+                select 
+                   * 
+                    from endeavour.sector_lookup ssl where ssl.sector_id = ?;
+                """;
+        PreparedStatement preparedStatement2 = connection.prepareStatement(sqlQuery);
+        preparedStatement2.setInt(1,sectorId);
+        //System.out.println(preparedStatement);
+        ResultSet resultSet = preparedStatement2.executeQuery();
+        //System.out.println(resultSet);
+
+        while(resultSet.next())
+        {
+            SectorVO sectorVO = new SectorVO();
+            sectorVO.setSectorId(resultSet.getInt("sector_id"));
+            sectorVO.setSectorName(resultSet.getString("sector_name"));
+            specificSectors.add(sectorVO);
+        }
+
+        return specificSectors;
+    }
+
+
 
 }
