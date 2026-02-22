@@ -1,6 +1,6 @@
 package com.eurekaAccounts.stocks.vo;
 
-public class StockFundamentalsVO {
+public class StockFundamentalsVO implements Comparable<StockFundamentalsVO> {
     public String tickerSymbol;
     public int sectorId;
     public int subSectorId;
@@ -67,5 +67,16 @@ public class StockFundamentalsVO {
                 ", marketCap=" + marketCap +
                 ", currentRation=" + currentRation +
                 '}'+'\n';
+    }
+
+    @Override
+    public int compareTo(StockFundamentalsVO o) {
+        if(o.marketCap > this.getMarketCap()){
+            return 1;
+        }else if(o.marketCap< this.getMarketCap()){
+            return -1;
+        }else {
+            return 0;
+        }
     }
 }
