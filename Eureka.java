@@ -1,107 +1,99 @@
 public class Eureka {
-    public static void main(String[] j) {
-        System.out.println("Welcome Eureka....!");
-        System.out.println("calling statics from here...");
+    public static void main(String[] args){
+        //System.out.println("Welcome to Eureka...!");
+        System.out.println("calling statics from here");
         String s1 = "Eureka";
-        s1.contains("E");//here im calling contains method on object level of s1
+        s1.contains("E");//calling contains method on obj level
         StaticPlayGround s2 = new StaticPlayGround();
         StaticPlayGround.move();
 
         //primitive
         int i; //declaring
-        i = 10;//assiging
-        //int j = 20;
-        //here we are using an paramterzed
-        Stock googleStock = new Stock("GOOG",22323232,2.2,132,17);
-        Stock nvidaStock = new Stock();
-        //printing
-        System.out.println(googleStock);
-
-        Stock kmpcStokc = new Stock("JPMC",2323423,3.4,23,342);
-        Stock appleStock = new Stock();//created using the deafult
-        appleStock.setTickerSymbol("APPL");//setting the ticker symbol
+        i=10;//assigning
+        int j=20;
+        //here we are using a parameterized
+        Stock googleStock = new Stock("GOOG",24,23456765,132,17);
+        Stock jpmcStock = new Stock("JPM",23,234675432,442,18);
+        Stock nvdiaStock = new Stock("NVD",26,2398765);
+        System.out.println(nvdiaStock);
+        //String s1 = new String( :Ramya)
+        Stock appleStock = new Stock("AMD");
+        appleStock.setTickerSymbol("AAPL");
+        //appleStock.tickerSymbol = "AAPL";
         appleStock.setSectorId(-23);
-        appleStock.setMarketCap(234234);
-        appleStock.setSubSectorID(231);
-        appleStock.setCurrentRatio(23.45);
-        //accessing the appleStokc tickerSymbol
-        // System.out.println(appleStock.getTickerSymbol()+" "+appleStock.getSectorId());
+        appleStock.setMarketCap(2345676);
+        appleStock.setSubsectorId(123);
+        appleStock.setCurrentRatio(11.11);
 
-//        System.out.println("Value of i "+i);
-//        System.out.println("Value of j "+j);
+        System.out.println(appleStock.getTickerSymbol()+" "+appleStock.getSectorId());
+
+
+
+        //System.out.println("Value of i "+i);
+        //System.out.println("Value of j "+j);
         //float
-        float f1 = 34.22f;
+        float f1 = 34.12f;
         /**
          * hashMap
-         * key and pair's
-         * 933699219   34.22
+         * key and pairs
+         * f1 key=1896277646 pair =34.12
          */
-
-        // System.out.println("HashCode of f1 " +System.identityHashCode(f1));
-        float f2 = 22.34f;
-        // System.out.println("Output from paramterized method ");
-        //  float v = floatAdd(f1, f2);
-        // System.out.println(v);
-        //
-//
-        /*
-        fnekjvn
-        njvn
-         */
-
-
-        // floatAdd();//calling method
+        System.out.println("Hashcode of f1:"+System.identityHashCode(f1));
+        float f2 = 44.44f;
+        //System.out.println("Output from parameterized method");
+        float v = floatAdd(f1, f2);
+        //System.out.println(v);
+        floatAdd();
         //double
-        double d1 = 12.34;
-        double d2 = 34.12;
-        //System.out.println("multi of 2 doubles is " + doubleAddition(d1, d2));
+        double d1 = 11.11;
+        double d2 = 22.22;
+        //System.out.println("Multiplication of 2 doubles "+doubleAddition(d1,d2));
         //boolean
         boolean b1 = true;
         b1 = false;
         //System.out.println("Value of boolean is "+b1);
         //long
-        long l1 = 123432445;
-        long l2 = 32432453;
-        //        System.out.println("Value of 2 longs is "+l1+" and "+l2);
-        char c1 = 'J';
+        long l1 = 23456786;
+        long l2 = 67854323;
+        //System.out.println("Value of 2 longs is " +l1+ " and " +l2);
         //non-primitive
-//        String s1 = "Eureka";
-//        String s2 = new String("Tech");
-//        System.out.println("Concatenation of s1 and s2 is "+s1+" "+s2);
-        // booleanType();
+        //char c1 = 'j';
+        //String s1 = "Eureka";
+        //String s2 = new String("Tech");
+        //System.out.println("Concatenation of s1 and s2"+s1+" "+s2);
+        booleanType();
+
     }
 
     /**
-     * This will return the double
+     *
      * @param d1
      * @param d2
      * @return
      */
+
+
     private static double doubleAddition(double d1, double d2) {
         return d1 * d2;
     }
     //method overloading
     //same method name diff parameters
-
     private static float floatAdd(float f1, float f2) {
+        //System.out.println(f1+f2);
         return f1 + f2;
     }
 
-    //class name =>Eureka
-    //variable =>stringName
-    //methods => floatAddition
+    //class name = Eureka
+    //variable = stringName
+    //methods = floatAddition
     private static void floatAdd() {//method signature
 
-        //  System.out.println("Sum of 2 floats from method with out parameters");
+        //System.out.println("Sum of two floats from method without parameters");
+    }
+    private static void booleanType(){
+        //System.out.println("Boolean method");
     }
 
-    private static void booleanType() {
-        // System.out.println("Boolean method");
-    }
-
-//    pass by value=>by default java is pass by value
-
-
-
+    //by default java is pass by value
 
 }

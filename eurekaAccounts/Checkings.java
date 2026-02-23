@@ -27,5 +27,10 @@ public class Checkings extends Accounts{
 
     }
 
+    @Override
+    public void printAccountDetails() {
+
+    }
+
 
 }

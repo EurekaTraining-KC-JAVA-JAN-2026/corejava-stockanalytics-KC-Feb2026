@@ -1,42 +1,58 @@
+import java.math.BigDecimal;
 import java.util.Objects;
 
 public class Stock {
     //access modifiers
+
+    public Stock(String tickerSymbol, long marketCap, double currentRatio, int sectorId, int subsectorId) {
+        this.tickerSymbol = tickerSymbol;
+        this.marketCap = marketCap;
+        this.currentRatio = currentRatio;
+        this.sectorId = sectorId;
+        SubsectorId = subsectorId;
+    }
+
     private String tickerSymbol;
     private long marketCap;
     private double currentRatio;
     private int sectorId;
-    private int subSectorID;
+    private int SubsectorId;
 
-    public Stock( String tickerSymbol,int sectorId) {
-        this.sectorId = sectorId;
-        this.tickerSymbol = tickerSymbol;
-    }
-
-    //constr. with no param's
-    public Stock() {
-    }
-    //constr. with 3 param's
     public Stock(String tickerSymbol, long marketCap, double currentRatio) {
         this.tickerSymbol = tickerSymbol;
         this.marketCap = marketCap;
         this.currentRatio = currentRatio;
     }
-    //constr. with 5 param's
-    public Stock(String tickerSymbol, long marketCap, double currentRatio, int sectorId, int subSectorID) {
+
+
+
+    public Stock(String tickerSymbol, BigDecimal sectorId) {
+    }
+
+    public Stock(String tickerSymbol) {
+    }
+
+
+    public String getTickerSymbol() {
+        return tickerSymbol;
+    }
+
+    public int getSectorId() {
+        if(sectorId<=0){
+            this.sectorId = sectorId;
+
+        }
+
+        return sectorId;
+    }
+
+    public void setSectorId(int sectorId) {
+
+        //this.sectorId = sectorId;
+    }
+
+    public void setTickerSymbol(String tickerSymbol) {
         this.tickerSymbol = tickerSymbol;
-        this.marketCap = marketCap;
-        this.currentRatio = currentRatio;
-        this.sectorId = sectorId;
-        this.subSectorID = subSectorID;
-    }
-
-    public double getCurrentRatio() {
-        return currentRatio;
-    }
-
-    public void setCurrentRatio(double currentRatio) {
-        this.currentRatio = currentRatio;
     }
 
     public long getMarketCap() {
@@ -47,50 +63,41 @@ public class Stock {
         this.marketCap = marketCap;
     }
 
-    public int getSubSectorID() {
-        return subSectorID;
+    public double getCurrentRatio() {
+        return currentRatio;
     }
 
-    public void setSubSectorID(int subSectorID) {
-        this.subSectorID = subSectorID;
+    public void setCurrentRatio(double currentRatio) {
+        this.currentRatio = currentRatio;
+    }
+
+    public int getSubsectorId() {
+        return SubsectorId;
+    }
+
+    public void setSubsectorId(int subsectorId) {
+        SubsectorId = subsectorId;
     }
 
 
-    public String getTickerSymbol() {
-        return tickerSymbol;
-    }
+    //@Override
+    // public boolean equals(Object o) {//
+    //    if (o == null || getClass() != o.getClass()) return false;
+    //    Stock stock = (Stock) o;//typecasting
+    //   return sectorId == stock.sectorId && Objects.equals(tickerSymbol, stock.tickerSymbol);
+    // }
 
-    public int getSectorId() {
-        return sectorId;
-    }
-
-    public void setSectorId(int sectorId) {
-        if(sectorId>=0){
-            this.sectorId = sectorId;
-        }
-    }
-
-    public void setTickerSymbol(String tickerSymbol) {
-        this.tickerSymbol = tickerSymbol;
-    }
-
-    //    @Override
-//    public boolean equals(Object o) {
-//        if (o == null || getClass() != o.getClass()) return false;
-//        Stock stock = (Stock) o; //typecasting
-//        return sectorId == stock.sectorId && Objects.equals(tickerSymbol, stock.tickerSymbol);
-//    }
     public boolean equals(Object outSideObj){
         boolean isEquals = false;
         if(outSideObj != null && (outSideObj instanceof Stock)) {
             Stock outSide = (Stock) outSideObj;
-            if (this.getTickerSymbol().equals(outSide.getTickerSymbol()) && this.sectorId==outSide.sectorId){
-                isEquals=true;
-            }
+            if (this.getTickerSymbol().equals(outSide.getTickerSymbol()) && this.sectorId==outSide.sectorId);
+            return true;
         }else {
             isEquals = false;
         }
         return isEquals;
+
     }
 
     @Override
@@ -105,7 +112,12 @@ public class Stock {
                 ", marketCap=" + marketCap +
                 ", currentRatio=" + currentRatio +
                 ", sectorId=" + sectorId +
-                ", subSectorID=" + subSectorID +
-                '}';
+                ", SubsectorId=" + SubsectorId +
+                '}'+'\n';
+    }
+
+    public Stock(String tickerSymbol, int sectorId) {
+        this.tickerSymbol = tickerSymbol;
+        this.sectorId = sectorId;
     }
 }

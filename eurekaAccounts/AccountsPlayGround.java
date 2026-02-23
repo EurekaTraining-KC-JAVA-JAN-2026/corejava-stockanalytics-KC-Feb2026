@@ -11,6 +11,11 @@ public class AccountsPlayGround {
             public BigDecimal withdrawAmount(BigDecimal withdraw) {
                 return null;
             }
+
+            @Override
+            public void printAccountDetails() {
+
+            }
         };
         System.out.println(accountChecking1.withdrawAmount(new BigDecimal(10)));
         System.out.println(accountSaving1.depositAmount(new BigDecimal(20)));
@@ -24,6 +29,11 @@ public class AccountsPlayGround {
             @Override
             public BigDecimal withdrawAmount(BigDecimal withdraw) {
                 return null;
+            }
+
+            @Override
+            public void printAccountDetails() {
+
             }
         };
 

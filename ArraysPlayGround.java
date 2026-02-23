@@ -1,36 +1,44 @@
+import java.sql.SQLOutput;
+
 public class ArraysPlayGround {
-    static void main(String[] args) {
-
-        int i = 10;
+    public static void main(String[] args){
+        //why we have arrays
+        //int i = 10,20;
         String s1 = "Eureka";
-        //to hold multiple values we have arrays
-
-        int[] numArray0 = new int[]{}; // empty array
-        //type array nameOfIt new int[size]{values}
+        //to hold multiple we have arrays
+        //arrays on primitives and non-primitives
         int[] numArray = new int[]{10,20,30,40,50};
-
-        int[] numArray2 = {1,2,3,4,5};
+        //this is empty array
+        //size of an array is dynamic
+        //type array nameOfIt new int[size]{values}
+        int[] numArray2 = {2,3,4,5,6};
         System.out.println(numArray.length);
         System.out.println(numArray);
         //loop
-        // initialization condition updating
-        // y++
-        //++y
-        //Y--
-        //--y
-        //basic for-loop
-        for (int y=0;y<=numArray.length-1;y++) {
-            System.out.println(numArray[y]);
-        }
-        for (int y = 0; y<=numArray.length-1;y+=2) {
-            System.out.println(numArray[y]);
-        }
-        for (int y=numArray.length-1;y>=0;y--){
+        //for(initialization,condition,update)
+        //inc/dec - y++,++y,y--,--y
+        //for(int y=numArray.length-1;y=0;y--){
+        //            System.out.println(numArray[y]);
+        //        }
+        for(int y=0;y<=numArray.length-1;y++){
             System.out.println(numArray[y]);
         }
         //for-each
-        for (int eachNumber:numArray){
-            System.out.println("sequence of nums in numArray:"+eachNumber*eachNumber);
+        for(int eachNumber:numArray){
+            System.out.println("Sq's of number in numArray'"+eachNumber*eachNumber);
+
+            //delimiter
+            String tickerString = "AAPL,AMD,TSLA";//here"," is a delimiter
+            String[] tickerArray = tickerString.split(",");
+            for(String eachString : tickerArray){
+                System.out.println(eachString);
+            }
+            System.out.println(tickerArray);
+
+            /**
+             * (String[] args) = for the output to get printed in command line
+             * it only has chars
+             */
         }
     }
 }
