@@ -43,6 +43,7 @@ public class MarketAnalyticsService {
 
 
     }
+
     public String getAllStockFundementals() throws SQLException {
         List<StockFundamentalVo> allStockFundamentals = lookUpStockFundamentalsDAO.getStockFundamentals();
         Collections.sort(allStockFundamentals);
