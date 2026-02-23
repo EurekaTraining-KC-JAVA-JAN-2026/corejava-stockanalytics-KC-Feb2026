@@ -30,6 +30,7 @@ public class MarketAnalyticsService {
         allSubSectors.sort(Comparator.comparing(SubSectorVO::getSectorId).
                 thenComparing(SubSectorVO::getSubSectorName).
                 thenComparing(SubSectorVO::getSubSectorId));
+
         return allSubSectors;
     }
 
