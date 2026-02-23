@@ -61,9 +61,7 @@ public class LookUpDAO extends BaseDAO {
             //connection.close();
         }
         return allSectors;
-
     }
-
     public  List<SectorVO> getSpecificSectorID() throws SQLException {
 
         List<SectorVO> specificSectors =  new ArrayList<>();

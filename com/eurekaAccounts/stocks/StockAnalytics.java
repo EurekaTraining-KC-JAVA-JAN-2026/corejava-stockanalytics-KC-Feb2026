@@ -1,16 +1,18 @@
 package com.eurekaAccounts.stocks;
-import com.eurekaAccounts.stocks.service.MarketAnalyticsService;
+
+import com.eurekaAccounts.stocks.service.MarketAnyaliticsService;
+
 import java.sql.SQLException;
-
+//like user
 public class StockAnalytics {
-    static void main(String[] args) throws SQLException {
-        MarketAnalyticsService marketAnalyticsService =  new MarketAnalyticsService();
-        System.out.println(marketAnalyticsService.getAllSectors());
+    public static void main(String[] args) throws SQLException {
+        MarketAnyaliticsService marketAnyaliticsService = new MarketAnyaliticsService();
+        System.out.println(marketAnyaliticsService.getAllSectors());
 
-        MarketAnalyticsService marketAnalyticsService2 =  new MarketAnalyticsService();
-        System.out.println(marketAnalyticsService2.getSpecificSectors());
+        MarketAnyaliticsService marketAnalyticsService2 = new MarketAnyaliticsService();
+        System.out.println(marketAnalyticsService2.getAllSubSectors());
 
-        MarketAnalyticsService marketAnalyticsService3 =  new MarketAnalyticsService();
-        System.out.println(marketAnalyticsService3.getAllSubSectors());
+        MarketAnyaliticsService marketAnalyticsService3 = new MarketAnyaliticsService();
+        System.out.println(marketAnalyticsService3.getAllStockFundementals());
     }
 }
