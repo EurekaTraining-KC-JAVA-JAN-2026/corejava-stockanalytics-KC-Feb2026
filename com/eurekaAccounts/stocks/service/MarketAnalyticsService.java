@@ -10,7 +10,6 @@ import com.eurekaAccounts.stocks.vo.SubSectorVO;
 
 import java.sql.SQLException;
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
 
 public class MarketAnalyticsService {
@@ -34,18 +33,20 @@ public class MarketAnalyticsService {
 
 
     }
-    public String getAllSubSectors() throws SQLException {
+    public long getAllSubSectors() throws SQLException {
         List<SubSectorVO> allSubSectors = lookUpAllSubSectorDAO.getAllSubSectors();
         //Collections.sort(allSubSectors);
         //SubSectorNameComparator subSectorNameComparator = new SubSectorNameComparator();
         // Collections.sort(allSubSectors,new SubSectorNameComparator());
         //LookUpAllSubSectorDAO.sort(Comparator.comparing)
         //allSubSectors.sort(Comparator.comparing(SubSectorVO :: getSectorid).thenComparing(SubSectorVO :: getSubsectorName));
-        //Collections.sort(,new SubSectorNameComparator().thenComparing(SubSectorVO::getSubSectorName));
+        //Collections.sort(new SubSectorNameComparator().thenComparing(SubSectorVO::getSubSectorName));
+        long collect =allSubSectors.stream().filter(SubSectorVO->SubSectorVO.getSectorid() %2 ==0).count();
+
         Collections.sort(allSubSectors,new SubSectorNameComparator().thenComparing(SubSectorVO::getSubsectorName));
-        return allSubSectors.toString();
+        return collect;
         //return allSubSectorsDAO;
-        //return allSubSectors.
+        //return allSubSectors
 
 
     }
@@ -61,7 +62,10 @@ public class MarketAnalyticsService {
     public MarketAnalyticsService() throws SQLException {
     }
 
+
 }
+
+
 
 
 
