@@ -10,11 +10,11 @@ public class StockAnalytics {
 //        MarketAnalyticsService marketAnalyticsService = new MarketAnalyticsService();
 //        System.out.println(marketAnalyticsService.getAllSector());
 
-//        MarketAnalyticsService marketAnalyticsService1 = new MarketAnalyticsService();
-//        System.out.println(marketAnalyticsService1.getAllSubSectors());
-
         MarketAnalyticsService marketAnalyticsService1 = new MarketAnalyticsService();
-        System.out.println(marketAnalyticsService1.getAllSubSectorsService());
+        System.out.println(marketAnalyticsService1.getAllSubSectors());
+
+        //MarketAnalyticsService marketAnalyticsService1 = new MarketAnalyticsService();
+        //System.out.println(marketAnalyticsService1.getAllSubSectorsService());
 
 //        MarketAnalyticsService marketAnalyticsService2 = new MarketAnalyticsService();
 //        System.out.println(marketAnalyticsService2.getStockFundamentals());

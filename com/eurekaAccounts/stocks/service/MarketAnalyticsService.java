@@ -33,15 +33,19 @@ public class MarketAnalyticsService {
         return allSectors.toString();
     }
 
-     public String getAllSubSectors() throws SQLException {
+     public long getAllSubSectors() throws SQLException {
          List<SubsectorVO> allSubSectors = lookUpDAO.getAllSubSectors();
          //Collections.sort(allSubSectors);
          /**
           * USING comparable is like using natural order.
           * Here we are printing the seco
           */
+        // allSubSectors.stream().filter(subsectorVO -> subsectorVO.getSubSectorId()%2 == 0).collect(Collectors.toList());
+        long collect =  allSubSectors.stream().filter(subsectorVO -> subsectorVO.getSubSectorId()%2 == 0).count();
+
+
          Collections.sort(allSubSectors);
-         return allSubSectors.toString();
+         return collect;
      }
 
     public String getAllSubSectorsService() throws SQLException {

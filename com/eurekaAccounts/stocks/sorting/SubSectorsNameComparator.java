@@ -15,12 +15,6 @@ public class SubSectorsNameComparator implements Comparator<SubsectorVO> {
 
     @Override
     public int compare(SubsectorVO o1, SubsectorVO o2) {
-        if (o1.sectorId > o2.sectorId) {
-            return 1;
-        } else if (o1.sectorId < o2.sectorId) {
-            return -1;
-        } else {
-            return 0;
-        }
+        return Integer.compare(o1.sectorId, o2.sectorId);
     }
 }
