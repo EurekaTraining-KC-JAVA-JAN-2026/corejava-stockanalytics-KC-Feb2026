@@ -15,6 +15,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 import java.util.concurrent.Callable;
+import java.util.stream.Collectors;
 
 public class MarketAnalyticsService {
 
@@ -37,6 +38,8 @@ public class MarketAnalyticsService {
       List<SubSectorVO> allSubsectors= lookUpSubsectorDAO.getAllSubSectorsDAO();
 //       Collections.sort(allSubsectors);
 //       Collections.sort(allSubsectors, new SubSectorNameComparator());
+       long count = allSubsectors.stream().filter(subSectorVO -> subSectorVO.getSector_id() % 2 == 0).count();
+       System.out.println(count);
        allSubsectors.sort(Comparator.comparing(SubSectorVO::getSector_id).thenComparing(SubSectorVO::getSubsector_name).thenComparing(SubSectorVO::getSubsector_id));
 
         return allSubsectors.toString();
