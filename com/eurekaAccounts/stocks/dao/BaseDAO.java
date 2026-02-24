@@ -10,19 +10,19 @@ public class BaseDAO {
 
     /**
      * we will put our DB configurations here
-     * if someonw wants to creste a object with base dao
+     * if someonw wants to creste a object with base dao they can use it
      */
 
     private static String jdbcUrl ="jdbc:postgresql://endeavourtech.ddns.net:50271/StocksDB";
     private static String  userName = "evr_sql_app";
     private static String password="5LViU5pLkSjRHECec9NF4wRxxV";
-    public Connection connection;//ho;lding connection
+    public Connection connection;//holding connection
 
     public BaseDAO() throws SQLException {
         try {
             this.connection = DriverManager.getConnection(jdbcUrl, userName, password);
         }catch(SQLException e){
-            System.out.println("Anxception occured while connecting to DB");
+            System.out.println("An exception occured while connecting to DB");
         }
     }
 }

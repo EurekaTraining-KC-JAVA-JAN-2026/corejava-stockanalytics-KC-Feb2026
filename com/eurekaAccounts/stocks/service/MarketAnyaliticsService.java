@@ -33,10 +33,12 @@ public class MarketAnyaliticsService {
     public String getAllSubSectors()throws SQLException{
         List<SubSectorVO> allSubSectors = lookupAllSubSectorsDAO.getAllSubSectorsDAO();
         Collections.sort(allSubSectors);
-        allSubSectors.sort(Comparator.comparing(SubSectorVO::getSector_id).thenComparing(SubSectorVO::getSubSector_name).thenComparing(SubSectorVO::getSubSector_id));
-        Collections.sort(allSubSectors,new SubSectorNameComparator().thenComparing(SubSectorVO::getSubSector_name));
+      //  allSubSectors.sort(Comparator.comparing(SubSectorVO::getSector_id).thenComparing(SubSectorVO::getSubSector_name).thenComparing(SubSectorVO::getSubSector_id));
+      //  Collections.sort(allSubSectors,new SubSectorNameComparator().thenComparing(SubSectorVO::getSubSector_name));
         //allSubSectors.sort();
-        return allSubSectors.toString();
+        long collect = allSubSectors.stream().filter(subSectorVO -> subSectorVO.getSector_id() % 2 == 0).collect(Collections)
+        return collect;//allSubSectors.toString();
+
     }
     public MarketAnyaliticsService()throws SQLException{
     }

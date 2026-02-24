@@ -62,10 +62,12 @@ public class StockFundementalVO implements Comparable<StockFundementalVO>{
     }
 
     public void setDebtEquityRatio(BigDecimal debtEquityRatio) {
+
         this.debtEquityRatio = debtEquityRatio;
     }
 
     public BigDecimal getTrailingPe() {
+
         return trailingPe;
     }
 
