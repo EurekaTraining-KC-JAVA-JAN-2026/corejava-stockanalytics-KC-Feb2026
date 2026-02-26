@@ -7,8 +7,11 @@ public class checkings extends accounts{
     public static BigDecimal withdrawlFee = new BigDecimal("5.0");
 
     public checkings(String accNumber, BigDecimal accbalance) {
-        super(accNumber, accbalance);
 
+        super(accNumber, accbalance);
+    }
+
+    public checkings() {
     }
 
     @Override

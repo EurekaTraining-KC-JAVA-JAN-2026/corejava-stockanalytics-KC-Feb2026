@@ -14,14 +14,23 @@ public class Eureka {
 
         System.out.println(System.identityHashCode(i));
         Stock appleStock = new Stock();
-        Stock netflixStock = new Stock(22.5,"NFLX",55000000,34,111);
+        Stock netflixStock = new Stock(22.5, "NFLX", 55000000, 34, 111);
         appleStock.setTickerSymbol("AAPL");
         appleStock.setSectorId(-22);
 //        appleStock.subSectorId = 123;
 //        appleStock.marketCap = 2536415;
 //        appleStock.currentRatio = 23.5;
         System.out.println(netflixStock);
-        System.out.println(appleStock.getTickerSymbol()+" "+appleStock.getSectorId());}}
+        System.out.println(appleStock.getTickerSymbol() + " " + appleStock.getSectorId());
+        Encapsulation obj = new Encapsulation();
+        obj.setAccBalance(100000000);
+        System.out.println(obj.getAccBalance());
+    }
+}
+
+
+
+
 
         /**
          * this will return the double

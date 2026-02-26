@@ -32,17 +32,17 @@ public class MapsPlayGround {
         System.out.println(mapInt.remove(4,"four"));
         System.out.println(mapInt);
         System.out.println(mapInt.remove(5));
-        System.out.println(mapInt);
-        System.out.println(mapInt.containsKey(4));
-        System.out.println(mapInt.size());
-
-        System.out.println(mapInt.keySet());
-        mapInt.replace(1,"oneone");
-        System.out.println(mapInt);
-        mapInt.putIfAbsent(4,"four");
-        System.out.println(mapInt);
-
-        System.out.println(mapInt.containsKey(4));
+//        System.out.println(mapInt);
+//        System.out.println(mapInt.containsKey(4));
+//        System.out.println(mapInt.size());
+//
+//        System.out.println(mapInt.keySet());
+//        mapInt.replace(1,"oneone");
+//        System.out.println(mapInt);
+//        mapInt.putIfAbsent(4,"four");
+//        System.out.println(mapInt);
+//
+//        System.out.println(mapInt.containsKey(4));
 
 
     }

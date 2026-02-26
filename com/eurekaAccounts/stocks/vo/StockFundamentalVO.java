@@ -7,6 +7,10 @@ public class StockFundamentalVO implements Comparable<StockFundamentalVO>{
     public long marketCap;
     public float current_ratio;
 
+//    public StockFundamentalVO(String tickerSymbol) {
+//        this.tickerSymbol = tickerSymbol;
+//    }
+
     public StockFundamentalVO(String tickerSymbol, int sector_id, int subsector_id, long marketCap, float current_ratio) {
         this.tickerSymbol = tickerSymbol;
         this.sector_id = sector_id;
@@ -58,14 +62,22 @@ public class StockFundamentalVO implements Comparable<StockFundamentalVO>{
         this.current_ratio = current_ratio;
     }
 
+//    @Override
+//    public String toString() {
+//        return "StockFundamentalVO{" +
+//                "tickerSymbol=" + tickerSymbol  +
+//                ", sector_id=" + sector_id +
+//                ", subsector_id=" + subsector_id +
+//                ", marketCap=" + marketCap +
+//                ", current_ratio=" + current_ratio +
+//                '}' + '\n';
+//    }
+
+
     @Override
     public String toString() {
         return "StockFundamentalVO{" +
-                "tickerSymbol=" + tickerSymbol  +
-                ", sector_id=" + sector_id +
-                ", subsector_id=" + subsector_id +
-                ", marketCap=" + marketCap +
-                ", current_ratio=" + current_ratio +
+                "tickerSymbol='" + tickerSymbol  +
                 '}' + '\n';
     }
 

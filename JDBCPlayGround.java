@@ -107,7 +107,7 @@ public class JDBCPlayGround {
                 """;
        try{
            //storing the sql query
-           int x = 10/0;
+//           int x = 10/0;
            PreparedStatement preparedStatement = connection.prepareStatement(sqlQuery);
            ResultSet resultSet = preparedStatement.executeQuery();
            //executing and printing it

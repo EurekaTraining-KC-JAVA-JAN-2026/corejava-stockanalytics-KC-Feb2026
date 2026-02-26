@@ -6,12 +6,14 @@ import com.eurekaAccounts.stocks.service.MarketAnalyticsService;
 import java.sql.SQLException;
 
 public class StockAnalytics {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws SQLException {
         MarketAnalyticsService marketAnalyticsService = new MarketAnalyticsService();
 //        System.out.println(marketAnalyticsService.getAllSectors());
 
-        System.out.println(marketAnalyticsService.getAllSubSectors());
+//        System.out.println(marketAnalyticsService.getAllSubSectors());
 //        System.out.println(marketAnalyticsService.getAllStockFundamentals());
+//        System.out.println(marketAnalyticsService.getallcomp());
+        System.out.println(marketAnalyticsService.getallstatecount());
 
     }
 }

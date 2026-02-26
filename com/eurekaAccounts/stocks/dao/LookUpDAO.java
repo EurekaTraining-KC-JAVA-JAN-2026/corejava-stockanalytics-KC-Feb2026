@@ -56,4 +56,19 @@ public class LookUpDAO extends BaseDAO{
         return allSectors;
     }
 
+    public List<Integer> getCountStates() throws SQLException {
+        List<Integer> intergers1 = new ArrayList<>();
+        String sqlquery = """
+                select count(sl.state_name ) as state_count
+                from endeavour.state_lookup sl
+                """;
+        PreparedStatement preparedStatement = connection.prepareStatement(sqlquery);
+        ResultSet resultSet = preparedStatement.executeQuery();
+        while(resultSet.next()){
+            int count = resultSet.getInt("state_count");
+            intergers1.add(count);
+        }
+        return intergers1;
+    }
+
 }

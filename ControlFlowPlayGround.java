@@ -45,6 +45,8 @@ public class ControlFlowPlayGround {
         }
         System.out.println(randomDouble);
         String someString = (randomDouble >0.5) ? "greater than 0.5" : "less than 0.5";
+        boolean xy = (randomDouble >0.5) ? true : false;
+        System.out.println(xy);
         System.out.println(someString);
 
         while(x > 8)
