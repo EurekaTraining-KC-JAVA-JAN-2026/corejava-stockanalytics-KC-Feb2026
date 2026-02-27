@@ -26,8 +26,8 @@ public class StockAnalytics {
         //System.out.println(marketAnalyticsService.getAllSectorsMap());
         //System.out.println(marketAnalyticsService.getSubSectorIdGroup());
         MarketAnalyticsService marketAnalyticsService9 =  new MarketAnalyticsService();
-        System.out.println(marketAnalyticsService9.getGroupOfTickerSymbols());
-        //System.out.println(marketAnalyticsService9.getBlueChipStocks());
+        //System.out.println(marketAnalyticsService9.getGroupOfTickerSymbols());
+        System.out.println(marketAnalyticsService9.getBlueChipStocks());
 
     }
 }
