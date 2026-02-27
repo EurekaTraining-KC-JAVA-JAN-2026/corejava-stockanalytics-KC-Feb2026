@@ -1,4 +1,5 @@
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -17,8 +18,18 @@ public class StreamsPlayGround {
         List<Integer> collect =  integerList.stream().map(num -> num * num).collect(Collectors.toList());
         System.out.println(collect);
         // even number
-        List<Integer> collect1 = integerList.stream().map(num -> num + num).filter((num) -> num % 2 == 0).sorted().collect(Collectors.toList());
+        List<Integer> collect1 = integerList.stream()
+                .map(num -> num + num)
+                .filter((num) -> num % 2 == 0)
+                .sorted().
+                collect(Collectors.toList()); // terminal
         System.out.println("Even numbers in int's " + collect1);
+
+        List<Integer> integerList1 = List.of(1,2,3,4,5,6,7,8);
+        List<String> collect2 = integerList1.stream()
+                .filter(x -> x % 2 == 0).sorted(Comparator.reverseOrder())
+                .map(x -> "test " + x).collect(Collectors.toList());
+        System.out.println(collect2);
 
 
         /**
@@ -28,7 +39,7 @@ public class StreamsPlayGround {
         String string1 = "Eureka";
         String nullString = null;
         String emptyString = "";
-        Optional<String> sampleOptional = Optional.of(nullString);
+        //Optional<String> sampleOptional = Optional.of(nullString);
         try
         {
             //System.out.println(sampleOptional.get());

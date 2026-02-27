@@ -6,6 +6,7 @@ public class Circle implements Shape {
 
     private BigDecimal radius;
 
+
     public Circle(BigDecimal radius) {
         this.radius = radius;
     }
@@ -13,6 +14,7 @@ public class Circle implements Shape {
     @Override
     public BigDecimal calculateArea() {
         return radius.multiply(radius).multiply(BigDecimal.valueOf(Math.PI));
+
     }
 
     @Override
@@ -24,4 +26,5 @@ public class Circle implements Shape {
     public BigDecimal calculatePerimeter() {
         return null;
     }
+
 }

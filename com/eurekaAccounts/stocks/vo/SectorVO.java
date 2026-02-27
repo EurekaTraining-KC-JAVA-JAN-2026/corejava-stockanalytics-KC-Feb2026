@@ -36,6 +36,7 @@ public class SectorVO implements Comparable<SectorVO> {
                 '}'+'\n';
     }
 
+
     @Override
     public int compareTo(SectorVO o) {
         if(o.sectorId > this.getSectorId())

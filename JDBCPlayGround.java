@@ -38,7 +38,7 @@ public class JDBCPlayGround {
         while(resultSet.next())
         {
             StockFundementalsVO stockFundementalsVO = new StockFundementalsVO();
-            stockFundementalsVO.setSectorId(resultSet.getInt("sector_id"));
+            stockFundementalsVO.setSectorId(resultSet.getBigDecimal("sector_id"));
             stockFundementalsVO.setSubSectorId(resultSet.getInt("subsector_id"));
             stockFundementalsVO.setTickerSymbol(resultSet.getString("ticker_symbol"));
             stockFundementalsVO.setMarketCap(resultSet.getLong("market_cap"));
@@ -104,20 +104,35 @@ public class JDBCPlayGround {
                    * 
                     from endeavour.sector_lookup ssl;
                 """;
-        PreparedStatement preparedStatement = connection.prepareStatement(sqlQuery);
-        //preparedStatement.setInt(1,sectorId);
-        //System.out.println(preparedStatement);
-        ResultSet resultSet = preparedStatement.executeQuery();
-        //System.out.println(resultSet);
-        List<SectorVO> allSectors =  new ArrayList<>();
-        while(resultSet.next())
+        try
         {
-            SectorVO sectorVO = new SectorVO();
-            sectorVO.setSectorId(resultSet.getInt("sector_id"));
-            sectorVO.setSectorName(resultSet.getString("sector_name"));
-            allSectors.add(sectorVO);
+            PreparedStatement preparedStatement = connection.prepareStatement(sqlQuery);
+            //preparedStatement.setInt(1,sectorId);
+            //System.out.println(preparedStatement);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            //System.out.println(resultSet);
+            List<SectorVO> allSectors =  new ArrayList<>();
+            while(resultSet.next())
+            {
+                SectorVO sectorVO = new SectorVO();
+                sectorVO.setSectorId(resultSet.getInt("sector_id"));
+                sectorVO.setSectorName(resultSet.getString("sector_name"));
+                allSectors.add(sectorVO);
+            }
+            //System.out.println(allSectors);
         }
-        //System.out.println(allSectors);
+        catch (SQLException e)
+        {
+            System.out.println("Catch Block");
+            System.out.println(e.getStackTrace());
+            System.out.println(e);
+        }
+        finally
+        {
+            System.out.println("Finally");
+            System.out.println("I will always run");
+            //connection.close();
+        }
 
 
     }

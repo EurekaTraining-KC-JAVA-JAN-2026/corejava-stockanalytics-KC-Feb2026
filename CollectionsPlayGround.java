@@ -57,7 +57,7 @@ public class CollectionsPlayGround {
         //System.out.println(stockList);
         // wrapper class
         List<Integer> integers= List.of(2,3,4); // immutable list
-        Integer objInt = 34; // primitive
+        Integer objInt = 34; // non primitive
         int i = 45;
         Integer objInt1 = (Integer) i; // typical forecasting from Integer to int
         //integers.add(5); -- will throw an error
