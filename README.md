@@ -1,1 +1,1 @@
-this tell about the project
+Its a JAVA Training
