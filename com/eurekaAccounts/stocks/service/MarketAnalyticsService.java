@@ -8,8 +8,10 @@ import com.eurekaAccounts.stocks.vo.StockFundamentalsVO;
 import com.eurekaAccounts.stocks.vo.SubSectorVO;
 import com.eurekaAccounts.stocks.dao.lookUpAllSubSectorDAO;
 
+import java.math.BigDecimal;
 import java.sql.SQLException;
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class MarketAnalyticsService {
     LookUpDAO lookUpDAO = new LookUpDAO();
@@ -38,5 +40,75 @@ public class MarketAnalyticsService {
         List<StockFundamentalsVO> allStockFundamentals = lookUpStockFundamentals.getAllStockFundamentals();
         Collections.sort(allStockFundamentals);
         return allStockFundamentals;
+    }
+
+
+    public String getAllHealthCareSectors() throws SQLException {
+
+        List<StockFundamentalsVO> allStockFundamentals = lookUpStockFundamentals.getAllStockFundamentals();
+//        List<StockFundamentalsVO> stockFundamentalsVOS = new ArrayList<>();
+//        allStockFundamentals.forEach(stockFundamentalsVO -> {
+//            if(stockFundamentalsVO.getSectorId().equals(new BigDecimal(34))){
+//                stockFundamentalsVOS.add(stockFundamentalsVO);
+//
+//            }
+//        });
+        //getting all health care stocks and then seeing best performing and then seeing top 5
+        List<StockFundamentalsVO> allHealthCareStocks = allStockFundamentals.stream().
+                filter(x -> x.getSectorId().equals(new BigDecimal(34)))
+                .sorted(Comparator.comparing(StockFundamentalsVO :: getMarketCap).reversed())
+                .limit(5)
+                .collect(Collectors.toList());
+
+        //now only want to see the tickersymbol
+        //List<Integer> onlyTicketSymbol = allStockFundamentals.stream().map()
+       String ListofTopPerformingStocks = allHealthCareStocks.stream()
+                .map(x -> x.getTickerSymbol())
+                //.collect(Collectors.toList());
+                .collect(Collectors.joining(","));
+
+        return ListofTopPerformingStocks;
+    }
+    public void getSumOfMktCapOfHealthCareStocks() throws SQLException {
+        List<StockFundamentalsVO> stockFundamentalsVOS = lookUpStockFundamentals.getAllStockFundamentals();
+        Optional<BigDecimal> sumOfMktCap = stockFundamentalsVOS.stream()
+                .map(x->x.getMarketCap())
+                .reduce((a,b)->a.add(b));
+        sumOfMktCap.ifPresent(x-> System.out.println(x));
+
+        sumOfMktCap.ifPresent(System.out::println);
+
+        stockFundamentalsVOS.parallelStream().map(x->x.getMarketCap())
+                .reduce((a,b)->a.add(b));
+
+    }
+
+    public Map<Integer,String> getAllSubSectorsMap(){
+        List<SubSectorVO> allSubSectors = lookupAllSubSectorsDAO1.getAllSubSectors();
+       Map<Integer,String> allSubSectorsMap = allSubSectors.stream()
+               .collect(Collectors.toMap(SubSectorVO ::getSubSectorId,
+                       SubSectorVO ::getSubSectorName));
+
+       return allSubSectorsMap;
+
+    }
+
+    public Map<Integer,List<String>> getGroupOfTickerSymbols() throws SQLException {
+        List<StockFundamentalsVO> allSubSectosGroup = lookUpStockFundamentals.getAllStockFundamentals();
+        Map<Integer,List<String>> groupByTickersSymbol = allSubSectosGroup.stream().collect(Collectors.groupingBy(StockFundamentalsVO :: getSubSectorId,Collectors.mapping(StockFundamentalsVO::getTickerSymbol,Collectors.toList())));
+        return groupByTickersSymbol;
+    }
+
+
+    public List<String> getBlueChipTickerSymbols() throws SQLException {
+
+        List<StockFundamentalsVO> stockFundamentalsVOS = lookUpStockFundamentals.getAllStockFundamentals();
+
+        List<String> blueChipTickerSymbols = stockFundamentalsVOS.stream()
+                .filter(x-> x.getSectorId().equals(34))
+                .filter(x->x.getMarketCap().compareTo(new BigDecimal(100000000))>0)
+                .map(StockFundamentalsVO::getTickerSymbol)
+                .collect(Collectors.toList());
+        return blueChipTickerSymbols;
     }
 }

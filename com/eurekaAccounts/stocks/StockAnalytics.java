@@ -11,9 +11,14 @@ public class StockAnalytics {
         MarketAnalyticsService marketAnalyticsService = new MarketAnalyticsService();
         MarketAnalyticsService marketAnalyticsService1 = new MarketAnalyticsService();
         MarketAnalyticsService marketAnalyticsService2 = new MarketAnalyticsService();
-        String sectors = marketAnalyticsService.getAllSectorService();
+        //String sectors = marketAnalyticsService.getAllSectorService();
         //System.out.println(sectors);
-        System.out.println(marketAnalyticsService1.getAllSubSectorService());
-        //System.out.println(marketAnalyticsService2.getStockFundamentals());
+//        System.out.println(marketAnalyticsService1.getAllSubSectorService());
+//        System.out.println(marketAnalyticsService2.getStockFundamentals());
+        //System.out.println(marketAnalyticsService2.getAllHealthCareSectors());
+        //marketAnalyticsService2.getSumOfMktCapOfHealthCareStocks();
+        //System.out.println(marketAnalyticsService2.getAllSubSectorsMap());
+        //System.out.println( marketAnalyticsService2.getGroupOfTickerSymbols());
+        System.out.println(marketAnalyticsService2.getBlueChipTickerSymbols());
     }
 }

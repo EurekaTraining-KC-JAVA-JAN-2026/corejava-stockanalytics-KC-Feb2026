@@ -42,9 +42,9 @@ public class JDBCPlayGround {
         while(resultSet.next()){
             StockFundamentalsVO stockFundamentalsVO = new StockFundamentalsVO();
             stockFundamentalsVO.setTickerSymbol(resultSet.getString("ticker_symbol"));
-            stockFundamentalsVO.setSectorId(resultSet.getInt("sector_id"));
+            stockFundamentalsVO.setSectorId(resultSet.getBigDecimal("sector_id"));
             stockFundamentalsVO.setSubSectorId(resultSet.getInt("subsector_id"));
-            stockFundamentalsVO.setMarketCap(resultSet.getLong("market_cap"));
+            stockFundamentalsVO.setMarketCap(resultSet.getBigDecimal("market_cap"));
             stockFundamentalsVO.setCurrentRation(resultSet.getFloat("current_ratio"));
             specificStockFundamentals.add(stockFundamentalsVO);
         }
@@ -70,9 +70,6 @@ public class JDBCPlayGround {
         }catch (SQLException e){
             System.out.println("From Catch");
             System.out.println(e.getStackTrace());
-        }finally {
-            System.out.println("I will always execute");
-            connection.close();
         }
     }
     private static void getAllSubSectors(Connection connection) throws SQLException {

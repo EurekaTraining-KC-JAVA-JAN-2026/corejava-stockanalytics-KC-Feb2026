@@ -1,23 +1,25 @@
-package com.eurekaAccounts.stocks.vo;
+package com.eurekaAccounts.MarketCap;
 
 import java.math.BigDecimal;
 
-public class StockFundamentalsVO implements Comparable<StockFundamentalsVO> {
-    public String tickerSymbol;
-    public BigDecimal sectorId;
-    public int subSectorId;
-    public BigDecimal marketCap;
-    public float currentRation;
-
-    public StockFundamentalsVO(String tickerSymbol, BigDecimal sectorId, BigDecimal marketCap, int subSectorId, float currentRation) {
-        this.tickerSymbol = tickerSymbol;
-        this.sectorId = sectorId;
-        this.marketCap = marketCap;
-        this.subSectorId = subSectorId;
-        this.currentRation = currentRation;
-    }
+public class StockFundamentalsVO {
+    private String tickerSymbol;
+    private int sectorId;
+    private int subSectorId;
+    private BigDecimal marketCap;
+    private float currentRation;
+    private BigDecimal totalState;
+    private BigDecimal count;
 
     public StockFundamentalsVO() {
+    }
+
+    public BigDecimal getCount() {
+        return count;
+    }
+
+    public void setCount(BigDecimal count) {
+        this.count = count;
     }
 
     public String getTickerSymbol() {
@@ -28,11 +30,11 @@ public class StockFundamentalsVO implements Comparable<StockFundamentalsVO> {
         this.tickerSymbol = tickerSymbol;
     }
 
-    public BigDecimal getSectorId() {
+    public int getSectorId() {
         return sectorId;
     }
 
-    public void setSectorId(BigDecimal sectorId) {
+    public void setSectorId(int sectorId) {
         this.sectorId = sectorId;
     }
 
@@ -68,11 +70,6 @@ public class StockFundamentalsVO implements Comparable<StockFundamentalsVO> {
                 ", subSectorId=" + subSectorId +
                 ", marketCap=" + marketCap +
                 ", currentRation=" + currentRation +
-                '}'+'\n';
-    }
-
-    @Override
-    public int compareTo(StockFundamentalsVO o) {
-       return o.marketCap.compareTo(this.marketCap);
+                '}'+"\n";
     }
 }
