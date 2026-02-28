@@ -7,7 +7,7 @@ public class ArraysPlayGround {
     int i = 10;
     String s1 = "Parvthi";
 
-    int[] numArray= new int []{10,20,30,40,50}; // an empty array [size] { value}
+    int[] numArray= new int[] {10,20,30,40,50}; // an empty array [size] { value}
 
     int[] numArray2 = {1,2,3,4,5,}; // we can specify array like this too and if value is given without the size it can be added itself.
 

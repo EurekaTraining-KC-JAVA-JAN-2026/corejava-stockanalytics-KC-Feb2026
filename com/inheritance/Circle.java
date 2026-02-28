@@ -39,7 +39,8 @@ public class Circle implements Shape, Test{
 
 
     @Override
-    public void draw() {
+    public boolean draw() {
 
+        return false;
     }
 }

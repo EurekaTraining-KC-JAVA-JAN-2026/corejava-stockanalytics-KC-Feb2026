@@ -4,6 +4,8 @@ import com.eurekaAccounts.stocks.exception.StockException;
 import com.eurekaAccounts.stocks.vo.SectorVO;
 import com.eurekaAccounts.stocks.vo.SubSectorVO;
 
+import java.math.BigDecimal;
+import java.math.BigInteger;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -88,6 +90,23 @@ public class LookUpDAO extends BaseDAO {
         return specificSectors;
     }
 
+    public  List<BigDecimal> getCountOfStates() throws SQLException {
 
+        List<BigDecimal> bigDecimals =  new ArrayList<>();
+
+        String sqlQuery = """
+               	select count(*)  
+                from endeavour.company_locations cl;
+                """;
+        PreparedStatement preparedStatement5 = connection.prepareStatement(sqlQuery);
+        ResultSet resultSet = preparedStatement5.executeQuery();
+
+        while(resultSet.next()) {
+            BigDecimal bigDecimal = new BigDecimal(0);
+            bigDecimal.setScale(resultSet.getInt("count"));
+            bigDecimals.add(bigDecimal);
+        }
+        return bigDecimals;
+    }
 
 }

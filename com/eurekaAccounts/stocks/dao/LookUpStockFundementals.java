@@ -17,6 +17,8 @@ public class LookUpStockFundementals extends BaseDAO{
     BaseDAO baseDAO = new BaseDAO();
     public LookUpStockFundementals() throws SQLException {
     }
+
+
     public List<StockFundementalVO> getAllStockFundementals() throws SQLException{
         List<StockFundementalVO> allStockFundemental = new ArrayList<>();
         String sqlQuery = """

@@ -2,16 +2,17 @@ public class Day2 {
 
     // ===== Fields (Variables of the class) =====
     private String tickerSymbol;
+    private long marketCap;
+    private double currentRatio;
+    private int sectorId;
+    private int subsectorId;
+
 
     public Day2(String tickerSymbol, int sectorId) {
         this.tickerSymbol = tickerSymbol;
         this.sectorId = sectorId;
     }
 
-    private long marketCap;
-    private double currentRatio;
-    private int sectorId;
-    private int subsectorId;
 
     // ===== Default Constructor =====
     public Day2() {
@@ -49,7 +50,7 @@ public class Day2 {
 
     public int getSubsectorId() {
         return subsectorId;
-    }
+    };
 
     // ===== Setters =====
     public void setTickerSymbol(String tickerSymbol) {

@@ -22,7 +22,7 @@ public class Assignment {
         float f1 = 25.55f;
         float f2 = 68;
         System.out.println(f1+f2);
-        return s1;
+        return newone();
     }
 
     private static String newone( String a, String b, float c) {

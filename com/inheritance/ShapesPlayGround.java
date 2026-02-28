@@ -14,7 +14,9 @@ public class ShapesPlayGround {
         circle1.draw();
         System.out.println("Draw the Cube");
 
-
+        Square c= new Square();
+        System.out.println(c.calculateArea());
+        System.out.println(c.draw());
 
 
     }

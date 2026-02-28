@@ -34,7 +34,7 @@ public class StringPlayGround {
 
 
 
-       // "," is a delimer
+       // "," is a delimiter
        String tickersString = "AAPL,AMD,PL";
        System.out.println(tickersString);
        String[] tickerArray = tickersString.split(",");
