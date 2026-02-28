@@ -31,6 +31,10 @@ public class StockAnalytics {
         //get the stock price history for tesla for the last 3 months
         System.out.println(marketAnalyticsService.getTeslaStockPriceHistory("TSLA", LocalDate.now().minusMonths(7)));
 
-        //get the abg market cap of each sector id
+        System.out.println("Avg of MarketCaps");
+        System.out.println(marketAnalyticsService.getAvgMarketCap());
+
+        //get the avg market cap of each sector id
+
     }
 }

@@ -93,7 +93,7 @@ public class JDBCPlayGround {
             stockFundementals.setSectorId(resultSet3.getBigDecimal("sector_id"));
             stockFundementals.setSubSectorId(resultSet3.getInt("subsector_id"));
             stockFundementals.setTickerSymbol(resultSet3.getString("ticker_symbol"));
-            stockFundementals.setMarketCap(resultSet3.getBigDecimal("market_cap"));
+            stockFundementals.setMarketCap(resultSet3.getLong("market_cap"));
             stockFundementals.setCurrentRatio(resultSet3.getFloat("current_ratio"));
             specificStocks.add(stockFundementals);
         }

@@ -66,7 +66,7 @@ public class MarketAnalyticsService {
         List<StockFundamentals> blueChipTickers=lookUpStockFundamentals.getAllStockFundamentals();
         List<String> stockFundamentalsStream = blueChipTickers.stream()
                 .filter(x -> x.getSectorId().equals(new BigDecimal(34)))
-                .filter(x -> x.getMarketCap().compareTo(new BigDecimal("10000000000")) > 0)
+                .filter(x -> x.getMarketCap()>10000000000L)
                 .map(StockFundamentals::getTickerSymbol)
                 .collect(Collectors.toList());
         return stockFundamentalsStream;
@@ -74,16 +74,16 @@ public class MarketAnalyticsService {
 
     public void getSumOfMktCapOfHealthCarestocks() throws SQLException {
         List<StockFundamentals> allStockFundamentals =lookUpStockFundamentals.getAllStockFundamentals();
-        Optional<BigDecimal> sumOfMarketCap= allStockFundamentals.stream()
+        Optional<Long> sumOfMarketCap= allStockFundamentals.stream()
                 .map(x -> x.getMarketCap())
-                .reduce((a, b) -> a.add(b));
+                .reduce((a, b) -> a+b);
 
         sumOfMarketCap.ifPresent(x-> System.out.println(x));
         sumOfMarketCap.ifPresent(System.out::println);
 
         allStockFundamentals.parallelStream()
                 .map(x -> x.getMarketCap())
-                .reduce((a, b) -> a.add(b));
+                .reduce((a, b) -> a+b);
 
 
 
@@ -106,6 +106,12 @@ public class MarketAnalyticsService {
     public List<StockPriceHistoryVO> getTeslaStockPriceHistory(String tesla, LocalDate now) throws SQLException {
         List<StockPriceHistoryVO> stockPriceHistoryVOS= stockPriceHistoryDAO.getStockPriceHistory(tesla,now);
         return stockPriceHistoryVOS;
+    }
+    public Map<BigDecimal,Double> getAvgMarketCap() throws SQLException {
+        List<StockFundamentals> stockFundamentalsVOS = lookUpStockFundamentals.getAllStockFundamentals();
+        Map<BigDecimal,Double> averageMarketCap = stockFundamentalsVOS.stream().collect(Collectors.groupingBy(StockFundamentals::getSectorId
+                , Collectors.averagingLong(StockFundamentals::getMarketCap)));
+        return averageMarketCap;
     }
 
 }

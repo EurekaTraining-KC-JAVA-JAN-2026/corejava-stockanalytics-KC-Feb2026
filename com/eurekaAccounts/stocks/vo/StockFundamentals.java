@@ -6,13 +6,13 @@ public class StockFundamentals implements Comparable<StockFundamentals>{
     public String tickerSymbol;
     public BigDecimal sectorId;
     public int subSectorId;
-    public BigDecimal marketCap;
+    public Long marketCap;
     public float currentRatio;
 
     public StockFundamentals() {
     }
 
-    public StockFundamentals(String tickerSymbol, BigDecimal sectorId, int subSectorId, BigDecimal marketCap, float currentRatio) {
+    public StockFundamentals(String tickerSymbol, BigDecimal sectorId, int subSectorId, Long marketCap, float currentRatio) {
         this.tickerSymbol = tickerSymbol;
         this.sectorId = sectorId;
         this.subSectorId = subSectorId;
@@ -44,11 +44,11 @@ public class StockFundamentals implements Comparable<StockFundamentals>{
         this.subSectorId = subSectorId;
     }
 
-    public BigDecimal getMarketCap() {
+    public Long getMarketCap() {
         return marketCap;
     }
 
-    public void setMarketCap(BigDecimal marketCap) {
+    public void setMarketCap(Long marketCap) {
         this.marketCap = marketCap;
     }
 
