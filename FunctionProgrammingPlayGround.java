@@ -65,6 +65,7 @@ public class FunctionProgrammingPlayGround {
             return inputNum+inputNum;
         };
         System.out.println("From Unary Operator :"+unaryOperatorFunction.apply(10));
+
         BinaryOperator<Integer> binaryOperatorFunction=(integer,integer2)->{
             return integer+integer2;
         };

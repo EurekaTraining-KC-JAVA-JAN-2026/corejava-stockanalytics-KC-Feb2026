@@ -28,11 +28,6 @@ public class StringsPlayGround {
           System.out.println(s3.isEmpty());
           System.out.println(s1.toCharArray());
 
-
-
-
-
-
     }
 
 

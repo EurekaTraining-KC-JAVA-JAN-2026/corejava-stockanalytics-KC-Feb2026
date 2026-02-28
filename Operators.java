@@ -1,7 +1,6 @@
 public class Operators {
     public static void main(String[] args){
 
-
         //pre-increment:first it will increment the value and then it will assign the value
          int x=5;
          int y=++x;

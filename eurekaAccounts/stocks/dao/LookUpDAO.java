@@ -2,7 +2,6 @@ package eurekaAccounts.stocks.dao;
 
 import eurekaAccounts.stocks.exception.StocksException;
 import eurekaAccounts.stocks.vo.SectorVO;
-
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -12,9 +11,6 @@ public class LookUpDAO extends BaseDAO {
     public LookUpDAO() throws SQLException {
 
     }
-
-
-
     public List<SectorVO> getAllSectorsDAO()  {
         List<SectorVO> allSectors = new ArrayList<>();
         String sqlQuery= """
@@ -45,7 +41,6 @@ public class LookUpDAO extends BaseDAO {
            throw new StocksException("Throw Msg",e.getCause());
 
        }
-
        return allSectors;
     }
 

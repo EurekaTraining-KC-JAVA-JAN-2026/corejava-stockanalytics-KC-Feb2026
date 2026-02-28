@@ -12,6 +12,6 @@ public class PassByValue {
         a = 50;
         System.out.println(a);
         System.out.println(System.identityHashCode(a));
-        System.out.println(System.identityHashCode(a));
+
     }
 }

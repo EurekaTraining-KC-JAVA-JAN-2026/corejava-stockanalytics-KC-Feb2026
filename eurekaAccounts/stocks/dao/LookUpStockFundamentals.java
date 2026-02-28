@@ -16,8 +16,10 @@ public class LookUpStockFundamentals extends BaseDAO {
     public List<StockFundamentalsVO> getAllStockFundamentalsDAO() throws SQLException {
         List<StockFundamentalsVO> allstockFundaments= new ArrayList<>();
         String SQuery= """
-                          select *
+                        select *
                              from endeavour.stock_fundamentals sf\s
+                            
+                             ;
                          
                 """;
         try {
@@ -38,4 +40,52 @@ public class LookUpStockFundamentals extends BaseDAO {
         }
         return allstockFundaments;
     }
+
+    public List<StockFundamentalsVO> getSToptockFundamentals() throws SQLException {
+        List<StockFundamentalsVO> topStockFundementalsVOS = new ArrayList<>();
+        String sqlQuery = """
+                 select 
+                     sf.ticker_symbol, sf.sector_id, sf.subsector_id,sf.market_cap,sf.current_ratio
+                     from endeavour.stock_fundamentals  sf;
+                """;
+        PreparedStatement preparedStatement3 = connection.prepareStatement(sqlQuery);
+        //preparedStatement3.setString(1,tickerSymbol);
+        ResultSet resultSet = preparedStatement3.executeQuery();
+        while (resultSet.next()) {
+            StockFundamentalsVO stockFundementalsVO = new StockFundamentalsVO();
+            stockFundementalsVO.setSector_id(resultSet.getInt("sector_id"));
+            stockFundementalsVO.setSubsector_id(resultSet.getInt("subsector_id"));
+            stockFundementalsVO.setTicker_symbol(resultSet.getString("ticker_symbol"));
+            stockFundementalsVO.setMarket_cap(resultSet.getLong("market_cap"));
+            stockFundementalsVO.setCurrent_ratio(resultSet.getFloat("current_ratio"));
+
+
+            topStockFundementalsVOS.add(stockFundementalsVO);
+        }
+        return topStockFundementalsVOS;
+    }
+    public List<StockFundamentalsVO> getBlueChipStocks() throws SQLException {
+        List<StockFundamentalsVO> BlueChipHealthcareList = new ArrayList<>();
+        String sqlQuery = """
+                 select 
+                     sf.ticker_symbol, sf.sector_id, sf.market_cap
+                     from endeavour.stock_fundamentals  sf;
+                """;
+        PreparedStatement preparedStatement3 = connection.prepareStatement(sqlQuery);
+        //preparedStatement3.setString(1,tickerSymbol);
+        ResultSet resultSet = preparedStatement3.executeQuery();
+        while (resultSet.next()) {
+            StockFundamentalsVO BlueChipVO = new StockFundamentalsVO();
+            BlueChipVO.setSector_id(resultSet.getInt("sector_id"));
+            BlueChipVO.setTicker_symbol(resultSet.getString("ticker_symbol"));
+            BlueChipVO.setMarket_cap(resultSet.getLong("market_cap"));
+
+
+            BlueChipHealthcareList.add(BlueChipVO);
+        }
+        return BlueChipHealthcareList;
+    }
+
+
 }
+

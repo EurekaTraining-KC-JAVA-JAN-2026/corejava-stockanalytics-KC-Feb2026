@@ -10,7 +10,7 @@ public class StreamsPlayGround {
        List<Integer> integerList=List.of(2,3,4,1,8,6,7);
        System.out.println("list of ints :"+integerList);
        //operator of squares
-   List<Integer> collect=    integerList.stream().
+       List<Integer> collect = integerList.stream().
                              map(num->num*num).
                               collect(Collectors.toList());
        System.out.println("Squares of integerList :"+collect);
