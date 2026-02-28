@@ -3,6 +3,7 @@ package com.eurekaAccounts.stocks.dao;
 import com.eurekaAccounts.stocks.exception.StockException;
 import com.eurekaAccounts.stocks.vo.SectorVO;
 
+import java.math.BigDecimal;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -23,8 +24,10 @@ public class LookUpDAO extends BaseDAO{
                 """;
         try{
             PreparedStatement preparedStatement = connection.prepareStatement(sqlQurey);
+
+            //preparedStatement.setInt(1, sectorID);
             //preparedStatement.setInt(1,sectorId);
-            //above we are holding the sqlqurey into an prepared statement
+            //above we are holding the sqlqurey into a prepared statement
             ResultSet resultSet = preparedStatement.executeQuery();
             //executing the query the result
             System.out.println(resultSet);

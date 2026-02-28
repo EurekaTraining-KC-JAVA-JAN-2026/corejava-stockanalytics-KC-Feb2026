@@ -4,9 +4,9 @@ import java.math.BigDecimal;
 
 public class StockfundamentalVO implements Comparable<StockfundamentalVO>{
     public String tickerSymbol;
-    public int sectorId;
+    public BigDecimal sectorId;
     public int subSectorId;
-    public float marketCap;
+    public BigDecimal marketCap;
     public BigDecimal currentRatio;
     public BigDecimal priceToBookRatio;
     public BigDecimal Peg;
@@ -19,7 +19,7 @@ public class StockfundamentalVO implements Comparable<StockfundamentalVO>{
     public BigDecimal trailingPe;
     public BigDecimal forwardPe;
 
-    public StockfundamentalVO(String tickerSymbol, int sectorId, int subSectorId, float marketCap, BigDecimal currentRatio, BigDecimal priceToBookRatio, BigDecimal peg, BigDecimal epsqq, BigDecimal epsNxtYear, BigDecimal epsTtm, BigDecimal roe, BigDecimal insiderOwnership, BigDecimal debtEquityRatio, BigDecimal trailingPe, BigDecimal forwardPe) {
+    public StockfundamentalVO(String tickerSymbol, BigDecimal sectorId, int subSectorId, BigDecimal marketCap, BigDecimal currentRatio, BigDecimal priceToBookRatio, BigDecimal peg, BigDecimal epsqq, BigDecimal epsNxtYear, BigDecimal epsTtm, BigDecimal roe, BigDecimal insiderOwnership, BigDecimal debtEquityRatio, BigDecimal trailingPe, BigDecimal forwardPe) {
 
         this.tickerSymbol = tickerSymbol;
         this.sectorId = sectorId;
@@ -41,7 +41,7 @@ public class StockfundamentalVO implements Comparable<StockfundamentalVO>{
     public StockfundamentalVO() {
     }
 
-    public StockfundamentalVO(String tickerSymbol, int sectorId, Object o) {
+    public StockfundamentalVO(String tickerSymbol, BigDecimal sectorId, Object o) {
     }
 
     public String getTickerSymbol() {
@@ -52,13 +52,14 @@ public class StockfundamentalVO implements Comparable<StockfundamentalVO>{
         this.tickerSymbol = tickerSymbol;
     }
 
-    public int getSectorId() {
+    public BigDecimal getSectorId() {
         return sectorId;
     }
 
-    public void setSectorId(int sectorId) {
+    public void setSectorId(BigDecimal sectorId) {
         this.sectorId = sectorId;
     }
+
 
     public int getSubSectorId() {
         return subSectorId;
@@ -68,11 +69,11 @@ public class StockfundamentalVO implements Comparable<StockfundamentalVO>{
         this.subSectorId = subSectorId;
     }
 
-    public float getMarketCap() {
+    public BigDecimal getMarketCap() {
         return marketCap;
     }
 
-    public void setMarketCap(float marketCap) {
+    public void setMarketCap(BigDecimal marketCap) {
         this.marketCap = marketCap;
     }
 
@@ -187,13 +188,7 @@ public class StockfundamentalVO implements Comparable<StockfundamentalVO>{
 
     @Override
     public int compareTo(StockfundamentalVO o) {
-        if (o.marketCap>  this.getMarketCap()){
-            return 1;
-        }else if(o.marketCap < this.getMarketCap()){
-            return -1;
-        }
-        else{
-            return 0;
-        }
+        return this.marketCap.compareTo(o.marketCap);
     }
-    }
+
+}

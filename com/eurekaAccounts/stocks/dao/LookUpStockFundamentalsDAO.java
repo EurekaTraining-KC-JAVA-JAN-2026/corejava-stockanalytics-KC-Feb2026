@@ -25,16 +25,17 @@ public class LookUpStockFundamentalsDAO extends BaseDAO {
                 sf.subsector_id,
                 sf.market_cap,
                 sf.current_ratio
-                from endeavour.stock_fundamentals sf;
+                from 
+                endeavour.stock_fundamentals sf;
                 """;
         PreparedStatement preparedStatement = connection.prepareStatement(sqlQuery);
         ResultSet resultSet = preparedStatement.executeQuery();
         while (resultSet.next()){
             StockfundamentalVO stockFundamentalsVO = new StockfundamentalVO();
-            stockFundamentalsVO.setSectorId((resultSet.getInt("sector_id")));
+            stockFundamentalsVO.setSectorId((resultSet.getBigDecimal("sector_id")));
             stockFundamentalsVO.setSubSectorId((resultSet.getInt("subsector_id")));
             stockFundamentalsVO.setTickerSymbol(resultSet.getString("ticker_symbol"));
-            stockFundamentalsVO.setMarketCap((resultSet.getFloat("market_cap")));
+            stockFundamentalsVO.setMarketCap((resultSet.getBigDecimal("market_cap")));
             stockFundamentalsVO.setCurrentRatio(resultSet.getBigDecimal("current_ratio"));
             stockFundamentalsVOS.add(stockFundamentalsVO);
         }

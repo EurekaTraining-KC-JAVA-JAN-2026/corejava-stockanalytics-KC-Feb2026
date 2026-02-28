@@ -1,3 +1,4 @@
+import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -19,9 +20,9 @@ public class StreamsPlayGround {
         System.out.println("Squares of ints" +collect);
         //even or odd
         List<Integer> collect1 = integerList.stream()
-                .map(num->num+num)
-                .filter(num -> num % 2 == 0)
-                .sorted().
+                .map(num->num+num) //interrmediate
+                .filter(num -> num % 2 == 0) //intermediate
+                .sorted(). //intermediate
                 collect(Collectors.toList());
         System.out.println("Even numbers in integers" +collect1);
         /**
@@ -38,5 +39,12 @@ public class StreamsPlayGround {
             System.out.println("there is nothing to print");
         }
 
+        List<Integer> integerList1 = List.of(1,2,3,4,5,6,7,8);
+        List<String> collect2 = integerList1.stream()
+                .filter(x -> x % 2 == 0)
+                .sorted(Comparator.reverseOrder())
+                .map(x -> "test" +x)
+                .collect(Collectors.toList());
+        System.out.println(collect2);
     }
 }

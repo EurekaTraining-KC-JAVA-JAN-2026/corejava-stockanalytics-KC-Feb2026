@@ -20,7 +20,10 @@ public class JDBCPlayGround {
         getAllSubsectors(connection);
         getSpecificSector(connection);
         getSpecificStockFundamental(connection, "AAPL");
+        //getSectors(connection);
     }
+
+
 
     private static void getSpecificSector(Connection connection) {
         String sqlQuery3 = """
@@ -32,7 +35,6 @@ public class JDBCPlayGround {
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(sqlQuery3);
             ResultSet resultSet = preparedStatement.executeQuery();
-
             List<SectorVO> specificSector = new ArrayList<>();
             while (resultSet.next()) {
                 SectorVO sectorVO = new SectorVO();
@@ -70,9 +72,9 @@ public class JDBCPlayGround {
             //StockfundamentalVO stockfundamentalVO = new StockfundamentalVO();
             StockfundamentalVO stockfundamentalVO = new StockfundamentalVO(
                     resultSet.getString("ticker_symbol"),
-                    resultSet.getInt("sector_id"),
+                    resultSet.getBigDecimal("sector_id"),
                     resultSet.getInt("subsector_id"),
-                    resultSet.getFloat("market_cap"),
+                    resultSet.getBigDecimal("market_cap"),
                     resultSet.getBigDecimal("current_ratio"),
                     resultSet.getBigDecimal("price_to_book_ratio"),
                     resultSet.getBigDecimal("peg"),

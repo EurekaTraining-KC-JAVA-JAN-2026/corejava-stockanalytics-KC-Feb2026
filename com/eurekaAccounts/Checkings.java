@@ -28,7 +28,7 @@ public class Checkings extends Accounts {
     }
 
     public void something(){
-        //java will create some space in my memory //and also registers method signature
+        //java will create some space in my memory and also registers method signature
     }
 
     //method to account details

@@ -1,26 +1,34 @@
 public class PassByValue {
-    public static void main(String[] args){
-        //java is pass by value
-        int x=20;
+    //java is an pass by value
+    public static void main(String[] args) {
+        int x ;
+        x= 20;
+
         /**
-         * x=20
-         *java will not directly pass the refnum to other methods
-         * it will only pass the copied value of it
-         * before assignment if you print ASCII value its showing the same ref.
-         *
+         * x = 20
+         * 179...    20
          */
         System.out.println(System.identityHashCode(x));
-        //here java will pass the value;
-        // copy value of 20 and pass it to update()
+        //here java will pass the value,;; copy 20 pass it update()
+        /**
+         * java will not directly pass the ref. no. to other methods,
+         * it will only pass the copied value of it.
+         */
         update(x);
+        System.out.println("Original Ref Value ");
         System.out.println(System.identityHashCode(x));
         System.out.println(x);
     }
     static void update(int a){
-        //System.out.println("Before getting updated");
+        /**
+         * before if you print acsi value its showing the same ref,..
+         */
+        System.out.println("Before getting the updated");
+        System.out.println(System.identityHashCode(a));
         a=40;
         System.out.println(a);
+        System.out.println("After getting updated");
+        System.out.println(System.identityHashCode(a));
 
     }
-
 }

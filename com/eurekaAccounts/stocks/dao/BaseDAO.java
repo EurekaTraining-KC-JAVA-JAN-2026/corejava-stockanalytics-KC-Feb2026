@@ -12,7 +12,7 @@ public class BaseDAO {
     private static String jdbcurl = "jdbc:postgresql://endeavourtech.ddns.net:50271/StocksDB";
     private static String userName = "evr_sql_app";
     private static String password = "5LViU5pLkSjRHECec9NF4wRxxV";
-    public static Connection connection;//holding the connection , should be public or protectec
+    public static Connection connection;//holding the connection , should be public or protected
 
     public BaseDAO()  {
         try {
