@@ -4,6 +4,9 @@ import com.eurekaAccounts.stocks.service.MarketAnalyticsService;
 import com.eurekaAccounts.stocks.vo.SectorVO;
 
 import java.sql.SQLException;
+import java.time.LocalDate;
+//import java.util.Date;
+import java.sql.Date;
 import java.util.List;
 
 public class StockAnalytics {
@@ -19,6 +22,15 @@ public class StockAnalytics {
         //marketAnalyticsService2.getSumOfMktCapOfHealthCareStocks();
         //System.out.println(marketAnalyticsService2.getAllSubSectorsMap());
         //System.out.println( marketAnalyticsService2.getGroupOfTickerSymbols());
-        System.out.println(marketAnalyticsService2.getBlueChipTickerSymbols());
+       // System.out.println(marketAnalyticsService2.getBlueChipTickerSymbols());
+
+        //Date date = new Date();
+
+        //get the stockprice history for tesla for last 3 months
+        LocalDate twelveMonthsAgo = LocalDate.now().minusMonths(18);
+
+        Date sqlDate = Date.valueOf(twelveMonthsAgo);
+        System.out.println(marketAnalyticsService2.getTeslaStockPriceHistory("TSLA",sqlDate));
+
     }
 }

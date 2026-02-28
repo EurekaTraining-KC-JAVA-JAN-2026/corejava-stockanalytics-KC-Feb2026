@@ -6,10 +6,10 @@ public class StockFundamentalsVO implements Comparable<StockFundamentalsVO> {
     public String tickerSymbol;
     public BigDecimal sectorId;
     public int subSectorId;
-    public BigDecimal marketCap;
+    public long marketCap;
     public float currentRation;
 
-    public StockFundamentalsVO(String tickerSymbol, BigDecimal sectorId, BigDecimal marketCap, int subSectorId, float currentRation) {
+    public StockFundamentalsVO(String tickerSymbol, BigDecimal sectorId, long marketCap, int subSectorId, float currentRation) {
         this.tickerSymbol = tickerSymbol;
         this.sectorId = sectorId;
         this.marketCap = marketCap;
@@ -44,11 +44,11 @@ public class StockFundamentalsVO implements Comparable<StockFundamentalsVO> {
         this.subSectorId = subSectorId;
     }
 
-    public BigDecimal getMarketCap() {
+    public long getMarketCap() {
         return marketCap;
     }
 
-    public void setMarketCap(BigDecimal marketCap) {
+    public void setMarketCap(long marketCap) {
         this.marketCap = marketCap;
     }
 
@@ -73,6 +73,12 @@ public class StockFundamentalsVO implements Comparable<StockFundamentalsVO> {
 
     @Override
     public int compareTo(StockFundamentalsVO o) {
-       return o.marketCap.compareTo(this.marketCap);
+       if(o.marketCap>this.marketCap){
+           return 1;
+       }else if(o.marketCap<this.marketCap){
+           return -1;
+       }else{
+           return 0;
+       }
     }
 }
