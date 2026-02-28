@@ -3,6 +3,8 @@ package com.eurekaAccounts.stocks.dao;
 import com.eurekaAccounts.stocks.exception.StockException;
 import com.eurekaAccounts.stocks.vo.SectorVO;
 
+import java.math.BigDecimal;
+import java.math.BigInteger;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -69,27 +71,28 @@ public class LookUpDAO extends BaseDAO {
 
     }
 
-    public  List<SectorVO> getSpecificSectorID() throws SQLException {
+    public  List<BigDecimal> getSpecificSectorID() throws SQLException {
 
-        List<SectorVO> specificSectors =  new ArrayList<>();
+        List<BigDecimal> specificSectors =  new ArrayList<>();
         int sectorId = 41;
         String sqlQuery = """
-                select 
-                   * 
-                    from endeavour.sector_lookup ssl where ssl.sector_id = ?;
+              select count(*)
+              from
+                  endeavour.state_lookup sl;
                 """;
         PreparedStatement preparedStatement2 = connection.prepareStatement(sqlQuery);
-        preparedStatement2.setInt(1,sectorId);
+       // preparedStatement2.setInt(1,sectorId);
         //System.out.println(preparedStatement);
         ResultSet resultSet = preparedStatement2.executeQuery();
         //System.out.println(resultSet);
 
         while(resultSet.next())
         {
-            SectorVO sectorVO = new SectorVO();
-            sectorVO.setSectorId(resultSet.getInt("sector_id"));
-            sectorVO.setSectorName(resultSet.getString("sector_name"));
-            specificSectors.add(sectorVO);
+            BigDecimal bigDecimal = new BigDecimal(0);
+            BigDecimal count = bigDecimal.add(new BigDecimal(resultSet.getInt("count")));
+            //bigDecimal.add(resultSet.getLong("co"))
+
+            specificSectors.add(count);
         }
 
         return specificSectors;

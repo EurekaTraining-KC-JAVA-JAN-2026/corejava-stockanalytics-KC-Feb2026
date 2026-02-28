@@ -1,3 +1,6 @@
+import com.eurekaAccounts.stocks.vo.SectorVO;
+
+import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -24,6 +27,7 @@ public class StreamsPlayGround {
         // i have a list - stream - mapping each number of its square and storing it in a list
         List<Integer> collect =  integerList.stream()
                 .map(num -> num * num)
+                //.filter(num-> num+num);
                 .collect(Collectors
                         .toList());
         System.out.println(collect);
@@ -35,15 +39,22 @@ public class StreamsPlayGround {
         /**
          * Optional
          */
-        String string1 ="Eureka";
-        String nullString = null;
-        String emptyString = "";
-        System.out.println("=========FROMM OPTIONAL========");
-        Optional<String> sampleOptinal =Optional.ofNullable(nullString);
-        try{
-            System.out.println(sampleOptinal.get());
-        }catch (NullPointerException e){
-            System.out.println("there is nothing to print");
-        }
+//        String string1 ="Eureka";
+//        String nullString = null;
+//        String emptyString = "";
+//        System.out.println("=========FROMM OPTIONAL========");
+//        Optional<String> sampleOptinal =Optional.ofNullable(nullString);
+//        try{
+//            System.out.println(sampleOptinal.get());
+//        }catch (NullPointerException e){
+//            System.out.println("there is nothing to print");
+//        }
+        List<Integer> integerList1 = List.of(1,2,3,4,5,6,7,8,9);
+        List<String> collect2 = integerList1.stream().filter(x -> x % 2 == 0)//intermediate checking is even and return stream
+                .sorted(Comparator.reverseOrder())
+                .map(x->"test"+x)
+                .collect(Collectors.toList());
+        System.out.println(collect2);
+
     }
 }

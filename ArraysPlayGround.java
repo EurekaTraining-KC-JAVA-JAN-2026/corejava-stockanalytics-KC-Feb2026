@@ -1,3 +1,5 @@
+import java.math.BigDecimal;
+
 public class ArraysPlayGround {
     public static void main (String[] args){
         int i = 10;
@@ -27,5 +29,9 @@ public class ArraysPlayGround {
             System.out.println("Sq's of nums in numArray: " +eachNumber*eachNumber);
 
         }
+
+
+        BigDecimal big = new BigDecimal(0);
+        System.out.println(big.add(new BigDecimal(2)));
     }
 }
