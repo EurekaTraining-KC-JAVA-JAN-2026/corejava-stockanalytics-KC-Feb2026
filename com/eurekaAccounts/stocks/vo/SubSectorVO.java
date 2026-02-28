@@ -5,6 +5,16 @@ public class SubSectorVO {
     public String subSectorName;
     public int sectorId;
 
+    public String ticker_name;
+
+    public String getTicker_name() {
+        return ticker_name;
+    }
+
+    public void setTicker_name(String ticker_name) {
+        this.ticker_name = ticker_name;
+    }
+
     public SubSectorVO() {
     }
 
@@ -12,10 +22,11 @@ public class SubSectorVO {
 
     @Override
     public String toString() {
-        return "SubSectorVO{" +
+        return "SubSectorVO{" + "\n" +
                 "sectorId=" + sectorId +
                 ", subSectorId=" + subSectorId +
                 ", sunSectorName='" + subSectorName + '\'' +
+                ", ticker_name='" + ticker_name+'\n'+
                 '}'+'\n';
     }
 
@@ -47,5 +58,11 @@ public class SubSectorVO {
         this.sectorId = sectorId;
         this.subSectorId = subSectorId;
         this.subSectorName = sunSectorName; // fixed
+    }
+
+    public SubSectorVO(int subSectorId, String subSectorName, String ticker_name) {
+        this.subSectorId = subSectorId;
+        this.subSectorName = subSectorName;
+        this.ticker_name = ticker_name;
     }
 }

@@ -25,6 +25,9 @@ public class ArraysPlayGround {
 //        initilzation condition updating
         // y++
 //        ++y
+        for(int y =5;y>0;y--){
+            System.out.println("y value is "+ y);
+        }
 //        --y
 //        y--
         //basic for-loop
@@ -35,6 +38,19 @@ public class ArraysPlayGround {
         for (int eachNumber:numArray){
             System.out.println("Sq's of nums in numArray :"+eachNumber*eachNumber);
         }
+
+        int a = 5;
+//        int b = ++a;
+
+       // System.out.println(a++); // 6
+       //System.out.println(a); // 6
+
+
+        //int a = 5;
+        int b = ++a;
+
+        System.out.println(b); // 6
+        System.out.println(a); // 6
 
     }
 }

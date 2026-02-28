@@ -1,5 +1,5 @@
 public class Stock {
-    private String tickerSymbol;
+    private  String tickerSymbol;
     private String tickerName;
     private long marketCap;
     private float currentRatio;

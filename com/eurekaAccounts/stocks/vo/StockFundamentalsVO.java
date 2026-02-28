@@ -1,15 +1,17 @@
 package com.eurekaAccounts.stocks.vo;
 
+import java.math.BigDecimal;
+
 public class StockFundamentalsVO implements Comparable<StockFundamentalsVO> {
 
     private String tickerSymbol;
-    private int sectorId;
+    private BigDecimal sectorId;
     private int subsectorId;
     private long marketCap;
 
     public StockFundamentalsVO() {}
 
-    public StockFundamentalsVO(String tickerSymbol, long marketCap, int subsectorId, int sectorId) {
+    public StockFundamentalsVO(String tickerSymbol, long marketCap, int subsectorId, BigDecimal sectorId) {
         this.tickerSymbol = tickerSymbol;
         this.marketCap = marketCap;
         this.subsectorId = subsectorId;
@@ -19,8 +21,8 @@ public class StockFundamentalsVO implements Comparable<StockFundamentalsVO> {
     public String getTickerSymbol() { return tickerSymbol; }
     public void setTickerSymbol(String tickerSymbol) { this.tickerSymbol = tickerSymbol; }
 
-    public int getSectorId() { return sectorId; }
-    public void setSectorId(int sectorId) { this.sectorId = sectorId; }
+    public BigDecimal getSectorId() { return sectorId; }
+    public void setSectorId(BigDecimal sectorId) { this.sectorId = sectorId; }
 
     public int getSubsectorId() { return subsectorId; }
     public void setSubsectorId(int subsectorId) { this.subsectorId = subsectorId; }
