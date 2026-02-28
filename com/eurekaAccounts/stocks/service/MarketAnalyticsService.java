@@ -1,18 +1,13 @@
 package com.eurekaAccounts.stocks.service;
 
-import com.eurekaAccounts.stocks.dao.CompanyLocationsDAO;
-import com.eurekaAccounts.stocks.dao.LookUpAllSubSectorDAO;
-import com.eurekaAccounts.stocks.dao.LookUpDAO;
-import com.eurekaAccounts.stocks.dao.LookUpStockFundamentalsDAO;
+import com.eurekaAccounts.stocks.dao.*;
 import com.eurekaAccounts.stocks.sorting.SubSectorNameComparator;
-import com.eurekaAccounts.stocks.vo.CompanyLocationsVO;
-import com.eurekaAccounts.stocks.vo.SectorVO;
-import com.eurekaAccounts.stocks.vo.StockFundementalsVO;
-import com.eurekaAccounts.stocks.vo.SubSectorVO;
+import com.eurekaAccounts.stocks.vo.*;
 import org.w3c.dom.ls.LSOutput;
 
 import java.math.BigDecimal;
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -26,6 +21,7 @@ LookUpStockFundamentalsDAO lookUpStockFundamentalsDAO2 = new LookUpStockFundamen
 CompanyLocationsDAO companyLocationsDAO =  new CompanyLocationsDAO();
 CompanyLocationsDAO companyLocationsDAO2 =  new CompanyLocationsDAO();
 
+StockPriceHistoryDAO StockPriceHistoryDAO =  new StockPriceHistoryDAO();
 
 public String getAllSectors() throws SQLException {
     List<SectorVO> allSectors = lookupDAO.getAllSectors();
@@ -158,5 +154,21 @@ public String getAllSectors() throws SQLException {
 
       return  blueTickerStreams;
     }
+
+    public List<StockPriceHistoryVO> getTeslaStockPriceHistory(String tesla, LocalDate now) throws SQLException {
+        List<StockPriceHistoryVO> teslaList =  StockPriceHistoryDAO.getStockPriceHistory(tesla,now);
+
+        return teslaList;
+
+
+    }
+
+    public Map<BigDecimal,Double> getAvgMarketCap() throws SQLException {
+        List<StockFundementalsVO> stockFundamentalsVOS = lookUpStockFundamentalsDAO.getStockFundamentals();
+        Map<BigDecimal,Double> averageMarketCap = stockFundamentalsVOS.stream().collect(Collectors.groupingBy(StockFundementalsVO::getSectorId
+                , Collectors.averagingLong(StockFundementalsVO::getMarketCap)));
+        return averageMarketCap;
+    }
+
 
 }

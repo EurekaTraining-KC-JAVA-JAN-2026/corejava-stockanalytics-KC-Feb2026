@@ -3,6 +3,7 @@ package com.eurekaAccounts.stocks;
 import com.eurekaAccounts.stocks.service.MarketAnalyticsService;
 
 import java.sql.SQLException;
+import java.time.LocalDate;
 
 public class StockAnalytics {
     static void main(String[] args) throws SQLException {
@@ -27,7 +28,14 @@ public class StockAnalytics {
         //System.out.println(marketAnalyticsService.getSubSectorIdGroup());
         MarketAnalyticsService marketAnalyticsService9 =  new MarketAnalyticsService();
         //System.out.println(marketAnalyticsService9.getGroupOfTickerSymbols());
-        System.out.println(marketAnalyticsService9.getBlueChipStocks());
+        //System.out.println(marketAnalyticsService9.getBlueChipStocks());
+
+        // get the stockprice history of tesla for last 3 months
+        MarketAnalyticsService marketAnalyticsService10 = new MarketAnalyticsService();
+        //System.out.println(marketAnalyticsService10.getTeslaStockPriceHistory("TSLA", LocalDate.now()));
+        MarketAnalyticsService marketAnalyticsService11 = new MarketAnalyticsService();
+        System.out.println(marketAnalyticsService11.getAvgMarketCap());
+
 
     }
 }
