@@ -29,6 +29,7 @@ public class Stock {
 
     public String getTickerSymbol() {
         return tickerSymbol;
+
     }
 
     public int getSectorId() {

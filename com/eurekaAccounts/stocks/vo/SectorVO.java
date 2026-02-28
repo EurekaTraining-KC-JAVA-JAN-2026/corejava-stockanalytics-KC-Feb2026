@@ -11,18 +11,22 @@ public class SectorVO implements Comparable<SectorVO> {
 
     public int getSectorId() {
         return sectorId;
+
     }
 
     public void setSectorId(int sectorId) {
         this.sectorId = sectorId;
+
     }
 
     public String getSectorName() {
         return sectorName;
+
     }
 
     public void setSectorName(String sectorName) {
         this.sectorName = sectorName;
+
     }
 
     public SectorVO() {
@@ -46,5 +50,6 @@ public class SectorVO implements Comparable<SectorVO> {
         } else {
             return 0;
         }
+
     }
 }

@@ -16,14 +16,14 @@ public class LookUpDAO extends BaseDAO{
     }
     public List<SectorVO> getAllSectorsDAO() {
         List<SectorVO> allSectors = new ArrayList<>();
-        String sqlQurey = """
+        String sqlQuery = """
                 select
                        	*
                         from
                             endeavour.sector_lookup sl ;
                 """;
         try{
-            PreparedStatement preparedStatement = connection.prepareStatement(sqlQurey);
+            PreparedStatement preparedStatement = connection.prepareStatement(sqlQuery);
             // preparedStatement.setInt(1,sectorId);
             //above we are holding the sqlqurey into an prepared statement
             ResultSet resultSet = preparedStatement.executeQuery();

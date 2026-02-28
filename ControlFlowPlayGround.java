@@ -54,7 +54,7 @@ public class ControlFlowPlayGround {
          *
          */
         while(x>8){
-            System.out.println("From while loop :" +x);
+            System.out.println("From while loop :" + x);
             x--;
         }
 

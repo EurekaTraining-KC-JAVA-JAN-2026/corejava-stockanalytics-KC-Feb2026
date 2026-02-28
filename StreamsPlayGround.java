@@ -1,3 +1,4 @@
+import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -30,5 +31,13 @@ public class StreamsPlayGround {
         } catch(NullPointerException e){
             System.out.println("There is nothing to print");
         }
+        List<Integer> integerList1 = List.of(1,2,3,4,5,6,7,8);
+        List<String> collect2 = integerList1.stream()
+                .filter(x->x%2==0) //intermediate checking isEven and return stream
+                .sorted(Comparator.reverseOrder()) //sorting in reverse order and return a stream
+                .map(x->"test " +x)
+                .collect(Collectors.toList()); //terminal collecting a stream to a List
+        System.out.println(collect2);
+
     }
 }

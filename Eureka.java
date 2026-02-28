@@ -10,7 +10,7 @@ public class Eureka {
         String s1 = "Eureka";
         s1.concat("E");
         StaticPlayGround s2 = new StaticPlayGround();
-        StaticPlayGround.move();
+        s2.move();
         //primitive
         int i;//declaring
         i = 10;//assigning
@@ -51,8 +51,6 @@ public class Eureka {
         appleStock.setCurrentRatio(23.65);
 
         System.out.println(appleStock.getTickerSymbol()+" "+ appleStock.getMarketCap());
-
-
     }
 
     //method overloading - same method name different parameters

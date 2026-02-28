@@ -6,8 +6,8 @@ public class CollectionsPlayGround {
     public static void main(String[] args) {
         ArrayList<String> tickersList = new ArrayList<>();
         //above is one way to create the arrayList
-        //above is one way to create the arrayList
         List<String> tickersList1 = new ArrayList<>();
+
         //this is the famous way to create
         //another way of creating an ArrayList
         tickersList1.add("MSFT");

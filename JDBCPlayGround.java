@@ -32,7 +32,6 @@ public class JDBCPlayGround {
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(sqlQuery3);
             ResultSet resultSet = preparedStatement.executeQuery();
-
             List<SectorVO> specificSector = new ArrayList<>();
             while (resultSet.next()) {
                 SectorVO sectorVO = new SectorVO();
