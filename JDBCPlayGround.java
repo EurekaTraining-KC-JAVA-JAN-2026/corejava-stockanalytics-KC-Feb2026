@@ -13,7 +13,7 @@ public class JDBCPlayGround {
 
     static void main(String[] args) throws SQLException {
         Connection connection = DriverManager.getConnection(jdbcurl, userName, password);//instance of DB Connection
-        //System.out.println(connection);
+        System.out.println(connection);
         // retrieve data from DB
         getAllSectors(connection);
         getAllSubSectors(connection);
@@ -38,7 +38,7 @@ public class JDBCPlayGround {
         while(resultSet.next())
         {
             StockFundementalsVO stockFundementalsVO = new StockFundementalsVO();
-            stockFundementalsVO.setSectorId(resultSet.getInt("sector_id"));
+            stockFundementalsVO.setSectorId(resultSet.getBigDecimal("sector_id"));
             stockFundementalsVO.setSubSectorId(resultSet.getInt("subsector_id"));
             stockFundementalsVO.setTickerSymbol(resultSet.getString("ticker_symbol"));
             stockFundementalsVO.setMarketCap(resultSet.getLong("market_cap"));
