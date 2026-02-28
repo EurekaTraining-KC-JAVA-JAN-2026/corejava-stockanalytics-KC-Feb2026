@@ -9,6 +9,7 @@ import com.eurekaAccounts.stocks.vo.StockFundementalVO;
 import com.eurekaAccounts.stocks.vo.SubSectorVO;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.*;
@@ -126,9 +127,18 @@ public class MarketAnyaliticsService {
     public static void getTeslaStockPriceHistory(String tesla, LocalDate now) throws SQLException {
         LookUpStockPriceHistoryDAO lookUpStockPriceHistoryDAO1 = new LookUpStockPriceHistoryDAO();
         System.out.println(lookUpStockPriceHistoryDAO1.getStockPriceHistory(tesla,now));
-
     }
 
     //get the avg market cap for each sector
+    public Map<Integer, BigDecimal> getAverageMarketCapBySector() throws SQLException {
+    List<StockFundementalVO> allStocks = lookUpStockFundamentalsDAO.getAllStockFundementals();
+        return allStocks.stream().collect(Collectors
+                .groupingBy(StockFundementalVO::getSectorID, Collectors
+                .collectingAndThen(Collectors.averagingDouble(x -> x.getMarketCap()),
+                                avg -> BigDecimal.valueOf(avg)
+                )));
+    }
+
+
 
 }

@@ -28,6 +28,7 @@ public class StockAnalytics {
 //        System.out.println(marketAnaliticsService11.getBlueChipHealthcareMap());
 
         // get stockprice history for tesla for last 3 months
-        MarketAnyaliticsService.getTeslaStockPriceHistory("TSLA", LocalDate.now().minusMonths(11));
-
+      //  MarketAnyaliticsService.getTeslaStockPriceHistory("TSLA", LocalDate.now().minusMonths(11));
+        MarketAnyaliticsService marketAnyaliticsService = new MarketAnyaliticsService();
+        System.out.println(marketAnyaliticsService.getAverageMarketCapBySector());
 }}
