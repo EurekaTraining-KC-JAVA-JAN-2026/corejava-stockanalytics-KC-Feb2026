@@ -6,7 +6,7 @@ import java.sql.SQLException;
 
 public class BaseDAO {
     /**
-     * we will put our DB config here
+     * we will put    our DB config here
      */
     private static String jdbcurl="jdbc:postgresql://endeavourtech.ddns.net:50271/StocksDB";
     private static String userName="evr_sql_app";

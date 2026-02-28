@@ -1,9 +1,75 @@
 package com.EurekaAccounts.stocks.vo;
 
-public class SubSectorVo {
+public class SubSectorVo implements Comparable<SubSectorVo>{
     public int sectorId;
     public int subSectorId;
     public String sectorName;
+    public String address;
+    public String city;
+
+
+    public SubSectorVo(String address, String city, String state, int zipcode) {
+        this.address = address;
+        this.city=city;
+        this.state = state;
+        this.zipcode = zipcode;
+    }
+
+    public String state;
+    public int zipcode;
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    @Override
+    public String toString() {
+        return "SubSectorVo{" +
+                "sectorId=" + sectorId +
+                ", subSectorId=" + subSectorId +
+                '}';
+    }
+
+    public String getState() {
+        return state;
+    }
+
+    public void setState(String state) {
+        this.state = state;
+    }
+
+    public int getZipcode() {
+        return zipcode;
+    }
+
+    public void setZipcode(int zipcode) {
+        this.zipcode = zipcode;
+    }
+
+
+
+    public SubSectorVo(String city, String state, int zipcode) {
+        this.city = city;
+        this.state = state;
+        this.zipcode = zipcode;
+    }
+
+    public SubSectorVo(String address) {
+        this.address = address;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
 
     public SubSectorVo(int sectorId, int subSectorId, String sectorName) {
         this.sectorId = sectorId;
@@ -40,12 +106,8 @@ public class SubSectorVo {
     }
 
     @Override
-    public String toString() {
-        return "SubSectorVo{" +
-                "sectorId=" + sectorId +
-                ", subSectorId=" + subSectorId +
-                ", sectorName='" + sectorName + '\'' +
-                '}';
+    public int compareTo(SubSectorVo o) {
+        return this.sectorName.compareTo(o.sectorName);
     }
 
 }

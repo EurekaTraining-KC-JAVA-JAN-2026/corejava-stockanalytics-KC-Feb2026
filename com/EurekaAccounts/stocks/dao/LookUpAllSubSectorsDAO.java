@@ -1,5 +1,6 @@
 package com.EurekaAccounts.stocks.dao;
 
+/*package com.EurekaAccounts.stock*/
 import com.EurekaAccounts.stocks.vo.SubSectorVo;
 
 import java.sql.PreparedStatement;
@@ -18,12 +19,9 @@ public class LookUpAllSubSectorsDAO extends BaseDAO {
     public List<SubSectorVo> getAllSubSectors() throws SQLException {
         List<SubSectorVo> allSubSectors = new ArrayList<>();
         String sqlQuery = """
-               
-                select\s
-                              	*
-                              	from \s
-                              		endeavour.s
-                                """;
+                   
+                        select *from endeavour.stock_fundamentals sf  order by sf.market_cap desc limit 5;
+                                    """;
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(sqlQuery);
             ResultSet resultSet = preparedStatement.executeQuery();
@@ -31,7 +29,7 @@ public class LookUpAllSubSectorsDAO extends BaseDAO {
                 SubSectorVo subSectorVo = new SubSectorVo();
                 subSectorVo.setSectorId(resultSet.getInt("sector_id"));
                 subSectorVo.setSubSectorId(resultSet.getInt("subsector_id"));
-                subSectorVo.setSectorName(resultSet.getString("subsector_name"));
+
                 allSubSectors.add(subSectorVo);
 
             }
@@ -48,7 +46,8 @@ public class LookUpAllSubSectorsDAO extends BaseDAO {
     }
 
     public List<SubSectorVo> getAllSubSectorsDAO() {
-        return List.of();
+        return
+List.of();
+    }
     }
 
-}
