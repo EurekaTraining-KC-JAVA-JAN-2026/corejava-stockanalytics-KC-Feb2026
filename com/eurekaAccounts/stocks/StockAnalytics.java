@@ -20,9 +20,11 @@ public class StockAnalytics {
 //
         //System.out.println(marketAnalyticsService.allSectorsGroup());
         //System.out.println(marketAnalyticsService.getAllhealthCaresector());
+       // System.out.println(marketAnalyticsService.getGroupOfTickerSymbols());
+        System.out.println(marketAnalyticsService.getBlueChipStocks());
 
 
-        marketAnalyticsService.getTeslaStockPriceHistory("TSLA", LocalDate.now().minusMonths(10));
+        //marketAnalyticsService.getTeslaStockPriceHistory("TSLA", LocalDate.now().minusMonths(10));
         //get the avg marketcap for each sector
     }
 }

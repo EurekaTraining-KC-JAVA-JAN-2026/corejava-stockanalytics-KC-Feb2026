@@ -127,12 +127,11 @@ public class MarketAnalyticsService {
 //
 //        return collect;
 //    }
-    public Map<Integer, BigDecimal> getAllhealthCaresector () throws SQLException {
-        List<StockFundementalsVO> allStockData = lookUpStockFundamentalsDAO.getStockFundamentals();
-        Map<Integer, BigDecimal> blueticks = allStockData.stream()
-                .collect(Collectors.toMap(SectorVO::getSectorId, SectorVO::getMarketcap));
-        return blueticks;
-    }
+    public Map<Integer,List<String>> getGroupOfTickerSymbols() throws SQLException {
+    List<StockFundementalsVO> allSubSectosGroup = lookUpStockFundamentalsDAO.getStockFundamentals();
+    Map<Integer,List<String>> groupByTickersSymbol = allSubSectosGroup.stream().collect(Collectors.groupingBy(StockFundementalsVO :: getSubSectorId,Collectors.mapping(StockFundementalsVO::getTickerSymbol,Collectors.toList())));
+    return groupByTickersSymbol;
+}
     public void getTeslaStockPriceHistory(String Tesla, LocalDate now) throws SQLException {
         LookUpStockPriceHistoryDAO lookUpStockPriceHistoryDAO = new LookUpStockPriceHistoryDAO();
 
@@ -142,5 +141,16 @@ public class MarketAnalyticsService {
         List<StockPirceHistoryVO> lookUpStockPriceHistoryDAOStockPriceHistory = lookUpStockPriceHistoryDAO.getStockPriceHistory("TSLA", now);
 
         System.out.println(lookUpStockPriceHistoryDAOStockPriceHistory);
+    }
+    public List<String> getBlueChipStocks() throws SQLException
+    {
+        List<StockFundementalsVO> blueTickerSymbols = lookUpStockFundamentalsDAO.getStockFundamentals();
+        List<String> blueTickerStreams = blueTickerSymbols.stream()
+                .filter(x -> x.getSectorId() == 34
+                        && x.getMarketCap().compareTo(BigDecimal.valueOf(10_000_000_000L)) > 0)
+                .map(StockFundementalsVO::getTickerSymbol)
+                .collect(Collectors.toList());
+
+        return  blueTickerStreams;
     }
 }
