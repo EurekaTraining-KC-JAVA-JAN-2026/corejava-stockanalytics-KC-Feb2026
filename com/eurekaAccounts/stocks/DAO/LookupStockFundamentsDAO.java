@@ -41,4 +41,25 @@ public class LookupStockFundamentsDAO extends BaseDAO {
         }
         return stocksectorVOS;
     }
+    public List<StocksectorVO> getBlueChipStocks() throws SQLException {
+        List<StocksectorVO> BlueChipHealthcareList = new ArrayList<>();
+        String sqlQuery = """
+                 select 
+                     sf.ticker_symbol, sf.sector_id, sf.market_cap
+                     from endeavour.stock_fundamentals  sf;
+                """;
+        PreparedStatement preparedStatement3 = connection.prepareStatement(sqlQuery);
+        //preparedStatement3.setString(1,tickerSymbol);
+        ResultSet resultSet = preparedStatement3.executeQuery();
+        while (resultSet.next()) {
+            StocksectorVO BlueChipVO = new StocksectorVO();
+            //BlueChipVO.setSectorId(resultSet.getBigDecimal("sector_id"));
+            BlueChipVO.setTickerSymbol(resultSet.getString("ticker_symbol"));
+            BlueChipVO.setMarketCap(resultSet.getLong("market_cap"));
+
+
+            BlueChipHealthcareList.add(BlueChipVO);
+        }
+        return BlueChipHealthcareList;
+    }
 }
