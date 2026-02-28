@@ -51,6 +51,8 @@ public class SubSector implements Comparable<SubSector> {
 
     @Override
     public int compareTo(SubSector o) {
+
+        //return o.getSubSectorName().compareTo(this.subSectorName);
         return this.subSectorName.compareTo(o.getSubSectorName());
     }
 }

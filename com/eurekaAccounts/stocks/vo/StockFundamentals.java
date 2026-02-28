@@ -1,16 +1,18 @@
 package com.eurekaAccounts.stocks.vo;
 
+import java.math.BigDecimal;
+
 public class StockFundamentals implements Comparable<StockFundamentals>{
     public String tickerSymbol;
-    public int sectorId;
+    public BigDecimal sectorId;
     public int subSectorId;
-    public long marketCap;
+    public BigDecimal marketCap;
     public float currentRatio;
 
     public StockFundamentals() {
     }
 
-    public StockFundamentals(String tickerSymbol, int sectorId, int subSectorId, long marketCap, float currentRatio) {
+    public StockFundamentals(String tickerSymbol, BigDecimal sectorId, int subSectorId, BigDecimal marketCap, float currentRatio) {
         this.tickerSymbol = tickerSymbol;
         this.sectorId = sectorId;
         this.subSectorId = subSectorId;
@@ -26,11 +28,11 @@ public class StockFundamentals implements Comparable<StockFundamentals>{
         this.tickerSymbol = tickerSymbol;
     }
 
-    public int getSectorId() {
+    public BigDecimal getSectorId() {
         return sectorId;
     }
 
-    public void setSectorId(int sectorId) {
+    public void setSectorId(BigDecimal sectorId) {
         this.sectorId = sectorId;
     }
 
@@ -42,11 +44,11 @@ public class StockFundamentals implements Comparable<StockFundamentals>{
         this.subSectorId = subSectorId;
     }
 
-    public long getMarketCap() {
+    public BigDecimal getMarketCap() {
         return marketCap;
     }
 
-    public void setMarketCap(long marketCap) {
+    public void setMarketCap(BigDecimal marketCap) {
         this.marketCap = marketCap;
     }
 
@@ -71,14 +73,8 @@ public class StockFundamentals implements Comparable<StockFundamentals>{
 
     @Override
     public int compareTo(StockFundamentals o) {
-      if(o.marketCap>this.getMarketCap()){
-          return 1;
-      }
-      else if(o.marketCap<this.getMarketCap()){
-          return -1;
-        }
-      else{
-          return 0;
-        }
+        return this.marketCap.compareTo(o.getMarketCap());
     }
+
+
 }

@@ -3,7 +3,7 @@ public class Eureka {
         System.out.println("Welcome Eureka....!");
         System.out.println("calling statics from here...");
         String s1 = "Eureka";
-        s1.contains("E");//here im calling contains method on object level of s1
+        System.out.println(s1.contains("E"));//here im calling contains method on object level of s1
         StaticPlayGround s2 = new StaticPlayGround();
         StaticPlayGround.move();
 

@@ -10,7 +10,19 @@ public abstract class Accounts {
                 ", accBalance=" + accBalance +
                 '}' + '\n';
     }
+/**Cannot be instantiated (you can’t create object of it directly)
 
+ Can contain:
+
+ Abstract methods (nobody)
+
+ Concrete methods (with body)
+
+ Variables
+
+ Constructors
+
+ It is used when classes share common behavior but also need specific implementations.**/
     /**
      * Bank accounts
      * checkings and savings to understanf the inheritenec in java
