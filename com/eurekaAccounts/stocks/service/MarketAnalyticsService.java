@@ -1,19 +1,14 @@
 package com.eurekaAccounts.stocks.service;
 
 
+import com.eurekaAccounts.stocks.DAO.*;
 import com.eurekaAccounts.stocks.sorting.SubSectorNameComparator;
-import com.eurekaAccounts.stocks.stocksVO.CompanyLocationVO;
-import com.eurekaAccounts.stocks.stocksVO.SectorVO;
-import com.eurekaAccounts.stocks.stocksVO.SubSectorVO;
-import com.eurekaAccounts.stocks.stocksVO.StocksectorVO;
-import com.eurekaAccounts.stocks.DAO.LookupStockFundamentsDAO;
-import com.eurekaAccounts.stocks.DAO.LocationDAO;
-import com.eurekaAccounts.stocks.DAO.LookupAllSubSectorsDAO;
-import com.eurekaAccounts.stocks.DAO.LookupDAO;
+import com.eurekaAccounts.stocks.stocksVO.*;
 
 
 import java.math.BigDecimal;
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -141,9 +136,9 @@ public class MarketAnalyticsService {
 
 //    public String getAllStockFundementals() throws SQLException {
 //        List<StocksectorVO> allStockFundamentals = LookupAllSubSectorsDAO.getStockSector();
-        //Collections.sort(allStockFundamentals);
-        //StocksectorVO highestStock = allStockFundamentals.get(0);
-        //return highestStock.toString();
+//        Collections.sort(allStockFundamentals);
+//        StocksectorVO highestStock = allStockFundamentals.get(0);
+//        return highestStock.toString();
 //public List<StocksectorVO> getStockFundamentals() throws SQLException {
 //    List<StocksectorVO> allStockFundamentals = lookupStockFundamentsDAO.getStockFundamentals();
 //    List<StocksectorVO> StockFundeamentals1 = new ArrayList<>();
@@ -176,13 +171,26 @@ public class MarketAnalyticsService {
 //    Map<Integer, String> collect = getAllSectorsMap.stream().collect(Collectors.toMap(SectorVO::getSectorId, SectorVO::getSectorName));
 //    return getAllSectorsMap();
 //
-//    List<StocksectorVO> listBySubsectorIdAndTickerSymbol = getStockFundamentals();
+//    List<StocksectorVO> listBySubsectorIdAndTickerSymbol = ();
 //    List<StocksectorVO> listBySubsectorIdAndTickerSymbol = getStockFundamentals();
 //       public void  getTelsaStockPriceHistory() throws SQLException{
 //       LookUpStockPriceHistoryDAO lookUpStockPriceHistoryDAO = new LookUpStockPriceHistoryDAO();
 //           System.out.println(lookUpStockPriceHistoryDAO.getStockPriceHistory(M,now));
 //
 //}
+    public void getTeslaStockPriceHistory(String tesla, LocalDate now) throws SQLException{
+    LookUpStockPriceHistoryDAO lookUpStockPriceHistoryDAO = new LookUpStockPriceHistoryDAO();
+    LocalDate fromDate = LocalDate.of(2024,10,1);
+    LocalDate toDate = LocalDate.of(2024,12,31);
+    List<StockPriceHistoryVO> stockPriceHistory = lookUpStockPriceHistoryDAO.getStockPriceHistory("TSLA",fromDate,toDate);
+        System.out.println(stockPriceHistory);
+    }
+    //get the average marketcap for each sector store in map int and bigDecimal, key is sectorId and value is average marketcap
+    public void getAllStockFundamentalAvg() throws SQLException{
+    List<StocksectorVO> allStockavg= lookupStockFundamentsDAO.getStockFundamentals();
+    
+
+    }
 }
 
 

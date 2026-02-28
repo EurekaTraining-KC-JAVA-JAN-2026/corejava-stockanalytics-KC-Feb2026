@@ -1,7 +1,10 @@
 package com.eurekaAccounts.stocks.stocksVO;
 
-import com.eurekaAccounts.BigDecimal;
 
+
+import java.math.BigDecimal;
+
+import java.math.BigInteger;
 import java.util.Comparator;
 
 public class StocksectorVO implements Comparable<StocksectorVO>{
@@ -37,7 +40,7 @@ public class StocksectorVO implements Comparable<StocksectorVO>{
         return sectorId;
     }
 
-    public int setSectorId(BigDecimal sectorId) {
+    public void setSectorId(BigDecimal sectorId) {
 
         this.sectorId = sectorId;
     }

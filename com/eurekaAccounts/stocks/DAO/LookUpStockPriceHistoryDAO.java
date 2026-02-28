@@ -16,7 +16,7 @@ public class LookUpStockPriceHistoryDAO extends BaseDAO {
     public LookUpStockPriceHistoryDAO() throws SQLException {
     }
 
-    public List<StockPriceHistoryVO> getStockPriceHistory(String ticker, LocalDate date) throws SQLException {
+    public List<StockPriceHistoryVO> getStockPriceHistory(String ticker, LocalDate fromDate, LocalDate toDate) throws SQLException {
         List<StockPriceHistoryVO> stockPriceHistoryVOS = new ArrayList<>();
         String sqlString = """
                  select
@@ -27,8 +27,8 @@ public class LookUpStockPriceHistoryDAO extends BaseDAO {
                 """;
         PreparedStatement preparedStatement = connection.prepareStatement(sqlString);
         preparedStatement.setString(1,ticker);
-        preparedStatement.setDate(2, Date.valueOf(date.minusMonths(3)));
-        preparedStatement.setDate(3,Date.valueOf(date));
+        preparedStatement.setDate(2, Date.valueOf(fromDate));
+        preparedStatement.setDate(3,Date.valueOf(toDate));
         ResultSet resultSet = preparedStatement.executeQuery();
         while(resultSet.next()) {
             StockPriceHistoryVO stockPriceHistoryVO = new StockPriceHistoryVO();
