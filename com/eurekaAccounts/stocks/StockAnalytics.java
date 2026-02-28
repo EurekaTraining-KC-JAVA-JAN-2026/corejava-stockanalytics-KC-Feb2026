@@ -20,8 +20,10 @@ public class StockAnalytics {
 //        System.out.println(marketAnalyticsService.getAllSectorsMap());
 //        System.out.println(marketAnalyticsService.getallBluechipHealthStocks());
 //        System.out.println(marketAnalyticsService.getSubSectorMap());
-        System.out.println(marketAnalyticsService.getTeslaStockPriceHistory("TSLA", LocalDate.now().minusMonths(12)));
+//        System.out.println(marketAnalyticsService.getallSubSectorsMap());
+//        System.out.println(marketAnalyticsService.getTeslaStockPriceHistory("TSLA", LocalDate.now().minusMonths(12)));
 //        System.out.println(marketAnalyticsService.getallsph());
+        System.out.println(marketAnalyticsService.getallSectoravgMktCap());
 
 
     }

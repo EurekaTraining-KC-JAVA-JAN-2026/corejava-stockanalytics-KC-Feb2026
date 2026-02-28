@@ -61,7 +61,10 @@ public class MarketAnalyticsService {
                 allHealthCareStocks.add(stockFundamentalVO);
             }
         });
-        List<StockFundamentalVO> collect = stockFundamentalVOS.stream().filter(x -> x.getSector_id() == 34).sorted(Comparator.comparing(StockFundamentalVO::getMarketCap).reversed()).collect(Collectors.toList());
+        List<StockFundamentalVO> collect = stockFundamentalVOS.stream()
+                .filter(x -> x.getSector_id() == 34)
+                .sorted(Comparator.comparing(StockFundamentalVO::getMarketCap).reversed())
+                .collect(Collectors.toList());
 
         List<String> collect1 = collect.stream().map(x -> x.getTickerSymbol()).collect(Collectors.toList());
 
@@ -84,29 +87,41 @@ public class MarketAnalyticsService {
         return allSectorsMap;
     }
 
-    //    public void getallSubSectorsMap(){
-//        List<StockFundamentalVO> alldata = lookUpStockFundamentalsDAO.getallStockFundemental();
-//        alldata.stream()
-//                .collect(Collectors.toMap(
-//                        StockFundamentalVO::getSubsector_id,
-//                        Collectors.groupingBy(StockFundamentalVO::getTickerSymbol)));
-//    }
-    public Map<Integer, List<String>> getSubSectorMap() {
+        public Map<Integer, List<String>> getallSubSectorsMap(){
         List<StockFundamentalVO> alldata = lookUpStockFundamentalsDAO.getallStockFundemental();
-        Map<Integer, List<String>> map1 = new HashMap<>();
-        alldata.forEach(Obj -> {
-            map1.computeIfAbsent(Obj.getSubsector_id(), x->new ArrayList<>()).add(Obj.getTickerSymbol());
-        });
-        return map1;
-    }
+            Map<Integer, List<String>> map1 = alldata.stream()
+                    .collect(Collectors.groupingBy(StockFundamentalVO::getSubsector_id,
+                            Collectors.mapping(StockFundamentalVO::getTickerSymbol, Collectors.toList())));
+
+            return map1;
+        }
+//    public Map<Integer, List<String>> getSubSectorMap() {
+//        List<StockFundamentalVO> alldata = lookUpStockFundamentalsDAO.getallStockFundemental();
+//        Map<Integer, List<String>> map1 = new HashMap<>();
+//        alldata.forEach(Obj -> {
+//            map1.computeIfAbsent(Obj.getSubsector_id(), x->new ArrayList<>()).add(Obj.getTickerSymbol());
+//        });
+//        return map1;
+//    }
 
 
     public List<StockFundamentalVO> getallBluechipHealthStocks() {
         List<StockFundamentalVO> allStockData = lookUpStockFundamentalsDAO.getallStockFundemental();
-        List<StockFundamentalVO> allBluechipHealthStocks = allStockData.stream().filter(x -> ((x.getSector_id() == 34) && (x.getMarketCap() >= 10000000000L))).collect(Collectors.toList());
+        List<StockFundamentalVO> allBluechipHealthStocks = allStockData.stream()
+                .filter(x -> ((x.getSector_id() == 34) && (x.getMarketCap() >= 10000000000L)))
+                .collect(Collectors.toList());
         return allBluechipHealthStocks;
     }
 
+    public Map<Integer, Long> getallSectoravgMktCap(){
+        List<StockFundamentalVO> allStockData = lookUpStockFundamentalsDAO.getallStockFundemental();
+        Map<Integer, Long> mapofsectorandmktcp = allStockData.stream()
+                .collect(Collectors.groupingBy(StockFundamentalVO::getSector_id,
+                        Collectors.collectingAndThen(Collectors.averagingLong(StockFundamentalVO::getMarketCap),
+                                Double::longValue)));
+        return mapofsectorandmktcp;
+
+    }
 //    public String getallsph() throws SQLException {
 //        List<SPHVO> sphvo = lookUpSPH.getallsph();
 //        return sphvo.toString();
