@@ -132,5 +132,15 @@ public class MarketAnalyticsService {
         return  blueTickerStreams;
     }
 
+
+    public Map<Integer,Double> getAvgMarketCapServices() throws SQLException {
+        List<StockFundamentalsVO> avgMarketCap = lookUpStockFundamentals.getAllStockFundamentalsDAO();
+
+   return avgMarketCap.stream().
+           collect(Collectors.groupingBy(
+                   StockFundamentalsVO::getSector_id,
+                   Collectors.averagingDouble(StockFundamentalsVO::getMarket_cap)
+           ));
+    }
 }
 

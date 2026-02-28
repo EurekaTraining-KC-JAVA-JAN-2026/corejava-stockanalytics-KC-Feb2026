@@ -14,8 +14,8 @@ public class LookUpStockFundamentals extends BaseDAO {
     }
 
     public List<StockFundamentalsVO> getAllStockFundamentalsDAO() throws SQLException {
-        List<StockFundamentalsVO> allstockFundaments= new ArrayList<>();
-        String SQuery= """
+        List<StockFundamentalsVO> allstockFundaments = new ArrayList<>();
+        String SQuery = """
                         select *
                              from endeavour.stock_fundamentals sf\s
                             
@@ -64,6 +64,7 @@ public class LookUpStockFundamentals extends BaseDAO {
         }
         return topStockFundementalsVOS;
     }
+
     public List<StockFundamentalsVO> getBlueChipStocks() throws SQLException {
         List<StockFundamentalsVO> BlueChipHealthcareList = new ArrayList<>();
         String sqlQuery = """
@@ -84,8 +85,7 @@ public class LookUpStockFundamentals extends BaseDAO {
             BlueChipHealthcareList.add(BlueChipVO);
         }
         return BlueChipHealthcareList;
+
+
     }
-
-
 }
-
