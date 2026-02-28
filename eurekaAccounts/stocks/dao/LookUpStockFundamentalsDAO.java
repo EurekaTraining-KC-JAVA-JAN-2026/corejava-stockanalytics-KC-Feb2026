@@ -2,8 +2,6 @@ package eurekaAccounts.stocks.dao;
 
 import eurekaAccounts.stocks.vo.StockfundamentalVO;
 
-import java.math.BigDecimal;
-import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -26,13 +24,13 @@ public class LookUpStockFundamentalsDAO extends BaseDAO {
                 sf.subsector_id,
                 sf.market_cap,
                 sf.current_ratio
-                from endeavour.stock_fundamentals sf;
+                from endeavour.stock_fundamentals sf order by sf.market_cap desc limit 5;
                 """;
         PreparedStatement preparedStatement = connection.prepareStatement(sqlQuery);
         ResultSet resultSet = preparedStatement.executeQuery();
         while (resultSet.next()){
             StockfundamentalVO stockFundamentalsVO = new StockfundamentalVO();
-            stockFundamentalsVO.setSectorId((resultSet.getInt("sector_id")));
+            stockFundamentalsVO.setSectorId((resultSet.getBoolean("sector_id")));
             stockFundamentalsVO.setSubSectorId((resultSet.getInt("subsector_id")));
             stockFundamentalsVO.setTickerSymbol(resultSet.getString("ticker_symbol"));
             stockFundamentalsVO.setMarketCap((resultSet.getFloat("market_cap")));

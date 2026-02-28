@@ -4,7 +4,7 @@ import java.math.BigDecimal;
 
 public class StockfundamentalVO implements Comparable<StockfundamentalVO>{
     public String tickerSymbol;
-    public int sectorId;
+    public boolean sectorId;
     public int subSectorId;
     public float marketCap;
     public BigDecimal currentRatio;
@@ -19,7 +19,7 @@ public class StockfundamentalVO implements Comparable<StockfundamentalVO>{
     public BigDecimal trailingPe;
     public BigDecimal forwardPe;
 
-    public StockfundamentalVO(String tickerSymbol, int sectorId, int subSectorId, float marketCap, BigDecimal currentRatio, BigDecimal priceToBookRatio, BigDecimal peg, BigDecimal epsqq, BigDecimal epsNxtYear, BigDecimal epsTtm, BigDecimal roe, BigDecimal insiderOwnership, BigDecimal debtEquityRatio, BigDecimal trailingPe, BigDecimal forwardPe) {
+    public StockfundamentalVO(String tickerSymbol, boolean sectorId, int subSectorId, float marketCap, BigDecimal currentRatio, BigDecimal priceToBookRatio, BigDecimal peg, BigDecimal epsqq, BigDecimal epsNxtYear, BigDecimal epsTtm, BigDecimal roe, BigDecimal insiderOwnership, BigDecimal debtEquityRatio, BigDecimal trailingPe, BigDecimal forwardPe) {
 
         this.tickerSymbol = tickerSymbol;
         this.sectorId = sectorId;
@@ -52,11 +52,11 @@ public class StockfundamentalVO implements Comparable<StockfundamentalVO>{
         this.tickerSymbol = tickerSymbol;
     }
 
-    public int getSectorId() {
+    public boolean getSectorId() {
         return sectorId;
     }
 
-    public void setSectorId(int sectorId) {
+    public void setSectorId(boolean sectorId) {
         this.sectorId = sectorId;
     }
 
