@@ -22,10 +22,11 @@ public class StockAnalytics {
 //       System.out.println(marketAnalyticsservice2. getallhealthsector());
 //       System.out.println(marketAnalyticsservice2.getsumofmarketcapofhealthcarestocks());
 //       System.out.println(marketAnalyticsservice2.getallsectorMap());
-       System.out.println(marketAnalyticsservice2.getbluechiphealthcaresector());
+//       System.out.println(marketAnalyticsservice2.getbluechiphealthcaresector());
  //get the stockprice history for telsa last three months
 //       marketAnalyticsservice2.getallhealthsector("TESLA", LocalDate.now());
 //       System.out.println(marketAnalyticsservice2.getallstockpricehistoryy());
        //market cap of average for each sector list of sector correspoint key sector id value marketcap map(integer,bigdecimal
+       System.out.println(marketAnalyticsservice2.getaveragemarketcapofMap());
     }
 }

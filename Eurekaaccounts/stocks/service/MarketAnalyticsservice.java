@@ -117,7 +117,32 @@ public List<StockpricehistoryVO> getallstockpricehistoryy() throws SQLException 
         List<StockpricehistoryVO> stockpricehistoryVOList=lookStockPriceDao.getstockpricehistory("TSLA", LocalDate.now());
         return stockpricehistoryVOList;
 }
+//average market cap store in map key is sector_id and value is Bigdecimal avg market_cap
+//    public Map<Integer,BigDecimal> getaveragemarketcapofMap() throws SQLException {
+//        List<StockfundamentalVO> list =lookupStockfundamentalsDAO.getAllstockfundamentals();
+//                      list.stream().collect(Collectors.groupingBy(StockfundamentalVO::getSector_id,
+//                              Collectors.averagingDouble(
+//                                      sf -> sf.getMarket_cap().doubleValue()
+//                              )
+//                      ));
+//        return
 
+    public Map<Integer,BigDecimal> getaveragemarketcapofMap() throws SQLException {
+    List<StockfundamentalVO> stockFundamentalsVOS = lookupStockfundamentalsDAO.getAllstockfundamentals();
+
+    Map<Integer, BigDecimal> averageMarketCap = stockFundamentalsVOS.stream()
+                    .collect(Collectors.groupingBy(
+                            StockfundamentalVO::getSector_id,
+                            Collectors.collectingAndThen(
+                                    Collectors.averagingDouble(
+                                            sf -> sf.getMarket_cap().doubleValue()
+                                    ),
+                                    avg -> BigDecimal.valueOf(avg)
+                            )
+                    ));
+
+    return averageMarketCap;
+}
     }
 
 
