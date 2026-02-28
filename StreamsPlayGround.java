@@ -1,3 +1,6 @@
+import com.eurekaAccounts.stocks.vo.SectorVO;
+
+import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -35,6 +38,15 @@ public class StreamsPlayGround {
 //        catch (NullPointerException e){
 //            System.out.println("Nothing to print");
 //        }
+
+        List<Integer> integerList1 = List.of(1,2,3,4,5,6,7,8,9);
+        List<String> collect2 = integerList1.stream()
+                .filter(x->x%2==0)
+                .sorted(Comparator.reverseOrder())
+                .map(x->"test"+ x)
+                .collect(Collectors.toList());
+        System.out.println(collect2);
+
 
     }
 }

@@ -28,10 +28,10 @@ public class LookUpStockFundamentalsDAO extends BaseDAO{
         while(resultSet.next())
         {
             StockFundamentalsVO stockFundamentalsVO = new StockFundamentalsVO();
-            stockFundamentalsVO.setSectorId(resultSet.getInt("sector_id"));
-            stockFundamentalsVO.setSubSectorId(resultSet.getInt("subsector_id"));
+            stockFundamentalsVO.setSectorId(resultSet.getBigDecimal("sector_id"));
+            stockFundamentalsVO.setSubSectorId(resultSet.getBigDecimal("subsector_id"));
             stockFundamentalsVO.setTickerSymbol(resultSet.getString("ticker_symbol"));
-            stockFundamentalsVO.setMarketCap(resultSet.getLong("market_cap"));
+            stockFundamentalsVO.setMarketCap(resultSet.getBigDecimal("market_cap"));
             stockFundamentalsVO.setCurrentRatio(resultSet.getFloat("current_ratio"));
 
 

@@ -1,16 +1,18 @@
 package com.eurekaAccounts.stocks.vo;
 
+import java.math.BigDecimal;
+
 public class StockFundamentalsVO implements Comparable<StockFundamentalsVO> {
     public String tickerSymbol;
-    public int sectorId;
-    public int subSectorId;
-    public long marketCap;
+    public BigDecimal sectorId;
+    public BigDecimal subSectorId;
+    public BigDecimal marketCap;
     public float currentRatio;
 
     public StockFundamentalsVO() {
     }
 
-    public StockFundamentalsVO(String tickerSymbol, int sectorId, int subSectorId, long marketCap, float currentRatio) {
+    public StockFundamentalsVO(String tickerSymbol, BigDecimal sectorId, BigDecimal subSectorId, BigDecimal marketCap, float currentRatio) {
         this.tickerSymbol = tickerSymbol;
         this.sectorId = sectorId;
         this.subSectorId = subSectorId;
@@ -26,27 +28,27 @@ public class StockFundamentalsVO implements Comparable<StockFundamentalsVO> {
         this.tickerSymbol = tickerSymbol;
     }
 
-    public int getSectorId() {
+    public BigDecimal getSectorId() {
         return sectorId;
     }
 
-    public void setSectorId(int sectorId) {
+    public void setSectorId(BigDecimal sectorId) {
         this.sectorId = sectorId;
     }
 
-    public int getSubSectorId() {
+    public BigDecimal getSubSectorId() {
         return subSectorId;
     }
 
-    public void setSubSectorId(int subSectorId) {
+    public void setSubSectorId(BigDecimal subSectorId) {
         this.subSectorId = subSectorId;
     }
 
-    public long getMarketCap() {
+    public BigDecimal getMarketCap() {
         return marketCap;
     }
 
-    public void setMarketCap(long marketCap) {
+    public void setMarketCap(BigDecimal marketCap) {
         this.marketCap = marketCap;
     }
 
@@ -60,27 +62,17 @@ public class StockFundamentalsVO implements Comparable<StockFundamentalsVO> {
 
     @Override
     public String toString() {
-        return "StockFundementalsVO{" +
+        return "StockFundamentalsVO{" +
                 "tickerSymbol='" + tickerSymbol + '\'' +
                 ", sectorId=" + sectorId +
                 ", subSectorId=" + subSectorId +
                 ", marketCap=" + marketCap +
                 ", currentRatio=" + currentRatio +
-                '}' + '\n';
+                '}'+'\n';
     }
 
     @Override
     public int compareTo(StockFundamentalsVO o) {
-        if(o.marketCap > this.getMarketCap())
-        {
-            return 1;
-        }
-        else if(o.marketCap < this.getMarketCap())
-        {
-            return -1;
-        }
-        else {
-            return 0;
-        }
+        return 0;
     }
 }
