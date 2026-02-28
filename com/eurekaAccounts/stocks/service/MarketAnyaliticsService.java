@@ -9,6 +9,8 @@ import java.time.LocalDate;
 import java.util.*;
 import java.util.stream.Collectors;
 
+import static java.util.Arrays.stream;
+
 public class MarketAnyaliticsService {
     LookUpDAO lookUpDAO = new LookUpDAO();
     LookUpPractiseDAO lookUpPractiseDAO =new LookUpPractiseDAO();
@@ -16,7 +18,7 @@ public class MarketAnyaliticsService {
     LookUpStockFundementals lookUpStockFundementalsDAO = new LookUpStockFundementals();
     LookupCompanyLocationsDAO lookupCompanyLocationsDAO = new LookupCompanyLocationsDAO();
     LookUpStockPriceHistoryDAO lookUpStockPriceHistoryDAO = new LookUpStockPriceHistoryDAO();
-    private Object sumOfMarketCap;
+   // private Object sumOfMarketCap;
 
     public String getallSectorsFromPractise() throws SQLException{
         List<StockFundementalVO> allfundementals = lookUpPractiseDAO.getallSectorsFromPractise();
@@ -127,6 +129,13 @@ public class MarketAnyaliticsService {
     public List<StockPriceHistory> getStockPriceHistory(String tickerSymbol, LocalDate date) throws SQLException {
        List<StockPriceHistory> stockPriceHistories= lookUpStockPriceHistoryDAO.getStockPriceHistory(tickerSymbol,date);
         return stockPriceHistories;
+    }
+
+    public Map<BigDecimal,Double> getAvgMarketCap() throws SQLException {
+       List<StockFundementalVO> allStockFundementals= lookUpStockFundementalsDAO.getAllStockFundementals();
+       Map <BigDecimal,Double> avgMarketCap = allStockFundementals.stream()
+               .collect(Collectors.groupingBy(StockFundementalVO::getSectorID,Collectors.averagingLong(StockFundementalVO::getMarketCap)));
+       return avgMarketCap;
     }
 
 

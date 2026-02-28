@@ -25,7 +25,8 @@ public class StockAnyalitics {
         //System.out.println(marketAnyaliticsService4.getAllHealthcareSectors());
         //marketAnyaliticsService4.getSumOfMarketCapofHealthcareStocks();
        // System.out.println(marketAnyaliticsService4.getAllSectorsMAp());
-        System.out.println(marketAnyaliticsService4.getBlueChipHealthcareSectors());
-        System.out.println(marketAnyaliticsService4.getStockPriceHistory("TSLA",LocalDate.now()));
+       // System.out.println(marketAnyaliticsService4.getBlueChipHealthcareSectors());
+        //System.out.println(marketAnyaliticsService4.getStockPriceHistory("TSLA",LocalDate.now()));
+        System.out.println(marketAnyaliticsService2.getAvgMarketCap());
     }
 }
