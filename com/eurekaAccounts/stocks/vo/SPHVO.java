@@ -1,7 +1,7 @@
-package com.eurekaAccounts.stocks.MVC;
+package com.eurekaAccounts.stocks.vo;
 
-import java.time.LocalDate;
-import java.util.Date;
+import java.sql.Date;
+
 
 public class SPHVO {
     public String tickerSymbol;

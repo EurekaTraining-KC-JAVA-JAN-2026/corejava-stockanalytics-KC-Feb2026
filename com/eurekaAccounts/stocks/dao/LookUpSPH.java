@@ -1,26 +1,35 @@
-package com.eurekaAccounts.stocks.MVC;
+package com.eurekaAccounts.stocks.dao;
 
-import java.sql.Connection;
+import com.eurekaAccounts.stocks.MVC.BaseDAO2;
+import com.eurekaAccounts.stocks.vo.SPHVO;
+
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-public class LookUpSPH extends BaseDAO2{
+
+public class LookUpSPH extends BaseDAO {
 
     public LookUpSPH() {
 
     }
-    public List<SPHVO> getallsph() throws SQLException {
+    public List<SPHVO> getallsph(String ticker, LocalDate x) throws SQLException {
         List<SPHVO> allsph = new ArrayList<>();
 
         String sqlquery = """
                 select *
                 from endeavour.stocks_price_history sph
-                limit 1000
+                where sph.ticker_symbol = ?
+                and sph.trading_date between ? and ?
                 """;
         PreparedStatement preparedStatement = connection.prepareStatement(sqlquery);
+        preparedStatement.setString(1,ticker);
+        preparedStatement.setDate(2, Date.valueOf(x.minusMonths(12)));
+        preparedStatement.setDate(3, Date.valueOf(x));
         ResultSet resultSet = preparedStatement.executeQuery();
         while(resultSet.next()){
             SPHVO sphvo = new SPHVO();

@@ -18,10 +18,8 @@ public class LookUpStockFundamentalsDAO extends BaseDAO {
         List<StockFundamentalVO> stockFundamentalVO = new ArrayList<>();
 
         String sqlQuery = """
-                select sf.ticker_symbol
+                select *
                 from endeavour.stock_fundamentals sf
-                order by sf.market_cap desc
-                limit 5
                 """;
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(sqlQuery);
@@ -30,10 +28,10 @@ public class LookUpStockFundamentalsDAO extends BaseDAO {
             while (resultSet.next()) {
                 StockFundamentalVO stockFundamental = new StockFundamentalVO();
                 stockFundamental.setTickerSymbol(resultSet.getString("ticker_symbol"));
-//                stockFundamental.setSector_id(resultSet.getInt("sector_id"));
-//                stockFundamental.setSubsector_id(resultSet.getInt("subsector_id"));
-//                stockFundamental.setMarketCap(resultSet.getLong("market_cap"));
-//                stockFundamental.setCurrent_ratio(resultSet.getFloat("current_ratio"));
+                stockFundamental.setSector_id(resultSet.getInt("sector_id"));
+                stockFundamental.setSubsector_id(resultSet.getInt("subsector_id"));
+                stockFundamental.setMarketCap(resultSet.getLong("market_cap"));
+                stockFundamental.setCurrent_ratio(resultSet.getFloat("current_ratio"));
                 stockFundamentalVO.add(stockFundamental);
             }
 //            System.out.println(stockFundamentalVO);

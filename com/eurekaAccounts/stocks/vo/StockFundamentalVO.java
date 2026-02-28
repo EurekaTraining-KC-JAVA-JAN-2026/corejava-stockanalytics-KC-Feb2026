@@ -62,24 +62,19 @@ public class StockFundamentalVO implements Comparable<StockFundamentalVO>{
         this.current_ratio = current_ratio;
     }
 
-//    @Override
-//    public String toString() {
-//        return "StockFundamentalVO{" +
-//                "tickerSymbol=" + tickerSymbol  +
-//                ", sector_id=" + sector_id +
-//                ", subsector_id=" + subsector_id +
-//                ", marketCap=" + marketCap +
-//                ", current_ratio=" + current_ratio +
-//                '}' + '\n';
-//    }
-
-
     @Override
     public String toString() {
         return "StockFundamentalVO{" +
-                "tickerSymbol='" + tickerSymbol  +
+                "tickerSymbol=" + tickerSymbol  +
+                ", sector_id=" + sector_id +
+                ", subsector_id=" + subsector_id +
+                ", marketCap=" + marketCap +
+                ", current_ratio=" + current_ratio +
                 '}' + '\n';
     }
+
+
+
 
     @Override
     public int compareTo(StockFundamentalVO o) {
