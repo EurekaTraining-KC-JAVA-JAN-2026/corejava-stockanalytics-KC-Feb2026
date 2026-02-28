@@ -171,6 +171,30 @@ public class MarketAnalyticsService {
     public void getTeslaStockPriceHistory(String tesla, LocalDate now) throws SQLException {
         List<StockPriceHistoryVo> lookUpStockPriceHistoryDAOS = lookUpStockPriceHistoryDAO.getAllStockPriceHistroy(tesla, now);
         System.out.println(lookUpStockPriceHistoryDAOS);
-
     }
+
+    //get the ave marketcap for each sector store in map int and bigDecimal ,
+    // key is sectorId and value is ave marketCap
+
+    public Map<BigDecimal, BigDecimal> getAveMarketCap() throws SQLException {
+
+        List<StockFundamentalVO> stockFundamentalsVOS = lookUpStockFundamentals.getAllStockFundamentals();
+
+        return stockFundamentalsVOS.stream() .collect(Collectors.groupingBy(
+                        StockFundamentalVO::getSectorId, Collectors.collectingAndThen( Collectors.mapping(
+                                        StockFundamentalVO::getMarketCap,
+                                        Collectors.toList()
+                                ),
+                                list -> {
+                                    BigDecimal sum = list.stream()
+                                            .reduce(BigDecimal.ZERO, BigDecimal::add);
+                                    return sum.divide(
+                                            BigDecimal.valueOf(list.size()),
+                                            BigDecimal.ROUND_HALF_UP
+                                    );
+                                }
+                        )
+                ));
+    }
+
 }

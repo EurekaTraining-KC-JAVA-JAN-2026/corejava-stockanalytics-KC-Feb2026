@@ -3,7 +3,6 @@ package com.eurekaAccounts.stocks;
 import com.eurekaAccounts.stocks.service.MarketAnalyticsService;
 
 import java.sql.SQLException;
-import java.time.LocalDate;
 
 public class StockAnalytics {
 
@@ -40,7 +39,9 @@ public class StockAnalytics {
        // System.out.println(marketAnalyticsService.getTopHealthCareTikerSymbols());
 
         //get the stock prise history for tesla for last 3 months.
-       marketAnalyticsService.getTeslaStockPriceHistory("TSLA", LocalDate.now());
+       //marketAnalyticsService.getTeslaStockPriceHistory("TSLA", LocalDate.now());
+
+       System.out.println(marketAnalyticsService.getAveMarketCap());
 
     }
 }
