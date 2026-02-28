@@ -1,4 +1,4 @@
-package com.eurekaAccount;
+package com.eurekaAccounts;
 
 import java.math.BigDecimal;
 //if you extending the abstract class for sure you should implemeny the abstract method in the abstract class

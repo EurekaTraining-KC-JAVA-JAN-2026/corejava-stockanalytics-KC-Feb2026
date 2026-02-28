@@ -1,4 +1,4 @@
-package com.eurekaAccount.stocks.dao;
+package com.eurekaAccounts.stocks.dao;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

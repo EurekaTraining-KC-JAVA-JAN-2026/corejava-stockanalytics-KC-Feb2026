@@ -1,4 +1,4 @@
-package com.eurekaAccounts.stocks.StocksVO;
+package com.eurekaAccounts.stocks.vo;
 
 import java.math.BigDecimal;
 

@@ -1,4 +1,4 @@
-package com.eurekaAccount.stocks.dao;
+package com.eurekaAccounts.stocks.dao;
 
 public class LookUpMarketCap {
 }

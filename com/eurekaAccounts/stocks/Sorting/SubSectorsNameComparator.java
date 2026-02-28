@@ -1,6 +1,6 @@
-package com.eurekaAccount.stocks.Sorting;
+package com.eurekaAccounts.stocks.Sorting;
 
-import com.eurekaAccount.stocks.StocksVO.SubSectorVO;
+import com.eurekaAccounts.stocks.vo.SubSectorVO;
 
 import java.util.Comparator;
 
@@ -13,7 +13,7 @@ public class SubSectorsNameComparator implements Comparator<SubSectorVO> {
 
     @Override
     public int compare(SubSectorVO o1, SubSectorVO o2) {
-        if(o1.sectorId>o2.sectorId)
+        if(o1.sectorid>o2.sectorId)
             return 1;
         else if(o1.sectorId<o2.sectorId)
             return -1;

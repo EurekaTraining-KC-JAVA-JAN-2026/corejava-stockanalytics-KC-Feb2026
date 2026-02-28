@@ -16,7 +16,7 @@ public class LookUpStockFundamentalsDAO extends BaseDAO{
     public  List<StockFundementalsVO> getStockFundamentals() throws SQLException {
         List<StockFundementalsVO> stockFundementalsVOS = new ArrayList<>();
         String sqlQuery = """
-                 select 
+                     select
                      sf.ticker_symbol, sf.sector_id, sf.subsector_id,sf.market_cap,sf.current_ratio
                      from endeavour.stock_fundamentals  sf;
                 """;
@@ -31,7 +31,7 @@ public class LookUpStockFundamentalsDAO extends BaseDAO{
             stockFundementalsVO.setSectorId(resultSet.getInt("sector_id"));
             stockFundementalsVO.setSubSectorId(resultSet.getInt("subsector_id"));
             stockFundementalsVO.setTickerSymbol(resultSet.getString("ticker_symbol"));
-            stockFundementalsVO.setMarketCap(resultSet.getLong("market_cap"));
+            stockFundementalsVO.setMarketCap(resultSet.getBigDecimal("market_cap"));
             stockFundementalsVO.setCurrentRatio(resultSet.getFloat("current_ratio"));
 
 
