@@ -100,7 +100,10 @@ public class MarketAnalyticsService {
 
     public Map<Integer,List<String>> getGroupOfTickerSymbols() throws SQLException {
         List<StockFundamentalsVO> allSubSectosGroup = lookUpStockFundamentals.getAllStockFundamentals();
-        Map<Integer,List<String>> groupByTickersSymbol = allSubSectosGroup.stream().collect(Collectors.groupingBy(StockFundamentalsVO :: getSubSectorId,Collectors.mapping(StockFundamentalsVO::getTickerSymbol,Collectors.toList())));
+        Map<Integer,List<String>> groupByTickersSymbol = allSubSectosGroup.stream().
+                collect(Collectors.groupingBy(StockFundamentalsVO :: getSubSectorId,Collectors
+                        .mapping(StockFundamentalsVO::getTickerSymbol,
+                                Collectors.toList())));
         return groupByTickersSymbol;
     }
 
@@ -128,10 +131,10 @@ public class MarketAnalyticsService {
 
 
     //get the ave marketcap for each sector store in map int and bigDecimal , key is sectorId and value is ave marketCap
-    public void getAveMarketCap() throws SQLException {
+    public Map<BigDecimal,Double> getAveMarketCap() throws SQLException {
         List<StockFundamentalsVO> stockFundamentalsVOS = lookUpStockFundamentals.getAllStockFundamentals();
-        stockFundamentalsVOS.stream().filter(x->x.getSectorId());
-
-
+        Map<BigDecimal,Double> averageMarketCap = stockFundamentalsVOS.stream().collect(Collectors.groupingBy(StockFundamentalsVO::getSectorId
+                , Collectors.averagingLong(StockFundamentalsVO::getMarketCap)));
+        return averageMarketCap;
     }
 }

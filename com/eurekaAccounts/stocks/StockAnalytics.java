@@ -27,10 +27,12 @@ public class StockAnalytics {
         //Date date = new Date();
 
         //get the stockprice history for tesla for last 3 months
-        LocalDate twelveMonthsAgo = LocalDate.now().minusMonths(18);
+        //LocalDate twelveMonthsAgo = LocalDate.now().minusMonths(18);
 
-        Date sqlDate = Date.valueOf(twelveMonthsAgo);
-        System.out.println(marketAnalyticsService2.getTeslaStockPriceHistory("TSLA",sqlDate));
+        //Date sqlDate = Date.valueOf(twelveMonthsAgo);
+        //System.out.println(marketAnalyticsService2.getTeslaStockPriceHistory("TSLA",sqlDate));
+        System.out.println(marketAnalyticsService2.getAveMarketCap());
+
 
     }
 }
