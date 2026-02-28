@@ -16,6 +16,7 @@ public class Cuboid implements Shapes3D, Measurable {
 
     @Override
     public BigDecimal volume() {
+
         return length.multiply(breadth).multiply(height);
     }
 

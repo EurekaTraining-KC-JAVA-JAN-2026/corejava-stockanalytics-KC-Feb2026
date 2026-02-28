@@ -1,16 +1,18 @@
 package com.eurekaAccounts.stocks.vo;
 
+import java.math.BigDecimal;
+
 public class StockFundementalsVO implements Comparable<StockFundementalsVO> {
     public String tickerSymbol;
-    public int sectorId;
+    public BigDecimal sectorId;
     public int subSectorId;
-    public long marketCap;
+    public BigDecimal marketCap;
     public float currentRatio;
 
     public StockFundementalsVO() {
     }
 
-    public StockFundementalsVO(String tickerSymbol, int sectorId, int subSectorId, long marketCap, float currentRatio) {
+    public StockFundementalsVO(String tickerSymbol, BigDecimal sectorId, int subSectorId, BigDecimal marketCap, float currentRatio) {
         this.tickerSymbol = tickerSymbol;
         this.sectorId = sectorId;
         this.subSectorId = subSectorId;
@@ -26,11 +28,11 @@ public class StockFundementalsVO implements Comparable<StockFundementalsVO> {
         this.tickerSymbol = tickerSymbol;
     }
 
-    public int getSectorId() {
+    public BigDecimal getSectorId() {
         return sectorId;
     }
 
-    public void setSectorId(int sectorId) {
+    public void setSectorId(BigDecimal sectorId) {
         this.sectorId = sectorId;
     }
 
@@ -42,11 +44,12 @@ public class StockFundementalsVO implements Comparable<StockFundementalsVO> {
         this.subSectorId = subSectorId;
     }
 
-    public long getMarketCap() {
+    public BigDecimal getMarketCap() {
+
         return marketCap;
     }
 
-    public void setMarketCap(long marketCap) {
+    public void setMarketCap(BigDecimal marketCap) {
         this.marketCap = marketCap;
     }
 
@@ -66,21 +69,18 @@ public class StockFundementalsVO implements Comparable<StockFundementalsVO> {
                 ", subSectorId=" + subSectorId +
                 ", marketCap=" + marketCap +
                 ", currentRatio=" + currentRatio +
-                '}' + '\n';
+                '}'+'\n';
     }
 
     @Override
     public int compareTo(StockFundementalsVO o) {
-        if(o.marketCap > this.getMarketCap())
-        {
-            return 1;
-        }
-        else if(o.marketCap < this.getMarketCap())
-        {
-            return -1;
-        }
-        else {
-            return 0;
-        }
+        return this.marketCap.compareTo(o.getMarketCap());
     }
+
+
+
 }
+
+//return this.marketCap.compareTo(o.getmarketCap());
+//return o.getamarketCap().compareTo(this.marketcap);
+//return this.tickerName.compareTo(o.getTickerName());

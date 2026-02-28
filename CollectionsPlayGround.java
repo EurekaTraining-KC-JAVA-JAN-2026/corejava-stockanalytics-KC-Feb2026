@@ -7,6 +7,8 @@ import java.util.List;
         //this is not a famous way to use
         //above is one way to create a arrayList
         List<String> tickersList1 = new ArrayList<>();
+        //List<String> tickerList1=new ArrayList();
+        List<String> tickerList2= new ArrayList<>();
         //this is the famous way to create
         //another way of creating an ArrayList
         tickersList1.add("MSFT");
@@ -44,6 +46,8 @@ import java.util.List;
          *
          */
 
+        //List<Stock> stockList= new ArrayList<>();
+        //stockList.add(new Stock("AAPL," 34));
 
         List<Stock> stockList= new ArrayList<>(); //stock objects
         stockList.add(new Stock("AAPL",34)); //we are adding them
@@ -51,6 +55,7 @@ import java.util.List;
         stockList.add(new Stock("TSLA", 43));
         stockList.add(new Stock("3MCARE", 34));
         stockList.add(new Stock("IYLLY",34,2.8));
+
 
            List<Stock> stockList2= new ArrayList<>();
            stockList.add(new Stock("APPL,", 35));
@@ -87,6 +92,9 @@ import java.util.List;
         System.out.println(integers);
         List<Integer> integers1= new ArrayList<>();
         boolean contains =integers1.contains(43);
+
+
+
 
 
 

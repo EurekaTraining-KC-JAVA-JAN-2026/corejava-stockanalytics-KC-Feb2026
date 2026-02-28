@@ -4,6 +4,7 @@ import java.math.BigDecimal;
 public class Square extends Rectangle {
 
     public Square(BigDecimal side) {
+
         super(side, side);
     }
 

@@ -9,14 +9,16 @@ public class Eureka {
         String s1="Eureka";
         s1.contains("E");
         StaticPlayGround s2= new StaticPlayGround();
-        StaticPlayGround.move();
+
+
+
 
 
         //here im calling contains method on object level
         // primitives
         int a = 45;
         int b = 65;
-        float f1 = 94.35f;
+        float f1 = getAFloat();
         System.out.println(System.identityHashCode(f1)); // Get reference number
         // In memory everything is stored as a hashmap with kv pairs where k is reference no and v is the value
 
@@ -57,6 +59,12 @@ public class Eureka {
         System.out.println(googleStock);
         System.out.println(appleStock.getTickerSymbol() + " " + appleStock.getSectorId());
     }
+
+    private static float getAFloat() {
+        float f1 = 94.35f;
+        return f1;
+    }
+
     private static void doubleProduct() {
         double d1 = 114.85;
         double d2 = 92.16;

@@ -6,9 +6,10 @@ public class FunctionalProgrammingPlayGround {
 
     public static void main(String[] args) {
 
-        /*
-        predicate will take type t, and return boolean
-         */
+
+       // predicate will take type t-string, r - integer
+        //and return boolean
+         //r is string
 
         // to check even or odd number
         Integer num = 10;
@@ -67,6 +68,7 @@ public class FunctionalProgrammingPlayGround {
         System.out.println("From unary operator ::" +unaryOperatorFunction.apply(10));
         /**
          * binaryoperator takes T and T returns T
+         *
          */
 
         BinaryOperator<Integer> binaryOperatorFunction= (integer,integer1) ->{
@@ -118,6 +120,8 @@ public class FunctionalProgrammingPlayGround {
     }
 
 }
+
+
 
 
 

@@ -6,7 +6,7 @@ public class MapsPlayGround {
     public static void main(String[] args){
         Map<String,String> mapStock= new HashMap<>();
         // map stores key-value pair structure
-        mapStock.put("AMD", "Advanced Micro Devices");
+        mapStock.put("AMD", "Advanced Micro Devices");// put is like adding data
         mapStock.put("APPL","apple INC"); //by default indexing, mapstock we give key and value as amd, and it is used for fast insertion
         mapStock.put("TSLA","Tsla INC");
 

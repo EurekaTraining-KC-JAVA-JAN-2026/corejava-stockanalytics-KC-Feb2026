@@ -52,9 +52,18 @@ public class SubSectorVO implements Comparable<SubSectorVO>{
 
     @Override
     public int compareTo(SubSectorVO o) {
+
         return this.subsectorName.compareTo(o.getSubsectorName());
+        //return o.getSubSectorName.compareTo(this.subSectorName());
     }
 
     public void setSubSectorName(String subsectorName) {
     }
 }
+
+
+
+
+
+
+

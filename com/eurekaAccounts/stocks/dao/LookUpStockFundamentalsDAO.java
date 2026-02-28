@@ -2,6 +2,7 @@ package com.eurekaAccounts.stocks.dao;
 
 import com.eurekaAccounts.stocks.vo.StockFundementalsVO;
 
+import java.math.BigDecimal;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -28,10 +29,10 @@ public class LookUpStockFundamentalsDAO extends BaseDAO{
         while(resultSet.next())
         {
             StockFundementalsVO stockFundementalsVO = new StockFundementalsVO();
-            stockFundementalsVO.setSectorId(resultSet.getInt("sector_id"));
+            stockFundementalsVO.setSectorId(resultSet.getBigDecimal("sector_id"));
             stockFundementalsVO.setSubSectorId(resultSet.getInt("subsector_id"));
             stockFundementalsVO.setTickerSymbol(resultSet.getString("ticker_symbol"));
-            stockFundementalsVO.setMarketCap(resultSet.getLong("market_cap"));
+            stockFundementalsVO.setMarketCap(BigDecimal.valueOf(resultSet.getLong("market_cap")));
             stockFundementalsVO.setCurrentRatio(resultSet.getFloat("current_ratio"));
 
 
@@ -40,5 +41,7 @@ public class LookUpStockFundamentalsDAO extends BaseDAO{
         }
         return stockFundementalsVOS;
     }
+
+
 }
 

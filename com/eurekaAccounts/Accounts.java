@@ -8,18 +8,22 @@ public  abstract class Accounts {
     public BigDecimal accBalance;
 
     public String getAccNumber() {
+
         return accNumber;
     }
 
     public void setAccNumber(String accNumber) {
+
         this.accNumber = accNumber;
     }
 
     public BigDecimal getAccBalance() {
+
         return accBalance;
     }
 
     public void setAccBalance(BigDecimal accBalance) {
+
         this.accBalance = accBalance;
     }
     public BigDecimal depositAmount(BigDecimal deposit)

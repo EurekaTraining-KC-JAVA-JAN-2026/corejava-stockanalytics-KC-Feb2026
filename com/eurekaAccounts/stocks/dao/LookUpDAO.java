@@ -14,10 +14,13 @@ import java.util.List;
 import static java.sql.DriverManager.getConnection;
 
 public class LookUpDAO extends BaseDAO {
-    BaseDAO baseDAO =  new BaseDAO();
+    //BaseDAO baseDAO =  new BaseDAO();
     public LookUpDAO() throws SQLException {
 
     }
+
+
+
 
     public  List<SectorVO> getAllSectors() throws SQLException {
 
@@ -96,5 +99,9 @@ public class LookUpDAO extends BaseDAO {
     }
 
 
-
 }
+
+
+
+
+

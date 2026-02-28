@@ -14,7 +14,7 @@ public class BaseDAO {
     private static String password = "5LViU5pLkSjRHECec9NF4wRxxV";
     public Connection connection;
 
-    public BaseDAO() throws SQLException {
+    public BaseDAO()  {
 
         try  {
             this.connection = DriverManager.getConnection(jdbcurl, userName, password);
@@ -27,4 +27,7 @@ public class BaseDAO {
 
     }
 }
+
+
+
 

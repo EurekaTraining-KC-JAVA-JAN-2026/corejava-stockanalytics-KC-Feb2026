@@ -6,6 +6,7 @@ public class Checkings extends Accounts {
     public static BigDecimal cashBack = new BigDecimal(3.0);
 
     public Checkings(String accNumber, BigDecimal accBalance) {
+
         super(accNumber, accBalance);
     }
 

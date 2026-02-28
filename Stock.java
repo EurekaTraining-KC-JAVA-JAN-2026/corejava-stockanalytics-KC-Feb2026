@@ -103,6 +103,7 @@ public class Stock {
 
     @Override
     public int hashCode() {
+
         return Objects.hash(tickerSymbol, sectorId);
     }
 

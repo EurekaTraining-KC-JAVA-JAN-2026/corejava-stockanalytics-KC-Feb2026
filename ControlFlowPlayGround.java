@@ -10,14 +10,8 @@ public class ControlFlowPlayGround {
         //control-flow statements
         //if-else
         System.out.println("From IF-ELSE block");
-        if (!b) {
-            //whether it is true or false, if true will jump into that code block
-            System.out.println("x and y are equal " + b);
-
-        } else {
-            System.out.println("x and y are not equal " + b);
-
-        }
+        /* whether it is true or false, if true will jump into that code block */
+        System.out.println("x and y are equal " + b);
 
         System.out.println("From Else-if block");
         int a=10;

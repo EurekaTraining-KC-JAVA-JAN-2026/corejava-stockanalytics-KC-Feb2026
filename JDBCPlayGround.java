@@ -2,6 +2,7 @@ import com.eurekaAccounts.stocks.vo.SectorVO;
 import com.eurekaAccounts.stocks.vo.StockFundementalsVO;
 import com.eurekaAccounts.stocks.vo.SubSectorVO;
 
+import java.math.BigDecimal;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -38,10 +39,10 @@ public class JDBCPlayGround {
         while(resultSet.next())
         {
             StockFundementalsVO stockFundementalsVO = new StockFundementalsVO();
-            stockFundementalsVO.setSectorId(resultSet.getInt("sector_id"));
+            stockFundementalsVO.setSectorId(resultSet.getBigDecimal("sector_id"));
             stockFundementalsVO.setSubSectorId(resultSet.getInt("subsector_id"));
             stockFundementalsVO.setTickerSymbol(resultSet.getString("ticker_symbol"));
-            stockFundementalsVO.setMarketCap(resultSet.getLong("market_cap"));
+            stockFundementalsVO.setMarketCap(BigDecimal.valueOf(resultSet.getLong("market_cap")));
             stockFundementalsVO.setCurrentRatio(resultSet.getFloat("current_ratio"));
 
 
