@@ -38,8 +38,6 @@ public class LookUpDAO extends BaseDAO {
         System.out.println("Catch Block");
         throw new StockException("An Exception occured while fetching data from db");
         //System.out.println(e.getStackTrace());
-
-
     }catch(RuntimeException e){
 
            throw new StockException("An throwable msg",e.getCause());

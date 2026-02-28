@@ -31,8 +31,6 @@ Password=5LViU5pLkSjRHECec9NF4wRxxV
         getSpecificStockFundemental(connection,"AAPL");//specific ticker symbol uh should pass ticker symbol and get all values
         //
     }
-
-
     private static void getAllSubSectors(Connection connection) throws SQLException{
         String sqlQuery = """
                 select
@@ -116,8 +114,8 @@ Password=5LViU5pLkSjRHECec9NF4wRxxV
            // System.out.println(resultSet);
            List<StockFundementalVO> allStockList = new ArrayList<>();
            while (resultSet.next()) {
-               StockFundementalVO specificTicker = new StockFundementalVO(resultSet.getString("ticker_symbol"), resultSet.getInt("sector_id"), resultSet.getLong("market_cap"), resultSet.getInt("subsector_id"), resultSet.getBigDecimal("current_ratio"), resultSet.getBigDecimal("price_to_book_ratio"), resultSet.getBigDecimal("debt_equity_ratio"), resultSet.getBigDecimal("trailing_pe"), resultSet.getBigDecimal("forward_pe"), resultSet.getBigDecimal("insider_ownership"), resultSet.getBigDecimal("roe"), resultSet.getInt("peg"), resultSet.getBigDecimal("epsqq"), resultSet.getBigDecimal("eps_nxtyear"), resultSet.getBigDecimal("eps_ttm"));
-               allStockList.add(specificTicker);
+              // StockFundementalVO specificTicker = new StockFundementalVO(resultSet.getString("ticker_symbol"), resultSet.getInt("sector_id"), resultSet.getLong("market_cap"), resultSet.getInt("subsector_id"), resultSet.getBigDecimal("current_ratio"), resultSet.getBigDecimal("price_to_book_ratio"), resultSet.getBigDecimal("debt_equity_ratio"), resultSet.getBigDecimal("trailing_pe"), resultSet.getBigDecimal("forward_pe"), resultSet.getBigDecimal("insider_ownership"), resultSet.getBigDecimal("roe"), resultSet.getInt("peg"), resultSet.getBigDecimal("epsqq"), resultSet.getBigDecimal("eps_nxtyear"), resultSet.getBigDecimal("eps_ttm"));
+              // allStockList.add(specificTicker);
            }
            System.out.println(allStockList);
        } catch (SQLException e) {

@@ -55,9 +55,7 @@ public class StringsPlayGround {
         System.out.println(x1.equalsIgnoreCase(x3));
         System.out.println(x4.isEmpty());
         System.out.println(x5.isEmpty());
-         x1.contains("i");
-
-
+        x1.contains("i");
 
         //******delimeter in string******
         String tickerString ="AAPL,AMD,TSLA,JPMC";// "," is a delimeter here

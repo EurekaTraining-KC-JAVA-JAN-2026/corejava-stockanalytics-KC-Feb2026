@@ -17,7 +17,7 @@ public class TryCatchPlayGround {
             //we connected database and we didnot close connection  in those cases we need to keep this in finally block then it will close connection
             //connection.close();
         }
-        //here our program got inturrept so we are taking try
+        //here our program got interrept so we are taking try
         int j=20;
         System.out.println("dividing by i:"+20/i);
         //without try it will not run

@@ -21,7 +21,7 @@ public class LookUpStockFundementals extends BaseDAO{
     String sqlQuery = """
                 select
                 *
-                from endeavour.stock_fundamentals sf;
+                from endeavour.stock_fundamentals sf ;
                 """;
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(sqlQuery);
@@ -30,8 +30,8 @@ public class LookUpStockFundementals extends BaseDAO{
             //executing
             //System.out.println(resultSet);
             while (resultSet.next()) {
-                StockFundementalVO stockFundementalVO = new StockFundementalVO(resultSet.getString("ticker_symbol"), resultSet.getInt("sector_id"), resultSet.getLong("market_cap"), resultSet.getInt("subsector_id"), resultSet.getBigDecimal("current_ratio"), resultSet.getBigDecimal("price_to_book_ratio"), resultSet.getBigDecimal("debt_equity_ratio"), resultSet.getBigDecimal("trailing_pe"), resultSet.getBigDecimal("forward_pe"), resultSet.getBigDecimal("insider_ownership"), resultSet.getBigDecimal("roe"), resultSet.getInt("peg"), resultSet.getBigDecimal("epsqq"), resultSet.getBigDecimal("eps_nxtyear"), resultSet.getBigDecimal("eps_ttm"));
-                allStockFundemental.add(stockFundementalVO);
+               StockFundementalVO stockFundementalVO = new StockFundementalVO(resultSet.getString("ticker_symbol"), resultSet.getBigDecimal("sector_id"), resultSet.getLong("market_cap"), resultSet.getInt("subsector_id"), resultSet.getBigDecimal("current_ratio"), resultSet.getBigDecimal("price_to_book_ratio"), resultSet.getBigDecimal("debt_equity_ratio"), resultSet.getBigDecimal("trailing_pe"), resultSet.getBigDecimal("forward_pe"), resultSet.getBigDecimal("insider_ownership"), resultSet.getBigDecimal("roe"), resultSet.getInt("peg"), resultSet.getBigDecimal("epsqq"), resultSet.getBigDecimal("eps_nxtyear"), resultSet.getBigDecimal("eps_ttm"));
+              allStockFundemental.add(stockFundementalVO);
             }
         } catch (StockException | SQLException e) {
             System.out.println("Catch Block");

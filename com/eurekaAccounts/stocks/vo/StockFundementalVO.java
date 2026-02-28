@@ -1,5 +1,4 @@
 package com.eurekaAccounts.stocks.vo;
-
 import java.math.BigDecimal;
 
 public class StockFundementalVO implements Comparable<StockFundementalVO>{
@@ -16,12 +15,12 @@ public class StockFundementalVO implements Comparable<StockFundementalVO>{
         this.tickerSymbol = tickerSymbol;
     }
 
-    public int getSectorID() {
+    public BigDecimal getSectorID() {
 
         return sectorID;
     }
 
-    public void setSectorID(int sectorID) {
+    public void setSectorID(BigDecimal sectorID) {
         this.sectorID = sectorID;
     }
 
@@ -65,20 +64,26 @@ public class StockFundementalVO implements Comparable<StockFundementalVO>{
 
         this.debtEquityRatio = debtEquityRatio;
     }
-
     public BigDecimal getTrailingPe() {
 
         return trailingPe;
     }
-
     public void setTrailingPe(BigDecimal trailingPe) {
         this.trailingPe = trailingPe;
     }
 
     public String tickerSymbol;
-    public int sectorID;
+    public BigDecimal sectorID;
     public int subSectorID;
     public long marketCap;
+
+    public StockFundementalVO(String tickerSymbol, BigDecimal sectorID, int subSectorID, long marketCap) {
+        this.tickerSymbol = tickerSymbol;
+        this.sectorID = sectorID;
+        this.subSectorID = subSectorID;
+        this.marketCap = marketCap;
+    }
+
     public BigDecimal currentRatio;
     public BigDecimal priceToBookRatio;
     public BigDecimal debtEquityRatio;
@@ -172,7 +177,7 @@ public class StockFundementalVO implements Comparable<StockFundementalVO>{
         this.epsTtm = epsTtm;
     }
 
-    public StockFundementalVO(String tickerSymbol, int sectorID, long marketCap, int subSectorID, BigDecimal currentRatio, BigDecimal priceToBookRatio, BigDecimal debtEquityRatio, BigDecimal trailingPe, BigDecimal forwardPe, BigDecimal insiderOwnership, BigDecimal roe, int peg, BigDecimal epsqq, BigDecimal epsNxtyear, BigDecimal epsTtm) {
+    public StockFundementalVO(String tickerSymbol, BigDecimal sectorID, long marketCap, int subSectorID, BigDecimal currentRatio, BigDecimal priceToBookRatio, BigDecimal debtEquityRatio, BigDecimal trailingPe, BigDecimal forwardPe, BigDecimal insiderOwnership, BigDecimal roe, int peg, BigDecimal epsqq, BigDecimal epsNxtyear, BigDecimal epsTtm) {
         this.tickerSymbol = tickerSymbol;
         this.sectorID = sectorID;
         this.marketCap = marketCap;
@@ -189,15 +194,14 @@ public class StockFundementalVO implements Comparable<StockFundementalVO>{
         this.epsNxtyear = epsNxtyear;
         this.epsTtm = epsTtm;
     }
-
-    @Override
-    public int compareTo(StockFundementalVO o) {
-       if(o.marketCap > this.getMarketCap()){
-           return 1;
-       }else if(o.marketCap < this.getMarketCap()){
+   @Override
+   public int compareTo(StockFundementalVO o) {
+        if(o.marketCap>this.marketCap){
+            return 1;
+        }else if(o.marketCap<this.marketCap){
            return -1;
-       } else{
-           return 0;
+        }else{
+            return 0;
        }
-    }
+  }
 }

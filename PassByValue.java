@@ -4,7 +4,6 @@ public class PassByValue {
      * java will not directly pass the reference  num to the methods
      * it will only pass the copied value of it
      */
-
     public static void main(String[] args) {
         int x=20;
         System.out.println(System.identityHashCode(x));
@@ -24,7 +23,6 @@ public class PassByValue {
         System.out.println();
         System.out.println(a);
        System.out.println(System.identityHashCode(a));
-
     }
 
 }

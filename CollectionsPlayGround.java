@@ -79,8 +79,7 @@ public class CollectionsPlayGround {
             int i =47;//primitive
         Integer objInt1 = (Integer) i;
         Integer objInt = 34;//non primitive
-            List<Integer>integers = List.of(2,3,4);// immutable we cannot chamge if we have list.of
-
+            List<Integer>integers = List.of(2,3,4);// immutable we cannot chamge if we have list.ofv
             int k ;
             Integer j;// non prem
             Boolean k1;
@@ -94,8 +93,5 @@ public class CollectionsPlayGround {
         System.out.println(contains);
             integers.add(7);
         System.out.println(integers);
-
-
-
     }
 }

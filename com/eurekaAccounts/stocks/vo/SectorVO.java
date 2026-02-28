@@ -39,7 +39,7 @@ public class SectorVO implements Comparable<SectorVO>{
     @Override
     public int compareTo(SectorVO o) {
         if(o.sectorId >this.getSectorId()){
-            return 1;//1 one means kept top (it checks
+            return 1;//1 one means kept top (it checks ascending
         } else if (o.sectorId<this.getSectorId()) {
             return -1;//-1 will k
         }else{

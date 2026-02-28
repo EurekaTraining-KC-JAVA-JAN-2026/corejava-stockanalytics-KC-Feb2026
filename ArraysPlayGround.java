@@ -6,7 +6,7 @@ public class ArraysPlayGround {
         //arrays are to hold multiple values
         //arrays on primitive and non-primitive
         int [] numArray1 = new int[]{10,20,30,40,50};
-        //array sizw is dynamic
+        //array size is dynamic
         //it is empty array
         //type array name of it nd new int[size]{values}
         int[] numArray2 ={1,2,3,4,5};
