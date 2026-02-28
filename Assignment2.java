@@ -1,6 +1,7 @@
 public class Assignment2 {
     public static void main(String[] args){
         //post increment
+
         System.out.println("post increment");
         int a=10;
        int b=a++;

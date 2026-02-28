@@ -1,7 +1,8 @@
 import Eurekaaccounts.stocks.vo.SectorVO;
 import Eurekaaccounts.stocks.vo.SubsectorVO;
-import Eurekaaccounts.stocks.vo.stockfundamentalVO;
+import Eurekaaccounts.stocks.vo.StockfundamentalVO;
 
+import java.math.BigDecimal;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -14,20 +15,39 @@ public class JDBCPlayGround {
     private static String password = "5LViU5pLkSjRHECec9NF4wRxxV";
 
     public static void main(String[] args) throws SQLException {
-
-
         Connection connection = DriverManager.getConnection(jdbcurl, userName, password);
         getAllSectors(connection);
         getAllSubSectores(connection);
-        getSpecificsectorid(connection,34);
+        getSpecificsectorid(connection,35);
         getSpecificStockFundamentlals(connection,"NVDA");
     }
+
+
+//    private static <subsectorVO> void getAllSubSectores(Connection connection) throws SQLException {
+//        String SqlQuerey= """
+//               select *
+//               from
+//              endeavour.subsector_lookup sl
+//                """;
+//       PreparedStatement preparedStatement= connection.prepareStatement(SqlQuerey);
+//      ResultSet resultSet= preparedStatement.executeQuery();
+//      List<SubsectorVO> allsubsectors=new ArrayList<>();
+//      while(resultSet.next()){
+//          SubsectorVO subsectorVO=new SubsectorVO();
+//          subsectorVO.setSubsector_id(resultSet.getInt("subsector_id"));
+//          subsectorVO.setSubsector_name(resultSet.getString("subsector_name"));
+//          subsectorVO.setSector_id(resultSet.getInt("sector_id"));
+//          allsubsectors.add(subsectorVO);
+//      }
+//        System.out.println(allsubsectors);
+//  }
+
 
     private static void getSpecificsectorid(Connection connection,int sector_id) throws SQLException {
         String sqlQuerey = """
                select
                *
-                from   
+                from
                endeavour.sector_lookup sl
               where sl.sector_id=?
               """;
@@ -56,12 +76,12 @@ public class JDBCPlayGround {
         PreparedStatement prepareStatement=connection.prepareStatement(sqlQuery);
         prepareStatement.setString(1, ticker_symbol);
         ResultSet resultSet=prepareStatement.executeQuery();
-        List<stockfundamentalVO> SpecificStockFundamentlals=new ArrayList<>();
+        List<StockfundamentalVO> SpecificStockFundamentlals=new ArrayList<>();
         while(resultSet.next()){
-            stockfundamentalVO stock1= new stockfundamentalVO();
+            StockfundamentalVO stock1= new StockfundamentalVO();
             stock1.setCurrent_ratio(resultSet.getDouble("current_ratio"));
             stock1.setSubsector_id(resultSet.getInt("sector_id"));
-            stock1.setMarket_cap(resultSet.getLong("market_cap"));
+            stock1.setMarket_cap(BigDecimal.valueOf(resultSet.getLong("market_cap")));
             stock1.setEpsqq(resultSet.getDouble("Epsqq"));
             stock1.setEps_nxtyear(resultSet.getDouble("Eps_nxtyear"));
             stock1.setForward_pe(resultSet.getDouble("forward_pe"));
@@ -83,7 +103,7 @@ public class JDBCPlayGround {
         String sqlQuerey = """
                select
                *
-                from   
+                from
                endeavour.sector_lookup sl
               """;
         try {
@@ -95,7 +115,6 @@ public class JDBCPlayGround {
 //        System.out.println(resultSet);
             List<SectorVO> allsectors = new ArrayList<>();
             while (resultSet.next()) {
-
                 SectorVO sectorVO = new SectorVO();
                 sectorVO.setSector_id(resultSet.getInt("sector_id"));
                 sectorVO.setSector_name(resultSet.getString("sector_name"));
@@ -110,23 +129,24 @@ public class JDBCPlayGround {
 //            connection.close();
         }
     }
-     static void getAllSubSectores(Connection connection) throws SQLException {
-        String sqlQuerey = """
+  static void getAllSubSectores(Connection connection) throws SQLException {
+      String sqlQuerey = """
                select
-               *
-                from   
-               endeavour.subsector_lookup sl
+              *
+                from
+              endeavour.subsector_lookup sl
               """;
-        PreparedStatement prepareStatement1 = connection.prepareStatement(sqlQuerey);
-        ResultSet resultSet1 = prepareStatement1.executeQuery();
-        List<SubsectorVO> allSubsectors = new ArrayList<>();
-        while (resultSet1.next()) {
-            SubsectorVO  subSectorVO= new SubsectorVO();
-             subSectorVO.setSubsector_id(resultSet1.getInt("subsector_id"));
-             subSectorVO.setSubsector_name(resultSet1.getString("subsector_name"));
-            subSectorVO.setSector_id(resultSet1.getInt("sector_id"));
-             allSubsectors.add(subSectorVO);
-        }
-        System.out.println(allSubsectors);
-    }
-}
+      PreparedStatement prepareStatement1 = connection.prepareStatement(sqlQuerey);
+      ResultSet resultSet1 = prepareStatement1.executeQuery();
+      List<SubsectorVO> allSubsectors = new ArrayList<>();
+      while (resultSet1.next()) {
+          SubsectorVO subSectorVO = new SubsectorVO();
+          subSectorVO.setSubsector_id(resultSet1.getInt("subsector_id"));
+          subSectorVO.setSubsector_name(resultSet1.getString("subsector_name"));
+          subSectorVO.setSector_id(resultSet1.getInt("sector_id"));
+          allSubsectors.add(subSectorVO);
+      }
+      System.out.println(allSubsectors);
+   }
+  }
+

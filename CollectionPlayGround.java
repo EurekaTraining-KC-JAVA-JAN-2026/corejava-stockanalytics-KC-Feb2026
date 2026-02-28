@@ -14,6 +14,7 @@ public class CollectionPlayGround {
     tickerList1.add("AMD");
     tickerList1.add("APPL");
     tickerList1.add("TSLA");
+    Collections.sort(tickerList1);
     System.out.println("items in list: "+tickerList1);
     String s =tickerList1.get(1);
     System.out.println("values at the 1st index is :"  +s);
@@ -43,6 +44,7 @@ List<String> anotherList=new ArrayList<>();
        stockList.add(new stocks("TSLA",43));
        stockList.add(new stocks("AMD",23));
        stockList.add(new stocks("3MCARE", 32));
+//       Collections.sort(stockList);
        System.out.println(stockList);
         stockList.add(new stocks("IYLLY",32));
 /// /

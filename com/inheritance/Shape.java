@@ -7,6 +7,7 @@ public interface Shape {
         BigDecimal calculatePerimeter();
         BigDecimal calCircumference();
         default void geometry(){
+
             System.out.println("primating geometry");
         }
 

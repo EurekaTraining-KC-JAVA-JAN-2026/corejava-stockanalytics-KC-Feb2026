@@ -35,17 +35,20 @@ public class SectorVO  implements Comparable<SectorVO>{
         return "SectorVO{" +
                 "sector_id=" + sector_id +
                 ", sector_name='" + sector_name + '\'' +
-                '}';
+                '}'+ "\n";
     }
-
     @Override
     public int compareTo(SectorVO o) {
-       if(o.sector_id>this.getSector_id()) {
-           return 1;
-       }else if(o.sector_id<this.getSector_id()){
-           return -1;
-       }else{
-           return  0;
-       }
+        return this.sector_name.compareTo(o.sector_name); //desc
     }
+//    @Override
+//    public int compareTo(SectorVO o) {
+//       if(o.sector_id>this.getSector_id()) {
+//           return 1;
+//       }else if(o.sector_id<this.getSector_id()){
+//           return -1;
+//       }else{
+//           return  0;
+//       }
+//    }
 }

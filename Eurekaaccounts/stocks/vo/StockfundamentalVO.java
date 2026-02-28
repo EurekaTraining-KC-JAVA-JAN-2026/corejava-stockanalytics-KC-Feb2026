@@ -1,10 +1,12 @@
 package Eurekaaccounts.stocks.vo;
 
-public class stockfundamentalVO implements Comparable<stockfundamentalVO>{
+import java.math.BigDecimal;
+
+public class StockfundamentalVO implements Comparable<StockfundamentalVO> {
     public String ticker_symbol;
     public int sector_id;
     public int subsector_id;
-    public long market_cap;
+    public BigDecimal market_cap;
     public double current_ratio;
     public double price_to_book_ratio;
     public float peg;
@@ -18,10 +20,10 @@ public class stockfundamentalVO implements Comparable<stockfundamentalVO>{
     private double forward_pe;
 
 
-    public stockfundamentalVO() {
+    public StockfundamentalVO() {
     }
 
-    public stockfundamentalVO(String ticker_symbol, int sector_id, int subsector_id, long market_cap, double current_ratio, double price_to_book_ratio, float peg, double epsqq, double eps_nxtyear, double eps_ttm, double roe, double insider_ownership, double debt_equity_ratio, double trailing_Pe, double forward_pe) {
+    public StockfundamentalVO(String ticker_symbol, int sector_id, int subsector_id, BigDecimal market_cap, double current_ratio, double price_to_book_ratio, float peg, double epsqq, double eps_nxtyear, double eps_ttm, double roe, double insider_ownership, double debt_equity_ratio, double trailing_Pe, double forward_pe) {
         this.ticker_symbol = ticker_symbol;
         this.sector_id = sector_id;
         this.subsector_id = subsector_id;
@@ -63,11 +65,11 @@ public class stockfundamentalVO implements Comparable<stockfundamentalVO>{
         this.subsector_id = subsector_id;
     }
 
-    public long getMarket_cap() {
+    public BigDecimal getMarket_cap() {
         return market_cap;
     }
 
-    public void setMarket_cap(long market_cap) {
+    public void setMarket_cap(BigDecimal market_cap) {
         this.market_cap = market_cap;
     }
 
@@ -177,10 +179,18 @@ public class stockfundamentalVO implements Comparable<stockfundamentalVO>{
                 ", debt_equity_ratio=" + debt_equity_ratio +
                 ", trailing_Pe=" + trailing_Pe +
                 ", forward_pe=" + forward_pe +
-                '}';
+                '}' + "\n";
     }
+
     @Override
-    public int compareTo(stockfundamentalVO o) {
-        return this.ticker_symbol .compareTo(o.ticker_symbol);
+    public int compareTo(StockfundamentalVO o) {
+   return o.market_cap.compareTo(this.market_cap);
+//        return Integer.compare(this.market_cap, o.market_cap);
+
+//    @Override
+//    public int compareTo(stockfundamentalVO o) {
+//
+//        return this.ticker_symbol .compareTo(o.ticker_symbol);
+//    }
     }
 }

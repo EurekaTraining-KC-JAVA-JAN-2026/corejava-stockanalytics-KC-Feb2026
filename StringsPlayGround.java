@@ -24,7 +24,7 @@ String s4=new String("eureka");
 String s5="";
 String s6="";
 String s2=new String("tech");
-        System.out.println("combination of eurek and tech"+s1+""+s2);
+        System.out.println("combination of eurek and tech "+s1+""+s2);
         System.out.println(s1.concat("").concat(s2));
         System.out.println(s1.charAt(3));
         System.out.println(s1.toUpperCase());

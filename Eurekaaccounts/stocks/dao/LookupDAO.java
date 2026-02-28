@@ -11,12 +11,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class LookupDAO extends BaseDAO {
-
-
     public LookupDAO() throws SQLException {
     }
-
-    public List<SectorVO> getAllSectors(int sector_id) {
+    public List<SectorVO> getAllSectors() {
         List<SectorVO> allsectors = new ArrayList<>();
         String sqlQuerey = """
                select
@@ -26,6 +23,7 @@ public class LookupDAO extends BaseDAO {
               """;
         try {
             PreparedStatement prepareStatement = connection.prepareStatement(sqlQuerey);
+//            prepareStatement.setString(1, "NVDA");
             ResultSet resultSet = prepareStatement.executeQuery();
             while (resultSet.next()) {
                 SectorVO sectorVO = new SectorVO();
@@ -33,7 +31,7 @@ public class LookupDAO extends BaseDAO {
                 sectorVO.setSector_name(resultSet.getString("sector_name"));
                 allsectors.add(sectorVO);
             }
-            System.out.println(allsectors);
+//            System.out.println(allsectors);
 //        }catch (SQLException e){
 //            System.out.println("from catch");
 //            System.out.println(e);

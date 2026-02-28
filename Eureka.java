@@ -35,18 +35,26 @@ public class Eureka {
 //        String s1 = "Eureka";
 //        String s2 = new String("tech");
 //        System.out.println("concatination of s1 and s2 is " + s1 + " " + s2);
-          stocks googleStock = new stocks("6006", 22323232, 23.64, 23, 123);
+//        stocks s111=new stocks();
+//        stocks s1122=new stocks("AApl" ,2444,23,34);
+//        System.out.println(s1122);
+
+     stocks googleStock = new stocks("6006", 22323232, 23.64, 23, 123);
         stocks nvidastock2=new stocks("nvda",234262543,2.2,23,123);
         System.out.println();
         stocks applestock = new stocks();
-        applestock.setTickersymbol("AAPL");
-        applestock.marketcap = 23435623;
-        applestock.subsectorid = 123;
+       applestock.setTickersymbol("AAPL");
+       applestock.marketcap = 35623;
+  applestock.subsectorid = 123;
         applestock.currentratio = 23.65;
         applestock.sectorid = 23;
+     System.out.println("this is googleStock"+googleStock);
+        System.out.println("this is nvda stock"+nvidastock2);
+        System.out.println("this is marketcap value: " +applestock.marketcap );
     }
 
     private static float floatvalue(float f1, float f2) {
+
         return f1 + f2;
     }
 
@@ -57,5 +65,5 @@ public class Eureka {
 
     private static void booleanType() {
     }
-    
+
 }

@@ -1,9 +1,16 @@
-public class stocks {
-    public stocks(String tickersymbol, long marketcap, int subsectorid) {
-        this.tickersymbol = tickersymbol;
-        this.marketcap = marketcap;
-        this.subsectorid = subsectorid;
+public class stocks{
+    String tickersymbol;
+    long marketcap;
+    double currentratio;
+     int sectorid;
+     int subsectorid;
+
+    public stocks(String aapl, int i, int i1) {
     }
+
+//    public stocks(String aapl, int i, int i1) {
+//    }
+
 
     @Override
     public String toString() {
@@ -39,7 +46,7 @@ public class stocks {
         this.tickersymbol = tickersymbol;
     }
 
-    String tickersymbol;
+
 
     public long getMarketcap() {
         return marketcap;
@@ -49,10 +56,7 @@ public class stocks {
         this.marketcap = marketcap;
     }
 
-    public long marketcap;
-    public double currentratio;
-    public int sectorid;
-    public int subsectorid;
+
 
 
 }

@@ -4,6 +4,8 @@ public class TryCatchPlayGround {
         //first try it if not possible then catch it
         // application wont get get interrupted when we r using try catch
 
+
+
         try{
             System.out.println("diving by zero"+10/0);
         }catch (ArithmeticException e){

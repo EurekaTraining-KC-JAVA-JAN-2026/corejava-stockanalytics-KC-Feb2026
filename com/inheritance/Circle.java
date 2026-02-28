@@ -5,6 +5,7 @@ import java.math.BigDecimal;
 public class Circle implements Shape {
     private BigDecimal radius;
     public Circle(BigDecimal radius) {
+
         this.radius=radius;
     }
     public static boolean CalculateCircumference() {
