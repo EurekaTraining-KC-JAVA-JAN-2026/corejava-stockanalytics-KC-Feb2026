@@ -41,6 +41,6 @@ public class SectorVO implements Comparable<SectorVO>{
     public int compareTo(SectorVO o) {
         //return this.sectorName.compareTo(o.sectorName);  //For string alphabetical order.
         //return o.sectorId - this.sectorId;  //Descending order.
-        return this.sectorId - o.sectorId;
+        return o.sectorId - this.sectorId;
     }
 }

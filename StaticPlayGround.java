@@ -9,7 +9,6 @@ public static void main(String args[]) {
        System.out.println("Learning static");
        System.out.println();
 
-
 }
 
 }

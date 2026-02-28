@@ -8,6 +8,10 @@ public class ArraysPlayGround {
         //type array nameOfIt new int[size]{value}
         int[] numArray2 = {1,2,3,4};
 
+        int[] nums;
+
+        nums = new int[]{2,3,4,5};
+
         System.out.println(numArray2.length);
         //System.out.println(numArray2);
 
@@ -18,6 +22,10 @@ public class ArraysPlayGround {
 
         System.out.println("Skipping the index 1");
         for(int i = 0 ; i < numArray2.length; i = i + 2) {
+            System.out.println(numArray2[i]);
+        }
+
+        for (int i = numArray2.length; i >= 0 ; i++) {
             System.out.println(numArray2[i]);
         }
 

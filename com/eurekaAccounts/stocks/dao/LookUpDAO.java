@@ -4,6 +4,7 @@ import com.eurekaAccounts.stocks.exception.StocksException;
 import com.eurekaAccounts.stocks.vo.SectorVO;
 import com.eurekaAccounts.stocks.vo.SubsectorVO;
 
+import java.math.BigDecimal;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -43,6 +44,23 @@ public class LookUpDAO extends BaseDAO{
             System.out.println("I will always print");
         }
         return sectorVOS;
+    }
+
+    public List<BigDecimal> getTheStateCount() throws SQLException {
+        List<BigDecimal> count = new ArrayList<>();
+        String SQL = """
+                select count(*) from endeavour.state_lookup sl;
+                """;
+
+       PreparedStatement preparedStatement =  connection.prepareStatement(SQL);
+       ResultSet resultSet = preparedStatement.executeQuery();
+       while (resultSet.next()) {
+           BigDecimal bigDecimal = new BigDecimal(0);
+
+           bigDecimal = bigDecimal.add(new BigDecimal(resultSet.getInt("count")));
+           count.add(bigDecimal);
+       }
+        return count;
     }
 
     public List<SubsectorVO> getAllSubSectors() throws SQLException {
